@@ -37,6 +37,10 @@ public class AddressBook implements ReadOnlyAddressBook {
         resetData(toBeCopied);
     }
 
+    public int getNumberOfUniquePerson() {
+        return persons.getNumberOfUniquePerson();
+    }
+
     //// list overwrite operations
 
     /**

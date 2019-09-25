@@ -2,6 +2,10 @@ package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
 
+/**
+ * Represents a Person's remark in the address book.
+ * Not immutable: Can be repeated across Persons.
+ */
 public class Remark {
     public final String value;
 

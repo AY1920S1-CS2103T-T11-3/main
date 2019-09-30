@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddMin+ - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddMin+ - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103T-T11-3</code>      Since: <code>AUG 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -13,16 +13,12 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#general-commands">3.1. General Commands</a></li>
+<li><a href="#entity-management">3.2. Entity Management</a></li>
+<li><a href="#employee-specific-management">3.3. Employee-Specific Management</a></li>
+<li><a href="#event-specific-management">3.4. Event-Specific Management</a></li>
+<li><a href="#finance-management">3.5. Finance Management</a></li>
+<li><a href="#miscellaneous">3.6. Miscellaneous</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -34,7 +30,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 3 (AB3) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB3 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p><strong>AddMin+</strong> is an all in one administration desktop application, that is specially designed for <strong>ABC Company</strong>, a tech startup company with only 6 full-time employees. ABC Company is still a relatively small company and it could only afford to hire 1 full-time employee to deal with all administrative matters. <strong>AddMin+</strong> is specially designed to help ease the workload by offering a one-stop platform to help deal with the various administrative needs of the company. Addmin+ uses a Command Line Interface(CLI) and displays the results through a Graphical User Interface(GUI) to assist the employee in their specific needs.</p>
 </div>
 </div>
 </div>
@@ -47,10 +43,10 @@
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level3/releases">here</a>.</p>
+<p>Download the latest <code>AddMin+.jar</code> <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for AddMin+</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -59,6 +55,9 @@
 <img src="images/Ui.png" alt="Ui" width="790">
 </div>
 </div>
+</li>
+<li>
+<p>Click on the specific function you want, Finance, Manpower or Event</p>
 </li>
 <li>
 <p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
@@ -72,10 +71,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>n/John Doe no/98765432 p/Event Coordinator e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Employee List.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd Employee shown in the current list</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -95,6 +94,9 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
+<div class="paragraph">
+<p>The features of AddMin+ can be grouped into 4 main categories, Finance, Manpower, Event, and General. The commands that AddMin+ recognize follows a specific format, however, each category will have their own set of valid commands, for new users do refer to Section 3.1 till Section 3.4 for the specific command and how to use them. For more advanced users, you could refer to Section 4.1 for the full list of Command Summary.</p>
+</div>
 <div class="paragraph">
 <p><strong>Command Format</strong></p>
 </div>
@@ -117,16 +119,68 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="general-commands"><a class="link" href="#general-commands">3.1. General Commands</a></h3>
+<div class="sect3">
+<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1.1. Viewing help : <code>help</code></a></h4>
+<div class="paragraph">
+<p>Opens a help guide, a list of all commands for the user as a reference to.</p>
+</div>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
+<div class="sect3">
+<h4 id="search-code-search-code"><a class="link" href="#search-code-search-code">3.1.2. Search : <code>search</code></a></h4>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Search for specific functions/properties</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>search</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-help-code-exit-code"><a class="link" href="#viewing-help-code-exit-code">3.1.3. Viewing help : <code>exit</code></a></h4>
+<div class="paragraph">
+<p>Exits and shuts down the program</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>exit</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="entity-management"><a class="link" href="#entity-management">3.2. Entity Management</a></h3>
+<div class="paragraph">
+<p>AddMin+ contains two main entities - Employees and Events with similar commands, especially in Create, Read, Update and Delete (CRUD) operations.</p>
+</div>
+<div class="sect3">
+<h4 id="list-code-list_em-list_ev-code"><a class="link" href="#list-code-list_em-list_ev-code">3.2.1. List : <code>list_em | list_ev</code></a></h4>
+<div class="paragraph">
+<p>Employee: Shows the list of all employees on the company’s roster. Full details are truncated.</p>
+</div>
+<div class="paragraph">
+<p>Event: Shows the list of all events on the company’s calendar. Full details are truncated.</p>
+</div>
+<div class="paragraph">
+<p>Employee Format: <code>list_em</code></p>
+</div>
+<div class="paragraph">
+<p>Event Format: <code>list_ev</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-code-add-addev-code"><a class="link" href="#adding-code-add-addev-code">3.2.2. Adding: <code>add | addev</code></a></h4>
+<div class="paragraph">
+<p>Employee: Adds an employee to the employee list</p>
+</div>
+<div class="paragraph">
+<p>Event: Adds an event that the company is organizing or hosting to the company’s calendar.</p>
+</div>
+<div class="paragraph">
+<p>Employee Format: <code>add n/NAME no/PHONE_NUMBER p/POSITION e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Event Format: <code>addev n/EVENT_NAME m/MANPOWER_NEEDED on/DDMMYYYY till/DDMMYYYY at/LOCATION_NAME [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -141,38 +195,36 @@ A person can have any number of tags (including 0)
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Add Employee Examples:
+* <code>add n/John Doe no/98765432 p/cleaner e/johnd@example.com a/John street, block 123, #01-01</code>
+* <code>add n/Betsy Crowe t/Enthusiastic p/CFO e/betsycrowe@example.com a/Newgate Prison no/1234567 t/criminal</code></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
+<p>Add Event Examples:
+* <code>addev n/Music Festival m/10 on/15092019 till/20092019 at/NUS t/Music</code>
+* <code>addev n/Charity Run m/4 on/15092019 till/15092019 at/NUS</code></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
+<div class="sect3">
+<h4 id="editing-details-code-edit_em-edit_ev-code"><a class="link" href="#editing-details-code-edit_em-edit_ev-code">3.2.3. Editing details : <code>edit_em | edit_ev</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Employee: Edit an existing employee in the employee list.</p>
+</div>
+<div class="paragraph">
+<p>Event: Edits an existing event in the event list.</p>
+</div>
+<div class="paragraph">
+<p>Employee Format: <code>edit_em INDEX n/NAME no/PHONE_NUMBER p/POSITION e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Event Format Format: <code>edit_ev INDEX n/EVENT_NAME m/MANPOWER_NEEDED on/DDMMYYYY till/DDMMYYYY at/LOCATION_NAME [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the entity at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed entity list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -181,10 +233,66 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+<p>When editing tags, the existing tags of the entity will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove all the entity&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Employee Edit Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit_em 1 no/91234567 e/johndoe@example.com</code><br>
+Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+</li>
+<li>
+<p><code>edit_em 2 n/Betsy Crower t/</code><br>
+Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Event Edit Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit_ev 1 on/16092019</code><br>
+Edits the start date of the 1st event to be on the 16th September, 2019.</p>
+</li>
+<li>
+<p><code>edit_ev 2 n/Concert t/</code><br>
+Edits the name of the 2nd event to be <code>Concert</code> and clears all existing tags.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fetch-full-details-of-entity-code-fetch_em-fetch_ev-code"><a class="link" href="#fetch-full-details-of-entity-code-fetch_em-fetch_ev-code">3.2.4. Fetch Full Details of Entity: <code>fetch_em | fetch_ev</code></a></h4>
+<div class="paragraph">
+<p>Fetch the full details of a specific event/employee. Returns one employee/event only.</p>
+</div>
+<div class="paragraph">
+<p>Employee Format: <code>fetch_em INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Event Format: <code>fetch_ev INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>INDEX</code> must be a positive integer and exist within the displayed list.</p>
+</li>
+<li>
+<p>If not found, an 'Employee/Event Not Found' will be displayed.</p>
 </li>
 </ul>
 </div>
@@ -196,21 +304,26 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>fetch_em 2</code><br>
+Returns employee at index 2</p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>fetch_ev 3</code><br>
+Returns event at index 3</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<div class="sect3">
+<h4 id="find-code-find_em-find_ev-code"><a class="link" href="#find-code-find_em-find_ev-code">3.2.5. Find: <code>find_em | find_ev</code></a></h4>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Find entities whose names contain any of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Employee Format: <code>find_em KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="paragraph">
+<p>Event Format: <code>find_ev KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -223,13 +336,13 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
 </li>
 <li>
-<p>Only the name is searched.</p>
+<p>Only the name of the entity is searched.</p>
 </li>
 <li>
 <p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Entities matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
 </li>
 </ul>
 </div>
@@ -241,28 +354,33 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
+<p><code>find_em John</code><br>
 Returns <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>find_em Betsy Tim John</code><br>
+Returns any entity having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-an-entity-code-delete_em-delete_ev-code"><a class="link" href="#deleting-an-entity-code-delete_em-delete_ev-code">3.2.6. Deleting an entity : <code>delete_em | delete_ev</code></a></h4>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
+<p>Deletes the entity from the employee roster/event calendar.</p>
+</div>
+<div class="paragraph">
+<p>Employee Format: <code>delete_em INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Event Format: <code>delete_ev INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>Deletes the entity at the specified <code>INDEX</code>.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the displayed person list.</p>
@@ -280,43 +398,287 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
+<p><code>list_em</code><br>
+<code>delete_em 2</code><br>
+Deletes the 2nd employee in the displayed employee list.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+<p><code>find Music</code><br>
+<code>delete_ev 1</code><br>
+Deletes the 1st event in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></h3>
+<h3 id="employee-specific-management"><a class="link" href="#employee-specific-management">3.3. Employee-Specific Management</a></h3>
+<div class="sect3">
+<h4 id="log-working-hours-code-log-code"><a class="link" href="#log-working-hours-code-log-code">3.3.1. Log Working Hours: <code>log</code></a></h4>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Logs the working hours of the current employee for today. Useful for employees who are paid by the hour.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>log INDEX DDMMYYYY HOURSWORKED</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Logs working hours of a person at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p><code>HOURSWORKED</code> must be a positive integer.</p>
+</li>
+<li>
+<p>If the hours worked for that day is already recorded, a new entry will override the previous log.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list_ev</code><br>
+<code>log 2 30092019 8</code><br>
+2nd Employee in the employee list is logged with 8 hours on the 30th September</p>
+</li>
+<li>
+<p><code>log 2 30092019 7</code><br>
+2nd Employee in the employee list has 8 hours previously logged, is now overwritten with 7 hours.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
+<h3 id="event-specific-management"><a class="link" href="#event-specific-management">3.4. Event-Specific Management</a></h3>
+<div class="sect3">
+<h4 id="mark-event-as-done-code-done-code"><a class="link" href="#mark-event-as-done-code-done-code">3.4.1. Mark Event as Done: <code>done</code></a></h4>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>Record the completion/conclusion of an Event.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>done INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>INDEX</code> must be a positive integer and exist within the displayed list.</p>
+</li>
+<li>
+<p>If not found, an 'Event Not Found' will be displayed.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list_ev</code><br>
+<code>done 2</code><br>
+Marks the second event on the list as done.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="allocate-employees-to-events-code-allocate-code"><a class="link" href="#allocate-employees-to-events-code-allocate-code">3.4.2. Allocate Employees to Events: <code>allocate</code></a></h4>
+<div class="paragraph">
+<p>Automatically chooses and allocates employees to events that meet the requirements.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>allocate EVENT_ID [f/TAGS]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+An event can have any number of requirements (including 0)
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>EVENT_ID is a unique 3-digit number that acts as a serial key to identify events.</p>
+</li>
+<li>
+<p>Tags function as filters to determine if an employee is assigned to work for that particular event.
+*</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list_ev</code><br>
+<code>allocate 002 t/female</code><br>
+Allocates to Event 002 all available employees who are tagged as 'female'</p>
+</li>
+<li>
+<p><code>allocate 004 t/music t/night-shift</code><br>
+Allocates to Event 002 all available employees who have expertise in 'music' and are able to work night shifts.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="manually-allocate-employees-ot-events-code-allocatem-code"><a class="link" href="#manually-allocate-employees-ot-events-code-allocatem-code">3.4.3. Manually allocate Employees ot Events: <code>allocateM</code></a></h4>
+<div class="paragraph">
+<p>Manually chooses and allocates employees to events that meet the requirements.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>allocateM EVENT_ID [n/EMPLOYEE_NUMBER]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>EVENT_ID is a unique 3-digit number that acts as a serial key to identify events.</p>
+</li>
+<li>
+<p>EMPLOYEE_NUMBER is the number of the employee on the displayed list.</p>
+</li>
+<li>
+<p>There should be at least one employee number stated.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list_ev</code><br>
+<code>allocateM 002 n/2 n/5 n/3</code><br>
+Allocates to Event 002 employees numbered 2, 3, 5 on the list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finance-management"><a class="link" href="#finance-management">3.5. Finance Management</a></h3>
+<div class="sect3">
+<h4 id="generate-employee-payslip-code-pay-code"><a class="link" href="#generate-employee-payslip-code-pay-code">3.5.1. Generate Employee Payslip: <code>pay</code></a></h4>
+<div class="paragraph">
+<p>Generates the payslip for an employee for a stated time period</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>pay n/EMPLOYEE_NUMBER f/DDMMYYY t/DDMMYYY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>EMPLOYEE_NUMBER is the number of the employee on the displayed list. It must be a valid number.</p>
+</li>
+<li>
+<p>f/ and t/ represents "from" and "to", both DateTime periods.</p>
+</li>
+<li>
+<p>If the employee did not work during the time period stated, the payslip would not be generated.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list_em</code><br>
+<code>pay 2 f/20082019 t/20102019</code><br>
+Generates the payslip of employee 2 from the 20th August - 20th October.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="generate-event-contract-code-contract-coming-in-v2-0-code"><a class="link" href="#generate-event-contract-code-contract-coming-in-v2-0-code">3.5.2. Generate Event Contract: <code>contract [coming in v2.0]</code></a></h4>
+<div class="paragraph">
+<p>Generates a contract that can be handed to the company&#8217;s client. The contract will contains details of the event such as the location, budget, and date</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>contract n/EVENT_ID</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>EVENT_ID is a unique 3-digit number that acts as a serial key to identify events.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>contract n/005</code><br>
+Generates the contract for Event_ID 005.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="link" href="#miscellaneous">3.6. Miscellaneous</a></h3>
+<div class="sect3">
+<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.6.1. Clearing all entries : <code>clear</code></a></h4>
+<div class="paragraph">
+<p>Clears all entries from the address book.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.6.2. Saving the data</a></h4>
+<div class="paragraph">
+<p>AddMin+ data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
 </div>
@@ -336,31 +698,88 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>Search</strong> : <code>search</code></p>
+</li>
+<li>
+<p><strong>List Employees</strong> : <code>list_em</code></p>
+</li>
+<li>
+<p><strong>List Events</strong> : <code>list_ev</code></p>
+</li>
+<li>
+<p><strong>Add Employee</strong>: <code>add n/NAME no/PHONE_NUMBER p/POSITION e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/John Doe no/98765432 p/cleaner e/johnd@example.com a/John street, block 123, #01-01</code></p>
+</li>
+<li>
+<p><strong>Add Event</strong>: <code>addev n/Music Festival m/10 on/15092019 till/20092019 at/NUS t/Music</code><br>
+e.g. <code>addev n/Charity Run m/4 on/15092019 till/15092019 at/NUS</code></p>
+</li>
+<li>
+<p><strong>Edit Employee</strong>: <code>edit_em INDEX n/NAME no/PHONE_NUMBER p/POSITION e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>edit_em 1 no/91234567 e/johndoe@example.com</code></p>
+</li>
+<li>
+<p><strong>Edit Event</strong>: <code>edit_ev INDEX n/EVENT_NAME m/MANPOWER_NEEDED on/DDMMYYYY till/DDMMYYYY at/LOCATION_NAME [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>edit_ev 2 n/Concert t/</code></p>
+</li>
+<li>
+<p><strong>Fetch Event</strong>: <code>fetch_em INDEX</code><br>
+e.g. <code>fetch_em 2</code></p>
+</li>
+<li>
+<p><strong>Fetch Event</strong>: <code>fetch_ev INDEX</code><br>
+e.g. <code>fetch_ev 3</code></p>
+</li>
+<li>
+<p><strong>Find Employee</strong>: <code>find_em KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find_em John</code></p>
+</li>
+<li>
+<p><strong>Find Event</strong>: <code>find_ev KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find_ev Music</code></p>
+</li>
+<li>
+<p><strong>Delete Employee</strong>: <code>delete_em INDEX</code><br>
+e.g. <code>delete_em 2</code></p>
+</li>
+<li>
+<p><strong>Delete Event</strong>: <code>delete_ev INDEX</code><br>
+e.g. <code>delete_ev 1</code></p>
+</li>
+<li>
+<p><strong>Log Working Hours</strong>: <code>log INDEX DDMMYYYY HOURSWORKED</code><br>
+e.g. <code>log 2 30092019 8</code></p>
+</li>
+<li>
+<p><strong>Done Event</strong>: <code>done INDEX</code><br>
+e.g. <code>done 2</code></p>
+</li>
+<li>
+<p><strong>Allocate Employees (Auto)</strong>: <code>allocate EVENT_ID [f/TAGS]&#8230;&#8203;</code><br>
+e.g. <code>allocate 002 t/female</code></p>
+</li>
+<li>
+<p><strong>Allocate Employees (Manual)</strong>: <code>allocateM EVENT_ID [n/EMPLOYEE_NUMBER]&#8230;&#8203;</code><br>
+e.g. <code>allocateM 002 n/2 n/5 n/3</code></p>
+</li>
+<li>
+<p><strong>Generate Employee Payslip</strong>: <code>pay n/EMPLOYEE_NUMBER f/DDMMYYY t/DDMMYYY</code><br>
+e.g. <code>pay 2 f/20082019 t/20102019</code></p>
+</li>
+<li>
+<p><strong>Generate Event Contract</strong>: <code>contract n/EVENT_ID</code><br>
+e.g. <code>contract n/005</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Exit</strong> : <code>exit</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-30 03:05:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-30 23:34:34 UTC</div></div></div></body></html>

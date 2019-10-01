@@ -15,7 +15,7 @@ image::divinedx.png[width="150", align="left"]
 {empty}[https://github.com/DivineDX[github]] [<<divinedx#, portfolio>>]
 
 Role: Team Lead +
-Responsibilities:
+Responsibilities: Responsible for overall project coordination & Deliverables and deadlines.
 
 '''
 
@@ -23,8 +23,8 @@ Responsibilities:
 image::shihaoyap.png[width="150", align="left"]
 {empty}[https://github.com/shihaoyap[github]] [<<shihaoyap#, portfolio>>]
 
-Role: Developer +
-Responsibilities: UI
+Role: Documentation +
+Responsibilities: Responsible for the quality of various project documents.
 
 '''
 
@@ -32,8 +32,8 @@ Responsibilities: UI
 image::eshwarkp.png[width="150", align="left"]
 {empty}[https://github.com/eshwarkp[github]] [<<eshwarkp#, portfolio>>]
 
-Role: Software Tester +
-Responsibilities: Testing
+Role: Testing +
+Responsibilities: Ensures the testing of the project is done properly and on time.
 
 '''
 
@@ -41,8 +41,8 @@ Responsibilities: Testing
 image::calvincxz.png[width="150", align="left"]
 {empty}[https://github.com/calvincxz[github]] [<<calvincxz#, portfolio>>]
 
-Role: Quality Control Specialist +
-Responsibilities: Dev Ops + Threading
+Role: Code quality +
+Responsibilities: Looks after code quality, ensures adherence to coding standards, etc.
 
 '''
 
@@ -50,7 +50,7 @@ Responsibilities: Dev Ops + Threading
 image::crisgu.png[width="150", align="left"]
 {empty}[https://github.com/Crisgu[github]] [<<crisgue#, portfolio>>]
 
-Role: Developer +
-Responsibilities: UI
+Role: Integration +
+Responsibilities: In charge of versioning of the code, maintaining the code repository, integrating various parts of the software to create a whole.
 
 '''

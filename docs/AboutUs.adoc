@@ -4,7 +4,7 @@
 :imagesDir: images
 :stylesDir: stylesheets
 
-AddMin+ was developed by the https://github.com/orgs/AY1920S1-CS2103T-T11-3/teams/developers/members[T11-3] team. +
+AddMin+ was developed by the https://github.com/AY1920S1-CS2103T-T11-3[DESCC] team based on the AddressBook - Level 3 developed by the se-edu team. +
 {empty} +
 We are a team based in the http://www.comp.nus.edu.sg[School of Computing, National University of Singapore].
 

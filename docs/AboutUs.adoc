@@ -12,7 +12,7 @@ We are a team based in the http://www.comp.nus.edu.sg[School of Computing, Natio
 
 === Chia De Xun
 image::divinedx.png[width="150", align="left"]
-{empty}[https://github.com/DivineDX[github]] [<<de_xun#, portfolio>>]
+{empty}[https://github.com/DivineDX[github]] [<<divinedx#, portfolio>>]
 
 Role: Team Lead +
 Responsibilities:
@@ -21,7 +21,7 @@ Responsibilities:
 
 === Yap Shi Hao
 image::shihaoyap.png[width="150", align="left"]
-{empty}[https://github.com/shihaoyap[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/shihaoyap[github]] [<<shihaoyap#, portfolio>>]
 
 Role: Developer +
 Responsibilities: UI
@@ -30,7 +30,7 @@ Responsibilities: UI
 
 === Eshwar Kamalapathy
 image::eshwarkp.png[width="150", align="left"]
-{empty}[https://github.com/eshwarkp[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/eshwarkp[github]] [<<eshwarkp#, portfolio>>]
 
 Role: Software Tester +
 Responsibilities: Testing
@@ -39,7 +39,7 @@ Responsibilities: Testing
 
 === Calvin Chen Xingzhu
 image::calvincxz.png[width="150", align="left"]
-{empty}[https://github.com/calvincxz[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/calvincxz[github]] [<<calvincxz#, portfolio>>]
 
 Role: Quality Control Specialist +
 Responsibilities: Dev Ops + Threading
@@ -48,7 +48,7 @@ Responsibilities: Dev Ops + Threading
 
 === Gu Chunzhi
 image::crisgu.png[width="150", align="left"]
-{empty}[https://github.com/Crisgu[github]] [<<johndoe#, portfolio>>]
+{empty}[https://github.com/Crisgu[github]] [<<crisgue#, portfolio>>]
 
 Role: Developer +
 Responsibilities: UI

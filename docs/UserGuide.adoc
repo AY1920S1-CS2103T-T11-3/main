@@ -327,6 +327,7 @@ Examples:
 * `contract n/005` +
 Generates the contract for Event_ID 005.
 
+
 === Archive Management
 
 ==== Record Past Event: `archive_ev`
@@ -343,6 +344,7 @@ Examples:
 
 * `list_ev` +
 `archive_ev 002` +
+
 Archives a past Event with ID 002.
 
 ==== Record Past Event: `list_archive_ev`

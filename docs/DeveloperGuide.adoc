@@ -285,7 +285,7 @@ Refer to the guide <<DevOps#, here>>.
 * Prefers typing over mouse input
 * Is reasonably comfortable using CLI apps
 
-*Value proposition*: manage events and employees easier than enterprise apps commonly used such as Microsoft Excel and Microsoft Word.
+*Value proposition*: Manage events and employees easier than enterprise apps commonly used such as Microsoft Excel and Microsoft Word.
 
 [appendix]
 == User Stories
@@ -295,31 +295,31 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 [width="59%",cols="22%,<23%,<25%,<30%",options="header",]
 |=======================================================================
 |Priority |As a ... |I want to ... |So that I can...
-|`* * *` |HR Admin |improving work productivity | automate my manpower allocation process
+|`* * *` |HR Admin |automate my manpower allocation process | improve work productivity
 
-|`* * *` |HR Admin |remind the company staff to attend |view upcoming events
+|`* * *` |HR Admin |view upcoming events | remind the company staff to attend
 
-|`* * *` |HR director |decide whether to have more or less of events | view the number of events
+|`* * *` |HR Director |view the number of events | decide whether to have more or less of events
 
-|`* * *` |HR personnel |access the worker’s personal details whenever I need it |keep track of all the worker's details
+|`* * *` |HR Personnel |keep track of all the worker's details | access the worker’s personal details whenever I need it
 
-|`* * *` |finance staff |financial accounting for the company is done properly |keep track of all the worker's details
+|`* * *` |Finance Staff |keep track of all the worker's details | ensure proper financial accounting for the company
 
-|`* * *` |accountant |easily track expenses related to employee wages |see the breakdown for each individual worker
+|`* * *` |Accountant |see the payslip of all employees| easily track expenses related to employee wages
 
-|`* * *` |accountant |access the worker’s personal details |keep track of all the worker's details
+|`* * *` |Accountant |access the employee's personal details |keep track of all the worker's details
 
-|`* * *` |Staff in a Company |ensure that my pay is correct |able to see payslip
+|`* * *` |Employee of a Company |able to see payslip| for documenting purposes
 
-|`* * *` |Admin staff |ensure the workers are not abusing the leave system |able to track the workers paid leave and medical leave
+|`* * *` |Admin Staff |be able to track the employee's paid and medical leave| ensure the workers are not abusing the leave system
 
-|`* * *` |Admin staff |decide whether to take the next event |view the number of available workers in the office
+|`* * *` |Admin Staff |view my company's available manpower| decide on the manpower allocation
 
-|`* *` |worker |keep upcoming events on calendar |view upcoming events
+|`* *` |Employee |view upcoming events | record them on my calendar
 
-|`* *` |an admin |decide what needs to be done soon |find upcoming event
+|`* *` |Admin Staff|find upcoming events | plan on the logistics needed ahead of time
 
-|`* *` |a supervisor |have better manpower allocation |write comments/remarks for workers 
+|`* *` |Manager|tag my employees with comments/remarks | have better manpower allocation for events
 
 |=======================================================================
 
@@ -378,15 +378,16 @@ Use case resumes at step 2.
 ** 3b1. AddMin+ displays an error message warning the user that no details were edited.
 +
 Use case resumes at step 2.
- 
+
 [discrete]
 === Use case: Allocate Manpower to Event manually
 
 *MSS*
+
 1.  User requests to view the company’s current list of employees and events.
-2. AddMin+ shows the list of employees and events.
-3.  User manually allocates a specific employee ID to a specific event ID
-4.  Employee added.
+2.  AddMin+ shows the list of employees and events.
+3.  User states an Employee_ID that is matched to an Event_ID
+4.  Employee allocated to Event.
 +
 Use case ends.
 
@@ -399,14 +400,14 @@ Use case ends.
 +
 Use case resumes at step 2.
 
-[discrete]    
+[discrete]
 === Use case: Generate Employee PaySlip
 
 *MSS*
 
 1.  User requests to list employee
 2.  EmployeeBook shows a list of employees
-3.  User requests to generate a payslip document of a specific employee ID in the list by using a specific employee ID. 
+3.  User requests to generate a payslip document of a specific employee ID in the list by using a specific employee ID.
 4.  AddMin+ generates a document of the pay slip of the employee ID.
 
 +
@@ -414,19 +415,19 @@ Use case ends.
 
 *Extensions*
 
-* 2.The employee ID given is invalid.
+* 3.The employee ID given is invalid.
 +
 [none]
-** 2a.AddMin+ shows an error message.
+** 3a.AddMin+ shows an error message.
 +
 Use case resumes at step 2.
 
-[discrete]     
+[discrete]
 === Use case: Fetch Events
 *MSS*
 
 1.  User requests to fetch an Event by specifying an Event_ID
-2.  AddMin+ shows the matching result
+2.  AddMin+ displays the matching result
 
 +
 Use case ends.
@@ -448,8 +449,10 @@ _{More to be added}_
 == Non Functional Requirements
 
 .  Should work on any <<mainstream-os,mainstream OS>> as long as it has Java `11` or above installed.
-.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+.  Should be able to hold up to 1000 employees and events without a noticeable sluggishness in performance for typical usage.
 .  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+.  Program should run smoothly and without bugs
+.  Should be able to work independent of a remote server, database, and internet connection
 
 
 [appendix]
@@ -457,9 +460,6 @@ _{More to be added}_
 
 [[mainstream-os]] Mainstream OS::
 Windows, Linux, Unix, OS-X
-
-[[private-contact-detail]] Private contact detail::
-A contact detail that is not meant to be shared with others
 
 
 [appendix]
@@ -485,15 +485,15 @@ These instructions only provide a starting point for testers to work on; testers
    Expected: The most recent window size and location is retained.
 
 
-=== Deleting a person
+=== Deleting an employee
 
-. Deleting a person while all persons are listed
+. Deleting an employee while all employees are listed
 
-.. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
-.. Test case: `delete 1` +
-   Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
-.. Test case: `delete 0` +
-   Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+.. Prerequisites: List all employees using the `list_em` command. Multiple employees in the list.
+.. Test case: `delete_em 1` +
+   Expected: Employee of ID '1' is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+.. Test case: `delete_em 0` +
+   Expected: No employee is deleted. Error details shown in the status message. Status bar remains the same.
 .. Other incorrect delete commands to try: `delete`, `delete x` (where x is larger than the list size) _{give more}_ +
    Expected: Similar to previous.
 

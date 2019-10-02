@@ -18,7 +18,7 @@
 <li><a href="#employee-specific-management">3.3. Employee-Specific Management</a></li>
 <li><a href="#event-specific-management">3.4. Event-Specific Management</a></li>
 <li><a href="#finance-management">3.5. Finance Management</a></li>
-<li><a href="#archive">3.6. Archive</a></li>
+<li><a href="#archive-management">3.6. Archive Management</a></li>
 <li><a href="#miscellaneous">3.7. Miscellaneous</a></li>
 </ul>
 </li>
@@ -594,7 +594,7 @@ Allocates to Event 002 employees numbered 2, 3, 5 on the list.</p>
 <div class="sect2">
 <h3 id="finance-management"><a class="link" href="#finance-management">3.5. Finance Management</a></h3>
 <div class="sect3">
-<h4 id="generate-employee-payslip-code-pay-code"><a class="link" href="#generate-employee-payslip-code-pay-code">3.5.1. Generate Employee Payslip: <code>pay</code></a></h4>
+<h4 id="generate-employee-payslip-code-pay-coming-in-v2-0-code"><a class="link" href="#generate-employee-payslip-code-pay-coming-in-v2-0-code">3.5.1. Generate Employee Payslip: <code>pay [coming in v2.0]</code></a></h4>
 <div class="paragraph">
 <p>Generates the payslip for an employee for a stated time period</p>
 </div>
@@ -664,11 +664,11 @@ Generates the contract for Event_ID 005.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="archive"><a class="link" href="#archive">3.6. Archive</a></h3>
+<h3 id="archive-management"><a class="link" href="#archive-management">3.6. Archive Management</a></h3>
 <div class="sect3">
 <h4 id="record-past-event-code-archive_ev-code"><a class="link" href="#record-past-event-code-archive_ev-code">3.6.1. Record Past Event: <code>archive_ev</code></a></h4>
 <div class="paragraph">
-<p>Records/Archives a past event and its details, for future reference.</p>
+<p>Archives a past event and its details, for future reference.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>archive_ev EVENT_ID</code></p>
@@ -691,16 +691,18 @@ Generates the contract for Event_ID 005.</p>
 <ul>
 <li>
 <p><code>list_ev</code><br>
-<code>archive_ev 002</code><br>
-Records/archives a past Event with ID 002.</p>
+<code>archive_ev 002</code><br></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Archives a past Event with ID 002.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="record-past-event-code-list_archive_ev-code"><a class="link" href="#record-past-event-code-list_archive_ev-code">3.6.2. Record Past Event: <code>list_archive_ev</code></a></h4>
 <div class="paragraph">
-<p>Display List of all archived events.</p>
+<p>Display List of all archived events. With an index and the Archive event Name and ID</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>list_archive_ev</code></p>
@@ -775,16 +777,6 @@ Displays the second event on the list and its details.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>generate_stats</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>generate_stats</code></p>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect3">
@@ -925,4 +917,4 @@ e.g. <code>generate_stats</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-01 15:01:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-02 02:10:58 UTC</div></div></div></body></html>

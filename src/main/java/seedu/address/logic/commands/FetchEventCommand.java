@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
@@ -25,6 +26,8 @@ public class FetchEventCommand extends Command {
     public static final String MESSAGE_SUCCESS = "fetched Event: %1$s";
 
     private final Index index;
+    private Predicate<Event> PREDICATE_SHOW_INDEXED_EVENT;
+
 
     /**
      * @param index of the event in the filtered event list to fetch
@@ -44,7 +47,8 @@ public class FetchEventCommand extends Command {
         }
 
         Event eventToFetch = lastShownList.get(index.getZeroBased());
-        model.updateFilteredEventList(x -> x.equals(eventToFetch));
+        PREDICATE_SHOW_INDEXED_EVENT = event -> event.equals(eventToFetch);
+        model.updateFilteredEventList(PREDICATE_SHOW_INDEXED_EVENT);
         return new CommandResult(String.format(MESSAGE_SUCCESS, eventToFetch));
     }
 

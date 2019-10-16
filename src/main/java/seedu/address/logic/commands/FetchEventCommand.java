@@ -26,7 +26,7 @@ public class FetchEventCommand extends Command {
     public static final String MESSAGE_SUCCESS = "fetched Event: %1$s";
 
     private final Index index;
-    private Predicate<Event> PREDICATE_SHOW_INDEXED_EVENT;
+    private Predicate<Event> predicateToShowIndexedEvent;
 
 
     /**
@@ -47,8 +47,8 @@ public class FetchEventCommand extends Command {
         }
 
         Event eventToFetch = lastShownList.get(index.getZeroBased());
-        PREDICATE_SHOW_INDEXED_EVENT = event -> event.equals(eventToFetch);
-        model.updateFilteredEventList(PREDICATE_SHOW_INDEXED_EVENT);
+        predicateToShowIndexedEvent = event -> event.equals(eventToFetch);
+        model.updateFilteredEventList(predicateToShowIndexedEvent);
         return new CommandResult(String.format(MESSAGE_SUCCESS, eventToFetch));
     }
 

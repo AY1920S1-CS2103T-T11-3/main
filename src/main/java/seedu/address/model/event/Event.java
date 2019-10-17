@@ -1,6 +1,7 @@
 package seedu.address.model.event;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -14,11 +15,14 @@ public class Event {
 
     //Identity Fields
     private final EventName name;
-    private final EventVenue venue;
-    private final EventManpowerNeeded manpowerNeeded;
     private final EventStartDate startDate;
     private final EventEndDate endDate;
+
+    //data fields
+    private final EventVenue venue;
+    private final EventManpowerNeeded manpowerNeeded;
     private final EventManpowerAllocatedList manpowerAllocatedList;
+    private final HashMap<EventDate, EventDayTime> dateTimeMap = new HashMap<>();
     private final Set<Tag> tags = new HashSet<>();
 
     public Event(EventName name, EventVenue venue,

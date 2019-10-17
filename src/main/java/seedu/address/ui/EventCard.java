@@ -25,8 +25,6 @@ public class EventCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label eventId;
-    @FXML
     private Label venue;
     @FXML
     private Label startDate;
@@ -38,7 +36,6 @@ public class EventCard extends UiPart<Region> {
         this.event = event;
         id.setText(displayedIndex + ". ");
         name.setText(event.getName().eventName);
-        eventId.setText("ID: " + event.getEventId().id);
         venue.setText(event.getVenue().venue);
         startDate.setText(event.getStartDate().startDate + " to "
                 + event.getEndDate().endDate);

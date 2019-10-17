@@ -1,5 +1,6 @@
 package seedu.address.model.util;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -9,6 +10,11 @@ import seedu.address.model.EventBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyEventBook;
 import seedu.address.model.event.Event;
+import seedu.address.model.event.EventEndDate;
+import seedu.address.model.event.EventManpowerNeeded;
+import seedu.address.model.event.EventName;
+import seedu.address.model.event.EventStartDate;
+import seedu.address.model.event.EventVenue;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -45,7 +51,10 @@ public class SampleDataUtil {
 
     public static Event[] getSampleEvents() {
         return new Event[] {
-            new Event()
+            new Event(new EventName("Musical"), new EventVenue("NUS"), new EventManpowerNeeded("5"),
+                    new EventStartDate(LocalDate.of(2019, 10, 20)),
+                    new EventEndDate(LocalDate.of(2019, 10, 20)),
+                            getTagSet("Music"))
         };
     }
 

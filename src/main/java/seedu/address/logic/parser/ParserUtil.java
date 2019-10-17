@@ -13,8 +13,6 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 import seedu.address.model.event.EventEndDate;
-import seedu.address.model.event.EventHoursNeeded;
-import seedu.address.model.event.EventId;
 import seedu.address.model.event.EventManpowerNeeded;
 import seedu.address.model.event.EventName;
 import seedu.address.model.event.EventStartDate;
@@ -151,14 +149,6 @@ public class ParserUtil {
     }
 
     /**
-     * returns an EventId
-     *
-     */
-    public static EventId parseEventId() {
-        return new EventId();
-    }
-
-    /**
      * Parses a {@code String venueName} into a {@code EventVenue}.
      * Leading and trailing whitespaces will be trimmed.
      *
@@ -171,21 +161,6 @@ public class ParserUtil {
             throw new ParseException(EventVenue.MESSAGE_CONSTRAINTS);
         }
         return new EventVenue(trimmedName);
-    }
-
-    /**
-     * Parses a {@code String hoursNeeded} into a {@code EventHoursNeeded}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code EventHoursNeeded} is invalid.
-     */
-    public static EventHoursNeeded parseHoursNeeded(String hoursNeeded) throws ParseException {
-        requireNonNull(hoursNeeded);
-        String trimmed = hoursNeeded.trim();
-        if (!EventHoursNeeded.isValidEventHours(trimmed)) {
-            throw new ParseException(EventHoursNeeded.MESSAGE_CONSTRAINTS);
-        }
-        return new EventHoursNeeded(trimmed);
     }
 
     /**

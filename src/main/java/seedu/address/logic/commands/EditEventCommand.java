@@ -21,11 +21,10 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.event.Event;
-import seedu.address.model.event.EventEndDate;
+import seedu.address.model.event.EventDate;
 import seedu.address.model.event.EventManpowerAllocatedList;
 import seedu.address.model.event.EventManpowerNeeded;
 import seedu.address.model.event.EventName;
-import seedu.address.model.event.EventStartDate;
 import seedu.address.model.event.EventVenue;
 import seedu.address.model.tag.Tag;
 
@@ -101,8 +100,8 @@ public class EditEventCommand extends Command {
         EventVenue updatedEventVenue = editEventDescriptor.getVenue().orElse(eventToEdit.getVenue());
         EventManpowerNeeded updatedManpowerNeeded = editEventDescriptor.getManpowerNeeded()
                 .orElse(eventToEdit.getManpowerNeeded());
-        EventStartDate updatedStartDate = editEventDescriptor.getStartDate().orElse(eventToEdit.getStartDate());
-        EventEndDate updatedEndDate = editEventDescriptor.getEndDate().orElse(eventToEdit.getEndDate());
+        EventDate updatedStartDate = editEventDescriptor.getStartDate().orElse(eventToEdit.getStartDate());
+        EventDate updatedEndDate = editEventDescriptor.getEndDate().orElse(eventToEdit.getEndDate());
         Set<Tag> updatedTags = editEventDescriptor.getTags().orElse(eventToEdit.getTags());
 
         return new Event(updatedEventName, updatedEventVenue,
@@ -137,8 +136,8 @@ public class EditEventCommand extends Command {
         private EventName name;
         private EventVenue venue;
         private EventManpowerNeeded manpowerNeeded;
-        private EventStartDate startDate;
-        private EventEndDate endDate;
+        private EventDate startDate;
+        private EventDate endDate;
         private EventManpowerAllocatedList manpowerAllocatedList;
         private Set<Tag> tags;
 
@@ -190,19 +189,19 @@ public class EditEventCommand extends Command {
             return Optional.ofNullable(manpowerNeeded);
         }
 
-        public void setStartDate(EventStartDate startDate) {
+        public void setStartDate(EventDate startDate) {
             this.startDate = startDate;
         }
 
-        public Optional<EventStartDate> getStartDate() {
+        public Optional<EventDate> getStartDate() {
             return Optional.ofNullable(startDate);
         }
 
-        public void setEndDate(EventEndDate endDate) {
+        public void setEndDate(EventDate endDate) {
             this.endDate = endDate;
         }
 
-        public Optional<EventEndDate> getEndDate() {
+        public Optional<EventDate> getEndDate() {
             return Optional.ofNullable(endDate);
         }
 

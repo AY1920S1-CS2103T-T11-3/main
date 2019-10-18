@@ -15,8 +15,8 @@ class EventTest {
     private final EventName name = new EventName("Orchestra");
     private final EventVenue venue = new EventVenue("Esplanade");
     private final EventManpowerNeeded manpowerNeeded = new EventManpowerNeeded("10");
-    private final EventStartDate startDate = new EventStartDate(LocalDate.of(2019, 10, 20));
-    private final EventEndDate endDate = new EventEndDate(LocalDate.of(2019, 10, 25));
+    private final EventDate startDate = new EventDate(LocalDate.of(2019, 10, 20));
+    private final EventDate endDate = new EventDate(LocalDate.of(2019, 10, 25));
     private final Set<Tag> tags = new HashSet<>();
     private final Event eventTest = new Event(name, venue,
             manpowerNeeded, startDate, endDate, tags);
@@ -27,7 +27,7 @@ class EventTest {
         assertTrue(eventTest.isSameEvent(eventTest));
 
         Event newEventTest = new Event(name, venue, manpowerNeeded,
-                new EventStartDate(LocalDate.of(2019, 10, 21)), endDate, tags);
+                new EventDate(LocalDate.of(2019, 10, 21)), endDate, tags);
 
         assertFalse(eventTest.isSameEvent(newEventTest));
     }

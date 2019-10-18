@@ -14,8 +14,8 @@ public class Event {
 
     //Identity Fields
     private final EventName name;
-    private final EventStartDate startDate;
-    private final EventEndDate endDate;
+    private final EventDate startDate;
+    private final EventDate endDate;
 
     //data fields
     private final EventVenue venue;
@@ -25,8 +25,8 @@ public class Event {
     private final Set<Tag> tags = new HashSet<>();
 
     public Event(EventName name, EventVenue venue,
-                 EventManpowerNeeded manpowerNeeded, EventStartDate startDate,
-                 EventEndDate endDate, Set<Tag> tags) {
+                 EventManpowerNeeded manpowerNeeded, EventDate startDate,
+                 EventDate endDate, Set<Tag> tags) {
         this.name = name;
         this.venue = venue;
         this.manpowerNeeded = manpowerNeeded;
@@ -41,11 +41,11 @@ public class Event {
         return name;
     }
 
-    public EventStartDate getStartDate() {
+    public EventDate getStartDate() {
         return startDate;
     }
 
-    public EventEndDate getEndDate() {
+    public EventDate getEndDate() {
         return endDate;
     }
 

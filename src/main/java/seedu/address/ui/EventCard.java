@@ -37,8 +37,8 @@ public class EventCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(event.getName().eventName);
         venue.setText(event.getVenue().venue);
-        startDate.setText(event.getStartDate().startDate + " to "
-                + event.getEndDate().endDate);
+        startDate.setText(event.getStartDate().date + " to "
+                + event.getEndDate().date);
         event.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));

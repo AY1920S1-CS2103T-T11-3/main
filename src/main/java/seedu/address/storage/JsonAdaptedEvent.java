@@ -13,10 +13,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.event.Event;
-import seedu.address.model.event.EventEndDate;
+import seedu.address.model.event.EventDate;
 import seedu.address.model.event.EventManpowerNeeded;
 import seedu.address.model.event.EventName;
-import seedu.address.model.event.EventStartDate;
 import seedu.address.model.event.EventVenue;
 import seedu.address.model.tag.Tag;
 
@@ -111,23 +110,23 @@ class JsonAdaptedEvent {
 
         if (startDate == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
-                    EventStartDate.class.getSimpleName()));
+                    EventDate.class.getSimpleName()));
         }
-        if (!EventStartDate.isValidStartDate(startDate)) {
-            throw new IllegalValueException(EventStartDate.MESSAGE_CONSTRAINTS);
+        if (!EventDate.isValidDate(startDate)) {
+            throw new IllegalValueException(EventDate.MESSAGE_CONSTRAINTS);
         }
         LocalDate newStartDate = LocalDate.parse(endDate, FORMATTER);
-        final EventStartDate modelStartDate = new EventStartDate(newStartDate);
+        final EventDate modelStartDate = new EventDate(newStartDate);
 
         if (endDate == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
-                    EventEndDate.class.getSimpleName()));
+                    EventDate.class.getSimpleName()));
         }
-        if (!EventEndDate.isValidEndDate(endDate)) {
-            throw new IllegalValueException(EventEndDate.MESSAGE_CONSTRAINTS);
+        if (!EventDate.isValidDate(endDate)) {
+            throw new IllegalValueException(EventDate.MESSAGE_CONSTRAINTS);
         }
         LocalDate newEndDate = LocalDate.parse(endDate, FORMATTER);
-        final EventEndDate modelEndDate = new EventEndDate(newEndDate);
+        final EventDate modelEndDate = new EventDate(newEndDate);
         final Set<Tag> modelTags = new HashSet<>(eventTags);
 
         return new Event(modelName, modelVenue,

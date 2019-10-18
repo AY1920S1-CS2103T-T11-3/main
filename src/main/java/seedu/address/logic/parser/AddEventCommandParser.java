@@ -14,10 +14,9 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.AddEventCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.event.Event;
-import seedu.address.model.event.EventEndDate;
+import seedu.address.model.event.EventDate;
 import seedu.address.model.event.EventManpowerNeeded;
 import seedu.address.model.event.EventName;
-import seedu.address.model.event.EventStartDate;
 import seedu.address.model.event.EventVenue;
 import seedu.address.model.tag.Tag;
 
@@ -48,8 +47,8 @@ public class AddEventCommandParser implements Parser<AddEventCommand> {
         EventVenue venue = ParserUtil.parseVenue(argMultimap.getValue(PREFIX_EVENT_VENUE).get());
         EventManpowerNeeded manpowerNeeded = ParserUtil.parseManpowerNeeded(
                 argMultimap.getValue(PREFIX_EVENT_MANPOWER_NEEDED).get());
-        EventStartDate start = ParserUtil.parseStartDate(argMultimap.getValue(PREFIX_EVENT_START_DATE).get());
-        EventEndDate end = ParserUtil.parseEndDate(argMultimap.getValue(PREFIX_EVENT_END_DATE).get());
+        EventDate start = ParserUtil.parseDate(argMultimap.getValue(PREFIX_EVENT_START_DATE).get());
+        EventDate end = ParserUtil.parseDate(argMultimap.getValue(PREFIX_EVENT_END_DATE).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         Event event = new Event(name, venue, manpowerNeeded, start, end, tagList);

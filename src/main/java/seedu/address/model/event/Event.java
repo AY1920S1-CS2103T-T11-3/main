@@ -1,7 +1,6 @@
 package seedu.address.model.event;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -22,7 +21,7 @@ public class Event {
     private final EventVenue venue;
     private final EventManpowerNeeded manpowerNeeded;
     private final EventManpowerAllocatedList manpowerAllocatedList;
-    private final HashMap<EventDate, EventDayTime> dateTimeMap = new HashMap<>();
+    private final EventDateTimeMap eventDateTimeMap;
     private final Set<Tag> tags = new HashSet<>();
 
     public Event(EventName name, EventVenue venue,
@@ -32,6 +31,7 @@ public class Event {
         this.venue = venue;
         this.manpowerNeeded = manpowerNeeded;
         this.manpowerAllocatedList = new EventManpowerAllocatedList();
+        this.eventDateTimeMap = new EventDateTimeMap();
         this.startDate = startDate;
         this.endDate = endDate;
         this.tags.addAll(tags);
@@ -39,14 +39,6 @@ public class Event {
 
     public EventName getName() {
         return name;
-    }
-
-    public EventVenue getVenue() {
-        return venue;
-    }
-
-    public EventManpowerNeeded getManpowerNeeded() {
-        return manpowerNeeded;
     }
 
     public EventStartDate getStartDate() {
@@ -57,8 +49,20 @@ public class Event {
         return endDate;
     }
 
+    public EventVenue getVenue() {
+        return venue;
+    }
+
+    public EventManpowerNeeded getManpowerNeeded() {
+        return manpowerNeeded;
+    }
+
     public EventManpowerAllocatedList getManpowerAllocatedList() {
         return manpowerAllocatedList;
+    }
+
+    public EventDateTimeMap getEventDateTimeMap() {
+        return eventDateTimeMap;
     }
 
     /**
@@ -105,6 +109,7 @@ public class Event {
                 && otherEvent.getStartDate().equals(getStartDate())
                 && otherEvent.getEndDate().equals(getEndDate())
                 && otherEvent.getManpowerAllocatedList().equals(getManpowerAllocatedList())
+                && otherEvent.getEventDateTimeMap().equals(getEventDateTimeMap())
                 && otherEvent.getTags().equals(getTags());
     }
 

@@ -21,6 +21,7 @@ import seedu.address.logic.commands.FindEventCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.ListEventCommand;
+import seedu.address.logic.commands.SortEventDateCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -73,6 +74,9 @@ public class AddressBookParser {
 
         case FetchEventCommand.COMMAND_WORD:
             return new FetchEventCommandParser().parse(arguments);
+
+        case SortEventDateCommand.COMMAND_WORD:
+            return new SortEventDateCommand();
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);

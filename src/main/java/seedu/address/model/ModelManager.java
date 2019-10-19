@@ -4,11 +4,13 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.employee.Employee;
@@ -202,6 +204,14 @@ public class ModelManager implements Model {
         requireNonNull(predicate);
         filteredEvents.setPredicate(predicate);
     }
+
+    @Override
+    public SortedList<Event> updateSortedEventList(Comparator<Event> comparator) {
+        SortedList<Event> eventSortedList = new SortedList<>(this.getEventBook().getEventList());
+        eventSortedList.setComparator(comparator);
+        return eventSortedList;
+    }
+
 
     @Override
     public boolean equals(Object obj) {

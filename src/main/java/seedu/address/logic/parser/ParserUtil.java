@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+import javafx.collections.transformation.SortedList;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -20,6 +21,7 @@ import seedu.address.model.employee.EmployeeJoinDate;
 import seedu.address.model.employee.EmployeeName;
 import seedu.address.model.employee.EmployeePhone;
 import seedu.address.model.employee.EmployeePosition;
+import seedu.address.model.event.Event;
 import seedu.address.model.event.EventDate;
 import seedu.address.model.event.EventManpowerNeeded;
 import seedu.address.model.event.EventName;
@@ -251,5 +253,28 @@ public class ParserUtil {
             throw new ParseException(EventManpowerNeeded.MESSAGE_CONSTRAINTS);
         }
         return new EventManpowerNeeded(trimmed);
+    }
+
+    /**
+     * parses a SortedList of events into a string to display the sorted events by their dates
+     * @param sortedList of sorted events according to date
+     * @return string output to display the sorted events by date
+     */
+    public static String parseSortbyDate(SortedList<Event> sortedList) {
+        String outputString = "";
+        LocalDate currentDate = sortedList.get(0).getStartDate().date;
+        outputString = outputString + currentDate + "\n";
+        for (int i = 0; i < sortedList.size(); i++) {
+            Event currentEvent = sortedList.get(i);
+            if (currentDate.equals(currentEvent.getStartDate().date)) {
+                outputString = outputString + currentEvent + "\n";
+            } else {
+                currentDate = currentEvent.getStartDate().date;
+                outputString = outputString + "\n";
+                outputString = outputString + currentDate + "\n";
+                outputString = outputString + currentEvent + "\n";
+            }
+        }
+        return outputString;
     }
 }

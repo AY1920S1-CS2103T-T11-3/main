@@ -20,7 +20,7 @@ Perfection is achieved, not when there is nothing more to add, but when there is
 In scenarios like this, you can consider refactoring the existing <code>Person</code> model to suit your use case.</p>
 </div>
 <div class="paragraph">
-<p>In this tutorial, we&#8217;ll do exactly just that and remove the <code>address</code> field from <code>Person</code>.</p>
+<p>In this tutorial, we&#8217;ll do exactly just that and remove the <code>employeeAddress</code> field from <code>Person</code>.</p>
 </div>
 </div>
 </div>
@@ -34,7 +34,7 @@ Let&#8217;s try to use it as much as we can.</p>
 <div class="sect2">
 <h3 id="assisted-refactoring"><a class="link" href="#assisted-refactoring">Assisted refactoring</a></h3>
 <div class="paragraph">
-<p>The <code>address</code> field in <code>Person</code> is actually an instance of the <code>seedu.address.model.person.Address</code> class.
+<p>The <code>employeeAddress</code> field in <code>Person</code> is actually an instance of the <code>seedu.employeeAddress.model.employee.Address</code> class.
 Since removing the <code>Address</code> class will break the application, we start by identifying <code>Address</code>'s usages.
 This allows us to see code that depends on <code>Address</code> to function properly and edit them on a case-by-case basis.
 Right-click the <code>Address</code> class and select <code>Refactor</code> &gt; <code>Safe Delete</code> through the menu.</p>
@@ -67,7 +67,7 @@ Other usages like in <code>EditPersonDescriptor</code> may require more careful 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Safe delete the field <code>address</code> in <code>EditPersonDescriptor</code></p>
+<p>Safe delete the field <code>employeeAddress</code> in <code>EditPersonDescriptor</code></p>
 </li>
 <li>
 <p>Select <code>Yes</code> when prompted to remove getters and setters</p>
@@ -76,7 +76,7 @@ Other usages like in <code>EditPersonDescriptor</code> may require more careful 
 <p>Select <code>View Usages</code> again <span class="image"><img src="../images/remove/UnsafeDeleteOnField.png" alt="UnsafeDeleteOnField" width="1145px" height="583px"></span></p>
 </li>
 <li>
-<p>Remove the usages of <code>address</code> and select <code>Do refactor</code> when you are done.</p>
+<p>Remove the usages of <code>employeeAddress</code> and select <code>Do refactor</code> when you are done.</p>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -86,7 +86,7 @@ Other usages like in <code>EditPersonDescriptor</code> may require more careful 
 <td class="content">
 Removing usages may result in errors.
 Exercise discretion and fix them.
-For example, removing the <code>address</code> field from the <code>Person</code> class will require you to modify its constructor.
+For example, removing the <code>employeeAddress</code> field from the <code>Person</code> class will require you to modify its constructor.
 </td>
 </tr>
 </table>
@@ -105,16 +105,16 @@ For example, removing the <code>address</code> field from the <code>Person</code
 <h3 id="manual-refactoring"><a class="link" href="#manual-refactoring">Manual refactoring</a></h3>
 <div class="paragraph">
 <p>Unfortunately, there are usages of <code>Address</code> that IntelliJ IDEA cannot identify.
-You can find them by searching for instances of the word <code>address</code> in your code (<code>Edit</code> &gt; <code>Find</code> &gt; <code>Find in path</code>).</p>
+You can find them by searching for instances of the word <code>employeeAddress</code> in your code (<code>Edit</code> &gt; <code>Find</code> &gt; <code>Find in path</code>).</p>
 </div>
 <div class="paragraph">
 <p>Places of interest to look out for would be resources used by the application.
 <code>main/resources</code> contains images and <code>fxml</code> files used by the application and <code>test/resources</code> contains test data.
-For example, there is a <code>$address</code> in each <code>PersonCard</code> that has not been removed nor identified.</p>
+For example, there is a <code>$employeeAddress</code> in each <code>PersonCard</code> that has not been removed nor identified.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/remove/$address.png" alt="$address" width="1090px" height="890px">
+<img src="../images/remove/$employeeAddress.png" alt="$employeeAddress" width="1090px" height="890px">
 </div>
 </div>
 <div class="paragraph">
@@ -125,7 +125,7 @@ For example, there is a <code>$address</code> in each <code>PersonCard</code> th
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java">...
 <span class="annotation">@FXML</span>
-<span class="directive">private</span> <span class="predefined-type">Label</span> address;
+<span class="directive">private</span> <span class="predefined-type">Label</span> employeeAddress;
 ...</code></pre>
 </div>
 </div>
@@ -133,9 +133,9 @@ For example, there is a <code>$address</code> in each <code>PersonCard</code> th
 <div class="title">PersonCard.fxml</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml">...
-<span class="tag">&lt;Label</span> <span class="attribute-name">fx:id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">phone</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">styleClass</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cell_small_label</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">\$phone</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
-<span class="tag">&lt;Label</span> <span class="attribute-name">fx:id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">address</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">styleClass</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cell_small_label</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">\$address</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
-<span class="tag">&lt;Label</span> <span class="attribute-name">fx:id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">email</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">styleClass</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cell_small_label</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">\$email</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;Label</span> <span class="attribute-name">fx:id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">employeePhone</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">styleClass</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cell_small_label</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">\$employeePhone</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;Label</span> <span class="attribute-name">fx:id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">employeeAddress</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">styleClass</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cell_small_label</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">\$employeeAddress</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;Label</span> <span class="attribute-name">fx:id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">employeeEmail</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">styleClass</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cell_small_label</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">\$employeeEmail</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
 ...</code></pre>
 </div>
 </div>
@@ -156,23 +156,23 @@ What&#8217;s left to do is to clean up references to <code>Address</code> in tes
 </div>
 <div class="paragraph">
 <p>In <code>src/test/data/</code>, data meant for testing purposes are stored.
-While keeping the <code>address</code> field in the json files does not cause the tests to fail, it is not good practice to let cruft from old features accumulate.</p>
+While keeping the <code>employeeAddress</code> field in the json files does not cause the tests to fail, it is not good practice to let cruft from old features accumulate.</p>
 </div>
 <div class="listingblock">
 <div class="title">invalidPersonAddressBook.json</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>{
-  "persons": [ {
-    "name": "Person with invalid name field: Ha!ns Mu@ster",
-    "phone": "9482424",
-    "email": "hans@example.com",
-    "address": "4th street"
+  "employees": [ {
+    "employeeName": "Person with invalid employeeName field: Ha!ns Mu@ster",
+    "employeePhone": "9482424",
+    "employeeEmail": "hans@example.com",
+    "employeeAddress": "4th street"
   } ]
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can go through each individual <code>json</code> file and manually remove the <code>address</code> field.</p>
+<p>You can go through each individual <code>json</code> file and manually remove the <code>employeeAddress</code> field.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-18 13:18:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-19 02:55:15 UTC</div></div></div></body></html>

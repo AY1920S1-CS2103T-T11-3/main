@@ -72,13 +72,13 @@ However, the execution path through a GUI is often somewhat obscure due to vario
 used by GUI frameworks, which happens to be the case here too. Therefore, let us put the breakpoint where the UI transfers
 control to the Logic component. According to the sequence diagram, the UI component yields control to the Logic component
 through a method named <code>execute</code>. Searching through the code base for <code>execute()</code> yields a promising candidate in
-<code>seedu.address.ui.CommandBox.CommandExecutor</code>.</p>
+<code>seedu.employeeAddress.ui.CommandBox.CommandExecutor</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/tracing/Execute.png" alt="Execute">
 </div>
-<div class="title">Figure 2. Using the <code>Search for target by name</code> feature. <code>Navigate</code> &gt; <code>Symbol</code>.</div>
+<div class="title">Figure 2. Using the <code>Search for target by employeeName</code> feature. <code>Navigate</code> &gt; <code>Symbol</code>.</div>
 </div>
 <div class="paragraph">
 <p>A quick look at the class confirms that this is indeed close to what we&#8217;re looking for. However, it is just an
@@ -276,14 +276,14 @@ Does the execution path you traced in the code so far matches with the diagram?<
 <pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
 <span class="directive">public</span> CommandResult execute(Model model) <span class="directive">throws</span> CommandException {
     ...
-    Person personToEdit = lastShownList.get(index.getZeroBased());
-    Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
-    <span class="keyword">if</span> (!personToEdit.isSamePerson(editedPerson) &amp;&amp; model.hasPerson(editedPerson)) {
+    Person employeeToEdit = lastShownList.get(index.getZeroBased());
+    Person editedEmployee = createEditedPerson(employeeToEdit, editPersonDescriptor);
+    <span class="keyword">if</span> (!employeeToEdit.isSamePerson(editedEmployee) &amp;&amp; model.hasPerson(editedEmployee)) {
         <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_DUPLICATE_PERSON);
     }
-    model.setPerson(personToEdit, editedPerson);
+    model.setPerson(employeeToEdit, editedEmployee);
     model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-    <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="predefined-type">String</span>.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
+    <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="predefined-type">String</span>.format(MESSAGE_EDIT_PERSON_SUCCESS, editedEmployee));
 }</code></pre>
 </div>
 </div>
@@ -308,7 +308,7 @@ constructor.</p>
  * {@code JsonSerializableAddressBook}.
  */</span>
 <span class="directive">public</span> JsonSerializableAddressBook(ReadOnlyAddressBook source) {
-    persons.addAll(
+    employees.addAll(
         source.getPersonList()
               .stream()
               .map(JsonAdaptedPerson::<span class="keyword">new</span>)
@@ -398,7 +398,7 @@ handled?</p>
 <p>Allow <code>delete</code> to remove more than one index at a time</p>
 </li>
 <li>
-<p>Save the address book in the CSV format instead</p>
+<p>Save the employeeAddress book in the CSV format instead</p>
 </li>
 <li>
 <p>Add a new command</p>
@@ -407,7 +407,7 @@ handled?</p>
 <p>Add a new field to <code>Person</code></p>
 </li>
 <li>
-<p>Add a new entity to the address book</p>
+<p>Add a new entity to the employeeAddress book</p>
 </li>
 </ol>
 </div>
@@ -417,4 +417,4 @@ handled?</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-18 13:18:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-19 02:55:15 UTC</div></div></div></body></html>

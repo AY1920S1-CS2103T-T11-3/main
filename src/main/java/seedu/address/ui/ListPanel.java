@@ -24,13 +24,19 @@ public class ListPanel extends UiPart<Region> {
     @FXML
     private ListView<Event> eventListView;
 
+    @FXML
+    private ListView<Event> sortedListView;
 
-    public ListPanel(ObservableList<Employee> employeeList, ObservableList<Event> eventList) {
+
+    public ListPanel(ObservableList<Employee> employeeList, ObservableList<Event> eventList,
+                     ObservableList<Event> sortedList) {
         super(FXML);
         personListView.setItems(employeeList);
         personListView.setCellFactory(listView -> new PersonListViewCell());
         eventListView.setItems(eventList);
         eventListView.setCellFactory(listView -> new EventListViewCell());
+        sortedListView.setItems(sortedList);
+        sortedListView.setCellFactory(listView -> new SortedListViewCell());
     }
 
     /**
@@ -62,6 +68,23 @@ public class ListPanel extends UiPart<Region> {
                 setText(null);
             } else {
                 setGraphic(new EventCard(event, getIndex() + 1).getRoot());
+            }
+        }
+    }
+
+    /**
+     * Custom {@code ListCell} that displays the graphics of a {@code Event} using a {@code EventCard}.
+     */
+    class SortedListViewCell extends ListCell<Event> {
+        @Override
+        protected void updateItem(Event event, boolean empty) {
+            super.updateItem(event, empty);
+            //setGraphic(new EventCard(event, getIndex() + 1).getRoot());
+            if (empty || event == null) {
+                setGraphic(null);
+                setText(null);
+            } else {
+                setGraphic(new DateCard(event, getIndex() + 1).getRoot());
             }
         }
     }

@@ -84,12 +84,14 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered employee list */
     ObservableList<Employee> getFilteredEmployeeList();
 
+    /** Returns an unmodifiable view of the sorted event list */
+    ObservableList<Event> getSortedEventList();
+
     /**
      * Updates the filter of the filtered employee list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredEmployeeList(Predicate<Employee> predicate);
-
 
     /**
      * Returns the user prefs' event book file path.

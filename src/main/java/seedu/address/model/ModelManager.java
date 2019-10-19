@@ -27,6 +27,7 @@ public class ModelManager implements Model {
     private final FilteredList<Employee> filteredEmployees;
     private final EventBook eventBook;
     private final FilteredList<Event> filteredEvents;
+    private final SortedList<Event> sortedEventsList;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -43,6 +44,7 @@ public class ModelManager implements Model {
         this.userPrefs = new UserPrefs(userPrefs);
         filteredEmployees = new FilteredList<>(this.addressBook.getEmployeeList());
         filteredEvents = new FilteredList<>(this.eventBook.getEventList());
+        sortedEventsList = new SortedList<>(this.eventBook.getEventList());
     }
 
     public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
@@ -207,9 +209,13 @@ public class ModelManager implements Model {
 
     @Override
     public SortedList<Event> updateSortedEventList(Comparator<Event> comparator) {
-        SortedList<Event> eventSortedList = new SortedList<>(this.getEventBook().getEventList());
-        eventSortedList.setComparator(comparator);
-        return eventSortedList;
+        sortedEventsList.setComparator(comparator);
+        return sortedEventsList;
+    }
+
+    @Override
+    public ObservableList<Event> getSortedEventList() {
+        return sortedEventsList;
     }
 
 

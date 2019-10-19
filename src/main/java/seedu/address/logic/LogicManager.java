@@ -70,6 +70,11 @@ public class LogicManager implements Logic {
     }
 
     @Override
+    public ObservableList<Event> getSortedEventList() {
+        return model.getSortedEventList();
+    }
+
+    @Override
     public Path getAddressBookFilePath() {
         return model.getAddressBookFilePath();
     }

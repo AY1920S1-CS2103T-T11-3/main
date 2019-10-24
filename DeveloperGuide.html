@@ -3,37 +3,45 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://github.com/AY1920S1-CS2103T-T11-3/main/releases"><img src="images/AddMin+_Logo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="index.html">AddMin+</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddMin+ - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team DESCC</code>      Since: <code>Sep 2019</code>      Licence: <code>NUS</code></p>
+<p>By: <code>CS2103T-T11-3</code>      Since: <code>AUG 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#setting-up">1. Setting up</a></li>
-<li><a href="#design">2. Design</a>
+<li><a href="#introduction">1. Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. UI component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#purpose">1.1. Purpose</a></li>
+<li><a href="#intended-audience">1.2. Intended Audience</a></li>
+<li><a href="#software-description">1.3. Software Description</a></li>
+<li><a href="#using-this-developer-guide">1.4. Using this Developer Guide</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#setting-up">2. Setting up</a></li>
+<li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
-<li><a href="#statistics-feature">3.1. Statistics feature</a></li>
-<li><a href="#auto-allocation-feature">3.2. Auto allocation feature</a></li>
-<li><a href="#setting-date-time-to-events">3.3. Setting Date &amp; Time to Events</a></li>
-<li><a href="#proposed-display-schedule-feature">3.4. [Proposed] Display Schedule feature</a></li>
-<li><a href="#finance">3.5. Finance</a></li>
-<li><a href="#logging">3.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+<li><a href="#Design-Architecture">3.1. Architecture</a></li>
+<li><a href="#Design-Ui">3.2. UI component</a></li>
+<li><a href="#Design-Logic">3.3. Logic component</a></li>
+<li><a href="#Design-Model">3.4. Model component</a></li>
+<li><a href="#Design-Storage">3.5. Storage component</a></li>
+<li><a href="#Design-Commons">3.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#implementation">4. Implementation</a>
+<ul class="sectlevel2">
+<li><a href="#statistics-feature">4.1. Statistics feature</a></li>
+<li><a href="#auto-allocation-feature">4.2. Auto allocation feature</a></li>
+<li><a href="#setting-date-time-to-events">4.3. Setting Date &amp; Time to Events</a></li>
+<li><a href="#display-schedule-feature">4.4. Display Schedule feature</a></li>
+<li><a href="#finance">4.5. Finance</a></li>
+<li><a href="#logging">4.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.7. Configuration</a></li>
+</ul>
+</li>
+<li><a href="#documentation">5. Documentation</a></li>
+<li><a href="#testing">6. Testing</a></li>
+<li><a href="#dev-ops">7. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
@@ -50,7 +58,66 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="purpose"><a class="link" href="#purpose">1.1. Purpose</a></h3>
+<div class="paragraph">
+<p>This Developer Guide specifies the software architecture, design, and major implementation features of our Desktop Application, AddMin+.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="intended-audience"><a class="link" href="#intended-audience">1.2. Intended Audience</a></h3>
+<div class="paragraph">
+<p>The intended audience of this Developer Guide is for fellow developers looking to contribute to this open-source project and the graders of the CS2103T module.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="software-description"><a class="link" href="#software-description">1.3. Software Description</a></h3>
+<div class="paragraph">
+<p>AddMin+ is an all in one administration desktop application, specifically for use by small companies with limited administrative staff and would benefit from automating their menial administrative tasks.</p>
+</div>
+<div class="paragraph">
+<p>The application primarily uses a Command Line Interface (CLI) and displays the results through a Graphical User Interface (GUI).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-this-developer-guide"><a class="link" href="#using-this-developer-guide">1.4. Using this Developer Guide</a></h3>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<strong>LightBulbs</strong> indicate a <em>Tip</em>, somthing that is helpful to the reader
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>'I' Icon</strong> indicate a <em>Note</em> that supplements useful information
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Text in a <a href=""><code>blue font and grey</code></a> background indicates a <em>hyperlink</em></p>
+</div>
+<div class="paragraph">
+<p>Text with a <code>grey background</code> indicates <em>Code Logic</em> such as class objects, OOP definitions or user-input.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
@@ -58,10 +125,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
+<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
@@ -78,14 +145,14 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/docs/diagrams/">diagrams</a> folder.
+The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/docs/diagrams/">diagrams</a> folder.
 Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -164,7 +231,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -172,14 +239,14 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 4. <em>Structure of the UI Component</em></div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>ListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.
 There is also a <code>ScheduleBox</code> that is one of the tabs in the TabPane of <code>MainWindow</code>, the <code>ScheduleBox</code> which inherits from the abstract class <code>Tabs</code>. The abstract class <code>Tabs</code> also inherits from the abstract class <code>UiPart</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -196,7 +263,7 @@ There is also a <code>ScheduleBox</code> that is one of the tabs in the TabPane 
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -205,7 +272,7 @@ There is also a <code>ScheduleBox</code> that is one of the tabs in the TabPane 
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -249,7 +316,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -257,7 +324,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="title">Figure 7. <em>Structure of the Model Component</em></div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -294,7 +361,7 @@ As a more OOP model, we can store a <code>Tag</code> list in both <code>Employee
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -302,7 +369,7 @@ As a more OOP model, we can store a <code>Tag</code> list in both <code>Employee
 <div class="title">Figure 8. <em>Structure of the Storage Component</em></div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -319,7 +386,7 @@ As a more OOP model, we can store a <code>Tag</code> list in both <code>Employee
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>seedu.addmin.commons</code> package.</p>
 </div>
@@ -327,27 +394,27 @@ As a more OOP model, we can store a <code>Tag</code> list in both <code>Employee
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">3.1. Statistics feature</a></h3>
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">4.1. Statistics feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the statistics mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time and generates statistics via the "statistics /g" command.</p>
+<p>Step 1. The user launches the application for the first time and generates statistics via the <code>statistics /g</code> command.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. Statistics are generated on-demand and displayed to the user based on the current data.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-statistics-executes"><a class="link" href="#aspect-how-statistics-executes">Aspect: How statistics executes</a></h5>
 <div class="ulist">
@@ -385,9 +452,9 @@ through all the stored data and generate the statistics data whenever it is quer
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-allocation-feature"><a class="link" href="#auto-allocation-feature">3.2. Auto allocation feature</a></h3>
+<h3 id="auto-allocation-feature"><a class="link" href="#auto-allocation-feature">4.2. Auto allocation feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>AutoAllocateCommand</code> has an auto-allocation mechanism which is facilitated by methods in <code>Event</code>.
 The <code>AutoAllocateCommand</code> takes in three arguments:</p>
@@ -475,7 +542,7 @@ demand (number of employees required by event, generated in step 3).</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If supply &lt; demand, throws exception to user. If supply &gt; demand, employees will be randomly selected instead.
+If demand exceeds supply, an exception will be thrown to the user. If the supply exeeds demand, employees will be randomly selected instead.
 </td>
 </tr>
 </table>
@@ -531,7 +598,7 @@ PlantUML, the lifeline reaches the end of diagram.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-storage-of-employees-associated-with-event-after-successful-command"><a class="link" href="#aspect-storage-of-employees-associated-with-event-after-successful-command">Aspect: Storage of employees associated with event after successful command</a></h5>
 <div class="ulist">
@@ -602,9 +669,9 @@ PlantUML, the lifeline reaches the end of diagram.
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-date-time-to-events"><a class="link" href="#setting-date-time-to-events">3.3. Setting Date &amp; Time to Events</a></h3>
+<h3 id="setting-date-time-to-events"><a class="link" href="#setting-date-time-to-events">4.3. Setting Date &amp; Time to Events</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>Event</code> object is constructed with a start date and an end date as class attributes, both of which are <code>EventDate</code> objects, which represents a single day by itself.
 Our implementation of <code>Event</code> does not assume that the event will be occurring consecutively from the start to the end date, and requires the user to manually assign each specific date with the time period that the Event is in process.</p>
@@ -665,7 +732,7 @@ If the command execution fails, a <code>ParseException</code> (from Step 2) or a
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-storage-of-datetimemap"><a class="link" href="#aspect-storage-of-datetimemap">Aspect: Storage of DateTimeMap</a></h5>
 <div class="ulist">
@@ -714,9 +781,9 @@ However, as we are constrained with not utilizing a DBMS, Alternative 1 is a log
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-display-schedule-feature"><a class="link" href="#proposed-display-schedule-feature">3.4. [Proposed] Display Schedule feature</a></h3>
+<h3 id="display-schedule-feature"><a class="link" href="#display-schedule-feature">4.4. Display Schedule feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.4.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.4.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The Display Schedule Feature is implemented to allow users to view all dates and the specific events for those dates listed.
 The feature is facilitated by a <code>DistinctDatesProcessor</code> and requires the use of a new Object - <code>DistinctDate</code>, as well as
@@ -744,23 +811,28 @@ they are representing. These DistinctDate Objects are then used to be represente
 </ul>
 </div>
 <div class="paragraph">
+<p>The following class diagrams shows how the <code>DistinctDate</code> class and utility <code>DistinctDateProcessor</code> class is implemented:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DistinctDateClassDiagram.png" alt="DistinctDateClassDiagram">
+</div>
+<div class="title">Figure 13. <em>Class Diagram for DistinctDate</em></div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DistinctDateProcessorClassDiagram.png" alt="DistinctDateProcessorClassDiagram">
+</div>
+<div class="title">Figure 14. <em>Class Diagram for DistinctDateProcessor</em></div>
+</div>
+<div class="paragraph">
 <p>Given below is an example usage scenario and how the display schedule mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application for the first time. The <code>distinctDatesList</code> will be initialized based on the initial event book state.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DisplayScheduleState0.png" alt="DisplayScheduleState0">
-</div>
-</div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>add_ev n/Free Cofee &#8230;&#8203;</code> to add a new event into the list. The distinctDatesList will be flushed.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DisplayScheduleState1.png" alt="DisplayScheduleState1">
-</div>
+<p>Step 2. The user executes <code>add_ev n/Free Cofee &#8230;&#8203;</code> to add a new event into the Eventlist. The distinctDatesList will be reinitialised with an empty list (all its existing inputs will be flushed).</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -777,18 +849,8 @@ If a command that alters the eventBook will cause the distinctDatesList to be fl
 <div class="paragraph">
 <p>Step 3. The user executes <code>display_schedule</code> to see all dates and the respective events on those dates. The distinctDateList will be generated again based on the current list of events in the EventList.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DisplayScheduleState2.png" alt="DisplayScheduleState2">
-</div>
-</div>
 <div class="paragraph">
 <p>Step 4. The user now decides to close the app, the current state of the EventBook and EmployeeBook will be stored, however the DistinctDateList would not.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DisplayScheduleState3.png" alt="DisplayScheduleState3">
-</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -803,13 +865,13 @@ Note that the Display Schedule Feature does not load and store the DistinctDate 
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
+<p>The following sequence diagram shows how the display operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DisplayScheduleSequenceDiagram.png" alt="DisplayScheduleSequenceDiagram">
 </div>
-<div class="title">Figure 13. <em>Sequence Diagram for DisplaySchedule Command</em></div>
+<div class="title">Figure 15. <em>Sequence Diagram for DisplaySchedule Command</em></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -825,7 +887,7 @@ The lifeline for <code>DisplayScheduleCommand</code> ends at the destroy marker 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-display-schedule-executes"><a class="link" href="#aspect-how-display-schedule-executes">Aspect: How Display Schedule executes</a></h5>
 <div class="ulist">
@@ -875,29 +937,29 @@ Processing is only done when it is needed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finance"><a class="link" href="#finance">3.5. Finance</a></h3>
+<h3 id="finance"><a class="link" href="#finance">4.5. Finance</a></h3>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.5.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p><em>WIP</em></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><em>WIP</em></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -928,7 +990,7 @@ Processing is only done when it is needed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -936,7 +998,7 @@ Processing is only done when it is needed.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
@@ -944,7 +1006,7 @@ Processing is only done when it is needed.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
@@ -952,7 +1014,7 @@ Processing is only done when it is needed.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
@@ -1467,4 +1529,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 14:27:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 14:59:16 UTC</div></div></div></body></html>

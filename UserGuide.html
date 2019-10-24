@@ -18,8 +18,9 @@
 <li><a href="#employee-specific-management">3.3. Employee-Specific Management</a></li>
 <li><a href="#event-specific-management">3.4. Event-Specific Management</a></li>
 <li><a href="#finance-management">3.5. Finance Management</a></li>
-<li><a href="#archive-management">3.6. Archive Management</a></li>
-<li><a href="#miscellaneous">3.7. Miscellaneous</a></li>
+<li><a href="#schedule">3.6. Schedule</a></li>
+<li><a href="#display-entire-schedule">3.7. Display Entire Schedule</a></li>
+<li><a href="#miscellaneous">3.8. Miscellaneous</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -170,7 +171,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-code-add-addev-code"><a class="link" href="#adding-code-add-addev-code">3.2.2. Adding: <code>add | addev</code></a></h4>
+<h4 id="adding-code-add-add_ev-code"><a class="link" href="#adding-code-add-add_ev-code">3.2.2. Adding: <code>add | add_ev</code></a></h4>
 <div class="paragraph">
 <p>Employee: Adds an employee to the employee list</p>
 </div>
@@ -181,7 +182,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Employee Format: <code>add n/NAME no/PHONE_NUMBER p/POSITION e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
-<p>Event Format: <code>addev n/EVENT_NAME m/MANPOWER_NEEDED on/DDMMYYYY till/DDMMYYYY at/LOCATION_NAME [t/TAG]&#8230;&#8203;</code></p>
+<p>Event Format: <code>add_ev n/EVENT_NAME m/MANPOWER_NEEDED on/DDMMYYYY till/DDMMYYYY at/LOCATION_NAME [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -275,48 +276,7 @@ Edits the name of the 2nd event to be <code>Concert</code> and clears all existi
 </div>
 </div>
 <div class="sect3">
-<h4 id="fetch-full-details-of-entity-code-fetch_em-fetch_ev-code"><a class="link" href="#fetch-full-details-of-entity-code-fetch_em-fetch_ev-code">3.2.4. Fetch Full Details of Entity: <code>fetch_em | fetch_ev</code></a></h4>
-<div class="paragraph">
-<p>Fetch the full details of a specific event/employee. Returns one employee/event only.</p>
-</div>
-<div class="paragraph">
-<p>Employee Format: <code>fetch_em INDEX</code></p>
-</div>
-<div class="paragraph">
-<p>Event Format: <code>fetch_ev INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>INDEX</code> must be a positive integer and exist within the displayed list.</p>
-</li>
-<li>
-<p>If not found, an 'Employee/Event Not Found' will be displayed.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>fetch_em 2</code><br>
-Returns employee at index 2</p>
-</li>
-<li>
-<p><code>fetch_ev 3</code><br>
-Returns event at index 3</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="find-code-find_em-find_ev-code"><a class="link" href="#find-code-find_em-find_ev-code">3.2.5. Find: <code>find_em | find_ev</code></a></h4>
+<h4 id="find-code-find_em-find_ev-code"><a class="link" href="#find-code-find_em-find_ev-code">3.2.4. Find: <code>find_em | find_ev</code></a></h4>
 <div class="paragraph">
 <p>Find entities whose names contain any of the given keywords.</p>
 </div>
@@ -366,7 +326,7 @@ Returns any entity having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-an-entity-code-delete_em-delete_ev-code"><a class="link" href="#deleting-an-entity-code-delete_em-delete_ev-code">3.2.6. Deleting an entity : <code>delete_em | delete_ev</code></a></h4>
+<h4 id="deleting-an-entity-code-delete_em-delete_ev-code"><a class="link" href="#deleting-an-entity-code-delete_em-delete_ev-code">3.2.5. Deleting an entity : <code>delete_em | delete_ev</code></a></h4>
 <div class="paragraph">
 <p>Deletes the entity from the employee roster/event calendar.</p>
 </div>
@@ -466,47 +426,12 @@ Deletes the 1st event in the results of the <code>find</code> command.</p>
 <div class="sect2">
 <h3 id="event-specific-management"><a class="link" href="#event-specific-management">3.4. Event-Specific Management</a></h3>
 <div class="sect3">
-<h4 id="mark-event-as-done-code-done-code"><a class="link" href="#mark-event-as-done-code-done-code">3.4.1. Mark Event as Done: <code>done</code></a></h4>
-<div class="paragraph">
-<p>Record the completion/conclusion of an Event.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>done INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>INDEX</code> must be a positive integer and exist within the displayed list.</p>
-</li>
-<li>
-<p>If not found, an 'Event Not Found' will be displayed.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list_ev</code><br>
-<code>done 2</code><br>
-Marks the second event on the list as done.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="allocate-employees-to-events-code-allocate-code"><a class="link" href="#allocate-employees-to-events-code-allocate-code">3.4.2. Allocate Employees to Events: <code>allocate</code></a></h4>
+<h4 id="automated-allocation-of-employees-to-events-code-allocate-code"><a class="link" href="#automated-allocation-of-employees-to-events-code-allocate-code">3.4.1. Automated allocation of Employees to Events: <code>allocate</code></a></h4>
 <div class="paragraph">
 <p>Automatically chooses and allocates employees to events that meet the requirements.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>allocate EVENT_ID [f/TAGS]&#8230;&#8203;</code></p>
+<p>Format: <code>allocate EVENT_INDEX [n/NUMBER] [t/TAG] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -515,7 +440,8 @@ Marks the second event on the list as done.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-An event can have any number of requirements (including 0)
+Fields in [] are optional.
+Random selection of employee to allocate if supply exceeds demand of event.
 </td>
 </tr>
 </table>
@@ -525,10 +451,19 @@ An event can have any number of requirements (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p>EVENT_ID is a unique 3-digit number that acts as a serial key to identify events.</p>
+<p>Allocates a <code>NUMBER</code> of employees to the event at the specified <code>EVENT_INDEX</code> filtered based on <code>TAG</code>.</p>
 </li>
 <li>
-<p>Tags function as filters to determine if an employee is assigned to work for that particular event.
+<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
+</li>
+<li>
+<p>The <code>NUMBER</code> refers to the number of employees to be allocated to the event.</p>
+</li>
+<li>
+<p>Both <code>EVENT_INDEX</code> and <code>NUMBER</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>If no <code>NUMBER</code> is specified, it is assumed to be the current manpower count required by the event.
 *</p>
 </li>
 </ul>
@@ -541,37 +476,39 @@ An event can have any number of requirements (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>list_ev</code><br>
-<code>allocate 002 t/female</code><br>
-Allocates to Event 002 all available employees who are tagged as 'female'</p>
+<p><code>allocate 1</code><br>
+Allocates available employees to the 1st event.</p>
 </li>
 <li>
-<p><code>allocate 004 t/music t/night-shift</code><br>
-Allocates to Event 002 all available employees who have expertise in 'music' and are able to work night shifts.</p>
+<p><code>allocate 2 n/3 t/female</code><br>
+Allocates 3 employees who are tagged as 'female' to the 2nd event.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="manually-allocate-employees-ot-events-code-allocatem-code"><a class="link" href="#manually-allocate-employees-ot-events-code-allocatem-code">3.4.3. Manually allocate Employees ot Events: <code>allocateM</code></a></h4>
+<h4 id="manually-allocation-of-employees-to-events-code-allocatem-code"><a class="link" href="#manually-allocation-of-employees-to-events-code-allocatem-code">3.4.2. Manually allocation of Employees to Events: <code>allocatem</code></a></h4>
 <div class="paragraph">
-<p>Manually chooses and allocates employees to events that meet the requirements.</p>
+<p>Manually chooses and allocates employees to events.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>allocateM EVENT_ID [n/EMPLOYEE_NUMBER]&#8230;&#8203;</code></p>
+<p>Format: <code>allocatem EVENT_INDEX n/EMPLOYEE_INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>EVENT_ID is a unique 3-digit number that acts as a serial key to identify events.</p>
+<p>Allocates an employee with <code>EMPLOYEE_INDEX</code> to the event at the specified <code>EVENT_INDEX</code>.</p>
 </li>
 <li>
-<p>EMPLOYEE_NUMBER is the number of the employee on the displayed list.</p>
+<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
 </li>
 <li>
-<p>There should be at least one employee number stated.</p>
+<p>The <code>EMPLOYEE_INDEX</code> refers to the index number shown in the displayed employee list.</p>
+</li>
+<li>
+<p>Both <code>EVENT_INDEX</code> and <code>EMPLOYEE_INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
@@ -583,11 +520,60 @@ Allocates to Event 002 all available employees who have expertise in 'music' and
 <div class="ulist">
 <ul>
 <li>
-<p><code>list_ev</code><br>
-<code>allocateM 002 n/2 n/5 n/3</code><br>
-Allocates to Event 002 employees numbered 2, 3, 5 on the list.</p>
+<p><code>allocatem 1 n/2</code><br>
+Allocates the 2nd employee on the employee list to the 1st event on the event list.</p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fetch-full-details-of-an-event-code-fetch_ev-code-also-a-gui-feature"><a class="link" href="#fetch-full-details-of-an-event-code-fetch_ev-code-also-a-gui-feature">3.4.3. Fetch Full Details of an Event: <code>fetch_ev</code> (also a GUI feature)</a></h4>
+<div class="paragraph">
+<p>Fetches an event by displaying a pop-up window with full details of the event.</p>
+</div>
+<div class="paragraph">
+<p>Event Format: <code>fetch_ev EVENT_INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
+</li>
+<li>
+<p>The <code>EVENT_INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fetch_ev 2</code><br>
+Returns the 2rd event from the event list</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Alternatively, simply double-click the event card in the list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BeforeFetch.png" alt="BeforeFetch" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>After double-clicking, a pop-up window should show:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AfterFetch.png" alt="AfterFetch" width="790">
+</div>
 </div>
 </div>
 </div>
@@ -664,114 +650,45 @@ Generates the contract for Event_ID 005.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="archive-management"><a class="link" href="#archive-management">3.6. Archive Management</a></h3>
+<h3 id="schedule"><a class="link" href="#schedule">3.6. Schedule</a></h3>
 <div class="sect3">
-<h4 id="record-past-event-code-archive_ev-code"><a class="link" href="#record-past-event-code-archive_ev-code">3.6.1. Record Past Event: <code>archive_ev</code></a></h4>
+<h4 id="view-schedule-for-a-specific-date"><a class="link" href="#view-schedule-for-a-specific-date">3.6.1. View Schedule for a specific date</a></h4>
 <div class="paragraph">
-<p>Archives a past event and its details, for future reference.</p>
+<p>Displays the events for the specific date</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>archive_ev EVENT_ID</code></p>
+<p>Format: <code>view_schedule on/DDMMYYYY</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:
+* <code>view_schedule on/02</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>EVENT_ID is a unique 3-digit number that acts as a serial key to identify events.</p>
+<p>on/ represents the date in DDMMYYYY that the user wants to display</p>
 </li>
 </ul>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list_ev</code><br>
-<code>archive_ev 002</code><br></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Archives a past Event with ID 002.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="record-past-event-code-list_archive_ev-code"><a class="link" href="#record-past-event-code-list_archive_ev-code">3.6.2. Record Past Event: <code>list_archive_ev</code></a></h4>
-<div class="paragraph">
-<p>Display List of all archived events. With an index and the Archive event Name and ID</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>list_archive_ev</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="search-for-archive-event-code-display_archive_ev-code"><a class="link" href="#search-for-archive-event-code-display_archive_ev-code">3.6.3. Search for Archive Event: <code>display_archive_ev</code></a></h4>
-<div class="paragraph">
-<p>Displays an achieved event and its details.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>display_archive_ev INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>INDEX</code> must be a positive integer and exist within the displayed list.</p>
-</li>
-<li>
-<p>If not found, an 'Event Not Found' will be displayed.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list_archive_ev</code><br>
-<code>display_archive_ev 2</code><br>
-Displays the second event on the list and its details.</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous"><a class="link" href="#miscellaneous">3.7. Miscellaneous</a></h3>
+<h3 id="display-entire-schedule"><a class="link" href="#display-entire-schedule">3.7. Display Entire Schedule</a></h3>
+<div class="paragraph">
+<p>Displays all the dates that has an event.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>display_schedule</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="link" href="#miscellaneous">3.8. Miscellaneous</a></h3>
 <div class="sect3">
-<h4 id="view-schedule"><a class="link" href="#view-schedule">3.7.1. View Schedule</a></h4>
-<div class="paragraph">
-<p>Displays the dates with events for the specific month</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>view_schedule for/MM</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:
-* <code>view_schedule for/02</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>for/ represents the month in MM that the user wants to display</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="generate-statistics-code-generate_stats-code"><a class="link" href="#generate-statistics-code-generate_stats-code">3.7.2. Generate Statistics: <code>generate_stats</code></a></h4>
+<h4 id="generate-statistics-code-generate_stats-code"><a class="link" href="#generate-statistics-code-generate_stats-code">3.8.1. Generate Statistics: <code>generate_stats</code></a></h4>
 <div class="paragraph">
 <p>Displays a set of statistics, Number of events, Number of employee etc</p>
 </div>
@@ -780,7 +697,7 @@ Displays the second event on the list and its details.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7.3. Clearing all entries : <code>clear</code></a></h4>
+<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.8.2. Clearing all entries : <code>clear</code></a></h4>
 <div class="paragraph">
 <p>Clears all entries from the address book.</p>
 </div>
@@ -789,7 +706,7 @@ Displays the second event on the list and its details.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.7.4. Saving the data</a></h4>
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.8.3. Saving the data</a></h4>
 <div class="paragraph">
 <p>AddMin+ data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -889,20 +806,12 @@ e.g. <code>pay 2 f/20082019 t/20102019</code></p>
 e.g. <code>contract n/005</code></p>
 </li>
 <li>
-<p><strong>Archive Past Event</strong>: <code>archive_ev EVENT_ID</code><br>
-e.g. <code>archive_ev 005</code></p>
+<p><strong>View Schedule for specific date</strong>: <code>view_schedule on/DDMMYYYY</code><br>
+e.g. <code>view_schedule on/02/12/2019</code></p>
 </li>
 <li>
-<p><strong>List Archive Event</strong>: <code>list_archive_ev</code><br>
-e.g. <code>list_archive_ev</code></p>
-</li>
-<li>
-<p><strong>Display Archive Event</strong>: <code>display_archive_ev INDEX</code><br>
-e.g. <code>display_archive_ev 2</code></p>
-</li>
-<li>
-<p><strong>View Schedule</strong>: <code>view_schedule for/MM</code><br>
-e.g. <code>view_schedule for/02</code></p>
+<p><strong>Display Entire Schedule</strong>: <code>display_schedule</code><br>
+e.g. <code>display_schedule</code></p>
 </li>
 <li>
 <p><strong>Generate Statistics</strong>: <code>generate_stats</code><br>
@@ -917,4 +826,4 @@ e.g. <code>generate_stats</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 17:31:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 02:13:40 UTC</div></div></div></body></html>

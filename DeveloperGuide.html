@@ -23,10 +23,12 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#statistics-feature">3.1. Statistics feature</a></li>
-<li><a href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#auto-allocation-feature">3.2. Auto allocation feature</a></li>
+<li><a href="#setting-date-time-to-events">3.3. Setting Date &amp; Time to Events</a></li>
+<li><a href="#proposed-display-schedule-feature">3.4. [Proposed] Display Schedule feature</a></li>
+<li><a href="#finance">3.5. Finance</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -64,7 +66,7 @@
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
 </div>
-<div class="title">Figure 1. Architecture Diagram</div>
+<div class="title">Figure 1. <em>Architecture Diagram</em></div>
 </div>
 <div class="paragraph">
 <p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
@@ -76,14 +78,14 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/">diagrams</a> folder.
+The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/docs/diagrams/">diagrams</a> folder.
 Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -145,7 +147,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 2. Class Diagram of the Logic Component</div>
+<div class="title">Figure 2. <em>Class Diagram of the Logic Component</em></div>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
@@ -155,7 +157,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 3. <em>Component interactions for <code>delete 1</code> command</em></div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -167,16 +169,17 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
 </div>
-<div class="title">Figure 4. Structure of the UI Component</div>
+<div class="title">Figure 4. <em>Structure of the UI Component</em></div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>ListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.
+There is also a <code>ScheduleBox</code> that is one of the tabs in the TabPane of <code>MainWindow</code>, the <code>ScheduleBox</code> which inherits from the abstract class <code>Tabs</code>. The abstract class <code>Tabs</code> also inherits from the abstract class <code>UiPart</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -198,16 +201,16 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of the Logic Component</div>
+<div class="title">Figure 5. <em>Structure of the Logic Component</em></div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p><code>Logic</code> uses the <code>AddMinParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
@@ -230,7 +233,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 6. <em>Interactions Inside the Logic Component for the <code>delete 1</code> Command</em></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -251,10 +254,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 7. <em>Structure of the Model Component</em></div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -265,10 +268,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the Employee Book and Event Book data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Employee&gt;</code> and an unmodifiable <code>ObservableList&lt;Event&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -282,7 +285,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Tag</code> list in both <code>Employee Book</code> and <code>Event Book</code>, which <code>Employee</code> can reference. This would allow our application to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Employee</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
@@ -296,10 +299,10 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 8. <em>Structure of the Storage Component</em></div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -310,7 +313,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Address Book data in json format and read it back.</p>
+<p>can save the App data in json format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -318,7 +321,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>seedu.addmin.commons</code> package.</p>
 </div>
 </div>
 </div>
@@ -332,7 +335,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect2">
 <h3 id="statistics-feature"><a class="link" href="#statistics-feature">3.1. Statistics feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the statistics mechanism behaves at each step.</p>
 </div>
@@ -382,56 +385,62 @@ through all the stored data and generate the statistics data whenever it is quer
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="auto-allocation-feature"><a class="link" href="#auto-allocation-feature">3.2. Auto allocation feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.2.1. Proposed Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p>The <code>AutoAllocateCommand</code> has a auto-allocation mechanism which is facilitated by methods in <code>Event</code>.
+The <code>AutoAllocateCommand</code> takes in three arguments:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>eventIndex</code> - index of event in the displayed event list</p>
+</li>
+<li>
+<p><code>ManpowerCountToAdd</code> - number of employees to allocate [optional]</p>
+</li>
+<li>
+<p><code>tagList</code> - a set of tags to filter the employees [optional]</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Additionally, the <code>AutoAllocateCommand</code> uses the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p><code>Event#isAvailableForEvent()</code>&#8201;&#8212;&#8201;Checks if an employee is available for the event.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
+<p><code>Event#allocateEmployee()</code>&#8201;&#8212;&#8201;Checks if an employee is available for the event.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p><code>AutoAllocateCommand#createAvailableEmployeeListForEvent()</code>&#8201;&#8212;&#8201;Creates a list of employees available for the event,
+filtered by the tags specified by user.</p>
+</li>
+<li>
+<p><code>AutoAllocateCommand#getManpowerNeededByEvent()</code>&#8201;&#8212;&#8201;Calculates the number of employees currently required
+by the event.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>Given below is an example usage scenario and how the auto allocation mechanism behaves at each step.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState0.png" alt="UndoRedoState0">
+<img src="images/AutoAllocateFlowChart.png" alt="AutoAllocateFlowChart">
 </div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th employee in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
+<div class="title">Figure 9. <em>Program flow of the Auto Allocate Feature</em></div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new employee. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+<p><strong>Step 1</strong>. The user executes <code>allocate 1 n/2 t/female</code> with the intention to allocate 2 employees with tag [female]
+to the 1st event displayed in the event list.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>. The command checks if <code>eventIndex</code> is valid and if <code>ManpowerCountToAdd</code> is specified.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -440,17 +449,317 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
+If <code>ManpowerCountToAdd</code> is not specified, it is assumed to be the maximum number possible for the event.
+Validity of other command arguments e.g. if <code>ManpowerCountToAdd</code> is a positive integer is checked
+by <code>AutoAllocateCommandParser</code> and not within the command <code>AutoAllocateCommand</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the employee was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+<p><strong>Step 3</strong>. The command calls its own method <code>AutoAllocateCommand#getManpowerNeededByEvent()</code> to get the number of employees
+required by the specified event.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>. The command calls its own method <code>AutoAllocateCommand#createAvailableEmployeeListForEvent()</code> to create a
+filtered list of employees based on the <code>tagList</code> and if employee satisfies <code>Event#isAvailableForEvent()</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>. The command checks if supply (number of employees in filtered list in step 4) exceeds
+demand (number of employees required by event, generated in step 3).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If supply &lt; demand, throws exception to user. If supply &gt; demand, employees will be randomly selected instead.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 6</strong>. The command calls <code>Event#allocateEmployee()</code> to allocate the chosen employees to the event.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For storage purposes, only the <code>Employee#EmployeeId</code> is allocated to the event.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 7</strong>. Done.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the auto allocation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState3.png" alt="UndoRedoState3">
+<img src="images/AutoAllocateSequenceDiagram.png" alt="AutoAllocateSequenceDiagram">
+</div>
+<div class="title">Figure 10. <em>Sequence Diagram of the AutoAllocate Command</em></div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The lifeline for <code>AutoAllocateCommand</code> should end at the destroy marker (X) but due to a limitation of
+PlantUML, the lifeline reaches the end of diagram.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user successfully executes a <code>AutoAllocateCommand</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoAllocateActivityDiagram.png" alt="AutoAllocateActivityDiagram">
+</div>
+<div class="title">Figure 11. <em>Activity Diagram of the AutoAllocate Command</em></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-storage-of-employees-associated-with-event-after-successful-command"><a class="link" href="#aspect-storage-of-employees-associated-with-event-after-successful-command">Aspect: Storage of employees associated with event after successful command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Saves only the <code>Employee#EmployeeId</code> associated with the event.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. Will use less memory.</p>
+</li>
+<li>
+<p>Cons: Future accesses require more time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Saves all fields of <code>Employee</code> associated with the event..</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy retrieval in the future.</p>
+</li>
+<li>
+<p>Cons: Changes in <code>Employee</code> attributes have to be reflected in the event. This meant that <code>EditCommand</code> and
+<code>DeleteCommand</code> have to be heavily modified.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-allocation-of-manpower-when-demand-exceeds-supply"><a class="link" href="#aspect-allocation-of-manpower-when-demand-exceeds-supply">Aspect: Allocation of manpower when demand exceeds supply.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Throws exception</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Allocate the current available employees</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+</li>
+<li>
+<p>Cons: Testability issues.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-date-time-to-events"><a class="link" href="#setting-date-time-to-events">3.3. Setting Date &amp; Time to Events</a></h3>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>Event</code> object is constructed with a start date and an end date as class attributes, both of which are <code>EventDate</code> objects, which represents a single day by itself.
+Our implementation of <code>Event</code> does not assume that the event will be occurring consecutively from the start to the end date, and requires the user to manually assign each specific date with the time period that the Event is in process.</p>
+</div>
+<div class="paragraph">
+<p>To achieve this functionality, there exists an <code>EventDayTime</code> object that encapsulates the period of the day.
+It has two class attributes - both of which are <code>LocalTime</code> objects to represent the start and end time.</p>
+</div>
+<div class="paragraph">
+<p>Each Event contains an <code>EventDateTimeMap</code> object that maps an <code>EventDate</code> object to an <code>EventDayTime</code> object using a HashMap implementation.
+This mapping is added through the <code>EventAssignDate</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of the program functionality when a user attempts to assign a Date &amp; Time to an already existent Event.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The User executes the command <code>set_ev_dt 2 on/18/10/2019 time/0900-2000</code>, with the intention to assign the date of 18th October 2019, time period 9am-8pm to the second event currently displayed in the event list.</p>
+</li>
+<li>
+<p>The parser checks if input format is correct, and attempts to create <code>Index</code>, <code>EventDate</code> and <code>EventDayTime</code> objects from it</p>
+</li>
+<li>
+<p>The command checks if the index of the event stated exists on the displayed list, and if the stated date is within the start and end date of the Event. (Input Validation)</p>
+</li>
+<li>
+<p>The command calls <code>Event#assignDateTime()</code> on the referenced Event object to add the EventDate-EventDayTime mapping into <code>EventDateTimeMap</code>.</p>
+</li>
+<li>
+<p>Storage is updated.</p>
+</li>
+<li>
+<p>Done.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the command execution fails, a <code>ParseException</code> (from Step 2) or a <code>CommandException</code> (from Step 3) will be thrown, specifiying the reason of the error.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows how the Setting of Date&amp;Time to Event work:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SettingEventDateActivityDiagram.png" alt="SettingEvent" width="295" height="607">
+</div>
+<div class="title">Figure 12. <em>Activity Diagram of the SettingEventDate Command</em></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-storage-of-datetimemap"><a class="link" href="#aspect-storage-of-datetimemap">Aspect: Storage of DateTimeMap</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Stores the DateTimeMap in an array format that is saved in <code>eventbook.json</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simplicity in implementation and easier reference as it is loaded and saved to the same JSON file.</p>
+</li>
+<li>
+<p>Cons: Performance issues as it needs to update the entire event object although only one attribute is updated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store the DateTimeMap in a separate file e.g. <code>EventDateTimes.json</code> that will be referenced by EventBook during initialization.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Faster performance in saving and loading as it is kept separate from <code>eventbook.json</code> and hence will not</p>
+</li>
+<li>
+<p>Cons: Requires a new storage unit, along with all its supporting functions which will require alot of repeated code.
+Instantiation of the <code>Event</code> object when the app is started will be more complicated as well due to the need to read from two separate files</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Decision:</strong> Alternative 1</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 2 would make sense if our app is utilizing a DBMS and it would be a best practice to separate the information.
+However, as we are constrained with not utilizing a DBMS, Alternative 1 is a logically simpler and more efficent solution from a software engineering standpoint.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-display-schedule-feature"><a class="link" href="#proposed-display-schedule-feature">3.4. [Proposed] Display Schedule feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.4.1. Proposed Implementation</a></h4>
+<div class="paragraph">
+<p>The Display Schedule Feature is implemented to allow users to view all dates and the specific events for those dates listed.
+The feature is facilitated by a <code>DistinctDatesProcessor</code> and requires the use of a new Object - <code>DistinctDate</code>, as well as
+an internal ObservableList - <code>distinctDatesList</code> found in the <code>ModelManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>It processes the entire list of Events in the <code>EventList</code> when the command is called. The <code>DistinctDateProcessor</code> will then
+process through these events to create specific <code>DistinctDate</code> Objects which stores a list of events which occurs on the date
+they are representing. These DistinctDate Objects are then used to be represented on the GUI.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, The DistinctDateProcessor contains the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>generateDistinctDateList(Model model)</code>&#8201;&#8212;&#8201;Returns a list of <code>DistinctDate</code> Objects. This operation utilises the generateDateList() and generateListOfEventForDate() operations.</p>
+</li>
+<li>
+<p><code>generateListOfEventForDate(LocalDate date, Model model)</code>&#8201;&#8212;&#8201;Takes in a <code>LocalDate</code> object, and processes through the entire list of events, to find all events on that specific date, and return them as a list.</p>
+</li>
+<li>
+<p><code>generateDateList(Model model)</code>&#8201;&#8212;&#8201;Takes in the entire list of events, identify all the dates that has at least one event and returns it as a list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the display schedule mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>distinctDatesList</code> will be initialized based on the initial event book state.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DisplayScheduleState0.png" alt="DisplayScheduleState0">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>add_ev n/Free Cofee &#8230;&#8203;</code> to add a new event into the list. The distinctDatesList will be flushed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DisplayScheduleState1.png" alt="DisplayScheduleState1">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -460,7 +769,35 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If a command that alters the eventBook will cause the distinctDatesList to be flushed. User will be required to input "display_schedule" command again to generate the new list of schedule.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>display_schedule</code> to see all dates and the respective events on those dates. The distinctDateList will be generated again based on the current list of events in the EventList.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DisplayScheduleState2.png" alt="DisplayScheduleState2">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 4. The user now decides to close the app, the current state of the EventBook and EmployeeBook will be stored, however the DistinctDateList would not.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DisplayScheduleState3.png" alt="DisplayScheduleState3">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note that the Display Schedule Feature does not load and store the DistinctDate Objects. It processes and generates the list when it is called upon or when the application starts.
 </td>
 </tr>
 </table>
@@ -470,23 +807,9 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial a
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
+<img src="images/DisplayScheduleSequenceDiagram.png" alt="DisplayScheduleSequenceDiagram">
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
+<div class="title">Figure 13. <em>Sequence Diagram for DisplaySchedule Command</em></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -495,97 +818,53 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+The lifeline for <code>DisplayScheduleCommand</code> ends at the destroy marker (X).
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-how-display-schedule-executes"><a class="link" href="#aspect-how-display-schedule-executes">Aspect: How Display Schedule executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> Generates and Processes the DistinctDate Object upon start up and command call.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Easy to implement and requires less Storage Capacity.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
+<p>Cons: May have performance issues in terms of speed and time Complexity. The program will have to iterate through the entire list of events, whenever display_schedule command is called.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Creates and Stores the DistinctDate object whenever a new event is added.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the employee being deleted).</p>
+<p>Pros: Will require less processing, Do not have to create a new list of DistinctDate object everytime it is called</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+<p>Cons: May have performance issues in terms of Storage needed, requires new storage unit to store a new entity which is not as important.
+Can cause speed and time complexity issues as well, Whenever edits are made to the existing eventList - add_ev, delete_ev etc
+the program is required to process through all DistinctDate Object to make the neccesary changes.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+<p><strong>Decision:</strong> Alternative 1</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Alternative 1 makes more logical sense and will be more efficient as compared to Alternative 2. Alternative 1 requires less intermediate processing and storage units to support the feature.
+Processing is only done when it is needed.</p>
 </li>
 </ul>
 </div>
@@ -596,20 +875,29 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="finance"><a class="link" href="#finance">3.5. Finance</a></h3>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.5.1. Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p><em>WIP</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><em>WIP</em></p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -640,7 +928,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -680,24 +968,28 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>Has a need to help HR manage events and employees</p>
+<p>Has a need to help Administrative staff to manage events and employees.</p>
 </li>
 <li>
-<p>Prefer desktop apps over other types</p>
+<p>Prefer desktop apps over other types.</p>
 </li>
 <li>
-<p>Can type fast</p>
+<p>Can type fast.</p>
 </li>
 <li>
-<p>Prefers typing over mouse input</p>
+<p>Prefers typing over mouse input.</p>
 </li>
 <li>
-<p>Is reasonably comfortable using CLI apps</p>
+<p>Is reasonably comfortable using CLI apps.</p>
+</li>
+<li>
+<p>Someone who prefers a clean interface and dislike clutter.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: Manage events and employees easier than enterprise apps commonly used such as Microsoft Excel and Microsoft Word.</p>
+<p><strong>Value proposition</strong>: Manage events and employees easier than enterprise apps commonly used such as Microsoft Excel and Microsoft Word.
+Provides a clean and modern desktop application designed specifically to cater to their specific needs while improving user experience and efficiency.</p>
 </div>
 </div>
 </div>
@@ -732,7 +1024,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HR Admin</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view upcoming events</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view upcoming events and schedule of these events</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">remind the company staff to attend</p></td>
 </tr>
 <tr>
@@ -792,7 +1084,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Admin Staff</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find upcoming events</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see all events on a specific date</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">plan on the logistics needed ahead of time</p></td>
 </tr>
 <tr>
@@ -824,7 +1116,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>AddMin+ shows a list of employees</p>
 </li>
 <li>
-<p>User requests to delete a specific employee by stating the Employee ID</p>
+<p>User requests to delete a specific employee by stating the index of the current displayed list.</p>
 </li>
 <li>
 <p>AddMin+ deletes the employee</p>
@@ -840,7 +1132,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. The given Employee ID is invalid.</p>
+<p>3a. The given input index is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -864,10 +1156,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>User requests to view the company’s current list of events.</p>
 </li>
 <li>
-<p>AddMin+ shows a list of events, with each event containing a unique Event ID.</p>
+<p>AddMin+ shows a list of events, with each event tagged to an index of the current displayed list.</p>
 </li>
 <li>
-<p>User specifies Event ID, and list the details of the event to edit</p>
+<p>User specifies the index of the event, and list the details of the event to edit</p>
 </li>
 <li>
 <p>AddMin+ edits and saves the updated event details.</p>
@@ -883,7 +1175,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>3a. Event ID given is invalid.</p>
+<p>3a. Input Index given is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -953,23 +1245,23 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
-<h3 id="use-case-generate-employee-payslip" class="discrete">Use case: Generate Employee PaySlip</h3>
+<h3 id="use-case-view-schedule-on-a-specific-date" class="discrete">Use case: View Schedule on a specific date</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list employee</p>
+<p>User requests to list events</p>
 </li>
 <li>
-<p>EmployeeBook shows a list of employees</p>
+<p>EventBook shows a list of events</p>
 </li>
 <li>
-<p>User requests to generate a payslip document of a specific employee ID in the list by using a specific employee ID.</p>
+<p>User requests see schedule on a specific date</p>
 </li>
 <li>
-<p>AddMin+ generates a document of the pay slip of the employee ID.</p>
+<p>AddMin+ display a list of events that is on that date</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -982,7 +1274,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>3.The employee ID given is invalid.</p>
+<p>3.The date format given is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -1175,4 +1467,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 17:31:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 02:13:40 UTC</div></div></div></body></html>

@@ -294,11 +294,11 @@ Returns the 2rd event from the event list
 
 Alternatively, simply double-click the event card in the list.
 
-image::beforefetch.png[width="790"]
+image::BeforeFetch.png[width="790"]
 
 After double-clicking, a pop-up window should show:
 
-image::afterfetch.png[width="790"]
+image::AfterFetch.png[width="790"]
 
 After clicking the allocate button, the employee list should be updated.
 

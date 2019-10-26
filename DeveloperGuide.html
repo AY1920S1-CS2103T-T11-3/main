@@ -31,7 +31,7 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#statistics-feature">4.1. Statistics feature</a></li>
-<li><a href="#auto-allocation-feature">4.2. Auto allocation feature</a></li>
+<li><a href="#automated-allocation-of-employees-to-events-feature">4.2. Automated allocation of Employees to Events feature</a></li>
 <li><a href="#setting-date-time-to-events">4.3. Setting Date &amp; Time to Events</a></li>
 <li><a href="#display-schedule-feature">4.4. Display Schedule feature</a></li>
 <li><a href="#finance">4.5. Finance</a></li>
@@ -452,7 +452,7 @@ through all the stored data and generate the statistics data whenever it is quer
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-allocation-feature"><a class="link" href="#auto-allocation-feature">4.2. Auto allocation feature</a></h3>
+<h3 id="automated-allocation-of-employees-to-events-feature"><a class="link" href="#automated-allocation-of-employees-to-events-feature">4.2. Automated allocation of Employees to Events feature</a></h3>
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">4.2.1. Implementation</a></h4>
 <div class="paragraph">
@@ -481,15 +481,15 @@ The <code>AutoAllocateCommand</code> takes in three arguments:</p>
 <p><code>Event#isAvailableForEvent()</code>&#8201;&#8212;&#8201;Checks if an employee is available for the event.</p>
 </li>
 <li>
-<p><code>Event#allocateEmployee()</code>&#8201;&#8212;&#8201;Checks if an employee is available for the event.</p>
-</li>
-<li>
 <p><code>AutoAllocateCommand#createAvailableEmployeeListForEvent()</code>&#8201;&#8212;&#8201;Creates a list of employees available for the event,
 filtered by the tags specified by user.</p>
 </li>
 <li>
 <p><code>AutoAllocateCommand#getManpowerNeededByEvent()</code>&#8201;&#8212;&#8201;Calculates the number of employees currently required
 by the event.</p>
+</li>
+<li>
+<p><code>AutoAllocateCommand#createEventAfterManpowerAllocation()</code>&#8201;&#8212;&#8201;Creates a new event with a updated manpower list.</p>
 </li>
 </ul>
 </div>
@@ -548,7 +548,8 @@ If demand exceeds supply, an exception will be thrown to the user. If the supply
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 6</strong>. The command calls <code>Event#allocateEmployee()</code> to allocate the chosen employees to the event.</p>
+<p><strong>Step 6</strong>. The command calls <code>Event#createEventAfterManpowerAllocation()</code> to create a new event with a updated
+manpower list.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -557,7 +558,7 @@ If demand exceeds supply, an exception will be thrown to the user. If the supply
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For storage purposes, only the <code>Employee#EmployeeId</code> is allocated to the event.
+For storage purposes, only the <code>Employee#EmployeeId</code> is saved in the event&#8217;s manpower list.
 </td>
 </tr>
 </table>
@@ -605,19 +606,9 @@ PlantUML, the lifeline reaches the end of diagram.
 <ul>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> Saves only the <code>Employee#EmployeeId</code> associated with the event.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement. Will use less memory.</p>
 </li>
 <li>
-<p>Cons: Future accesses require more time.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Saves all fields of <code>Employee</code> associated with the event.</p>
+<p><strong>Alternative 2:</strong></p>
 <div class="ulist">
 <ul>
 <li>
@@ -634,7 +625,7 @@ PlantUML, the lifeline reaches the end of diagram.
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-allocation-of-manpower-when-demand-exceeds-supply"><a class="link" href="#aspect-allocation-of-manpower-when-demand-exceeds-supply">Aspect: Allocation of manpower when demand exceeds supply.</a></h5>
+<h5 id="aspect-how-to-update-the-changes-in-the-manpower-list-of-an-event-after-allocation-of-employee"><a class="link" href="#aspect-how-to-update-the-changes-in-the-manpower-list-of-an-event-after-allocation-of-employee">Aspect: How to update the changes in the manpower list of an event after allocation of employee.</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -642,7 +633,7 @@ PlantUML, the lifeline reaches the end of diagram.
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Law of Demeter.</p>
 </li>
 <li>
 <p>Cons:</p>
@@ -665,6 +656,44 @@ PlantUML, the lifeline reaches the end of diagram.
 </li>
 </ul>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 44.4444%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">Alternative 1</th>
+<th class="tableblock halign-left valign-top">Alternative 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storage of employees associated with event after successful command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Saves only the <code>Employee#EmployeeId</code> associated with the event.</p>
+<p class="tableblock"><strong>Pros</strong>: Easy to implement. Will use less memory.</p>
+<p class="tableblock"><strong>Cons</strong>: Future accesses require more time.</p>
+<p class="tableblock">I decided to proceed with this option because it creates less dependencies.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Saves all fields of <code>Employee</code> associated with the event.</p>
+<p class="tableblock"><strong>Pros</strong>: Easy retrieval in the future.</p>
+<p class="tableblock"><strong>Cons</strong>: Changes in <code>Employee</code> attributes have to be reflected in the event. This meant that <code>EditCommand</code> and
+<code>DeleteCommand</code> for <code>Employee</code> have to be heavily modified.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">How to update the changes in the manpower list of an event after allocation of employee.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Directly modifies the <code>EventManpowerAllocatedList</code> of the specified event</p>
+<p class="tableblock"><strong>Pros</strong>: Easy to implement.
+<strong>Cons</strong>: May cause unwanted behaviours if testing is not done properly.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create a new event with a newly created and updated manpower list.
+<strong>Pros</strong>: Defensive programming.
+<strong>Cons</strong>: Harder to implement.</p>
+<p class="tableblock">I decided to proceed with this option because it complies with the Law of Demeter
+which states that objects should not navigate internal structures of other objects.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1529,4 +1558,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-26 08:01:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-26 09:10:20 UTC</div></div></div></body></html>

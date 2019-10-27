@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Calvin Chen Xingzhu - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://github.com/AY1920S1-CS2103T-T11-3/main/releases"><img src="../images/AddMin+_Logo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="../index.html">AddMin+</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Calvin Chen Xingzhu - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-3"><a class="link" href="#project-addressbook-level-3">PROJECT: AddressBook - Level 3</a></h2>
+<h2 id="project-addmin"><a class="link" href="#project-addmin">PROJECT: AddMin+</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
@@ -10,7 +10,25 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>My team of 4 software engineering students and I were tasked with enhancing a basic command line interface desktop
+addressbook application for our Software Engineering project. We chose to morph it into an employee records management
+cum communication system called AddMin+. This enhanced application enables office managers to file and recall employee
+data; manage employee work schedule and leave application;
+and email employees directly without opening an email application.</p>
+</div>
+<div class="paragraph">
+<p>This is what our project looks like:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/listview.png" alt="listview">
+</div>
+<div class="title">Figure 1. <em>The graphical user interface for AddMin+.</em></div>
+</div>
+<div class="paragraph">
+<p>My role was to design and write the codes for the fetch and allocate features. The following sections
+illustrate these enhancements in more detail, as well as the relevant documentation
+I have added to the user and developer guides in relation to these enhancements.</p>
 </div>
 </div>
 </div>
@@ -20,26 +38,28 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>automated allocation of employees to event commands</strong> with <strong>GUI feature</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: allows the user to allocate employees to an event with certain filter requirements.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature improves the product significantly because a user can now associate employees
+with events. The GUI feature further provides convenience for users.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future.
+It required an in-depth analysis of design alternatives. The implementation too was challenging as it
+required significant changes to both <code>Event</code> and <code>Employee</code> classes.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: added a <strong>fetch_ev</strong> command that allows the user to view more details about a specified event.
+The GUI feature allows users to simply double-click an event to execute this command. This GUI enhancement is complementary
+to the <strong>automated allocation</strong> feature previously mentioned.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -53,6 +73,9 @@
 <div class="ulist">
 <ul>
 <li>
+<p>Ensured integration of various components (e.g. storage, logic, model) during the morphing phase.</p>
+</li>
+<li>
 <p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
 </li>
 </ul>
@@ -63,10 +86,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Updated GUI to show both employee and event list</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
 </li>
 </ul>
 </div>
@@ -89,9 +112,6 @@
 <p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
 </li>
 <li>
@@ -100,23 +120,10 @@
 </ul>
 </div>
 </li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
 </ul>
 </div>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -138,10 +145,10 @@
 <div class="sect3">
 <h4 id="automated-allocation-of-employees-to-events-code-allocate-code-also-a-gui-feature"><a class="link" href="#automated-allocation-of-employees-to-events-code-allocate-code-also-a-gui-feature">Automated allocation of Employees to Events: <code>allocate</code> (also a GUI feature)</a></h4>
 <div class="paragraph">
-<p>Automatically chooses and allocates employees to events that meet the requirements.</p>
+<p>Automatically chooses and allocates employees that meet the requirements to events .</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>allocate EVENT_INDEX [n/NUMBER] [t/TAG] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code>allocate EVENT_INDEX [n/NUMBER] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -173,8 +180,7 @@ Random selection of employee to allocate if supply exceeds demand of event.
 <p>Both <code>EVENT_INDEX</code> and <code>NUMBER</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p>If no <code>NUMBER</code> is specified, it is assumed to be the current manpower count required by the event.
-*</p>
+<p>If no <code>NUMBER</code> is specified, it is assumed to be the current manpower count required by the event.</p>
 </li>
 </ul>
 </div>
@@ -270,27 +276,43 @@ Returns the 2rd event from the event list</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Alternatively, simply double-click the event card in the list.</p>
+<p>Alternatively, simply <strong>double-click the event</strong> in the list.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/BeforeFetch.png" alt="BeforeFetch" width="790">
+<img src="../images/BeforeFetch.png" alt="BeforeFetch" width="600">
 </div>
 </div>
 <div class="paragraph">
-<p>After double-clicking, a pop-up window should show:</p>
+<p>After double-clicking, a pop-up window with details of the specified event should show:
+<strong>Notice there are 2 buttons near the centre of the window.</strong></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AfterFetch.png" alt="AfterFetch" width="790">
+<img src="../images/AfterFetch.png" alt="AfterFetch" width="600">
 </div>
 </div>
 <div class="paragraph">
-<p>After clicking the allocate button, the employee list should be updated.</p>
+<p>To allocate employees to this event, simply <strong>click the 'allocate' button</strong>.
+After clicking the allocate button, the employee list should be updated.
+Likewise, to free/deallocate employees, <strong>click the 'free' button</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the employee list is not updated, it means the current manpower available is insufficient to fulfil the
+requirements of the event.
+</td>
+</tr>
+</table>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/afterallocate.png" alt="afterallocate" width="790">
+<img src="../images/afterallocate.png" alt="afterallocate" width="600">
 </div>
 </div>
 </div>
@@ -355,11 +377,11 @@ by the event.</p>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the auto allocation mechanism behaves at each step.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/AutoAllocateFlowChart.png" alt="AutoAllocateFlowChart">
+<img src="../images/AutoAllocateFlowChart.png" alt="AutoAllocateFlowChart" width="300">
 </div>
-<div class="title">Figure 1. <em>Program flow of the Auto Allocate Feature</em></div>
+<div class="title">Figure 2. <em>Program flow of the Auto Allocate Feature</em></div>
 </div>
 <div class="paragraph">
 <p><strong>Step 1</strong>. The user executes <code>allocate 1 n/2 t/female</code> with the intention to allocate 2 employees with tag [female]
@@ -432,7 +454,7 @@ For storage purposes, only the <code>Employee#EmployeeId</code> is saved in the 
 <div class="content">
 <img src="../images/AutoAllocateSequenceDiagram.png" alt="AutoAllocateSequenceDiagram">
 </div>
-<div class="title">Figure 2. <em>Sequence Diagram of the AutoAllocate Command</em></div>
+<div class="title">Figure 3. <em>Sequence Diagram of the AutoAllocate Command</em></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -450,76 +472,22 @@ PlantUML, the lifeline reaches the end of diagram.
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens <strong>after</strong> a user successfully executes an <code>AutoAllocateCommand</code>:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/AutoAllocateActivityDiagram.png" alt="AutoAllocateActivityDiagram">
 </div>
-<div class="title">Figure 3. <em>Activity Diagram of the AutoAllocate Command</em></div>
+<div class="title">Figure 4. <em>Activity Diagram of the AutoAllocate Command</em></div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-storage-of-employees-associated-with-event-after-successful-command"><a class="link" href="#aspect-storage-of-employees-associated-with-event-after-successful-command">Aspect: Storage of employees associated with event after successful command</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves only the <code>Employee#EmployeeId</code> associated with the event.</p>
-</li>
-<li>
-<p><strong>Alternative 2:</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy retrieval in the future.</p>
-</li>
-<li>
-<p>Cons: Changes in <code>Employee</code> attributes have to be reflected in the event. This meant that <code>EditCommand</code> and
-<code>DeleteCommand</code> for <code>Employee</code> have to be heavily modified.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-how-to-update-the-changes-in-the-manpower-list-of-an-event-after-allocation-of-employee"><a class="link" href="#aspect-how-to-update-the-changes-in-the-manpower-list-of-an-event-after-allocation-of-employee">Aspect: How to update the changes in the manpower list of an event after allocation of employee.</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Throws exception</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Law of Demeter.</p>
-</li>
-<li>
-<p>Cons:</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Allocate the current available employees</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros:</p>
-</li>
-<li>
-<p>Cons: Testability issues.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 44.4444%;">
-<col style="width: 44.4445%;">
+<col style="width: 27.2727%;">
+<col style="width: 36.3636%;">
+<col style="width: 36.3637%;">
 </colgroup>
 <thead>
 <tr>
@@ -543,11 +511,11 @@ PlantUML, the lifeline reaches the end of diagram.
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">How to update the changes in the manpower list of an event after allocation of employee.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Directly modifies the <code>EventManpowerAllocatedList</code> of the specified event</p>
-<p class="tableblock"><strong>Pros</strong>: Easy to implement.
-<strong>Cons</strong>: May cause unwanted behaviours if testing is not done properly.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create a new event with a newly created and updated manpower list.
-<strong>Pros</strong>: Defensive programming.
-<strong>Cons</strong>: Harder to implement.</p>
+<p class="tableblock"><strong>Pros</strong>: Easy to implement.</p>
+<p class="tableblock"><strong>Cons</strong>: May cause unwanted behaviours if testing is not done properly.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create a new event with a newly created and updated manpower list.</p>
+<p class="tableblock"><strong>Pros</strong>: Defensive programming.</p>
+<p class="tableblock"><strong>Cons</strong>: Harder to implement.</p>
 <p class="tableblock">I decided to proceed with this option because it complies with the Law of Demeter
 which states that objects should not navigate internal structures of other objects.</p></td>
 </tr>
@@ -566,4 +534,4 @@ which states that objects should not navigate internal structures of other objec
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 14:27:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 14:31:36 UTC</div></div></div></body></html>

@@ -496,9 +496,9 @@ by the event.</p>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the auto allocation mechanism behaves at each step.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/AutoAllocateFlowChart.png" alt="AutoAllocateFlowChart">
+<img src="images/AutoAllocateFlowChart.png" alt="AutoAllocateFlowChart" width="300">
 </div>
 <div class="title">Figure 9. <em>Program flow of the Auto Allocate Feature</em></div>
 </div>
@@ -591,7 +591,7 @@ PlantUML, the lifeline reaches the end of diagram.
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens <strong>after</strong> a user successfully executes an <code>AutoAllocateCommand</code>:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/AutoAllocateActivityDiagram.png" alt="AutoAllocateActivityDiagram">
 </div>
@@ -602,65 +602,11 @@ PlantUML, the lifeline reaches the end of diagram.
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-storage-of-employees-associated-with-event-after-successful-command"><a class="link" href="#aspect-storage-of-employees-associated-with-event-after-successful-command">Aspect: Storage of employees associated with event after successful command</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves only the <code>Employee#EmployeeId</code> associated with the event.</p>
-</li>
-<li>
-<p><strong>Alternative 2:</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy retrieval in the future.</p>
-</li>
-<li>
-<p>Cons: Changes in <code>Employee</code> attributes have to be reflected in the event. This meant that <code>EditCommand</code> and
-<code>DeleteCommand</code> for <code>Employee</code> have to be heavily modified.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-how-to-update-the-changes-in-the-manpower-list-of-an-event-after-allocation-of-employee"><a class="link" href="#aspect-how-to-update-the-changes-in-the-manpower-list-of-an-event-after-allocation-of-employee">Aspect: How to update the changes in the manpower list of an event after allocation of employee.</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Throws exception</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Law of Demeter.</p>
-</li>
-<li>
-<p>Cons:</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Allocate the current available employees</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros:</p>
-</li>
-<li>
-<p>Cons: Testability issues.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 44.4444%;">
-<col style="width: 44.4445%;">
+<col style="width: 27.2727%;">
+<col style="width: 36.3636%;">
+<col style="width: 36.3637%;">
 </colgroup>
 <thead>
 <tr>
@@ -684,11 +630,11 @@ PlantUML, the lifeline reaches the end of diagram.
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">How to update the changes in the manpower list of an event after allocation of employee.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Directly modifies the <code>EventManpowerAllocatedList</code> of the specified event</p>
-<p class="tableblock"><strong>Pros</strong>: Easy to implement.
-<strong>Cons</strong>: May cause unwanted behaviours if testing is not done properly.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Create a new event with a newly created and updated manpower list.
-<strong>Pros</strong>: Defensive programming.
-<strong>Cons</strong>: Harder to implement.</p>
+<p class="tableblock"><strong>Pros</strong>: Easy to implement.</p>
+<p class="tableblock"><strong>Cons</strong>: May cause unwanted behaviours if testing is not done properly.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create a new event with a newly created and updated manpower list.</p>
+<p class="tableblock"><strong>Pros</strong>: Defensive programming.</p>
+<p class="tableblock"><strong>Cons</strong>: Harder to implement.</p>
 <p class="tableblock">I decided to proceed with this option because it complies with the Law of Demeter
 which states that objects should not navigate internal structures of other objects.</p></td>
 </tr>
@@ -1558,4 +1504,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 14:27:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 14:31:36 UTC</div></div></div></body></html>

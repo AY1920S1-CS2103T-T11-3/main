@@ -19,7 +19,7 @@
 <li><a href="#event-specific-management">3.4. Event-Specific Management</a></li>
 <li><a href="#finance-management">3.5. Finance Management</a></li>
 <li><a href="#schedule">3.6. Schedule</a></li>
-<li><a href="#display-entire-schedule">3.7. Display Entire Schedule</a></li>
+<li><a href="#generate-entire-schedule">3.7. Generate Entire Schedule</a></li>
 <li><a href="#miscellaneous">3.8. Miscellaneous</a></li>
 </ul>
 </li>
@@ -729,23 +729,47 @@ Generates the contract for Event_ID 005.</p>
 <div class="sect2">
 <h3 id="schedule"><a class="link" href="#schedule">3.6. Schedule</a></h3>
 <div class="sect3">
-<h4 id="view-schedule-for-a-specific-date"><a class="link" href="#view-schedule-for-a-specific-date">3.6.1. View Schedule for a specific date</a></h4>
+<h4 id="display-schedule-for-a-specific-date"><a class="link" href="#display-schedule-for-a-specific-date">3.6.1. Display Schedule for a specific date</a></h4>
 <div class="paragraph">
 <p>Displays the events for the specific date</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>view_schedule on/DDMMYYYY</code></p>
+<p>Format: <code>display_schedule_date on/dd/MM/yyyy</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:
-* <code>view_schedule on/02</code></p>
+* <code>display_schedule on/02/12/2019</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>on/ represents the date in DDMMYYYY that the user wants to display</p>
+<p>on/ represents the date in dd/MM/yyyy that the user wants to display</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="display-schedule-for-a-specific-month-and-year"><a class="link" href="#display-schedule-for-a-specific-month-and-year">3.6.2. Display Schedule for a specific Month and Year</a></h4>
+<div class="paragraph">
+<p>Displays the events for the Month and Year</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>display_schedule for/MM/yyyy</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:
+* <code>display_schedule for/12/2019</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>for/ represents the month and year in MM/yyyy that the user wants to display</p>
 </li>
 </ul>
 </div>
@@ -754,12 +778,12 @@ Generates the contract for Event_ID 005.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-entire-schedule"><a class="link" href="#display-entire-schedule">3.7. Display Entire Schedule</a></h3>
+<h3 id="generate-entire-schedule"><a class="link" href="#generate-entire-schedule">3.7. Generate Entire Schedule</a></h3>
 <div class="paragraph">
-<p>Displays all the dates that has an event.</p>
+<p>Generate a new list which shows all the dates that has an event as well as all the events that are on that corresponding date.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>display_schedule</code></p>
+<p>Format: <code>generate_schedule</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -895,4 +919,4 @@ e.g. <code>stats_g</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 14:31:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 12:30:49 UTC</div></div></div></body></html>

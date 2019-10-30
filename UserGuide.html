@@ -9,7 +9,7 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#welcome-to-addmin">1. Welcome to AddMin+</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
@@ -23,12 +23,13 @@
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#upcoming-features-in-v2-0">5. Upcoming Features in v2.0</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
 <div class="sect1">
-<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<h2 id="welcome-to-addmin"><a class="link" href="#welcome-to-addmin">1. Welcome to AddMin+</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>AddMin+</strong> is an all in one administration desktop application, that is specially designed for any other events management
@@ -83,7 +84,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe no/98765432 p/Event Coordinator e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Employee List.</p>
+<p><strong><code>add</code></strong><code>add_em n/John Doe g/Male p/Manager no/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 on/12/12/2012 t/friends</code> : adds a contact named <code>John Doe</code> to the Employee List.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd Employee shown in the current list</p>
@@ -110,7 +111,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>The features of AddMin+ can be grouped into 4 main categories, Finance, Manpower, Event, and General. The commands
 that AddMin+ recognize follows a specific format, however, each category will have their own set of valid commands.
 For new users, do refer to Section 3.1 till Section 3.4 for the specific command and how to use them. For more advanced
-users, you could refer to <a href="#command-summary">Section 5, &#8220;Command Summary&#8221;</a>.</p>
+users, you could refer to <a href="#command-summary">Section 6, &#8220;Command Summary&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command Format</strong></p>
@@ -127,7 +128,7 @@ users, you could refer to <a href="#command-summary">Section 5, &#8220;Command S
 <p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME no/PHONE_NUMBER</code>, <code>no/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
 </li>
 <li>
 <p>Previous commands can be accessed by using the <strong>up-arrow keys</strong>.</p>
@@ -189,10 +190,10 @@ users, you could refer to <a href="#command-summary">Section 5, &#8220;Command S
 <p>Event: Adds an event that the company is organizing or hosting to the company’s calendar.</p>
 </div>
 <div class="paragraph">
-<p>Employee Format: <code>add_em n/NAME g/GENDER p/POSITION no/PHONE e/EMAIL a/ADDRESS on/Join Date [t/TAG]&#8230;&#8203;</code></p>
+<p>Employee Format: <code>add_em n/NAME g/GENDER p/POSITION no/PHONE e/EMAIL a/ADDRESS on/Join_Date [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
-<p>Event Format: <code>add_ev n/NAME at/VENUE m/MANPOWER NEEDED on/START DATEtill/END DATE[t/TAG]&#8230;&#8203;</code></p>
+<p>Event Format: <code>add_ev n/NAME at/VENUE m/MANPOWER_NEEDED on/START_DATE till/END_DATE[t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -207,14 +208,30 @@ A employee can have any number of tags (including 0)
 </table>
 </div>
 <div class="paragraph">
-<p>Add Employee Examples:
-* <code>add_em n/John Doe g/Male p/Manager no/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 on/12/12/2012 t/friends t/owesMoney</code>
-* <code>add_em n/Betsy Crowe g/Female p/CFO no/91909111 e/betsycrowe@example.com a/Newgate Prison on/10/12/2019 t/criminal</code></p>
+<p>Add Employee Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_em n/John Doe g/Male p/Manager no/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 on/12/12/2012 t/friends t/owesMoney</code></p>
+</li>
+<li>
+<p><code>add_em n/Betsy Crowe g/Female p/CFO no/91909111 e/betsycrowe@example.com a/Newgate Prison on/10/12/2019 t/criminal</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Add Event Examples:
-* <code>add_ev n/Free Coffee at/Utown Starbucks m/5 on/16/03/2019 till/17/03/2019 t/fun t/free</code>
-* <code>add_ev n/NUS RUN at/NUS Sports Hall m/5 on/19/10/2019 till/20/10/2019 t/running t/sports</code></p>
+<p>Add Event Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_ev n/Free Coffee at/Utown Starbucks m/5 on/16/03/2019 till/17/03/2019 t/fun t/free</code></p>
+</li>
+<li>
+<p><code>add_ev n/NUS RUN at/NUS Sports Hall m/5 on/19/10/2019 till/20/10/2019 t/running t/sports</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -226,10 +243,10 @@ A employee can have any number of tags (including 0)
 <p>Event: Edits an existing event in the event list.</p>
 </div>
 <div class="paragraph">
-<p>Employee Format: <code>edit_em INDEX (must be a positive integer) [n/NAME] [g/GENDER] [p/POSITION] [no/PHONE] [e/EMAIL] [a/ADDRESS] [on/JOINDATE] [t/TAG]&#8230;&#8203;</code></p>
+<p>Employee Format: <code>edit_em INDEX [n/NAME] [g/GENDER] [p/POSITION] [no/PHONE] [e/EMAIL] [a/ADDRESS] [on/JOIN_DATE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
-<p>Event Format Format: <code>edit_ev INDEX (must be a positive integer) [n/EVENT NAME] [at/VENUE] [m/MANPOWER NEEDED] [on/START DATE] [till/END DATE] [t/TAG]&#8230;&#8203;</code></p>
+<p>Event Format Format: <code>edit_ev INDEX [n/EVENT_NAME] [at/VENUE] [m/MANPOWER_NEEDED] [on/START_DATE] [till/END_DATE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -275,7 +292,7 @@ Edits the name of the 2nd employee to be <code>Betsy Crower</code> and clears al
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit_ev 1 on/16092019</code><br>
+<p><code>edit_ev 1 on/16/09/2019</code><br>
 Edits the start date of the 1st event to be on the 16th September, 2019.</p>
 </li>
 <li>
@@ -332,6 +349,10 @@ Returns <code>john</code> and <code>John Doe</code></p>
 <p><code>find_em Betsy Tim John</code><br>
 Returns any entity having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
+<li>
+<p><code>find_em Party</code><br>
+Returns any event having names <code>Party</code> or <code>party</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -354,7 +375,7 @@ Returns any entity having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <p>Deletes the entity at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed employee list.</p>
+<p>The index refers to the index number shown in the displayed list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -374,9 +395,9 @@ Returns any entity having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 Deletes the 2nd employee in the displayed employee list.</p>
 </li>
 <li>
-<p><code>find Music</code><br>
+<p><code>find_ev Music</code><br>
 <code>delete_ev 1</code><br>
-Deletes the 1st event in the results of the <code>find</code> command.</p>
+Deletes the 1st event in the list shown after the <code>find_ev</code> command.</p>
 </li>
 </ul>
 </div>
@@ -413,7 +434,7 @@ Deletes the 1st event in the results of the <code>find</code> command.</p>
 <ul>
 <li>
 <p><code>fetch_em 2</code><br>
-Returns the 2rd employee from the event list</p>
+Returns the 2rd employee from the employee list.</p>
 </li>
 </ul>
 </div>
@@ -427,7 +448,7 @@ Returns the 2rd employee from the event list</p>
 <p>Fetches an event by displaying a pop-up window with full details of the event.</p>
 </div>
 <div class="paragraph">
-<p>For GUI features, kindly refer to <a href="#GUI Guide for event fetch and allocation commands">[GUI Guide for event fetch and allocation commands]</a>.</p>
+<p>For GUI features, kindly refer to <a href="#gui-guide-for-event-fetch-and-allocation-commands">Section 3.4.6, &#8220;GUI Guide for Event Fetch and Allocation Commands&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>fetch_ev EVENT_INDEX</code></p>
@@ -453,7 +474,7 @@ Returns the 2rd employee from the event list</p>
 <ul>
 <li>
 <p><code>fetch_ev 2</code><br>
-Returns the 2rd event from the event list</p>
+Returns the 2rd event from the event list.</p>
 </li>
 </ul>
 </div>
@@ -461,10 +482,8 @@ Returns the 2rd event from the event list</p>
 <div class="sect3">
 <h4 id="automated-allocation-of-employees-to-events-code-allocate-code"><a class="link" href="#automated-allocation-of-employees-to-events-code-allocate-code">3.4.2. Automated allocation of Employees to Events: <code>allocate</code></a></h4>
 <div class="paragraph">
-<p>Automatically chooses and allocates employees that meet the requirements to events.</p>
-</div>
-<div class="paragraph">
-<p>For GUI feature, kindly refer to <a href="#GUI Guide for event fetch and allocation commands">[GUI Guide for event fetch and allocation commands]</a>.</p>
+<p>Automatically filters and allocates a specified number of employees from the
+complete employee list to an event.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>allocate EVENT_INDEX [n/NUMBER] [t/TAG]&#8230;&#8203;</code></p>
@@ -476,7 +495,6 @@ Returns the 2rd event from the event list</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Fields in [] are optional.
 Random selection of employee to allocate if supply exceeds demand of event.
 </td>
 </tr>
@@ -524,7 +542,7 @@ Allocates 3 employees who are tagged as 'female' to the 2nd event.</p>
 <div class="sect3">
 <h4 id="manually-allocation-of-employees-to-events-code-allocatem-code"><a class="link" href="#manually-allocation-of-employees-to-events-code-allocatem-code">3.4.3. Manually allocation of Employees to Events: <code>allocatem</code></a></h4>
 <div class="paragraph">
-<p>Manually chooses and allocates employees to events.</p>
+<p>Manually chooses and allocates a single employee to an event.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>allocatem EVENT_INDEX n/EMPLOYEE_INDEX</code></p>
@@ -543,7 +561,7 @@ Allocates 3 employees who are tagged as 'female' to the 2nd event.</p>
 <p>The <code>EMPLOYEE_INDEX</code> refers to the index number shown in the displayed employee list.</p>
 </li>
 <li>
-<p>Both <code>EVENT_INDEX</code> and <code>EMPLOYEE_INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Both <code>EVENT_INDEX</code> and <code>EMPLOYEE_INDEX</code> <strong>must be positive integers</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
@@ -567,7 +585,7 @@ Allocates the 2nd employee on the employee list to the 1st event on the event li
 <p>Frees <strong>ALL</strong> employees allocated to the event.</p>
 </div>
 <div class="paragraph">
-<p>Format: `free EVENT_INDEX `</p>
+<p>Format: <code>free EVENT_INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -644,7 +662,7 @@ Sets the 2nd Event from the Event List a time period of 10am-10pm on the date 18
 <p><strong>For this guide, the relevant picture is shown after the instruction.</strong></p>
 </div>
 <div class="paragraph">
-<p>Step 1. For <code>fetch_ev</code>, simply <strong>double-click the event</strong> in the list as shown in the figure below:</p>
+<p><strong>Step 1</strong>. For <code>fetch_ev</code>, simply <strong>double-click the event</strong> in the list as shown in the figure below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -652,7 +670,7 @@ Sets the 2nd Event from the Event List a time period of 10am-10pm on the date 18
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2: After successfully fetching the event, the following <strong>Fetch Window</strong> should show:</p>
+<p><strong>Step 2</strong>: After successfully fetching the event, the following <strong>Fetch Window</strong> should show:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -660,7 +678,7 @@ Sets the 2nd Event from the Event List a time period of 10am-10pm on the date 18
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3: To perform a <code>allocate</code> command without number/filter specification, click the <strong>allocate</strong> button
+<p><strong>Step 3</strong>: To perform a <code>allocate</code> command without number/filter specification, click the <strong>allocate</strong> button
 as shown in the <strong>Fetch Window</strong> in step 2. The two lists will be updated again as shown in the following figure:</p>
 </div>
 <div class="imageblock">
@@ -669,7 +687,7 @@ as shown in the <strong>Fetch Window</strong> in step 2. The two lists will be u
 </div>
 </div>
 <div class="paragraph">
-<p>Step 4: To perform a <code>free</code> command, click the <strong>free</strong> button as shown in the <strong>Fetch Window</strong> in step 2.
+<p><strong>Step 4</strong>: To perform a <code>free</code> command, click the <strong>free</strong> button as shown in the <strong>Fetch Window</strong> in step 2.
 The two lists will be updated as shown in the following figure. Now, if you are interested to allocate a particular
 employee to an event, continue to step 5.</p>
 </div>
@@ -679,17 +697,27 @@ employee to an event, continue to step 5.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 5: To <strong>allocate</strong> a particular employee to an event, double-click the employee card on the left list. Notice the employee to allocate
+<p><strong>Step 5</strong>: To <strong>allocate</strong> a particular employee to an event or perform an <code>allocatem</code> command, double-click the employee card on
+the left list. Notice the employee to allocate
 has moved to the list on the right as shown in the figure below:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To <strong>free</strong> a particular employee to an event, double-click the employee card on the right
+as shown in the figure below:
+</td>
+</tr>
+</table>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/afterallocatem.png" alt="afterallocatem" width="600">
 </div>
-</div>
-<div class="paragraph">
-<p>Step 6: Finally, to <strong>free</strong> a particular employee to an event, double-click the employee card on the right
-as shown in the figure above in step 5:</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -742,37 +770,6 @@ instead.
 <p><code>list_em</code><br>
 <code>pay 2 f/20082019 t/20102019</code><br>
 Generates the payslip of employee 2 from the 20th August - 20th October.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="generate-event-contract-code-contract-coming-in-v2-0-code"><a class="link" href="#generate-event-contract-code-contract-coming-in-v2-0-code">3.5.2. Generate Event Contract: <code>contract [coming in v2.0]</code></a></h4>
-<div class="paragraph">
-<p>Generates a contract that can be handed to the company&#8217;s client. The contract will contains details of the event such as the location, budget, and date</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>contract n/EVENT_ID</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>EVENT_ID is a unique 3-digit number that acts as a serial key to identify events.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>contract n/005</code><br>
-Generates the contract for Event_ID 005.</p>
 </li>
 </ul>
 </div>
@@ -1026,108 +1023,170 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<h2 id="upcoming-features-in-v2-0"><a class="link" href="#upcoming-features-in-v2-0">5. Upcoming Features in v2.0</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p>Allows user to set profile picture of employee using online links<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>In v2.0, you can use links to profile pictures on your favourite social media as <code>Avatar</code> for your contacts</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><strong>Search</strong> : <code>search</code></p>
+<p>Allows user to import personal information of employees from <strong>Microsoft Office Apps</strong><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>In v2.0, you can import employee information from other applications, so manual input for first-time users is no
+longer necessary.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><strong>List Both Employees and Event</strong> : <code>list</code></p>
+<p>Generate Employee Payslip</p>
 </li>
 <li>
-<p><strong>List Employees</strong> : <code>list_em</code></p>
-</li>
+<p>Generate Event Contract</p>
+<div class="ulist">
+<ul>
 <li>
-<p><strong>List Events</strong> : <code>list_ev</code></p>
+<p>Generates a contract that can be handed to the company&#8217;s client. The contract will contains details of the event
+such as the location, budget, and date.</p>
 </li>
-<li>
-<p><strong>Add Employee</strong>: <code>add n/NAME no/PHONE_NUMBER p/POSITION e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/John Doe no/98765432 p/cleaner e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><strong>Add Event</strong>: <code>add_ev n/Music Festival m/10 on/15092019 till/20092019 at/NUS t/Music</code><br>
-e.g. <code>add_ev n/Charity Run m/4 on/15092019 till/15092019 at/NUS</code></p>
-</li>
-<li>
-<p><strong>Edit Employee</strong>: <code>edit_em INDEX n/NAME no/PHONE_NUMBER p/POSITION e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit_em 1 no/91234567 e/johndoe@example.com</code></p>
-</li>
-<li>
-<p><strong>Edit Event</strong>: <code>edit_ev INDEX n/EVENT_NAME m/MANPOWER_NEEDED on/DDMMYYYY till/DDMMYYYY at/LOCATION_NAME [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit_ev 2 n/Concert t/</code></p>
-</li>
-<li>
-<p><strong>Find Employee</strong>: <code>find_em KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find_em John</code></p>
-</li>
-<li>
-<p><strong>Find Event</strong>: <code>find_ev KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find_ev Music</code></p>
-</li>
-<li>
-<p><strong>Delete Employee</strong>: <code>delete_em EMPLOYEE_INDEX</code><br>
-e.g. <code>delete_em 2</code></p>
-</li>
-<li>
-<p><strong>Delete Event</strong>: <code>delete_ev EVENT_INDEX</code><br>
-e.g. <code>delete_ev 1</code></p>
-</li>
-<li>
-<p><strong>Fetch Employee</strong>: <code>fetch_em EMPLOYEE_INDEX</code><br>
-e.g. <code>fetch_em 2</code></p>
-</li>
-<li>
-<p><strong>Fetch Event</strong>: <code>fetch_ev EVENT_INDEX</code><br>
-e.g. <code>fetch_ev 2</code></p>
-</li>
-<li>
-<p><strong>Allocate Employees (Auto)</strong>: <code>allocate EVENT_INDEX [t/TAGS]&#8230;&#8203;</code><br>
-e.g. <code>allocate 1 n/2 t/female</code></p>
-</li>
-<li>
-<p><strong>Allocate Employees (Manual)</strong>: <code>allocate EVENT_INDEX [n/EMPLOYEE_INDEX]&#8230;&#8203;</code><br>
-e.g. `allocatem 1 n/2 `</p>
-</li>
-<li>
-<p><strong>Deallocate ALL Employees</strong>: <code>free EVENT_INDEX</code><br>
-e.g. `free 2 `</p>
-</li>
-<li>
-<p><strong>Set DateTime to Event</strong>: <code>set_ev_dt EVENT_INDEX on/EVENT_DATE time/EVENT_DAYTIME</code><br>
-e.g. <code>set_ev_dt 2 on/18/10/2019 time/1000-2000</code></p>
-</li>
-<li>
-<p><strong>Generate Employee Payslip [coming in v2.0]</strong>: <code>pay n/EMPLOYEE_NUMBER f/DDMMYYY t/DDMMYYY</code><br>
-e.g. <code>pay 2 f/20082019 t/20102019</code></p>
-</li>
-<li>
-<p><strong>Generate Event Contract [coming in v2.0]</strong>: <code>contract n/EVENT_ID</code><br>
-e.g. <code>contract n/005</code></p>
-</li>
-<li>
-<p><strong>View Schedule for specific date</strong>: <code>view_schedule on/DDMMYYYY</code><br>
-e.g. <code>view_schedule on/02/12/2019</code></p>
-</li>
-<li>
-<p><strong>Display Entire Schedule</strong>: <code>display_schedule</code><br>
-e.g. <code>display_schedule</code></p>
-</li>
-<li>
-<p><strong>Generate Statistics [coming in v2.0]</strong>: <code>stats_g</code><br>
-e.g. <code>stats_g</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Exit</strong> : <code>exit</code></p>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 07:34:31 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>COMMAND</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>FORMAT</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>EXAMPLE</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Add Employee</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>add_em n/NAME no/PHONE_NUMBER p/POSITION e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>add_em n/John Doe g/Male p/Manager no/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 on/12/12/2012 t/friends</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Add Event</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>add_ev n/NAME at/VENUE m/MANPOWER NEEDED on/START DATE till/END DATE[t/TAG]…</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>add_ev n/Charity Run m/4 on/15092019 till/15092019 at/NUS</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Edit Employee</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>edit_em INDEX n/NAME no/PHONE_NUMBER p/POSITION e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>edit_em 1 no/91234567 e/johndoe@example.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Edit Event</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>edit_ev INDEX n/EVENT_NAME m/MANPOWER_NEEDED on/DDMMYYYY till/DDMMYYYY at/LOCATION_NAME [t/TAG]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>edit_ev 2 n/Concert</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Find Employee/Event</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>find_em KEYWORD [MORE_KEYWORDS]</code></p>
+<p class="tableblock"><code>find_ev KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>find_em John</code></p>
+<p class="tableblock"><code>find_ev Music</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Delete Employee/Event</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>delete_em EMPLOYEE_INDEX</code></p>
+<p class="tableblock"><code>delete_ev EVENT_INDEX</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>delete_em 2</code></p>
+<p class="tableblock"><code>delete_ev 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Fetch Employee/Event</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>fetch_em EMPLOYEE_INDEX</code></p>
+<p class="tableblock"><code>fetch_ev EVENT_INDEX</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>fetch_em 2</code></p>
+<p class="tableblock"><code>fetch_ev 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>List Employee/Event/Both</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>list_em</code></p>
+<p class="tableblock"><code>list_ev</code></p>
+<p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>list_em</code></p>
+<p class="tableblock"><code>list_ev</code></p>
+<p class="tableblock"><code>list</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Allocate a specified number of Employees with Filter requirements to an Event</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>allocate EVENT_INDEX [t/FILTER TAGS]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>allocate 1 n/2 t/female</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Allocate one specified Employee to an Event</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>allocate EVENT_INDEX [n/EMPLOYEE_INDEX]</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>allocatem 1 n/2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Deallocate ALL Employees from an Event</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>free EVENT_INDEX</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>free 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Set DateTime to an Event</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>set_ev_dt EVENT_INDEX on/EVENT_DATE time/EVENT_DAYTIME</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>set_ev_dt 2 on/18/10/2019 time/1000-2000</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>View Schedule for specific date</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>view_schedule on/DDMMYYYY</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>view_schedule on/02/12/2019</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Display Entire Schedule</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>display_schedule</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>display_schedule</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Generate Statistics [coming in v2.0]</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>stats_g</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>stats_g</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Generate Pay [coming in v2.0]</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>pay</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>pay 1&#8230;&#8203;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>clear</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Help</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Exit</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>exit</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>exit</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 13:17:53 UTC</div></div></div></body></html>

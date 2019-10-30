@@ -32,9 +32,13 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>AddMin+</strong> is an all in one administration desktop application, that is specially designed for <strong>ABC Company</strong>,
-an events management start-up company with limited manpower and resources. This start-up has an admin who handles both
-the management of events and employees. <strong>AddMin+</strong> is specially designed to ease the workload of the admin and allow
+<p><strong>AddMin+</strong> is an all in one administration desktop application, that is specially designed for any other events management
+start-up company with limited manpower and resources. These companies would usually only be able to afford to hire
+one admin staff to handle both the management of events and employees and this can be tough.
+The Admin+ Team understands the struggles that start-ups faces on a daily basis, and we are here to help!</p>
+</div>
+<div class="paragraph">
+<p><strong>AddMin+</strong> is specially designed to ease the workload of the admin and allow
 him/her to effectively handle the administrative tasks of the company by providing the following functions: event
 creation and deletion, editing of event details after creation, manual and automatic manpower allocation for events
 and providing an overview of all the data via statistics. The purpose of this user guide is show the user how they can
@@ -145,16 +149,7 @@ users, you could refer to <a href="#command-summary">Section 5, &#8220;Command S
 </div>
 </div>
 <div class="sect3">
-<h4 id="search-code-search-code"><a class="link" href="#search-code-search-code">3.1.2. Search : <code>search</code></a></h4>
-<div class="paragraph">
-<p>Search for specific functions/properties</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>search</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="viewing-help-code-exit-code"><a class="link" href="#viewing-help-code-exit-code">3.1.3. Viewing help : <code>exit</code></a></h4>
+<h4 id="viewing-help-code-exit-code"><a class="link" href="#viewing-help-code-exit-code">3.1.2. Viewing help : <code>exit</code></a></h4>
 <div class="paragraph">
 <p>Exits and shuts down the program</p>
 </div>
@@ -388,31 +383,22 @@ Deletes the 1st event in the results of the <code>find</code> command.</p>
 <div class="sect2">
 <h3 id="employee-specific-management"><a class="link" href="#employee-specific-management">3.3. Employee-Specific Management</a></h3>
 <div class="sect3">
-<h4 id="log-working-hours-code-log-code"><a class="link" href="#log-working-hours-code-log-code">3.3.1. Log Working Hours: <code>log</code></a></h4>
+<h4 id="fetch-full-details-of-an-employee-code-fetch_em-code"><a class="link" href="#fetch-full-details-of-an-employee-code-fetch_em-code">3.3.1. Fetch Full Details of an Employee: <code>fetch_em</code></a></h4>
 <div class="paragraph">
-<p>Logs the working hours of the current employee for today. Useful for employees who are paid by the hour.</p>
+<p>Fetches an employee by displaying a pop-up window with full details of the employee.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>log INDEX DDMMYYYY HOURSWORKED</code></p>
+<p>Format: <code>fetch_em EMPLOYEE_INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Logs working hours of a employee at the specified <code>INDEX</code>.</p>
+<p>The <code>EMPLOYEE_INDEX</code> refers to the index number shown in the displayed event list.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed employee list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p><code>HOURSWORKED</code> must be a positive integer.</p>
-</li>
-<li>
-<p>If the hours worked for that day is already recorded, a new entry will override the previous log.</p>
+<p>The <code>EMPLOYEE_INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
@@ -424,13 +410,8 @@ Deletes the 1st event in the results of the <code>find</code> command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list_ev</code><br>
-<code>log 2 30092019 8</code><br>
-2nd Employee in the employee list is logged with 8 hours on the 30th September</p>
-</li>
-<li>
-<p><code>log 2 30092019 7</code><br>
-2nd Employee in the employee list has 8 hours previously logged, is now overwritten with 7 hours.</p>
+<p><code>fetch_em 2</code><br>
+Returns the 2rd employee from the event list</p>
 </li>
 </ul>
 </div>
@@ -439,9 +420,49 @@ Deletes the 1st event in the results of the <code>find</code> command.</p>
 <div class="sect2">
 <h3 id="event-specific-management"><a class="link" href="#event-specific-management">3.4. Event-Specific Management</a></h3>
 <div class="sect3">
-<h4 id="automated-allocation-of-employees-to-events-code-allocate-code-also-a-gui-feature"><a class="link" href="#automated-allocation-of-employees-to-events-code-allocate-code-also-a-gui-feature">3.4.1. Automated allocation of Employees to Events: <code>allocate</code> (also a GUI feature)</a></h4>
+<h4 id="fetch-full-details-of-an-event-code-fetch_ev-code"><a class="link" href="#fetch-full-details-of-an-event-code-fetch_ev-code">3.4.1. Fetch Full Details of an Event: <code>fetch_ev</code></a></h4>
 <div class="paragraph">
-<p>Automatically chooses and allocates employees that meet the requirements to events .</p>
+<p>Fetches an event by displaying a pop-up window with full details of the event.</p>
+</div>
+<div class="paragraph">
+<p>For GUI features, kindly refer to <a href="#GUI Guide for event fetch and allocation commands">[GUI Guide for event fetch and allocation commands]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>fetch_ev EVENT_INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
+</li>
+<li>
+<p>The <code>EVENT_INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fetch_ev 2</code><br>
+Returns the 2rd event from the event list</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="automated-allocation-of-employees-to-events-code-allocate-code"><a class="link" href="#automated-allocation-of-employees-to-events-code-allocate-code">3.4.2. Automated allocation of Employees to Events: <code>allocate</code></a></h4>
+<div class="paragraph">
+<p>Automatically chooses and allocates employees that meet the requirements to events.</p>
+</div>
+<div class="paragraph">
+<p>For GUI feature, kindly refer to <a href="#GUI Guide for event fetch and allocation commands">[GUI Guide for event fetch and allocation commands]</a>.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>allocate EVENT_INDEX [n/NUMBER] [t/TAG]&#8230;&#8203;</code></p>
@@ -499,7 +520,7 @@ Allocates 3 employees who are tagged as 'female' to the 2nd event.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="manually-allocation-of-employees-to-events-code-allocatem-code"><a class="link" href="#manually-allocation-of-employees-to-events-code-allocatem-code">3.4.2. Manually allocation of Employees to Events: <code>allocatem</code></a></h4>
+<h4 id="manually-allocation-of-employees-to-events-code-allocatem-code"><a class="link" href="#manually-allocation-of-employees-to-events-code-allocatem-code">3.4.3. Manually allocation of Employees to Events: <code>allocatem</code></a></h4>
 <div class="paragraph">
 <p>Manually chooses and allocates employees to events.</p>
 </div>
@@ -533,11 +554,47 @@ Allocates 3 employees who are tagged as 'female' to the 2nd event.</p>
 <ul>
 <li>
 <p><code>allocatem 1 n/2</code><br>
-Allocates the 2nd employee on the employee list to the 1st event on the event list.
-==== Setting a Date&amp;Time to an Event</p>
+Allocates the 2nd employee on the employee list to the 1st event on the event list.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="de-allocation-of-all-employees-from-event-code-free-code"><a class="link" href="#de-allocation-of-all-employees-from-event-code-free-code">3.4.4. De-allocation of all Employees from Event: <code>free</code></a></h4>
+<div class="paragraph">
+<p>Frees <strong>ALL</strong> employees allocated to the event.</p>
+</div>
+<div class="paragraph">
+<p>Format: `free EVENT_INDEX `</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
+</li>
+<li>
+<p><code>EVENT_INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>free 1</code><br>
+Frees all employees allocated the 1st event on the event list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-a-date-time-to-an-event"><a class="link" href="#setting-a-date-time-to-an-event">3.4.5. Setting a Date&amp;Time to an Event</a></h4>
 <div class="paragraph">
 <p>Sets a Date-Time mapping to an specific Event.</p>
 </div>
@@ -580,59 +637,57 @@ Sets the 2nd Event from the Event List a time period of 10am-10pm on the date 18
 </div>
 </div>
 <div class="sect3">
-<h4 id="fetch-full-details-of-an-event-code-fetch_ev-code-also-a-gui-feature"><a class="link" href="#fetch-full-details-of-an-event-code-fetch_ev-code-also-a-gui-feature">3.4.3. Fetch Full Details of an Event: <code>fetch_ev</code> (also a GUI feature)</a></h4>
+<h4 id="gui-guide-for-event-fetch-and-allocation-commands"><a class="link" href="#gui-guide-for-event-fetch-and-allocation-commands">3.4.6. GUI Guide for Event Fetch and Allocation Commands</a></h4>
 <div class="paragraph">
-<p>Fetches an event by displaying a pop-up window with full details of the event.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>fetch_ev EVENT_INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
-</li>
-<li>
-<p>The <code>EVENT_INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
+<p><strong>For this guide, the relevant picture is shown after the instruction.</strong></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>fetch_ev 2</code><br>
-Returns the 2rd event from the event list</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Alternatively, simply <strong>double-click the event</strong> in the list.</p>
+<p>Step 1. For <code>fetch_ev</code>, simply <strong>double-click the event</strong> in the list as shown in the figure below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/BeforeFetch.png" alt="BeforeFetch" width="600">
+<img src="images/beforefetch.png" alt="beforefetch" width="600">
 </div>
 </div>
 <div class="paragraph">
-<p>After double-clicking, a pop-up window with details of the specified event should show:
-<strong>Notice there are 2 buttons near the centre of the window.</strong></p>
+<p>Step 2: After successfully fetching the event, the following <strong>Fetch Window</strong> should show:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AfterFetch.png" alt="AfterFetch" width="600">
+<img src="images/afterfetch.png" alt="afterfetch" width="600">
 </div>
 </div>
 <div class="paragraph">
-<p>To allocate employees to this event, simply <strong>click the 'allocate' button</strong>.
-After clicking the allocate button, the employee list should be updated.
-Likewise, to free/deallocate employees, <strong>click the 'free' button</strong>.</p>
+<p>Step 3: To perform a <code>allocate</code> command without number/filter specification, click the <strong>allocate</strong> button
+as shown in the <strong>Fetch Window</strong> in step 2. The two lists will be updated again as shown in the following figure:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/afterallocate.png" alt="afterallocate" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 4: To perform a <code>free</code> command, click the <strong>free</strong> button as shown in the <strong>Fetch Window</strong> in step 2.
+The two lists will be updated as shown in the following figure. Now, if you are interested to allocate a particular
+employee to an event, continue to step 5.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/afterfree.png" alt="afterfree" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 5: To <strong>allocate</strong> a particular employee to an event, double-click the employee card on the left list. Notice the employee to allocate
+has moved to the list on the right as shown in the figure below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/afterallocatem.png" alt="afterallocatem" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 6: Finally, to <strong>free</strong> a particular employee to an event, double-click the employee card on the right
+as shown in the figure above in step 5:</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -641,16 +696,11 @@ Likewise, to free/deallocate employees, <strong>click the 'free' button</strong>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the employee list is not updated, it means the current manpower available is insufficient to fulfil the
-requirements of the event.
+If the GUI features are not working as intended, kindly use the command line interface to execute the command
+instead.
 </td>
 </tr>
 </table>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/afterallocate.png" alt="afterallocate" width="600">
-</div>
 </div>
 </div>
 </div>
@@ -867,24 +917,32 @@ e.g. <code>find_em John</code></p>
 e.g. <code>find_ev Music</code></p>
 </li>
 <li>
-<p><strong>Delete Employee</strong>: <code>delete_em INDEX</code><br>
+<p><strong>Delete Employee</strong>: <code>delete_em EMPLOYEE_INDEX</code><br>
 e.g. <code>delete_em 2</code></p>
 </li>
 <li>
-<p><strong>Delete Event</strong>: <code>delete_ev INDEX</code><br>
+<p><strong>Delete Event</strong>: <code>delete_ev EVENT_INDEX</code><br>
 e.g. <code>delete_ev 1</code></p>
 </li>
 <li>
-<p><strong>Log Working Hours</strong>: <code>log INDEX DDMMYYYY HOURSWORKED</code><br>
-e.g. <code>log 2 30092019 8</code></p>
+<p><strong>Fetch Employee</strong>: <code>fetch_em EMPLOYEE_INDEX</code><br>
+e.g. <code>fetch_em 2</code></p>
 </li>
 <li>
-<p><strong>Allocate Employees (Auto)</strong>: <code>allocate EVENT_ID [f/TAGS]&#8230;&#8203;</code><br>
+<p><strong>Fetch Event</strong>: <code>fetch_ev EVENT_INDEX</code><br>
+e.g. <code>fetch_ev 2</code></p>
+</li>
+<li>
+<p><strong>Allocate Employees (Auto)</strong>: <code>allocate EVENT_INDEX [t/TAGS]&#8230;&#8203;</code><br>
 e.g. <code>allocate 1 n/2 t/female</code></p>
 </li>
 <li>
-<p><strong>Allocate Employees (Manual)</strong>: <code>allocateM EVENT_ID [n/EMPLOYEE_NUMBER]&#8230;&#8203;</code><br>
+<p><strong>Allocate Employees (Manual)</strong>: <code>allocate EVENT_INDEX [n/EMPLOYEE_INDEX]&#8230;&#8203;</code><br>
 e.g. `allocatem 1 n/2 `</p>
+</li>
+<li>
+<p><strong>Deallocate ALL Employees</strong>: <code>free EVENT_INDEX</code><br>
+e.g. `free 2 `</p>
 </li>
 <li>
 <p><strong>Set DateTime to Event</strong>: <code>set_ev_dt EVENT_INDEX on/EVENT_DATE time/EVENT_DAYTIME</code><br>
@@ -919,4 +977,4 @@ e.g. <code>stats_g</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 05:10:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 05:14:04 UTC</div></div></div></body></html>

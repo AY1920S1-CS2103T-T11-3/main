@@ -21,7 +21,7 @@ and email employees directly without opening an email application.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/listview.png" alt="listview">
+<img src="../images/beforefetch.png" alt="beforefetch">
 </div>
 <div class="title">Figure 1. <em>The graphical user interface for AddMin+.</em></div>
 </div>
@@ -30,6 +30,7 @@ and email employees directly without opening an email application.</p>
 illustrate these enhancements in more detail, as well as the relevant documentation
 I have added to the user and developer guides in relation to these enhancements.</p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -38,28 +39,32 @@ I have added to the user and developer guides in relation to these enhancements.
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>automated allocation of employees to event commands</strong> with <strong>GUI feature</strong></p>
+<p><strong>Major enhancement</strong>: added features to allow association of employees with events which includes
+<strong>automated/manual allocation of employees to event commands</strong> and a <strong>deallocate command</strong>, as well as the
+viewing of changes the users made via the <strong>fetch event</strong> command. All related commands have <strong>GUI features</strong> implemented.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to allocate employees to an event with certain filter requirements.</p>
+<p>What it does: allows the user to check for availability of employees and allocate them to an event with
+certain filter requirements. The algorithm ensures that employees cannot be allocated to events with
+conflicting time periods.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can now associate employees
-with events. The GUI feature further provides convenience for users.</p>
+<p>Justification: This feature improves the product significantly because a user can now allocate employees
+to events, which is a key component for events management companies that our app is targeting.
+The GUI features further provide convenience for users.</p>
 </li>
 <li>
 <p>Highlights: This enhancement affects existing commands and commands to be added in future.
 It required an in-depth analysis of design alternatives. The implementation too was challenging as it
-required significant changes to both <code>Event</code> and <code>Employee</code> classes.</p>
+required the knowledge of both <code>Event</code> and <code>Employee</code> classes.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a <strong>fetch_ev</strong> command that allows the user to view more details about a specified event.
-The GUI feature allows users to simply double-click an event to execute this command. This GUI enhancement is complementary
-to the <strong>automated allocation</strong> feature previously mentioned.</p>
+<p><strong>Minor enhancement</strong>: added command history to allow user to view previous commands using up/down
+arrow keys.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -88,9 +93,6 @@ to the <strong>automated allocation</strong> feature previously mentioned.</p>
 <li>
 <p>Updated GUI to show both employee and event list</p>
 </li>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
 </ul>
 </div>
 </li>
@@ -114,9 +116,6 @@ to the <strong>automated allocation</strong> feature previously mentioned.</p>
 <li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
 </li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
 </ul>
 </div>
 </li>
@@ -125,6 +124,8 @@ to the <strong>automated allocation</strong> feature previously mentioned.</p>
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -143,9 +144,49 @@ to the <strong>automated allocation</strong> feature previously mentioned.</p>
 <div class="sect2">
 <h3 id="event-specific-management"><a class="link" href="#event-specific-management">Event-Specific Management</a></h3>
 <div class="sect3">
-<h4 id="automated-allocation-of-employees-to-events-code-allocate-code-also-a-gui-feature"><a class="link" href="#automated-allocation-of-employees-to-events-code-allocate-code-also-a-gui-feature">Automated allocation of Employees to Events: <code>allocate</code> (also a GUI feature)</a></h4>
+<h4 id="fetch-full-details-of-an-event-code-fetch_ev-code"><a class="link" href="#fetch-full-details-of-an-event-code-fetch_ev-code">Fetch Full Details of an Event: <code>fetch_ev</code></a></h4>
 <div class="paragraph">
-<p>Automatically chooses and allocates employees that meet the requirements to events .</p>
+<p>Fetches an event by displaying a pop-up window with full details of the event.</p>
+</div>
+<div class="paragraph">
+<p>For GUI features, kindly refer to <a href="#GUI Guide for event fetch and allocation commands">[GUI Guide for event fetch and allocation commands]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>fetch_ev EVENT_INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
+</li>
+<li>
+<p>The <code>EVENT_INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fetch_ev 2</code><br>
+Returns the 2rd event from the event list</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="automated-allocation-of-employees-to-events-code-allocate-code"><a class="link" href="#automated-allocation-of-employees-to-events-code-allocate-code">Automated allocation of Employees to Events: <code>allocate</code></a></h4>
+<div class="paragraph">
+<p>Automatically chooses and allocates employees that meet the requirements to events.</p>
+</div>
+<div class="paragraph">
+<p>For GUI feature, kindly refer to <a href="#GUI Guide for event fetch and allocation commands">[GUI Guide for event fetch and allocation commands]</a>.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>allocate EVENT_INDEX [n/NUMBER] [t/TAG]&#8230;&#8203;</code></p>
@@ -243,12 +284,12 @@ Allocates the 2nd employee on the employee list to the 1st event on the event li
 </div>
 </div>
 <div class="sect3">
-<h4 id="fetch-full-details-of-an-event-code-fetch_ev-code-also-a-gui-feature"><a class="link" href="#fetch-full-details-of-an-event-code-fetch_ev-code-also-a-gui-feature">Fetch Full Details of an Event: <code>fetch_ev</code> (also a GUI feature)</a></h4>
+<h4 id="de-allocation-of-all-employees-from-event-code-free-code"><a class="link" href="#de-allocation-of-all-employees-from-event-code-free-code">De-allocation of all Employees from Event: <code>free</code></a></h4>
 <div class="paragraph">
-<p>Fetches an event by displaying a pop-up window with full details of the event.</p>
+<p>Frees <strong>ALL</strong> employees allocated to the event.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>fetch_ev EVENT_INDEX</code></p>
+<p>Format: `free EVENT_INDEX `</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -258,7 +299,7 @@ Allocates the 2nd employee on the employee list to the 1st event on the event li
 <p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
 </li>
 <li>
-<p>The <code>EVENT_INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p><code>EVENT_INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
@@ -270,32 +311,64 @@ Allocates the 2nd employee on the employee list to the 1st event on the event li
 <div class="ulist">
 <ul>
 <li>
-<p><code>fetch_ev 2</code><br>
-Returns the 2rd event from the event list</p>
+<p><code>free 1</code><br>
+Frees all employees allocated the 1st event on the event list.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="gui-guide-for-event-fetch-and-allocation-commands"><a class="link" href="#gui-guide-for-event-fetch-and-allocation-commands">GUI Guide for Event Fetch and Allocation Commands</a></h4>
 <div class="paragraph">
-<p>Alternatively, simply <strong>double-click the event</strong> in the list.</p>
+<p><strong>For this guide, the relevant picture is shown after the instruction.</strong></p>
+</div>
+<div class="paragraph">
+<p>Step 1. For <code>fetch_ev</code>, simply <strong>double-click the event</strong> in the list as shown in the figure below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/BeforeFetch.png" alt="BeforeFetch" width="600">
+<img src="../images/beforefetch.png" alt="beforefetch" width="600">
 </div>
 </div>
 <div class="paragraph">
-<p>After double-clicking, a pop-up window with details of the specified event should show:
-<strong>Notice there are 2 buttons near the centre of the window.</strong></p>
+<p>Step 2: After successfully fetching the event, the following <strong>Fetch Window</strong> should show:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AfterFetch.png" alt="AfterFetch" width="600">
+<img src="../images/afterfetch.png" alt="afterfetch" width="600">
 </div>
 </div>
 <div class="paragraph">
-<p>To allocate employees to this event, simply <strong>click the 'allocate' button</strong>.
-After clicking the allocate button, the employee list should be updated.
-Likewise, to free/deallocate employees, <strong>click the 'free' button</strong>.</p>
+<p>Step 3: To perform a <code>allocate</code> command without number/filter specification, click the <strong>allocate</strong> button
+as shown in the <strong>Fetch Window</strong> in step 2. The two lists will be updated again as shown in the following figure:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/afterallocate.png" alt="afterallocate" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 4: To perform a <code>free</code> command, click the <strong>free</strong> button as shown in the <strong>Fetch Window</strong> in step 2.
+The two lists will be updated as shown in the following figure. Now, if you are interested to allocate a particular
+employee to an event, continue to step 5.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/afterfree.png" alt="afterfree" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 5: To <strong>allocate</strong> a particular employee to an event, double-click the employee card on the left list. Notice the employee to allocate
+has moved to the list on the right as shown in the figure below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/afterallocatem.png" alt="afterallocatem" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 6: Finally, to <strong>free</strong> a particular employee to an event, double-click the employee card on the right
+as shown in the figure above in step 5:</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -304,16 +377,11 @@ Likewise, to free/deallocate employees, <strong>click the 'free' button</strong>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the employee list is not updated, it means the current manpower available is insufficient to fulfil the
-requirements of the event.
+If the GUI features are not working as intended, kindly use the command line interface to execute the command
+instead.
 </td>
 </tr>
 </table>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/afterallocate.png" alt="afterallocate" width="600">
-</div>
 </div>
 </div>
 </div>
@@ -332,6 +400,31 @@ requirements of the event.
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">Storage component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram" width="500">
+</div>
+<div class="title">Figure 2. <em>Structure of the Storage Component</em></div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Storage</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+</li>
+<li>
+<p>can save the App data in json format and read it back.</p>
+</li>
+</ul>
+</div>
+</div>
 <div class="sect2">
 <h3 id="automated-allocation-of-employees-to-events-feature"><a class="link" href="#automated-allocation-of-employees-to-events-feature">Automated allocation of Employees to Events feature</a></h3>
 <div class="sect3">
@@ -381,7 +474,7 @@ by the event.</p>
 <div class="content">
 <img src="../images/AutoAllocateFlowChart.png" alt="AutoAllocateFlowChart" width="300">
 </div>
-<div class="title">Figure 2. <em>Program flow of the Auto Allocate Feature</em></div>
+<div class="title">Figure 3. <em>Program flow of the Auto Allocate Feature</em></div>
 </div>
 <div class="paragraph">
 <p><strong>Step 1</strong>. The user executes <code>allocate 1 n/2 t/female</code> with the intention to allocate 2 employees with tag [female]
@@ -454,7 +547,7 @@ For storage purposes, only the <code>Employee#EmployeeId</code> is saved in the 
 <div class="content">
 <img src="../images/AutoAllocateSequenceDiagram.png" alt="AutoAllocateSequenceDiagram">
 </div>
-<div class="title">Figure 3. <em>Sequence Diagram of the AutoAllocate Command</em></div>
+<div class="title">Figure 4. <em>Sequence Diagram of the AutoAllocate Command</em></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -468,15 +561,6 @@ PlantUML, the lifeline reaches the end of diagram.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens <strong>after</strong> a user successfully executes an <code>AutoAllocateCommand</code>:</p>
-</div>
-<div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="../images/AutoAllocateActivityDiagram.png" alt="AutoAllocateActivityDiagram">
-</div>
-<div class="title">Figure 4. <em>Activity Diagram of the AutoAllocate Command</em></div>
 </div>
 </div>
 <div class="sect3">
@@ -534,4 +618,4 @@ which states that objects should not navigate internal structures of other objec
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 05:10:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 05:14:04 UTC</div></div></div></body></html>

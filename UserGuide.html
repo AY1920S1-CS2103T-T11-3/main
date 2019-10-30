@@ -13,13 +13,57 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#general-commands">3.1. General Commands</a></li>
-<li><a href="#entity-management">3.2. Entity Management</a></li>
-<li><a href="#employee-specific-management">3.3. Employee-Specific Management</a></li>
-<li><a href="#event-specific-management">3.4. Event-Specific Management</a></li>
-<li><a href="#finance-management">3.5. Finance Management</a></li>
-<li><a href="#schedule">3.6. Schedule</a></li>
-<li><a href="#miscellaneous">3.7. Miscellaneous</a></li>
+<li><a href="#general-commands">3.1. General Commands</a>
+<ul class="sectlevel3">
+<li><a href="#viewing-help-code-help-code">3.1.1. Viewing help : <code>help</code></a></li>
+<li><a href="#viewing-help-code-exit-code">3.1.2. Viewing help : <code>exit</code></a></li>
+</ul>
+</li>
+<li><a href="#entity-management">3.2. Entity Management</a>
+<ul class="sectlevel3">
+<li><a href="#list-code-list-list_em-list_ev-code">3.2.1. List : <code>list | list_em | list_ev</code></a></li>
+<li><a href="#adding-code-add_em-add_ev-code">3.2.2. Adding: <code>add_em | add_ev</code></a></li>
+<li><a href="#editing-details-code-edit_em-edit_ev-code">3.2.3. Editing details : <code>edit_em | edit_ev</code></a></li>
+<li><a href="#find-code-find_em-find_ev-code">3.2.4. Find: <code>find_em | find_ev</code></a></li>
+<li><a href="#deleting-an-entity-code-delete_em-delete_ev-code">3.2.5. Deleting an entity : <code>delete_em | delete_ev</code></a></li>
+</ul>
+</li>
+<li><a href="#employee-specific-management">3.3. Employee-Specific Management</a>
+<ul class="sectlevel3">
+<li><a href="#fetch-full-details-of-an-employee-code-fetch_em-code">3.3.1. Fetch Full Details of an Employee: <code>fetch_em</code></a></li>
+</ul>
+</li>
+<li><a href="#event-specific-management">3.4. Event-Specific Management</a>
+<ul class="sectlevel3">
+<li><a href="#fetch-full-details-of-an-event-code-fetch_ev-code">3.4.1. Fetch Full Details of an Event: <code>fetch_ev</code></a></li>
+<li><a href="#automated-allocation-of-employees-to-events-code-allocate-code">3.4.2. Automated allocation of Employees to Events: <code>allocate</code></a></li>
+<li><a href="#manually-allocation-of-employees-to-events-code-allocatem-code">3.4.3. Manually allocation of Employees to Events: <code>allocatem</code></a></li>
+<li><a href="#de-allocation-of-all-employees-from-event-code-free-code">3.4.4. De-allocation of all Employees from Event: <code>free</code></a></li>
+<li><a href="#setting-a-date-time-to-an-event-code-set_ev_dt-code">3.4.5. Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a></li>
+<li><a href="#delete-a-datetime-mapping-from-an-event-code-delete_ev_dt-code">3.4.6. Delete a DateTime Mapping from an Event: <code>delete_ev_dt</code></a></li>
+<li><a href="#clear-all-datetime-mappings-from-an-event-code-clear_ev_dt-code">3.4.7. Clear all DateTime Mappings from an Event: <code>clear_ev_dt</code></a></li>
+<li><a href="#gui-guide-for-event-fetch-and-allocation-commands">3.4.8. GUI Guide for Event Fetch and Allocation Commands</a></li>
+</ul>
+</li>
+<li><a href="#finance-management">3.5. Finance Management</a>
+<ul class="sectlevel3">
+<li><a href="#generate-employee-payslip-code-pay-coming-in-v2-0-code">3.5.1. Generate Employee Payslip: <code>pay [coming in v2.0]</code></a></li>
+</ul>
+</li>
+<li><a href="#schedule">3.6. Schedule</a>
+<ul class="sectlevel3">
+<li><a href="#display-schedule-for-a-specific-date-code-display_schedule_date-code">3.6.1. Display Schedule for a specific date: <code>display_schedule_date</code></a></li>
+<li><a href="#display-schedule-for-a-specific-month-and-year-code-display_schedule-code">3.6.2. Display Schedule for a specific Month and Year: <code>display_schedule</code></a></li>
+<li><a href="#generate-entire-schedule-code-generate_schedule-code">3.6.3. Generate Entire Schedule: <code>generate_schedule</code></a></li>
+</ul>
+</li>
+<li><a href="#miscellaneous">3.7. Miscellaneous</a>
+<ul class="sectlevel3">
+<li><a href="#generate-statistics-code-stats_g-coming-in-v2-0-code">3.7.1. Generate Statistics: <code>stats_g [coming in v2.0]</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.7.2. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#saving-the-data">3.7.3. Saving the data</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -32,18 +76,13 @@
 <h2 id="welcome-to-addmin"><a class="link" href="#welcome-to-addmin">1. Welcome to AddMin+</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>AddMin+</strong> is an all in one administration desktop application, that is specially designed for any other events management
-start-up company with limited manpower and resources. These companies would usually only be able to afford to hire
-one admin staff to handle both the management of events and employees and this can be tough.
+<p><strong>AddMin+</strong> is an all in one administration desktop application, that is specially designed for any other events management start-up company with limited manpower and resources.
+These companies would usually only be able to afford to hire one admin staff to handle both the management of events and employees and this can be tough.
 The Admin+ Team understands the struggles that start-ups faces on a daily basis, and we are here to help!</p>
 </div>
 <div class="paragraph">
-<p><strong>AddMin+</strong> is specially designed to ease the workload of the admin and allow
-him/her to effectively handle the administrative tasks of the company by providing the following functions: event
-creation and deletion, editing of event details after creation, manual and automatic manpower allocation for events
-and providing an overview of all the data via statistics. The purpose of this user guide is show the user how they can
-use our app to carry out their administrative tasks efficiently and also answer any questions they may have while using
-our app.</p>
+<p><strong>AddMin+</strong> is specially designed to ease the workload of the admin and allow him/her to effectively handle the administrative tasks of the company by providing the following functions: event creation and deletion, editing of event details after creation, manual and automatic manpower allocation for events and providing an overview of all the data via statistics.
+The purpose of this user guide is show the user how they can use our app to carry out their administrative tasks efficiently and also answer any questions they may have while using our app.</p>
 </div>
 </div>
 </div>
@@ -62,7 +101,8 @@ our app.</p>
 <p>Copy the file to the folder you want to use as the home folder for AddMin+</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Double-click the file to start the app.
+The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
@@ -70,11 +110,18 @@ our app.</p>
 </div>
 </li>
 <li>
-<p>Click on the specific function you want, Finance, Manpower or Event</p>
+<p>Click on the specific tab you want.
+For now, we have <code>Main</code> and <code>Schedule</code>.</p>
 </li>
 <li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Some example commands you can try:</p>
@@ -108,10 +155,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>The features of AddMin+ can be grouped into 4 main categories, Finance, Manpower, Event, and General. The commands
-that AddMin+ recognize follows a specific format, however, each category will have their own set of valid commands.
-For new users, do refer to Section 3.1 till Section 3.4 for the specific command and how to use them. For more advanced
-users, you could refer to <a href="#command-summary">Section 6, &#8220;Command Summary&#8221;</a>.</p>
+<p>The features of AddMin+ can be grouped into 4 main categories, Finance, Manpower, Event, and General.
+The commands that AddMin+ recognize follows a specific format, however, each category will have their own set of valid commands.
+For new users, do refer to the subsections under Section 3 for the specific command and how to use them.
+For more advanced users, you could refer to <a href="#command-summary">Section 6, &#8220;Command Summary&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command Format</strong></p>
@@ -161,15 +208,17 @@ users, you could refer to <a href="#command-summary">Section 6, &#8220;Command S
 <div class="sect2">
 <h3 id="entity-management"><a class="link" href="#entity-management">3.2. Entity Management</a></h3>
 <div class="paragraph">
-<p>AddMin+ contains two main entities - Employees and Events with similar commands, especially in Create, Read, Update and Delete (CRUD) operations.</p>
+<p>AddMin+ contains two main entities - Employees and Events with similar commands, especially in <em>Create, Read, Update and Delete (CRUD)</em> operations.</p>
 </div>
 <div class="sect3">
 <h4 id="list-code-list-list_em-list_ev-code"><a class="link" href="#list-code-list-list_em-list_ev-code">3.2.1. List : <code>list | list_em | list_ev</code></a></h4>
 <div class="paragraph">
-<p>Employee: Shows the list of all employees on the company’s roster. Full details are truncated.</p>
+<p>Employee: Shows the list of all employees on the company’s roster.
+Full details are truncated.</p>
 </div>
 <div class="paragraph">
-<p>Event: Shows the list of all events on the company’s calendar. Full details are truncated.</p>
+<p>Event: Shows the list of all events on the company’s calendar.
+Full details are truncated.</p>
 </div>
 <div class="paragraph">
 <p>Both Employee and Event: <code>list</code></p>
@@ -253,7 +302,9 @@ A employee can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the entity at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed entity list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the entity at the specified <code>INDEX</code>.
+The index refers to the index number shown in the displayed entity list.
+The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -346,8 +397,8 @@ Edits the name of the 2nd event to be <code>Concert</code> and clears all existi
 Returns <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
-<p><code>find_em Betsy Tim John</code><br>
-Returns any entity having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>find_ev Concert Musical Play</code><br>
+Returns any event having names <code>Concert</code>, <code>Musical</code>, or <code>Play</code></p>
 </li>
 <li>
 <p><code>find_em Party</code><br>
@@ -390,13 +441,11 @@ Returns any event having names <code>Party</code> or <code>party</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list_em</code><br>
-<code>delete_em 2</code><br>
+<p><code>list_em</code> <code>delete_em 2</code><br>
 Deletes the 2nd employee in the displayed employee list.</p>
 </li>
 <li>
-<p><code>find_ev Music</code><br>
-<code>delete_ev 1</code><br>
+<p><code>find_ev Music</code> <code>delete_ev 1</code><br>
 Deletes the 1st event in the list shown after the <code>find_ev</code> command.</p>
 </li>
 </ul>
@@ -408,7 +457,7 @@ Deletes the 1st event in the list shown after the <code>find_ev</code> command.<
 <div class="sect3">
 <h4 id="fetch-full-details-of-an-employee-code-fetch_em-code"><a class="link" href="#fetch-full-details-of-an-employee-code-fetch_em-code">3.3.1. Fetch Full Details of an Employee: <code>fetch_em</code></a></h4>
 <div class="paragraph">
-<p>Fetches an employee by displaying a pop-up window with full details of the employee.</p>
+<p>Fetches an employee by displaying a pop-up window that shows the full list of every working date of an employee, based on the dates of the events allocated.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>fetch_em EMPLOYEE_INDEX</code></p>
@@ -448,7 +497,7 @@ Returns the 2rd employee from the employee list.</p>
 <p>Fetches an event by displaying a pop-up window with full details of the event.</p>
 </div>
 <div class="paragraph">
-<p>For GUI features, kindly refer to <a href="#gui-guide-for-event-fetch-and-allocation-commands">Section 3.4.6, &#8220;GUI Guide for Event Fetch and Allocation Commands&#8221;</a>.</p>
+<p>For GUI features, kindly refer to <a href="#gui-guide-for-event-fetch-and-allocation-commands">Section 3.4.8, &#8220;GUI Guide for Event Fetch and Allocation Commands&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>fetch_ev EVENT_INDEX</code></p>
@@ -614,12 +663,38 @@ Frees all employees allocated the 1st event on the event list.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-a-date-time-to-an-event"><a class="link" href="#setting-a-date-time-to-an-event">3.4.5. Setting a Date&amp;Time to an Event</a></h4>
+<h4 id="setting-a-date-time-to-an-event-code-set_ev_dt-code"><a class="link" href="#setting-a-date-time-to-an-event-code-set_ev_dt-code">3.4.5. Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a></h4>
 <div class="paragraph">
 <p>Sets a Date-Time mapping to an specific Event.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Events are initialized without any schedule, other than their stated start and end date with a default time of 8-6pm.
+Hence, the mapping <em>declares</em> the schedule for the dates that the event is being held.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Fields in [] are optional.<br>
+If <code>EVENT_DATE</code> is not stated, then all dates inclusive of the start to end date will be filled with the stated <code>EVENT_DAYTIME</code>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>Format: <code>set_ev_dt EVENT_INDEX on/EVENT_DATE time/EVENT_DAYTIME</code></p>
+<p>Format: <code>set_ev_dt EVENT_INDEX [on/EVENT_DATE] time/EVENT_DAYTIME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -653,11 +728,90 @@ Frees all employees allocated the 1st event on the event list.</p>
 <p><code>set_ev_dt 2 on/18/10/2019 time/1000-2000</code><br>
 Sets the 2nd Event from the Event List a time period of 10am-10pm on the date 18th October 2019.</p>
 </li>
+<li>
+<p><code>set_ev_dt 3 time/0500-1500</code><br>
+Sets the 1st Event from the Event List a time period of 5am-3pm on all dates from the start to the end date.</p>
+</li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="gui-guide-for-event-fetch-and-allocation-commands"><a class="link" href="#gui-guide-for-event-fetch-and-allocation-commands">3.4.6. GUI Guide for Event Fetch and Allocation Commands</a></h4>
+<h4 id="delete-a-datetime-mapping-from-an-event-code-delete_ev_dt-code"><a class="link" href="#delete-a-datetime-mapping-from-an-event-code-delete_ev_dt-code">3.4.6. Delete a DateTime Mapping from an Event: <code>delete_ev_dt</code></a></h4>
+<div class="paragraph">
+<p>Deletes a mapping on a specific date for a specific event.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete_ev_dt EVENT_INDEX on/EVENT_DATE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
+</li>
+<li>
+<p>The <code>EVENT_INDEX</code> <strong>must be a positive integer:</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The <code>EVENT_DATE</code> <strong>must be of the format</strong> DD/MM/YYYY, and within the Event&#8217;s Start and End Date*</p>
+</li>
+<li>
+<p>The <code>EVENT_DAYTIME</code> <strong>must be of the format</strong> HHMM-HHMM, where the <em>start time</em> is before the <em>end time</em>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete_ev_dt 2 on/18/10/2019</code><br>
+Deletes the mapping on 18th October from the 2nd Event on the Event list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-all-datetime-mappings-from-an-event-code-clear_ev_dt-code"><a class="link" href="#clear-all-datetime-mappings-from-an-event-code-clear_ev_dt-code">3.4.7. Clear all DateTime Mappings from an Event: <code>clear_ev_dt</code></a></h4>
+<div class="paragraph">
+<p>Clears all date-time mappings for a specific event.
+As a side effect, all manpower allocated to the event will be deallocated.</p>
+</div>
+<div class="paragraph">
+<p>Format: `clear_ev_dt EVENT_INDEX `</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
+</li>
+<li>
+<p>The <code>EVENT_INDEX</code> <strong>must be a positive integer:</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clear_ev_dt 2</code><br>
+Clears all the date-time mapping from the 2nd Event on the Event list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="gui-guide-for-event-fetch-and-allocation-commands"><a class="link" href="#gui-guide-for-event-fetch-and-allocation-commands">3.4.8. GUI Guide for Event Fetch and Allocation Commands</a></h4>
 <div class="paragraph">
 <p><strong>For this guide, the relevant picture is shown after the instruction.</strong></p>
 </div>
@@ -726,8 +880,7 @@ as shown in the figure below:
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the GUI features are not working as intended, kindly use the command line interface to execute the command
-instead.
+If the GUI features are not working as intended, kindly use the command line interface to execute the command instead.
 </td>
 </tr>
 </table>
@@ -749,7 +902,8 @@ instead.
 <div class="ulist">
 <ul>
 <li>
-<p>EMPLOYEE_NUMBER is the number of the employee on the displayed list. It must be a valid number.</p>
+<p>EMPLOYEE_NUMBER is the number of the employee on the displayed list.
+It must be a valid number.</p>
 </li>
 <li>
 <p>f/ and t/ represents "from" and "to", both DateTime periods.</p>
@@ -778,12 +932,13 @@ Generates the payslip of employee 2 from the 20th August - 20th October.</p>
 <div class="sect2">
 <h3 id="schedule"><a class="link" href="#schedule">3.6. Schedule</a></h3>
 <div class="paragraph">
-<p>Welcome to Schedule! Wondering how to display and see what events you have on a specific Date or Month, or do you
-want to have an overview of all the dates where you have an event? Then you are at the right place!</p>
+<p>Welcome to Schedule!
+Wondering how to display and see what events you have on a specific Date or Month, or do you want to have an overview of all the dates where you have an event?
+Then you are at the right place!</p>
 </div>
 <div class="paragraph">
-<p>To get things started, all Schedule-related commands occurs in the Schedule Tab as seen from the figure below! You could either
-click on the Schedule Tab or just simply type in any Schedule-related commands and AddMin+ will bring you there.</p>
+<p>To get things started, all Schedule-related commands occurs in the Schedule Tab as seen from the figure below!
+You could either click on the Schedule Tab or just simply type in any Schedule-related commands and AddMin+ will bring you there.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -792,10 +947,10 @@ click on the Schedule Tab or just simply type in any Schedule-related commands a
 <div class="title">Figure 1. <em>User Interface (UI) of the Schedule Feature</em></div>
 </div>
 <div class="sect3">
-<h4 id="display-schedule-for-a-specific-date"><a class="link" href="#display-schedule-for-a-specific-date">3.6.1. Display Schedule for a specific date</a></h4>
+<h4 id="display-schedule-for-a-specific-date-code-display_schedule_date-code"><a class="link" href="#display-schedule-for-a-specific-date-code-display_schedule_date-code">3.6.1. Display Schedule for a specific date: <code>display_schedule_date</code></a></h4>
 <div class="paragraph">
-<p>Lets say you want to check if you have any events on a specific date. Instead of looking through the list of events you have, you
-could simply use the <code>display_schedule_date</code> command to do it!</p>
+<p>Lets say you want to check if you have any events on a specific date.
+Instead of looking through the list of events you have, you could simply use the <code>display_schedule_date</code> command to do it!</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>display_schedule_date on/dd/MM/yyyy</code></p>
@@ -819,7 +974,8 @@ could simply use the <code>display_schedule_date</code> command to do it!</p>
 <p><strong>To display schedule for a specific date (20/11/2019):</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>.  Either type <code>display_schedule_date on/20/11/2019</code> into the command box or click on the specific date from the date picker.</p>
+<p><strong>Step 1</strong>.
+Either type <code>display_schedule_date on/20/11/2019</code> into the command box or click on the specific date from the date picker.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -827,8 +983,9 @@ could simply use the <code>display_schedule_date</code> command to do it!</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 2</strong>.  The result box will display a message which inform you how many events are being listed. In this case the message displayed
-is "1 events listed!"</p>
+<p><strong>Step 2</strong>.
+The result box will display a message which inform you how many events are being listed.
+In this case the message displayed is "1 events listed!"</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -836,8 +993,9 @@ is "1 events listed!"</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>.  In the event list you will be able to see all the events that are on the specified date. In this case the only event that is on
-20/11/2019 is "Talk by DEF Company".</p>
+<p><strong>Step 3</strong>.
+In the event list you will be able to see all the events that are on the specified date.
+In this case the only event that is on 20/11/2019 is "Talk by DEF Company".</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -858,10 +1016,10 @@ The event list will be empty and not display anything if there is no event on th
 </div>
 </div>
 <div class="sect3">
-<h4 id="display-schedule-for-a-specific-month-and-year"><a class="link" href="#display-schedule-for-a-specific-month-and-year">3.6.2. Display Schedule for a specific Month and Year</a></h4>
+<h4 id="display-schedule-for-a-specific-month-and-year-code-display_schedule-code"><a class="link" href="#display-schedule-for-a-specific-month-and-year-code-display_schedule-code">3.6.2. Display Schedule for a specific Month and Year: <code>display_schedule</code></a></h4>
 <div class="paragraph">
-<p>Now if you would want to see all the events you have on a specific month and year. Instead of looking through the list of events you have, you
-could simply use the <code>display_schedule</code> command to do it!</p>
+<p>Now if you would want to see all the events you have on a specific month and year.
+Instead of looking through the list of events you have, you could simply use the <code>display_schedule</code> command to do it!</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>display_schedule for/MM/yyyy</code></p>
@@ -877,55 +1035,14 @@ could simply use the <code>display_schedule</code> command to do it!</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p><strong>To display schedule for a specific Month and Year (11/2019):</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1</strong>.  Either type <code>display_schedule for/11/2019</code> into the command box or click on the month year picker buttons to
-navigate to the specific month and year.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ScheduleUiMonthStep1.png" alt="ScheduleUiMonthStep1">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 2</strong>.  The result box will display a message which inform you how many events are being listed. In this case the message displayed
-is "2 events listed!"</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ScheduleUiMonthStep2.png" alt="ScheduleUiMonthStep2">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 3</strong>.  In the event list you will be able to see all the events that are on the specified month, year. In this case there is 2 event
-that is on 11/2019 which is "Talk by DEF Company" and "Birthday Party".</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ScheduleUiMonthStep3.png" alt="ScheduleUiMonthStep3">
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The event list will be empty and not display anything if there is no event on the specified month, year.
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect3">
-<h4 id="generate-entire-schedule"><a class="link" href="#generate-entire-schedule">3.6.3. Generate Entire Schedule</a></h4>
+<h4 id="generate-entire-schedule-code-generate_schedule-code"><a class="link" href="#generate-entire-schedule-code-generate_schedule-code">3.6.3. Generate Entire Schedule: <code>generate_schedule</code></a></h4>
 <div class="paragraph">
-<p>Want to have an overview of all the dates that has an event? Use the <code>generate_schedule</code> command to do so. The <code>generate_schedule</code> command
-looks through the entire list of events and generates a new list of all the dates which has an event and also display all the events that happens
-on that date.</p>
+<p>Want to have an overview of all the dates that has an event?
+Use the <code>generate_schedule</code> command to do so.
+The <code>generate_schedule</code> command looks through the entire list of events and generates a new list of all the dates which has an event and also display all the events that happens on that date.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; e097b68b5332ff2472d74fdfa6fea5d9526b153e</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>generate_schedule</code></p>
@@ -946,7 +1063,8 @@ The <code>generate_schedule</code> command opens a new window to display the new
 <p><strong>To display the entire schedule:</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>.  Either type <code>generate_schedule</code> into the command box or click on the generate schedule button to display the entire schedule.</p>
+<p><strong>Step 1</strong>.
+Either type <code>generate_schedule</code> into the command box or click on the generate schedule button to display the entire schedule.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -954,7 +1072,8 @@ The <code>generate_schedule</code> command opens a new window to display the new
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 2</strong>.  The result box will display the message "Schedule Generated".</p>
+<p><strong>Step 2</strong>.
+The result box will display the message "Schedule Generated".</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -962,7 +1081,8 @@ The <code>generate_schedule</code> command opens a new window to display the new
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>.  A new window will open, displaying all the dates and events that is happening on those specific dates.</p>
+<p><strong>Step 3</strong>.
+A new window will open, displaying all the dates and events that is happening on those specific dates.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1069,6 +1189,18 @@ such as the location, budget, and date.</p>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Delete DateTime from Event</strong>: <code>delete_ev_dt EVENT_INDEX on/EVENT_DATE</code><br>
+e.g. <code>delete_ev_dt 2 on/18/10/2019</code></p>
+</li>
+<li>
+<p><strong>Clear DateTime from Event</strong>: <code>clear_ev_dt EVENT_INDEX</code><br>
+e.g. <code>clear_ev_dt 2</code></p>
+</li>
+</ul>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1152,6 +1284,16 @@ such as the location, budget, and date.</p>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>set_ev_dt 2 on/18/10/2019 time/1000-2000</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Delete DateTime from an Event</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>delete_ev_dt EVENT_INDEX on/EVENT_DATE</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>delete_ev_dt 2 on/18/10/2019 time/1000-2000</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Clear DateTime from an Event</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>clear_ev_dt EVENT_INDEX</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>clear_ev_dt 2</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>View Schedule for specific date</strong></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>view_schedule on/DDMMYYYY</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>view_schedule on/02/12/2019</code></p></td>
@@ -1188,5 +1330,8 @@ such as the location, budget, and date.</p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 13:28:40 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 14:27:20 UTC</div></div></div></body></html>

@@ -163,12 +163,15 @@ users, you could refer to <a href="#command-summary">Section 5, &#8220;Command S
 <p>AddMin+ contains two main entities - Employees and Events with similar commands, especially in Create, Read, Update and Delete (CRUD) operations.</p>
 </div>
 <div class="sect3">
-<h4 id="list-code-list_em-list_ev-code"><a class="link" href="#list-code-list_em-list_ev-code">3.2.1. List : <code>list_em | list_ev</code></a></h4>
+<h4 id="list-code-list-list_em-list_ev-code"><a class="link" href="#list-code-list-list_em-list_ev-code">3.2.1. List : <code>list | list_em | list_ev</code></a></h4>
 <div class="paragraph">
 <p>Employee: Shows the list of all employees on the company’s roster. Full details are truncated.</p>
 </div>
 <div class="paragraph">
 <p>Event: Shows the list of all events on the company’s calendar. Full details are truncated.</p>
+</div>
+<div class="paragraph">
+<p>Both Employee and Event: <code>list</code></p>
 </div>
 <div class="paragraph">
 <p>Employee Format: <code>list_em</code></p>
@@ -178,7 +181,7 @@ users, you could refer to <a href="#command-summary">Section 5, &#8220;Command S
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-code-add-add_ev-code"><a class="link" href="#adding-code-add-add_ev-code">3.2.2. Adding: <code>add | add_ev</code></a></h4>
+<h4 id="adding-code-add_em-add_ev-code"><a class="link" href="#adding-code-add_em-add_ev-code">3.2.2. Adding: <code>add_em | add_ev</code></a></h4>
 <div class="paragraph">
 <p>Employee: Adds an employee to the employee list</p>
 </div>
@@ -186,10 +189,10 @@ users, you could refer to <a href="#command-summary">Section 5, &#8220;Command S
 <p>Event: Adds an event that the company is organizing or hosting to the company’s calendar.</p>
 </div>
 <div class="paragraph">
-<p>Employee Format: <code>add n/NAME no/PHONE_NUMBER p/POSITION e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Employee Format: <code>add_em n/NAME g/GENDER p/POSITION no/PHONE e/EMAIL a/ADDRESS on/Join Date [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
-<p>Event Format: <code>add_ev n/EVENT_NAME m/MANPOWER_NEEDED on/DDMMYYYY till/DDMMYYYY at/LOCATION_NAME [t/TAG]&#8230;&#8203;</code></p>
+<p>Event Format: <code>add_ev n/NAME at/VENUE m/MANPOWER NEEDED on/START DATEtill/END DATE[t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -205,13 +208,13 @@ A employee can have any number of tags (including 0)
 </div>
 <div class="paragraph">
 <p>Add Employee Examples:
-* <code>add n/John Doe no/98765432 p/cleaner e/johnd@example.com a/John street, block 123, #01-01</code>
-* <code>add n/Betsy Crowe t/Enthusiastic p/CFO e/betsycrowe@example.com a/Newgate Prison no/1234567 t/criminal</code></p>
+* <code>add_em n/John Doe g/Male p/Manager no/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 on/12/12/2012 t/friends t/owesMoney</code>
+* <code>add_em n/Betsy Crowe g/Female p/CFO no/91909111 e/betsycrowe@example.com a/Newgate Prison on/10/12/2019 t/criminal</code></p>
 </div>
 <div class="paragraph">
 <p>Add Event Examples:
-* <code>add_ev n/Music Festival m/10 on/15092019 till/20092019 at/NUS t/Music</code>
-* <code>add_ev n/Charity Run m/4 on/15092019 till/15092019 at/NUS</code></p>
+* <code>add_ev n/Free Coffee at/Utown Starbucks m/5 on/16/03/2019 till/17/03/2019 t/fun t/free</code>
+* <code>add_ev n/NUS RUN at/NUS Sports Hall m/5 on/19/10/2019 till/20/10/2019 t/running t/sports</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -223,10 +226,10 @@ A employee can have any number of tags (including 0)
 <p>Event: Edits an existing event in the event list.</p>
 </div>
 <div class="paragraph">
-<p>Employee Format: <code>edit_em INDEX n/NAME no/PHONE_NUMBER p/POSITION e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Employee Format: <code>edit_em INDEX (must be a positive integer) [n/NAME] [g/GENDER] [p/POSITION] [no/PHONE] [e/EMAIL] [a/ADDRESS] [on/JOINDATE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
-<p>Event Format Format: <code>edit_ev INDEX n/EVENT_NAME m/MANPOWER_NEEDED on/DDMMYYYY till/DDMMYYYY at/LOCATION_NAME [t/TAG]&#8230;&#8203;</code></p>
+<p>Event Format Format: <code>edit_ev INDEX (must be a positive integer) [n/EVENT NAME] [at/VENUE] [m/MANPOWER NEEDED] [on/START DATE] [till/END DATE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1034,6 +1037,9 @@ There is no need to save manually.</p>
 <p><strong>Search</strong> : <code>search</code></p>
 </li>
 <li>
+<p><strong>List Both Employees and Event</strong> : <code>list</code></p>
+</li>
+<li>
 <p><strong>List Employees</strong> : <code>list_em</code></p>
 </li>
 <li>
@@ -1124,4 +1130,4 @@ e.g. <code>stats_g</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 07:28:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 07:34:31 UTC</div></div></div></body></html>

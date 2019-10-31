@@ -715,13 +715,34 @@ If the command execution fails, a <code>ParseException</code> (from Step 2) or a
 </table>
 </div>
 <div class="paragraph">
+<p>The following sequence diagram shows how the <code>AssignDateCommand</code>  works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SetDateTimeSequenceDiagram.png" alt="SetDateTimeSequenceDiagram">
+</div>
+<div class="title">Figure 11. <em>Sequence Diagram for AssignDateCommand Command</em></div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The lifeline for <code>AssignDateCommand</code> ends at the destroy marker (X).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
 <p>The following activity diagram shows how the Setting of Date&amp;Time to Event work:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SettingEventDateActivityDiagram.png" alt="SettingEvent" width="295" height="607">
 </div>
-<div class="title">Figure 11. <em>Activity Diagram of the SettingEventDate Command</em></div>
+<div class="title">Figure 12. <em>Activity Diagram of the SettingEventDate Command</em></div>
 </div>
 </div>
 <div class="sect3">
@@ -797,13 +818,13 @@ they are representing. These DistinctDate Objects are then used to be displayed 
 <div class="content">
 <img src="images/DistinctDateClassDiagram.png" alt="DistinctDateClassDiagram" width="300">
 </div>
-<div class="title">Figure 12. <em>Class Diagram for DistinctDate</em></div>
+<div class="title">Figure 13. <em>Class Diagram for DistinctDate</em></div>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/DistinctDateProcessorClassDiagram.png" alt="DistinctDateProcessorClassDiagram" width="300">
 </div>
-<div class="title">Figure 13. <em>Class Diagram for DistinctDateProcessor</em></div>
+<div class="title">Figure 14. <em>Class Diagram for DistinctDateProcessor</em></div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the display schedule mechanism behaves at each step.</p>
@@ -812,7 +833,7 @@ they are representing. These DistinctDate Objects are then used to be displayed 
 <div class="content">
 <img src="images/GenerateScheduleFlowChart.png" alt="GenerateScheduleFlowChart" width="300">
 </div>
-<div class="title">Figure 14. <em>Program flow of the Generate Schedule Feature</em></div>
+<div class="title">Figure 15. <em>Program flow of the Generate Schedule Feature</em></div>
 </div>
 <div class="paragraph">
 <p><strong>Step 1</strong>. The user launches the application for the first time.</p>
@@ -871,7 +892,7 @@ it is called upon or when the application starts.
 <div class="content">
 <img src="images/GenerateScheduleSequenceDiagram.png" alt="GenerateScheduleSequenceDiagram">
 </div>
-<div class="title">Figure 15. <em>Sequence Diagram for generate_schedule Command</em></div>
+<div class="title">Figure 16. <em>Sequence Diagram for generate_schedule Command</em></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1529,4 +1550,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 14:49:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 07:02:25 UTC</div></div></div></body></html>

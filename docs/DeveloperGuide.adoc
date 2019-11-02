@@ -250,7 +250,7 @@ filtered list of employees based on the `tagList` and if employee satisfies `Eve
 **Step 5**. The command checks if supply (number of employees in filtered list in step 4) exceeds
 demand (number of employees required by event, generated in step 3).
 [NOTE]
-If demand exceeds supply, an exception will be thrown to the user. If the supply exeeds demand, employees will be randomly selected instead.
+If demand exceeds supply, an exception will be thrown to the user. If the supply exceeds demand, employees will be randomly selected instead.
 
 **Step 6**. The command calls `Event#createEventAfterManpowerAllocation()` to create a new event with a updated
 manpower list.
@@ -283,7 +283,8 @@ PlantUML, the lifeline reaches the end of diagram.
 
 *Cons*: Future accesses require more time.
 
-I decided to proceed with this option because it creates less dependencies.
+*I decided to proceed with this option* because it creates less dependencies on other classes which is is a good
+programming practice.
 
 |Saves all fields of `Employee` associated with the event.
 
@@ -292,7 +293,7 @@ I decided to proceed with this option because it creates less dependencies.
 *Cons*: Changes in `Employee` attributes have to be reflected in the event. This meant that `EditCommand` and
 `DeleteCommand` for `Employee` have to be heavily modified.
 
-| How to update the changes in the manpower list of an event after allocation of employee.
+| Update of changes made to the manpower list of an event after the allocation of employees.
 | Directly modifies the `EventManpowerAllocatedList` of the specified event
 
 *Pros*: Easy to implement.
@@ -305,7 +306,7 @@ I decided to proceed with this option because it creates less dependencies.
 
 *Cons*: Harder to implement.
 
-I decided to proceed with this option because it complies with the Law of Demeter
+*I decided to proceed with this option* because it complies with the Law of Demeter
 which states that objects should not navigate internal structures of other objects.
 |========================================================================================
 // end::calvin[]

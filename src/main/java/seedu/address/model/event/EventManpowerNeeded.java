@@ -28,7 +28,7 @@ public class EventManpowerNeeded {
      */
     public static boolean isValidEventManpowerNeeded(String test) {
         try {
-            return Integer.parseInt(test) <= 1000 && Integer.parseInt(test) > 0;
+            return Integer.parseInt(test) < 1000 && Integer.parseInt(test) > 0;
         } catch (NumberFormatException e) {
             return false;
         }

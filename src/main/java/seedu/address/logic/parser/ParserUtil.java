@@ -148,7 +148,7 @@ public class ParserUtil {
     /**
      * @throws ParseException if the given {@code EmployeeId} is invalid.
      */
-    public static EmployeeId parseEmployeeId() throws ParseException{
+    public static EmployeeId parseEmployeeId() throws ParseException {
         EmployeeId employeeId = new EmployeeId();
         if (Integer.parseInt(employeeId.id) >= 1000) {
             throw new ParseException(EmployeeId.MESSAGE_CONSTRAINTS);

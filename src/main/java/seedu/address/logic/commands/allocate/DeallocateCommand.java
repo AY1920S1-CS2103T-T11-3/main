@@ -96,7 +96,8 @@ public class DeallocateCommand extends Command {
         }
 
         model.setEvent(eventToFree, newEventAfterFree);
-        return new CommandResult(String.format(MESSAGE_FREE_EVENT_SUCCESS, eventToFree.getName(), employeeNameToDisplay));
+        return new CommandResult(String.format(MESSAGE_FREE_EVENT_SUCCESS, eventToFree.getName(),
+                employeeNameToDisplay));
     }
 
     /**

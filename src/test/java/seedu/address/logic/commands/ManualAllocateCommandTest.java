@@ -88,7 +88,7 @@ public class ManualAllocateCommandTest {
     }
 
     @Test
-    public void execute_unavailableManpowerUnfilteredList_failure() {
+    public void execute_employeeAlreadyAllocatedUnfilteredList_failure() {
         Event eventToEdit = initialEventData.getEventList().get(0);
         List<Employee> availableEmployeeList = new ArrayList<>();
         for (int i = 0; i < eventToEdit.getManpowerNeeded().value - 1; i++) {
@@ -99,7 +99,7 @@ public class ManualAllocateCommandTest {
         Integer validInteger = 1;
         Index validIndex = Index.fromOneBased(validInteger);
         ManualAllocateCommand manualAllocateCommand = new ManualAllocateCommand(INDEX_FIRST_EVENT, validIndex);
-        assertCommandFailure(manualAllocateCommand, model, Messages.MESSAGE_UNAVAILABLE_MANPOWER);
+        assertCommandFailure(manualAllocateCommand, model, Messages.MESSAGE_EMPLOYEE_ALREADY_ALLOCATED);
     }
 
 

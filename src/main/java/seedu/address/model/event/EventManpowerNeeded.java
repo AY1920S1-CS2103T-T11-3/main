@@ -9,7 +9,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class EventManpowerNeeded {
     public static final String MESSAGE_CONSTRAINTS =
-            "Manpower Needed should be a positive integer that is less than or equal to 1000";
+            "Manpower Needed should be an integer between 0 to 999";
+  
     public final int value;
 
     /**
@@ -28,7 +29,7 @@ public class EventManpowerNeeded {
      */
     public static boolean isValidEventManpowerNeeded(String test) {
         try {
-            return Integer.parseInt(test) < 1000 && Integer.parseInt(test) > 0;
+            return (Integer.parseInt(test) < 1000) && (Integer.parseInt(test) >= 0);
         } catch (NumberFormatException e) {
             return false;
         }

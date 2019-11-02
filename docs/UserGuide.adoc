@@ -124,7 +124,16 @@ Employee: Adds an employee to the employee list
 
 Event: Adds an event that the company is organizing or hosting to the company’s calendar.
 
-Employee Format: `add_em n/NAME g/GENDER p/POSITION no/PHONE e/EMAIL a/ADDRESS on/Join_Date [t/TAG]...`
+Employee Format: `add_em n/NAME g/GENDER p/POSITION no/PHONE e/EMAIL a/ADDRESS on/JOIN_DATE [t/TAG]...`
+
+[IMPORTANT]
+GENDER is strictly either 'male' or 'female' only (Case-Insensitive). +
+EMAIL has to be a valid email. +
+JOIN_DATE is of the format `DD/MM/YYYY`.
+
+[CAUTION]
+You cannot add an employee whose identity is identical to someone already inside the EmployeeBook. +
+An employee's identity is uniquely identified by his/her name, phone number and email.
 
 Event Format: `add_ev n/NAME at/VENUE m/MANPOWER_NEEDED on/START_DATE till/END_DATE[t/TAG]...`
 
@@ -177,31 +186,43 @@ Edits the start date of the 1st event to be on the 16th September, 2019.
 * `edit_ev 2 n/Concert t/` +
 Edits the name of the 2nd event to be `Concert` and clears all existing tags.
 
-==== Find: `find_em | find_ev`
+==== Find: `find_em_name | find_em_tag | find_ev_name | find_ev_tag`
 
 Find entities whose names contain any of the given keywords.
 
-Employee Format: `find_em KEYWORD [MORE_KEYWORDS]`
+Employee Format: `find_em_name KEYWORD [MORE_KEYWORDS]`
 
-Event Format: `find_ev KEYWORD [MORE_KEYWORDS]`
+Event Format: `find_ev_name KEYWORD [MORE_KEYWORDS]`
+
+Find entities whose tag contain any of the given keywords.
+
+Employee Format: `find_em_tag KEYWORD [MORE_KEYWORDS]`
+
+Event Format: `find_ev_tag KEYWORD [MORE_KEYWORDS]`
 
 ****
-* The search is case insensitive. e.g `hans` will match `Hans`
+* The search for both name and tags are case insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name of the entity is searched.
+* Only the name or tag of the entity is searched depending on the input command.
 * Only full words will be matched e.g. `Han` will not match `Hans`
 * Entities matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 ****
 
 Examples:
 
-* `find_em John` +
+* `find_em_name John` +
 Returns `john` and `John Doe`
-* `find_ev Concert Musical Play` +
+* `find_ev_name Concert Musical Play` +
 Returns any event having names `Concert`, `Musical`, or `Play`
 
-* `find_ev Party` +
+* `find_ev_name Party` +
 Returns any event having names `Party` or `party`
+
+* `find_em_tag male fun` +
+Returns all employees that are tagged as `male` and `fun`
+
+* `find_ev_tag free music` +
+Returns all events that are tagged as `free` and `music`
 
 ==== Deleting an entity : `delete_em | delete_ev`
 
@@ -219,10 +240,10 @@ Event Format: `delete_ev INDEX`
 
 Examples:
 
-* `list_em` `delete_em 2` +
+* `delete_em 2` +
 Deletes the 2nd employee in the displayed employee list.
-* `find_ev Music` `delete_ev 1` +
-Deletes the 1st event in the list shown after the `find_ev` command.
+* `delete_ev 1` +
+Deletes the 1st event in the displayed event list shown (Works on both __Main__ and __Schedule__ tab)
 
 //end::DeXun1[]
 
@@ -660,7 +681,8 @@ e.g. `clear_ev_dt 2`
 | `delete_ev_dt 2 on/18/10/2019 time/1000-2000`
 | *Clear DateTime from an Event*| `clear_ev_dt EVENT_INDEX`
 | `clear_ev_dt 2`
-| *View Schedule for specific date*| `view_schedule on/DDMMYYYY` | `view_schedule on/02/12/2019`
+| *Display Schedule for specific date*| `display_schedule_date on/DDMMYYYY` | `display_schedule_date on/02/12/2019`
+| *Display Schedule for specific month*| `display_schedule for/MMYYYY` | `display_schedule for/02/12/2019`
 | *Display Entire Schedule*| `display_schedule` | `display_schedule`
 | *Generate Statistics [coming in v2.0]* | `stats_g` | `stats_g`
 | *Generate Pay [coming in v2.0]* | `pay` | `pay 1...`

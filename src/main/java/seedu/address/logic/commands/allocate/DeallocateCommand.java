@@ -33,7 +33,7 @@ public class DeallocateCommand extends Command {
     public static final String COMMAND_WORD = "free";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": De-allocate the employees associated with the event identified by the index number used in "
+            + ": De-allocate the employees associated with the event in "
             + "the displayed event list.\n"
             + "Parameters: EVENT_INDEX (must be a positive integer)"
             + " [EMPLOYEE_ID]\n"
@@ -54,40 +54,14 @@ public class DeallocateCommand extends Command {
         this.employeeId = employeeId;
     }
 
-    /**
-     * A private method for manual de-allocation used primarily for GUI purposes.
-     */
-    private CommandResult internalManualFreeById(Model model) throws CommandException {
-        List<Employee> lastShownList = model.getFullListEmployees();
-        List<Event> lastShownEventList;
-        if (MainWindow.getCurrentTabIndex() == 0) {
-            lastShownEventList = model.getFilteredEventList();
-        } else {
-            lastShownEventList = model.getFilteredScheduledEventList();
-        }
-
-        Event eventToAllocate = lastShownEventList.get(eventIndex.getZeroBased());
-        Optional<Employee> optionalPersonToDelete = lastShownList.stream()
-                .filter(x -> x.getEmployeeId().id.equals(employeeId))
-                .findAny();
-
-        if (optionalPersonToDelete.isEmpty()) {
-            throw new CommandException(Messages.MESSAGE_EVENT_INVALID_EMPLOYEE_ID);
-        }
-
-        Employee personToDelete = optionalPersonToDelete.get();
-        Event newEventForAllocation = createEditedEvent(eventToAllocate, personToDelete);
-        model.setEvent(eventToAllocate, newEventForAllocation);
-        return new CommandResult(String.format(MESSAGE_FREE_EVENT_SUCCESS, newEventForAllocation.getName().eventName,
-                personToDelete.getEmployeeName().fullName));
-    }
-
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
+        List<Employee> lastShownList = model.getFullListEmployees();
         List<Event> lastShownEventList;
 
+        //Checks the current tab index and retrieves the relevant list from model
         if (MainWindow.getCurrentTabIndex() == 0) {
             lastShownEventList = model.getFilteredEventList();
         } else {
@@ -98,19 +72,36 @@ public class DeallocateCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_EVENT_DISPLAYED_INDEX);
         }
 
+        Event eventToFree = lastShownEventList.get(eventIndex.getZeroBased());
+        Event newEventAfterFree;
+        String employeeNameToDisplay;
+
+        //Checks if employeeId is found and does the relevant changes for the de-allocation from events.
         if (employeeId != null) {
-            return internalManualFreeById(model);
+            Optional<Employee> optionalPersonToDelete = lastShownList.stream()
+                    .filter(x -> x.getEmployeeId().id.equals(employeeId))
+                    .findAny();
+
+            if (optionalPersonToDelete.isEmpty()) {
+                throw new CommandException(Messages.MESSAGE_EVENT_INVALID_EMPLOYEE_ID);
+            }
+
+            Employee personToDelete = optionalPersonToDelete.get();
+            newEventAfterFree = createEditedEvent(eventToFree, personToDelete);
+            model.setEvent(eventToFree, newEventAfterFree);
+            employeeNameToDisplay = personToDelete.getEmployeeName().fullName;
+        } else {
+            newEventAfterFree = createEditedEvent(eventToFree, null);
+            employeeNameToDisplay = "ALL Employees";
         }
 
-        Event eventToFree = lastShownEventList.get(eventIndex.getZeroBased());
-        Event newEvent = createEditedEvent(eventToFree, null);
-        model.setEvent(eventToFree, newEvent);
-        return new CommandResult(String.format(MESSAGE_FREE_EVENT_SUCCESS, eventToFree.getName(), "ALL Employees"));
+        model.setEvent(eventToFree, newEventAfterFree);
+        return new CommandResult(String.format(MESSAGE_FREE_EVENT_SUCCESS, eventToFree.getName(), employeeNameToDisplay));
     }
 
     /**
      * Creates and returns a {@code Event} with the details of {@code eventToEdit}
-     * and a new {@code EventManpowerAllocatedList}.
+     * and a new {@code EventManpowerAllocatedList} depending on the Employee given as input.
      */
     private static Event createEditedEvent(Event eventToEdit, Employee employeeToDelete) {
         assert eventToEdit != null;
@@ -120,7 +111,10 @@ public class DeallocateCommand extends Command {
         EventManpowerNeeded updatedManpowerNeeded = eventToEdit.getManpowerNeeded();
         EventDate updatedStartDate = eventToEdit.getStartDate();
         EventDate updatedEndDate = eventToEdit.getEndDate();
+        EventDateTimeMap eventDateTimeMap = eventToEdit.getEventDateTimeMap();
+        Set<Tag> updatedTags = eventToEdit.getTags();
         EventManpowerAllocatedList updatedManpowerAllocatedList;
+
         if (employeeToDelete == null) {
             updatedManpowerAllocatedList = new EventManpowerAllocatedList();
         } else {
@@ -128,8 +122,6 @@ public class DeallocateCommand extends Command {
             updatedManpowerList.remove(employeeToDelete.getEmployeeId());
             updatedManpowerAllocatedList = new EventManpowerAllocatedList(updatedManpowerList);
         }
-        EventDateTimeMap eventDateTimeMap = eventToEdit.getEventDateTimeMap();
-        Set<Tag> updatedTags = eventToEdit.getTags();
 
         return new Event(updatedEventName, updatedEventVenue,
                 updatedManpowerNeeded, updatedStartDate,

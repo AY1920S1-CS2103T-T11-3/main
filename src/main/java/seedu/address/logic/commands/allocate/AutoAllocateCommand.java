@@ -103,6 +103,8 @@ public class AutoAllocateCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         List<Event> lastShownEventList;
+
+        //Checks the current tab index and retrieves the relevant list from model
         if (MainWindow.getCurrentTabIndex() == 0) {
             lastShownEventList = model.getFilteredEventList();
         } else {

@@ -150,10 +150,12 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
-     * Returns the current tab number
+     * Returns the current tab number.
+     * Assumes return value of 0 for JUnit testing when selectionModel is null.
      */
     public static int getCurrentTabIndex() {
-        return selectionModel.getSelectedIndex();
+
+        return selectionModel == null ? 0 : selectionModel.getSelectedIndex();
     }
 
     /**
@@ -292,7 +294,7 @@ public class MainWindow extends UiPart<Stage> {
                 selectionModel.select(0);
             }
 
-            if (fetchEventWindow != null) {
+            if (fetchEventWindow != null && !commandResult.getType().equals("List")) {
                 fetchEventWindow.updateCards();
             }
 

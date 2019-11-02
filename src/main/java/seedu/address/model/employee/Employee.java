@@ -150,19 +150,19 @@ public class Employee {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getEmployeeName())
-                .append(" EmployeeID: ")
+                .append(" ID: ")
                 .append(getEmployeeId())
-                .append(" EmployeeGender: ")
+                .append(" Gender: ")
                 .append(getEmployeeGender())
-                .append(" EmployeePosition: ")
+                .append(" Position: ")
                 .append(getEmployeePosition())
-                .append(" EmployeePhone: ")
+                .append(" Phone: ")
                 .append(getEmployeePhone())
-                .append(" EmployeeEmail: ")
+                .append(" Email: ")
                 .append(getEmployeeEmail())
-                .append(" EmployeeAddress: ")
+                .append(" Address: ")
                 .append(getEmployeeAddress())
-                .append(" EmployeeJoinDate: ")
+                .append(" JoinDate: ")
                 .append(getEmployeeJoinDate())
                 .append(" Tags: ");
         getTags().forEach(builder::append);

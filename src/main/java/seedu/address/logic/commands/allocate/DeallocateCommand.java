@@ -103,7 +103,7 @@ public class DeallocateCommand extends Command {
      * Creates and returns a {@code Event} with the details of {@code eventToEdit}
      * and a new {@code EventManpowerAllocatedList} depending on the Employee given as input.
      */
-    private static Event createEditedEvent(Event eventToEdit, Employee employeeToDelete) {
+    private static Event createEditedEvent(Event eventToEdit, Employee employeeToDelete) throws CommandException {
         assert eventToEdit != null;
 
         EventName updatedEventName = eventToEdit.getName();
@@ -119,7 +119,9 @@ public class DeallocateCommand extends Command {
             updatedManpowerAllocatedList = new EventManpowerAllocatedList();
         } else {
             List<EmployeeId> updatedManpowerList = eventToEdit.getManpowerAllocatedList().getManpowerList();
-            updatedManpowerList.remove(employeeToDelete.getEmployeeId());
+            if (!updatedManpowerList.remove(employeeToDelete.getEmployeeId())) {
+                throw new CommandException(Messages.MESSAGE_EMPLOYEE_DOES_NOT_EXIST);
+            }
             updatedManpowerAllocatedList = new EventManpowerAllocatedList(updatedManpowerList);
         }
 

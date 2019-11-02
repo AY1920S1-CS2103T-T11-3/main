@@ -180,6 +180,7 @@ public class MainWindow extends UiPart<Stage> {
         }
         fetchEventWindow = new FetchEventWindow(logic, index);
         fetchEventWindow.getRoot().getScene().getStylesheets().add("view/FetchWindowTheme.css");
+        fetchEventWindow.getRoot().getScene().getStylesheets().add("view/Extensions.css");
         if (!fetchEventWindow.isShowing()) {
             fetchEventWindow.show();
         } else {

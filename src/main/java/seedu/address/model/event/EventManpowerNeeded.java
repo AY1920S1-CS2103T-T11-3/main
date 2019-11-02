@@ -9,7 +9,6 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class EventManpowerNeeded {
     public static final String MESSAGE_CONSTRAINTS = "Manpower Needed should be an integer between 0 to 999";
-  
     public final int value;
 
     /**

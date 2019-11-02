@@ -269,7 +269,34 @@ Full details are truncated.</p>
 <p>Event: Adds an event that the company is organizing or hosting to the company’s calendar.</p>
 </div>
 <div class="paragraph">
-<p>Employee Format: <code>add_em n/NAME g/GENDER p/POSITION no/PHONE e/EMAIL a/ADDRESS on/Join_Date [t/TAG]&#8230;&#8203;</code></p>
+<p>Employee Format: <code>add_em n/NAME g/GENDER p/POSITION no/PHONE e/EMAIL a/ADDRESS on/JOIN_DATE [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+GENDER is strictly either 'male' or 'female' only (Case-Insensitive).<br>
+EMAIL has to be a valid email.<br>
+JOIN_DATE is of the format <code>DD/MM/YYYY</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+You cannot add an employee whose identity is identical to someone already inside the EmployeeBook.<br>
+An employee&#8217;s identity is uniquely identified by his/her name, phone number and email.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Event Format: <code>add_ev n/NAME at/VENUE m/MANPOWER_NEEDED on/START_DATE till/END_DATE[t/TAG]&#8230;&#8203;</code></p>
@@ -488,12 +515,12 @@ Returns all events that are tagged as <code>free</code> and <code>music</code></
 <div class="ulist">
 <ul>
 <li>
-<p><code>list_em</code> <code>delete_em 2</code><br>
+<p><code>delete_em 2</code><br>
 Deletes the 2nd employee in the displayed employee list.</p>
 </li>
 <li>
-<p><code>find_ev Music</code> <code>delete_ev 1</code><br>
-Deletes the 1st event in the list shown after the <code>find_ev</code> command.</p>
+<p><code>delete_ev 1</code><br>
+Deletes the 1st event in the displayed event list shown (Works on both <em>Main</em> and <em>Schedule</em> tab)</p>
 </li>
 </ul>
 </div>
@@ -1398,4 +1425,4 @@ e.g. <code>clear_ev_dt 2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 05:30:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 09:11:02 UTC</div></div></div></body></html>

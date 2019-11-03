@@ -23,15 +23,15 @@ effectively handle the administrative tasks of the company.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/beforefetch.png" alt="beforefetch">
+<img src="../images/AddMin+Ui.png" alt="AddMin+Ui">
 </div>
-<div class="title">Figure 1. <em>The graphical user interface for AddMin+.</em></div>
+<div class="title">Figure 1. <em>The graphical user interface(GUI) for AddMin+.</em></div>
 </div>
 <div class="paragraph">
-<p>My role was to design and write the codes for the association of employees with event, which includes the
+<p>My role was to design and write the code for the association of employees with event, which includes
 event display and the allocation of employee to event. The following sections
-illustrate these enhancements in more detail, as well as the relevant documentation
-I have added to the user and developer guides in relation to these enhancements.</p>
+illustrate these features in more detail, as well as the relevant documentation
+I have added to the user and developer guides in relation to these features.</p>
 </div>
 <div style="page-break-after: always;"></div>
 </div>
@@ -42,13 +42,13 @@ I have added to the user and developer guides in relation to these enhancements.
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added features to allow association of employees with events which includes
+<p><strong>Major feature</strong>: enabled the association of employees with events which includes
 <strong>automated/manual allocation of employees to event commands</strong> and a <strong>deallocate command</strong>, as well as the
 viewing of changes the users made via the <strong>fetch event</strong> command. All related commands have <strong>GUI features</strong> implemented.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to check for availability of employees and allocate them to an event with
+<p>What it does: This feature allows the user to check for availability of employees and allocate them to an event with
 certain filter requirements. The algorithm ensures that employees cannot be allocated to events with
 conflicting time periods.</p>
 </li>
@@ -66,11 +66,12 @@ required the knowledge of both <code>Event</code> and <code>Employee</code> clas
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added command history to allow user to view previous commands using up/down
+<p><strong>Minor feature</strong>: added command history to allow user to view previous commands using up/down
 arrow keys.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=calvin&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=calvincxz&amp;tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D">Functional code</a>]
+[<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=calvin&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=calvincxz&amp;tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D">Test code</a>] <em>{give links to collated code files}</em></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -88,9 +89,6 @@ various components (e.g. storage, logic, model).
 <li>
 <p>Assisted in refactoring process for person class to employee class and well as fixed test cases and checkstyle errors.
 (Pull request <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/92">#92</a>)</p>
-</li>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> on GitHub</p>
 </li>
 </ul>
 </div>
@@ -152,25 +150,25 @@ various components (e.g. storage, logic, model).
 <div class="sect1">
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
-</tr>
-</tbody>
-</table>
 <div class="sect2">
 <h3 id="event-specific-management"><a class="link" href="#event-specific-management">Event-Specific Management</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Some event-specific commands have GUI features enabled to improve user experience. However, such features are
+implemented as a <strong>best-effort service</strong> and should not be heavily relied on.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect3">
 <h4 id="fetch-full-details-of-an-event-code-fetch_ev-code"><a class="link" href="#fetch-full-details-of-an-event-code-fetch_ev-code">Fetch Full Details of an Event: <code>fetch_ev</code></a></h4>
 <div class="paragraph">
 <p>Fetches an event by displaying a pop-up window with full details of the event.</p>
-</div>
-<div class="paragraph">
-<p>For GUI features, kindly refer to <a href="#gui-guide-for-event-fetch-and-allocation-commands">GUI Guide for Event Fetch and Allocation Commands</a>.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>fetch_ev EVENT_INDEX</code></p>
@@ -199,6 +197,27 @@ various components (e.g. storage, logic, model).
 Returns the 2rd event from the event list.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Alternatively, the <code>fetch_ev</code> command can be executed from the GUI in just 2 simple steps.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>. <strong>double-click the event</strong> in the list as shown in the figure below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/beforefetch.png" alt="beforefetch" width="600">
+</div>
+<div class="title">Figure 2. <em>Instruction for user to execute fetch event command</em></div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: After successfully fetching the event, the following <strong>Fetch Event Window</strong> should show:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/afterfetch.png" alt="afterfetch" width="600">
+</div>
+<div class="title">Figure 3. <em>Fetch Event Window</em></div>
 </div>
 </div>
 <div class="sect3">
@@ -252,13 +271,20 @@ Random selection of employee to allocate if supply exceeds demand of event.
 <ul>
 <li>
 <p><code>allocate 1</code><br>
-Allocates available employees to the 1st event.</p>
+Allocates available employees to the 1st event shown in the event list.</p>
 </li>
 <li>
 <p><code>allocate 2 n/3 t/female</code><br>
-Allocates 3 employees who are tagged as 'female' to the 2nd event.</p>
+Allocates 3 employees who are tagged as 'female' to the 2nd event shown in the event list.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Alternatively, the <code>allocate</code> command can be executed from the GUI in just 1 simple step!</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: To perform a <code>allocate</code> command without number/filter specification, click the <strong>allocate</strong> button
+as shown in the <strong>Fetch Event Window</strong> in <a href="#fetch-full-details-of-an-event-code-fetch_ev-code">Fetch Full Details of an Event: <code>fetch_ev</code></a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -299,6 +325,25 @@ Allocates 3 employees who are tagged as 'female' to the 2nd event.</p>
 Allocates the 2nd employee on the employee list to the 1st event on the event list.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Alternatively, the <code>allocatem</code> command can be executed from the GUI in just 2 simple step!</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>:
+double-click the employee card on the left list. Notice the employee to allocate</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/afterfree.png" alt="afterfree" width="600">
+</div>
+<div class="title">Figure 4. <em>Instruction for user to execute <code>allocatem</code> command</em></div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/afterallocatem.png" alt="afterallocatem" width="600">
+</div>
+<div class="title">Figure 5. <em>Result after <code>allocatem</code> command</em></div>
 </div>
 </div>
 <div class="sect3">
@@ -344,51 +389,12 @@ Frees an employee with id: "001" allocated to the 1st event on the event list.</
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="gui-guide-for-event-fetch-and-allocation-commands"><a class="link" href="#gui-guide-for-event-fetch-and-allocation-commands">GUI Guide for Event Fetch and Allocation Commands</a></h4>
 <div class="paragraph">
-<p><strong>For this guide, the relevant picture is shown after the instruction.</strong></p>
+<p>Alternatively, the <code>free</code> command can be executed from the GUI in just 1 simple step!</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>. For <code>fetch_ev</code>, simply <strong>double-click the event</strong> in the list as shown in the figure below:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/beforefetch.png" alt="beforefetch" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 2</strong>: After successfully fetching the event, the following <strong>Fetch Window</strong> should show:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/afterfetch.png" alt="afterfetch" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 3</strong>: To perform a <code>allocate</code> command without number/filter specification, click the <strong>allocate</strong> button
-as shown in the <strong>Fetch Window</strong> in step 2. The two lists will be updated again as shown in the following figure:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/afterallocate.png" alt="afterallocate" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 4</strong>: To perform a <code>free</code> command, click the <strong>free</strong> button as shown in the <strong>Fetch Window</strong> in step 2.
-The two lists will be updated as shown in the following figure. Now, if you are interested to allocate a particular
-employee to an event, continue to step 5.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/afterfree.png" alt="afterfree" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 5</strong>: To <strong>allocate</strong> a particular employee to an event or perform an <code>allocatem</code> command, double-click the employee card on
-the left list. Notice the employee to allocate
-has moved to the list on the right as shown in the figure below:</p>
+<p><strong>Step 1</strong>: To perform a <code>free</code> command without id specification, click the <strong>free</strong> button
+as shown in the <strong>Fetch Event Window</strong> in <a href="#fetch-full-details-of-an-event-code-fetch_ev-code">Fetch Full Details of an Event: <code>fetch_ev</code></a>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -397,25 +403,8 @@ has moved to the list on the right as shown in the figure below:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-To <strong>free</strong> a particular employee to an event, double-click the employee card on the right
-as shown in the figure below:
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/afterallocatem.png" alt="afterallocatem" width="600">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the GUI features are not working as intended, kindly use the command line interface to execute the command instead.
+To <strong>free</strong> a particular employee to an event, double-click the employee card on the right list
+as shown in the 2nd figure in <a href="#manually-allocation-of-employees-to-events-code-allocatem-code">Manually allocation of Employees to Events: <code>allocatem</code></a>
 </td>
 </tr>
 </table>
@@ -427,23 +416,13 @@ If the GUI features are not working as intended, kindly use the command line int
 <div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
-</tr>
-</tbody>
-</table>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram" width="500">
 </div>
-<div class="title">Figure 2. <em>Structure of the Storage Component</em></div>
+<div class="title">Figure 6. <em>Structure of the Storage Component</em></div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -511,7 +490,7 @@ by the event.</p>
 <div class="content">
 <img src="../images/AutoAllocateFlowChart.png" alt="AutoAllocateFlowChart" width="300">
 </div>
-<div class="title">Figure 3. <em>Program flow of the Auto Allocate Feature</em></div>
+<div class="title">Figure 7. <em>Program flow of the Auto Allocate Feature</em></div>
 </div>
 <div class="paragraph">
 <p><strong>Step 1</strong>. The user executes <code>allocate 1 n/2 t/female</code> with the intention to allocate 2 employees with tag [female]
@@ -553,7 +532,7 @@ demand (number of employees required by event, generated in step 3).</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If demand exceeds supply, an exception will be thrown to the user. If the supply exeeds demand, employees will be randomly selected instead.
+If demand exceeds supply, an exception will be thrown to the user. If the supply exceeds demand, employees will be randomly selected instead.
 </td>
 </tr>
 </table>
@@ -584,7 +563,7 @@ For storage purposes, only the <code>Employee#EmployeeId</code> is saved in the 
 <div class="content">
 <img src="../images/AutoAllocateSequenceDiagram.png" alt="AutoAllocateSequenceDiagram">
 </div>
-<div class="title">Figure 4. <em>Sequence Diagram of the AutoAllocate Command</em></div>
+<div class="title">Figure 8. <em>Sequence Diagram of the AutoAllocate Command</em></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -623,21 +602,22 @@ PlantUML, the lifeline reaches the end of diagram.
 <td class="tableblock halign-left valign-top"><p class="tableblock">Saves only the <code>Employee#EmployeeId</code> associated with the event.</p>
 <p class="tableblock"><strong>Pros</strong>: Easy to implement. Will use less memory.</p>
 <p class="tableblock"><strong>Cons</strong>: Future accesses require more time.</p>
-<p class="tableblock">I decided to proceed with this option because it creates less dependencies.</p></td>
+<p class="tableblock"><strong>I decided to proceed with this option</strong> because it creates less dependencies on other classes which is is a good
+programming practice.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Saves all fields of <code>Employee</code> associated with the event.</p>
 <p class="tableblock"><strong>Pros</strong>: Easy retrieval in the future.</p>
 <p class="tableblock"><strong>Cons</strong>: Changes in <code>Employee</code> attributes have to be reflected in the event. This meant that <code>EditCommand</code> and
 <code>DeleteCommand</code> for <code>Employee</code> have to be heavily modified.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">How to update the changes in the manpower list of an event after allocation of employee.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update of changes made to the manpower list of an event after the allocation of employees.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Directly modifies the <code>EventManpowerAllocatedList</code> of the specified event</p>
 <p class="tableblock"><strong>Pros</strong>: Easy to implement.</p>
 <p class="tableblock"><strong>Cons</strong>: May cause unwanted behaviours if testing is not done properly.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new event with a newly created and updated manpower list.</p>
 <p class="tableblock"><strong>Pros</strong>: Defensive programming.</p>
 <p class="tableblock"><strong>Cons</strong>: Harder to implement.</p>
-<p class="tableblock">I decided to proceed with this option because it complies with the Law of Demeter
+<p class="tableblock"><strong>I decided to proceed with this option</strong> because it complies with the Law of Demeter
 which states that objects should not navigate internal structures of other objects.</p></td>
 </tr>
 </tbody>
@@ -648,11 +628,17 @@ which states that objects should not navigate internal structures of other objec
 </div>
 </div>
 <div class="sect1">
+<h2 id="conclusion"><a class="link" href="#conclusion">Conclusion</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
 <h2 id="project-duke"><a class="link" href="#project-duke">PROJECT: DUKE</a></h2>
 <div class="sectionbody">
-<hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>Visit <a href="https://calvincxz.github.io/duke/" class="bare">https://calvincxz.github.io/duke/</a> for more details.</p>
 </div>
+<hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 09:11:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 06:01:36 UTC</div></div></div></body></html>

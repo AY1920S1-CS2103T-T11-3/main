@@ -542,7 +542,7 @@ demand (number of employees required by event, generated in step 3).</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If demand exceeds supply, an exception will be thrown to the user. If the supply exeeds demand, employees will be randomly selected instead.
+If demand exceeds supply, an exception will be thrown to the user. If the supply exceeds demand, employees will be randomly selected instead.
 </td>
 </tr>
 </table>
@@ -612,21 +612,22 @@ PlantUML, the lifeline reaches the end of diagram.
 <td class="tableblock halign-left valign-top"><p class="tableblock">Saves only the <code>Employee#EmployeeId</code> associated with the event.</p>
 <p class="tableblock"><strong>Pros</strong>: Easy to implement. Will use less memory.</p>
 <p class="tableblock"><strong>Cons</strong>: Future accesses require more time.</p>
-<p class="tableblock">I decided to proceed with this option because it creates less dependencies.</p></td>
+<p class="tableblock"><strong>I decided to proceed with this option</strong> because it creates less dependencies on other classes which is is a good
+programming practice.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Saves all fields of <code>Employee</code> associated with the event.</p>
 <p class="tableblock"><strong>Pros</strong>: Easy retrieval in the future.</p>
 <p class="tableblock"><strong>Cons</strong>: Changes in <code>Employee</code> attributes have to be reflected in the event. This meant that <code>EditCommand</code> and
 <code>DeleteCommand</code> for <code>Employee</code> have to be heavily modified.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">How to update the changes in the manpower list of an event after allocation of employee.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update of changes made to the manpower list of an event after the allocation of employees.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Directly modifies the <code>EventManpowerAllocatedList</code> of the specified event</p>
 <p class="tableblock"><strong>Pros</strong>: Easy to implement.</p>
 <p class="tableblock"><strong>Cons</strong>: May cause unwanted behaviours if testing is not done properly.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new event with a newly created and updated manpower list.</p>
 <p class="tableblock"><strong>Pros</strong>: Defensive programming.</p>
 <p class="tableblock"><strong>Cons</strong>: Harder to implement.</p>
-<p class="tableblock">I decided to proceed with this option because it complies with the Law of Demeter
+<p class="tableblock"><strong>I decided to proceed with this option</strong> because it complies with the Law of Demeter
 which states that objects should not navigate internal structures of other objects.</p></td>
 </tr>
 </tbody>
@@ -1285,7 +1286,7 @@ Provides a clean and modern desktop application designed specifically to cater t
 </li>
 </ul>
 </div>
-<h3 id="use-case-allocate-manpower-to-event-manually" class="discrete">Use case: Allocate Manpower to Event manually</h3>
+<h3 id="use-case-allocate-an-employee-to-an-event" class="discrete">Use case: Allocate an Employee to an Event</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1298,10 +1299,10 @@ Provides a clean and modern desktop application designed specifically to cater t
 <p>AddMin+ shows the list of employees and events.</p>
 </li>
 <li>
-<p>User states an Employee_ID that is matched to an Event_ID</p>
+<p>User specifies the index of the event, and the index of the employee.</p>
 </li>
 <li>
-<p>Employee allocated to Event.</p>
+<p>AddMin+ allocates the Employee to the Event.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1314,13 +1315,52 @@ Provides a clean and modern desktop application designed specifically to cater t
 <div class="ulist">
 <ul>
 <li>
-<p>2.The Employee_ID/Event_ID is invalid.</p>
+<p>3a.Input Index given is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a.Addmin+ shows an error message.</p>
+<p>3a1.AddMin+ shows the error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b.The event has full manpower.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1.AddMin+ shows the error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c.The employee was previously allocated to the event.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1.AddMin+ shows the error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3d.The employee has a conflicting schedule, and is unavailable for the event.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3d1.AddMin+ shows the error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
@@ -1362,43 +1402,6 @@ Provides a clean and modern desktop application designed specifically to cater t
 <ul class="none">
 <li>
 <p>3a.AddMin+ shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-fetch-events" class="discrete">Use case: Fetch Events</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to fetch an Event by specifying an Event_ID</p>
-</li>
-<li>
-<p>AddMin+ displays the matching result</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>2.The given event ID is invalid or nonexistent.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a.Addmin+ shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1537,9 +1540,35 @@ Expected: Similar to previous.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dealing with missing/corrupted data files</p>
+<p>Dealing with missing data files</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
+<li>
+<p>Go to the home folder where AddMin+ is located.</p>
+</li>
+<li>
+<p>Delete every file except the .jar file.</p>
+</li>
+<li>
+<p>Open the jar file again, a sample set of Employee and Event data should be loaded.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dealing with corrupted data files</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Go to the home folder where AddMin+ is located. Open the data folder which should contain
+employeebook.json and eventbook.json files.</p>
+</li>
+<li>
+<p>Open one of the json file and corrupt the file.</p>
+</li>
+<li>
+<p>Open the jar file again, AddMin+ should still run with one of the list data loaded.</p>
+</li>
 <li>
 <p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
 </li>
@@ -1550,4 +1579,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 09:11:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 06:01:36 UTC</div></div></div></body></html>

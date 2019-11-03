@@ -43,7 +43,6 @@
 <li><a href="#setting-a-date-time-to-an-event-code-set_ev_dt-code">3.4.5. Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a></li>
 <li><a href="#delete-a-datetime-mapping-from-an-event-code-delete_ev_dt-code">3.4.6. Delete a DateTime Mapping from an Event: <code>delete_ev_dt</code></a></li>
 <li><a href="#clear-all-datetime-mappings-from-an-event-code-clear_ev_dt-code">3.4.7. Clear all DateTime Mappings from an Event: <code>clear_ev_dt</code></a></li>
-<li><a href="#gui-guide-for-event-fetch-and-allocation-commands">3.4.8. GUI Guide for Event Fetch and Allocation Commands</a></li>
 </ul>
 </li>
 <li><a href="#finance-management">3.5. Finance Management</a>
@@ -565,13 +564,23 @@ Returns the 2rd employee from the employee list.</p>
 </div>
 <div class="sect2">
 <h3 id="event-specific-management"><a class="link" href="#event-specific-management">3.4. Event-Specific Management</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Some event-specific commands have GUI features enabled to improve user experience. However, such features are
+implemented as a <strong>best-effort service</strong> and should not be heavily relied on.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect3">
 <h4 id="fetch-full-details-of-an-event-code-fetch_ev-code"><a class="link" href="#fetch-full-details-of-an-event-code-fetch_ev-code">3.4.1. Fetch Full Details of an Event: <code>fetch_ev</code></a></h4>
 <div class="paragraph">
 <p>Fetches an event by displaying a pop-up window with full details of the event.</p>
-</div>
-<div class="paragraph">
-<p>For GUI features, kindly refer to <a href="#gui-guide-for-event-fetch-and-allocation-commands">Section 3.4.8, &#8220;GUI Guide for Event Fetch and Allocation Commands&#8221;</a>.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>fetch_ev EVENT_INDEX</code></p>
@@ -600,6 +609,27 @@ Returns the 2rd employee from the employee list.</p>
 Returns the 2rd event from the event list.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Alternatively, the <code>fetch_ev</code> command can be executed from the GUI in just 2 simple steps.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>. <strong>double-click the event</strong> in the list as shown in the figure below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/beforefetch.png" alt="beforefetch" width="600">
+</div>
+<div class="title">Figure 1. <em>Instruction for user to execute fetch event command</em></div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: After successfully fetching the event, the following <strong>Fetch Event Window</strong> should show:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/afterfetch.png" alt="afterfetch" width="600">
+</div>
+<div class="title">Figure 2. <em>Fetch Event Window</em></div>
 </div>
 </div>
 <div class="sect3">
@@ -653,13 +683,20 @@ Random selection of employee to allocate if supply exceeds demand of event.
 <ul>
 <li>
 <p><code>allocate 1</code><br>
-Allocates available employees to the 1st event.</p>
+Allocates available employees to the 1st event shown in the event list.</p>
 </li>
 <li>
 <p><code>allocate 2 n/3 t/female</code><br>
-Allocates 3 employees who are tagged as 'female' to the 2nd event.</p>
+Allocates 3 employees who are tagged as 'female' to the 2nd event shown in the event list.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Alternatively, the <code>allocate</code> command can be executed from the GUI in just 1 simple step!</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: To perform a <code>allocate</code> command without number/filter specification, click the <strong>allocate</strong> button
+as shown in the <strong>Fetch Event Window</strong> in <a href="#fetch-full-details-of-an-event-code-fetch_ev-code">Section 3.4.1, &#8220;Fetch Full Details of an Event: <code>fetch_ev</code>&#8221;</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -700,6 +737,25 @@ Allocates 3 employees who are tagged as 'female' to the 2nd event.</p>
 Allocates the 2nd employee on the employee list to the 1st event on the event list.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Alternatively, the <code>allocatem</code> command can be executed from the GUI in just 2 simple step!</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>:
+double-click the employee card on the left list. Notice the employee to allocate</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/afterfree.png" alt="afterfree" width="600">
+</div>
+<div class="title">Figure 3. <em>Instruction for user to execute <code>allocatem</code> command</em></div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/afterallocatem.png" alt="afterallocatem" width="600">
+</div>
+<div class="title">Figure 4. <em>Result after <code>allocatem</code> command</em></div>
 </div>
 </div>
 <div class="sect3">
@@ -744,6 +800,26 @@ Frees all employees allocated to the 1st event on the event list.</p>
 Frees an employee with id: "001" allocated to the 1st event on the event list.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Alternatively, the <code>free</code> command can be executed from the GUI in just 1 simple step!</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>: To perform a <code>free</code> command without id specification, click the <strong>free</strong> button
+as shown in the <strong>Fetch Event Window</strong> in <a href="#fetch-full-details-of-an-event-code-fetch_ev-code">Section 3.4.1, &#8220;Fetch Full Details of an Event: <code>fetch_ev</code>&#8221;</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To <strong>free</strong> a particular employee to an event, double-click the employee card on the right list
+as shown in the 2nd figure in <a href="#manually-allocation-of-employees-to-events-code-allocatem-code">Section 3.4.3, &#8220;Manually allocation of Employees to Events: <code>allocatem</code>&#8221;</a>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -863,7 +939,7 @@ Deletes the mapping on 18th October from the 2nd Event on the Event list.</p>
 <h4 id="clear-all-datetime-mappings-from-an-event-code-clear_ev_dt-code"><a class="link" href="#clear-all-datetime-mappings-from-an-event-code-clear_ev_dt-code">3.4.7. Clear all DateTime Mappings from an Event: <code>clear_ev_dt</code></a></h4>
 <div class="paragraph">
 <p>Clears all date-time mappings for a specific event.
-As a side effect, all manpower allocated to the event will be deallocated.</p>
+As a side effect, all manpower allocated to the event will be de-allocated.</p>
 </div>
 <div class="paragraph">
 <p>Format: `clear_ev_dt EVENT_INDEX `</p>
@@ -892,82 +968,6 @@ As a side effect, all manpower allocated to the event will be deallocated.</p>
 Clears all the date-time mapping from the 2nd Event on the Event list.</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="gui-guide-for-event-fetch-and-allocation-commands"><a class="link" href="#gui-guide-for-event-fetch-and-allocation-commands">3.4.8. GUI Guide for Event Fetch and Allocation Commands</a></h4>
-<div class="paragraph">
-<p><strong>For this guide, the relevant picture is shown after the instruction.</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1</strong>. For <code>fetch_ev</code>, simply <strong>double-click the event</strong> in the list as shown in the figure below:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/beforefetch.png" alt="beforefetch" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 2</strong>: After successfully fetching the event, the following <strong>Fetch Window</strong> should show:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/afterfetch.png" alt="afterfetch" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 3</strong>: To perform a <code>allocate</code> command without number/filter specification, click the <strong>allocate</strong> button
-as shown in the <strong>Fetch Window</strong> in step 2. The two lists will be updated again as shown in the following figure:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/afterallocate.png" alt="afterallocate" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 4</strong>: To perform a <code>free</code> command, click the <strong>free</strong> button as shown in the <strong>Fetch Window</strong> in step 2.
-The two lists will be updated as shown in the following figure. Now, if you are interested to allocate a particular
-employee to an event, continue to step 5.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/afterfree.png" alt="afterfree" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 5</strong>: To <strong>allocate</strong> a particular employee to an event or perform an <code>allocatem</code> command, double-click the employee card on
-the left list. Notice the employee to allocate
-has moved to the list on the right as shown in the figure below:</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-To <strong>free</strong> a particular employee to an event, double-click the employee card on the right
-as shown in the figure below:
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/afterallocatem.png" alt="afterallocatem" width="600">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the GUI features are not working as intended, kindly use the command line interface to execute the command instead.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -1028,7 +1028,7 @@ You could either click on the Schedule Tab or just simply type in any Schedule-r
 <div class="content">
 <img src="images/ScheduleUiDetailed.png" alt="ScheduleUiDetailed">
 </div>
-<div class="title">Figure 1. <em>User Interface (UI) of the Schedule Feature</em></div>
+<div class="title">Figure 5. <em>User Interface (UI) of the Schedule Feature</em></div>
 </div>
 <div class="sect3">
 <h4 id="display-schedule-for-a-specific-date-code-display_schedule_date-code"><a class="link" href="#display-schedule-for-a-specific-date-code-display_schedule_date-code">3.6.1. Display Schedule for a specific date: <code>display_schedule_date</code></a></h4>
@@ -1425,4 +1425,4 @@ e.g. <code>clear_ev_dt 2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 09:11:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 06:01:36 UTC</div></div></div></body></html>

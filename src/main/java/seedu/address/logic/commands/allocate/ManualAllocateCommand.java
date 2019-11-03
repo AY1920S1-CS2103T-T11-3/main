@@ -40,8 +40,6 @@ public class ManualAllocateCommand extends Command {
             + PREFIX_EMPLOYEE_NUMBER + "2 ";
 
     public static final String MESSAGE_ALLOCATE_EVENT_SUCCESS = "Added Employee: %1$s to %2$s.";
-    public static final String MESSAGE_WRONG_WINDOW = "Command should be executed in the Main Window since it "
-            + "requires references to the Employee list.";
 
     private final Index employeeIndex;
     private final Index eventIndex;
@@ -123,7 +121,7 @@ public class ManualAllocateCommand extends Command {
         if (MainWindow.getCurrentTabIndex() == 0) {
             lastShownEventList = model.getFilteredEventList();
         } else {
-            throw new CommandException(MESSAGE_WRONG_WINDOW);
+            throw new CommandException(Messages.MESSAGE_WRONG_WINDOW);
         }
 
         if (employeeIndex.getZeroBased() >= lastShownList.size()) {

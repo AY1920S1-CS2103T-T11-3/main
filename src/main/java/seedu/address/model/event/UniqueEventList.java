@@ -43,9 +43,9 @@ public class UniqueEventList {
     }
 
     /**
-     * Replaces the event {@code target} in the list with {@code editedPerson}.
+     * Replaces the event {@code target} in the list with {@code editedEvent}.
      * {@code target} must exist in the list.
-     * The event identity of {@code editedPerson} must not be the same as another existing event in the list.
+     * The event identity of {@code editedEvent} must not be the same as another existing event in the list.
      */
     public void setEvent(Event target, Event editedEvent) {
         requireAllNonNull(target, editedEvent);
@@ -75,7 +75,7 @@ public class UniqueEventList {
         }
     }
 
-    public void setPersons(UniqueEventList replacement) {
+    public void setEvents(UniqueEventList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
     }

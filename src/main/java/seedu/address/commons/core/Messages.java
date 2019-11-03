@@ -26,4 +26,7 @@ public class Messages {
             + "allocated to the event!";
     public static final String MESSAGE_EMPLOYEE_DOES_NOT_EXIST = "Employee to free is currently"
             + " not allocated to event!";
+    public static final String MESSAGE_WRONG_WINDOW = "Command should be executed in the Main Window since it "
+            + "requires references to the Employee list.";
+
 }

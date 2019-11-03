@@ -39,7 +39,7 @@ public class DeallocateCommand extends Command {
             + " [EMPLOYEE_ID]\n"
             + "Example: " + COMMAND_WORD + " 1 " + PREFIX_EMPLOYEE_ID + "001";
 
-    public static final String MESSAGE_FREE_EVENT_SUCCESS = "De-allocated %2$s from the Event: %1$s";
+    private static final String MESSAGE_FREE_EVENT_SUCCESS = "De-allocated %2$s from the Event: %1$s";
 
     private final Index eventIndex;
     private final String employeeId;
@@ -131,12 +131,23 @@ public class DeallocateCommand extends Command {
                 updatedEndDate, updatedManpowerAllocatedList, eventDateTimeMap, updatedTags);
 
     }
-
     @Override
     public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof DeallocateCommand // instanceof handles nulls
-                && eventIndex.equals(((DeallocateCommand) other).eventIndex)) // state check
-                && employeeId.equals(((DeallocateCommand) other).employeeId); // state check
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof DeallocateCommand)) {
+            return false;
+        }
+
+        // state check
+        DeallocateCommand e = (DeallocateCommand) other;
+        assert employeeId != null;
+        return eventIndex.equals(e.eventIndex)
+                && employeeId.equals(e.employeeId);
     }
+
 }

@@ -50,7 +50,7 @@
 <li><a href="#generate-employee-payslip-code-pay-coming-in-v2-0-code">3.5.1. Generate Employee Payslip: <code>pay [coming in v2.0]</code></a></li>
 </ul>
 </li>
-<li><a href="#schedule">3.6. Schedule</a>
+<li><a href="#schedule-management">3.6. Schedule Management</a>
 <ul class="sectlevel3">
 <li><a href="#display-schedule-for-a-specific-date-code-display_schedule_date-code">3.6.1. Display Schedule for a specific date: <code>display_schedule_date</code></a></li>
 <li><a href="#display-schedule-for-a-specific-month-and-year-code-display_schedule-code">3.6.2. Display Schedule for a specific Month and Year: <code>display_schedule</code></a></li>
@@ -1014,15 +1014,15 @@ Generates the payslip of employee 2 from the 20th August - 20th October.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="schedule"><a class="link" href="#schedule">3.6. Schedule</a></h3>
+<h3 id="schedule-management"><a class="link" href="#schedule-management">3.6. Schedule Management</a></h3>
 <div class="paragraph">
-<p>Welcome to Schedule!
-Wondering how to display and see what events you have on a specific Date or Month, or do you want to have an overview of all the dates where you have an event?
-Then you are at the right place!</p>
+<p>Welcome to Schedule! Looking for a way to display and see what events you have on a specific Date or Month?
+Want to have an overview of all the dates where you have an event? Then you are at the right place!</p>
 </div>
 <div class="paragraph">
 <p>To get things started, all Schedule-related commands occurs in the Schedule Tab as seen from the figure below!
-You could either click on the Schedule Tab or just simply type in any Schedule-related commands and AddMin+ will bring you there.</p>
+You can get to the Schedule Tab easily by either clicking on the Schedule Tab on the User Interface or
+just simply type in any Schedule-related commands and AddMin+ will bring you there.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1033,8 +1033,8 @@ You could either click on the Schedule Tab or just simply type in any Schedule-r
 <div class="sect3">
 <h4 id="display-schedule-for-a-specific-date-code-display_schedule_date-code"><a class="link" href="#display-schedule-for-a-specific-date-code-display_schedule_date-code">3.6.1. Display Schedule for a specific date: <code>display_schedule_date</code></a></h4>
 <div class="paragraph">
-<p>Lets say you want to check if you have any events on a specific date.
-Instead of looking through the list of events you have, you could simply use the <code>display_schedule_date</code> command to do it!</p>
+<p>Want to check if you have any events on a specific date. Instead of looking through the list of events you have, you
+could use the <code>display_schedule_date</code> command to do it!</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>display_schedule_date on/dd/MM/yyyy</code></p>
@@ -1055,11 +1055,11 @@ Instead of looking through the list of events you have, you could simply use the
 </div>
 </div>
 <div class="paragraph">
-<p><strong>To display schedule for a specific date (20/11/2019):</strong></p>
+<p><strong>Example: To display schedule for a specific date (20/11/2019):</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>.
-Either type <code>display_schedule_date on/20/11/2019</code> into the command box or click on the specific date from the date picker.</p>
+<p><strong>Step 1</strong>.  Either type <code>display_schedule_date on/20/11/2019</code> into the command box or click on
+the specific date from the date picker as seen from the figure below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1067,9 +1067,8 @@ Either type <code>display_schedule_date on/20/11/2019</code> into the command bo
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 2</strong>.
-The result box will display a message which inform you how many events are being listed.
-In this case the message displayed is "1 events listed!"</p>
+<p><strong>Step 2</strong>.  The result box will display a message which inform you how many events are being listed. In this case the message displayed
+is "1 events listed!"</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1077,9 +1076,8 @@ In this case the message displayed is "1 events listed!"</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>.
-In the event list you will be able to see all the events that are on the specified date.
-In this case the only event that is on 20/11/2019 is "Talk by DEF Company".</p>
+<p><strong>Step 3</strong>.  In the event list you will be able to see all the events that are on the specified date. In this case the only event that is on
+20/11/2019 is "Talk by DEF Company".</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1102,8 +1100,8 @@ The event list will be empty and not display anything if there is no event on th
 <div class="sect3">
 <h4 id="display-schedule-for-a-specific-month-and-year-code-display_schedule-code"><a class="link" href="#display-schedule-for-a-specific-month-and-year-code-display_schedule-code">3.6.2. Display Schedule for a specific Month and Year: <code>display_schedule</code></a></h4>
 <div class="paragraph">
-<p>Now if you would want to see all the events you have on a specific month and year.
-Instead of looking through the list of events you have, you could simply use the <code>display_schedule</code> command to do it!</p>
+<p>Now you would want to see all the events you have on a specific month and year. Instead of looking through the list of events you have, you
+could use the <code>display_schedule</code> command to do it!</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>display_schedule for/MM/yyyy</code></p>
@@ -1119,13 +1117,55 @@ Instead of looking through the list of events you have, you could simply use the
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p><strong>Example: To display schedule for a specific Month and Year (11/2019):</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>.  Either type <code>display_schedule for/11/2019</code> into the command box or click on the month year picker buttons to
+navigate to the specific month and year.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleUiMonthStep1.png" alt="ScheduleUiMonthStep1">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>.  The result box will display a message which inform you how many events are being listed. In this case the message displayed
+is "2 events listed!"</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleUiMonthStep2.png" alt="ScheduleUiMonthStep2">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>.  In the event list you will be able to see all the events that are on the specified month, year. In this case there is 2 event
+that is on 11/2019 which is "Talk by DEF Company" and "Birthday Party".</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleUiMonthStep3.png" alt="ScheduleUiMonthStep3">
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The event list will be empty and not display anything if there is no event on the specified month, year.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="generate-entire-schedule-code-generate_schedule-code"><a class="link" href="#generate-entire-schedule-code-generate_schedule-code">3.6.3. Generate Entire Schedule: <code>generate_schedule</code></a></h4>
 <div class="paragraph">
-<p>Want to have an overview of all the dates that has an event?
-Use the <code>generate_schedule</code> command to do so.
-The <code>generate_schedule</code> command looks through the entire list of events and generates a new list of all the dates which has an event and also display all the events that happens on that date.</p>
+<p>Looking for a way to have an overview of all the dates that has an event? Use the <code>generate_schedule</code> command to do so.
+The <code>generate_schedule</code> command looks through the entire list of events and generates a new list of all the dates
+which has an event and also display all the events that happens on that date.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>generate_schedule</code></p>
@@ -1138,6 +1178,9 @@ The <code>generate_schedule</code> command looks through the entire list of even
 </td>
 <td class="content">
 The <code>generate_schedule</code> command opens a new window to display the new list of information.
+The <code>generate_schedule</code> command processes and creates the the list based on when the command is called.
+Note that any changes to the events after the command will not be reflected. Users are advised to use the
+<code>generate_schedule</code> once all events are confirmed.
 </td>
 </tr>
 </table>
@@ -1146,8 +1189,7 @@ The <code>generate_schedule</code> command opens a new window to display the new
 <p><strong>To display the entire schedule:</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>.
-Either type <code>generate_schedule</code> into the command box or click on the generate schedule button to display the entire schedule.</p>
+<p><strong>Step 1</strong>.  Either type <code>generate_schedule</code> into the command box or click on the generate schedule button to display the entire schedule.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1155,8 +1197,7 @@ Either type <code>generate_schedule</code> into the command box or click on the 
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 2</strong>.
-The result box will display the message "Schedule Generated".</p>
+<p><strong>Step 2</strong>.  The result box will display the message "Schedule Generated".</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1164,8 +1205,7 @@ The result box will display the message "Schedule Generated".</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>.
-A new window will open, displaying all the dates and events that is happening on those specific dates.</p>
+<p><strong>Step 3</strong>.  A new window will open, displaying all the dates and events that is happening on those specific dates.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1388,9 +1428,9 @@ e.g. <code>clear_ev_dt 2</code></p>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>display_schedule for/02/12/2019</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Display Entire Schedule</strong></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>display_schedule</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>display_schedule</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Generate Entire Schedule</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>generate_schedule</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>generate_schedule</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Generate Statistics [coming in v2.0]</strong></p></td>
@@ -1425,4 +1465,4 @@ e.g. <code>clear_ev_dt 2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 06:01:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 06:39:47 UTC</div></div></div></body></html>

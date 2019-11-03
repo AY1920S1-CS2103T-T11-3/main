@@ -21,12 +21,12 @@ interface desktop application which is the <code>AddressBook - Level 3</code> th
 <div class="sectionbody">
 <div class="paragraph">
 <p>The AddMin+ Team is made up of 5 Computer science students from AY1920S1-CS2103T-T11-3. The team decided to morph and enhance
-the capabilities of the original application into an All in one administration desktop application. The application is specially
+the capabilities of the original application into an all-in-one administration desktop application. The application is specially
 designed for the use of any events management start-up company with limited manpower and resources.</p>
 </div>
 <div class="paragraph">
-<p>AddMin+ is specially designed to ease the workload of the admin staffs in these companies and allow him/her to
-effectively handle the administrative tasks of the company by providing the following functions: event creation and
+<p>AddMin+ is specially designed to ease the workload of admin staffs in these companies and allow them to
+effectively handle the administrative needs of the company by providing the following functions: event creation and
 deletion, editing of event details after creation, manual and automatic manpower allocation for events and providing an
 overview of all the data via statistics while keeping track of the companies schedule to ensure that no event is missed!</p>
 </div>
@@ -40,9 +40,13 @@ overview of all the data via statistics while keeping track of the companies sch
 <div class="title">Figure 1. <em>The graphical user interface for *AddMin+*</em></div>
 </div>
 <div class="paragraph">
-<p>My role was to design and write codes for the entire <code>Schedule</code> section of the project. The following sections will illustrate
-the enhancements in more detail, as well as provide relevant documentation that i have added to the user and developer guides
-in relation to those enhancements.</p>
+<p>My project responsibilities and tasking includes being in charge of the group&#8217;s documentation quality as
+well as ensure project deliverable are done on time and in the right format.</p>
+</div>
+<div class="paragraph">
+<p>While my coding related role was to design and write codes for the entire <code>Schedule</code> section of the project.
+The following sections will illustrate the enhancements in more detail, as well as provide relevant
+documentation that i have added to the user and developer guides in relation to those enhancements.</p>
 </div>
 <div class="paragraph">
 <p>Note the following symbols and formatting used in this documents:</p>
@@ -83,13 +87,13 @@ in relation to those enhancements.</p>
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section will show a summary of all the features, enhancements, documentations, and other useful contributions that i have
-contributed to the team project.</p>
+<p>This section will show a summary of all the features, enhancements, documentations, and other useful contributions
+that i have contributed to the team project.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added and implemented the entire <strong>Schedule</strong> section of the project which includes major GUI implementations
+<p><strong>Major feature</strong>: added and implemented the entire <strong>Schedule</strong> section of the project which includes major GUI implementations
 and 3 schedule related features.</p>
 <div class="ulist">
 <ul>
@@ -101,18 +105,23 @@ schedule, which could be seen from the <strong>Schedule</strong> tab and the win
 </li>
 <li>
 <p>Justification: This feature improves the product significantly because it allows users to have a convenient way to view their upcoming
-event schedule and keep track of all the event dates. This feature will greatly increase the user experience of the application.</p>
+event schedule and keep track of all the event dates. The feature will greatly increase the user experience of the application.</p>
 </li>
 <li>
-<p>Highlights: This enhancement requires the event objects extensively. The implementation of the <strong>Schedule</strong> features required an in-depth
-analysis of the application&#8217;s storage architecture and modeling. The implementation of <strong>Schedule</strong> was also challenging as it required the
-implementation of an additional <code>DistinctDate</code> object for the <code>generate_schedule</code> feature.</p>
+<p>Highlights: This enhancement requires handling and dealing with the event objects extensively. The implementation of the <strong>Schedule</strong> features
+required an in-depth analysis of the application&#8217;s storage architecture and modeling. The implementation of <strong>Schedule</strong> was also challenging as
+it required the implementation of an additional <code>DistinctDate</code> object for the <code>generate_schedule</code> feature. During the designing of the <strong>Schedule</strong>
+component, deep consideration was needed to ensure that the user interface was clean and optimal for the users.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: minor Graphic User Interface changes to improve the user experience of the application.</p>
+<p><strong>Minor features</strong>: Multiple Graphic User Interface improvements throughout the application to improve the user experience.
+As well as optimising user experience by enabling the tab recognition feature, where AddMin+ is able to identify which tab
+the user is on. This feature allows AddMin+ to bring users to the correct tab when a user inputs a command. It also
+enables AddMin+ to recognise which list the user is trying to edit on, and react accordingly. Implemented the Add and
+Edit event commands for AddMin+. Implemented the find_em_tag and find_ev_tag command of AddMin+.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -135,11 +144,18 @@ implementation of an additional <code>DistinctDate</code> object for the <code>g
 <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/76">#76</a>, <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/79">#79</a>)</p>
 </li>
 <li>
+<p>In charged of Find employee and event Tags commands for AddMin+ (Pull requests
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/76">#76</a>, <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/79">#79</a>)</p>
+</li>
+<li>
 <p>Assisted in refactoring process for person class to employee class and well as fixed test cases and checkstyle errors.
 (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/92">#92</a></p>
 </li>
 <li>
 <p>In charged of keep track of deadlines, submissions and issue trackers.</p>
+</li>
+<li>
+<p>In charged of the entire teams documentation quality.</p>
 </li>
 </ul>
 </div>
@@ -149,7 +165,7 @@ implementation of an additional <code>DistinctDate</code> object for the <code>g
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI card display and other GUI enhancements (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/143">#143</a>)</p>
+<p>Upgraded the GUI card display and other GUI enhancements (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/143">#143</a>)</p>
 </li>
 <li>
 <p>Wrote additional tests for existing features (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/139">#139</a>)</p>
@@ -201,21 +217,22 @@ implementation of an additional <code>DistinctDate</code> object for the <code>g
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The original AddressBook User Guide have been updated to document the new capabilities of AddMin+ functionality.
-The following are excerpts from the AddMin+ User Guide, which will showcase the sections that i have contributed to. They
-will showcase my ability to write documentation for end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The original AddressBook User Guide have been updated to document the new capabilities of the AddMin+ functionality.
+The following are excerpts from the AddMin+ User Guide, which will showcase the sections that i have contributed to in
+particular the Schedule section of the UG. They will showcase my ability to write documentation for end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="schedule"><a class="link" href="#schedule">Schedule</a></h3>
+<h3 id="schedule-management"><a class="link" href="#schedule-management">Schedule Management</a></h3>
 <div class="paragraph">
-<p>Welcome to Schedule! Wondering how to display and see what events you have on a specific Date or Month, or do you
-want to have an overview of all the dates where you have an event? Then you are at the right place!</p>
+<p>Welcome to Schedule! Looking for a way to display and see what events you have on a specific Date or Month?
+Want to have an overview of all the dates where you have an event? Then you are at the right place!</p>
 </div>
 <div class="paragraph">
-<p>To get things started, all Schedule-related commands occurs in the Schedule Tab as seen from the figure below! You could either
-click on the Schedule Tab or just simply type in any Schedule-related commands and AddMin+ will bring you there.</p>
+<p>To get things started, all Schedule-related commands occurs in the Schedule Tab as seen from the figure below!
+You can get to the Schedule Tab easily by either clicking on the Schedule Tab on the User Interface or
+just simply type in any Schedule-related commands and AddMin+ will bring you there.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -224,10 +241,10 @@ click on the Schedule Tab or just simply type in any Schedule-related commands a
 <div class="title">Figure 2. <em>User Interface (UI) of the Schedule Feature</em></div>
 </div>
 <div class="sect3">
-<h4 id="display-schedule-for-a-specific-date"><a class="link" href="#display-schedule-for-a-specific-date">Display Schedule for a specific date</a></h4>
+<h4 id="display-schedule-for-a-specific-date-code-display_schedule_date-code"><a class="link" href="#display-schedule-for-a-specific-date-code-display_schedule_date-code">Display Schedule for a specific date: <code>display_schedule_date</code></a></h4>
 <div class="paragraph">
-<p>Lets say you want to check if you have any events on a specific date. Instead of looking through the list of events you have, you
-could simply use the <code>display_schedule_date</code> command to do it!</p>
+<p>Want to check if you have any events on a specific date. Instead of looking through the list of events you have, you
+could use the <code>display_schedule_date</code> command to do it!</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>display_schedule_date on/dd/MM/yyyy</code></p>
@@ -248,10 +265,11 @@ could simply use the <code>display_schedule_date</code> command to do it!</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>To display schedule for a specific date (20/11/2019):</strong></p>
+<p><strong>Example: To display schedule for a specific date (20/11/2019):</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>.  Either type <code>display_schedule_date on/20/11/2019</code> into the command box or click on the specific date from the date picker.</p>
+<p><strong>Step 1</strong>.  Either type <code>display_schedule_date on/20/11/2019</code> into the command box or click on
+the specific date from the date picker as seen from the figure below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -290,10 +308,10 @@ The event list will be empty and not display anything if there is no event on th
 </div>
 </div>
 <div class="sect3">
-<h4 id="display-schedule-for-a-specific-month-and-year"><a class="link" href="#display-schedule-for-a-specific-month-and-year">Display Schedule for a specific Month and Year</a></h4>
+<h4 id="display-schedule-for-a-specific-month-and-year-code-display_schedule-code"><a class="link" href="#display-schedule-for-a-specific-month-and-year-code-display_schedule-code">Display Schedule for a specific Month and Year: <code>display_schedule</code></a></h4>
 <div class="paragraph">
-<p>Now if you would want to see all the events you have on a specific month and year. Instead of looking through the list of events you have, you
-could simply use the <code>display_schedule</code> command to do it!</p>
+<p>Now you would want to see all the events you have on a specific month and year. Instead of looking through the list of events you have, you
+could use the <code>display_schedule</code> command to do it!</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>display_schedule for/MM/yyyy</code></p>
@@ -310,7 +328,7 @@ could simply use the <code>display_schedule</code> command to do it!</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>To display schedule for a specific Month and Year (11/2019):</strong></p>
+<p><strong>Example: To display schedule for a specific Month and Year (11/2019):</strong></p>
 </div>
 <div class="paragraph">
 <p><strong>Step 1</strong>.  Either type <code>display_schedule for/11/2019</code> into the command box or click on the month year picker buttons to
@@ -353,11 +371,11 @@ The event list will be empty and not display anything if there is no event on th
 </div>
 </div>
 <div class="sect3">
-<h4 id="generate-entire-schedule"><a class="link" href="#generate-entire-schedule">Generate Entire Schedule</a></h4>
+<h4 id="generate-entire-schedule-code-generate_schedule-code"><a class="link" href="#generate-entire-schedule-code-generate_schedule-code">Generate Entire Schedule: <code>generate_schedule</code></a></h4>
 <div class="paragraph">
-<p>Want to have an overview of all the dates that has an event? Use the <code>generate_schedule</code> command to do so. The <code>generate_schedule</code> command
-looks through the entire list of events and generates a new list of all the dates which has an event and also display all the events that happens
-on that date.</p>
+<p>Looking for a way to have an overview of all the dates that has an event? Use the <code>generate_schedule</code> command to do so.
+The <code>generate_schedule</code> command looks through the entire list of events and generates a new list of all the dates
+which has an event and also display all the events that happens on that date.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>generate_schedule</code></p>
@@ -370,6 +388,9 @@ on that date.</p>
 </td>
 <td class="content">
 The <code>generate_schedule</code> command opens a new window to display the new list of information.
+The <code>generate_schedule</code> command processes and creates the the list based on when the command is called.
+Note that any changes to the events after the command will not be reflected. Users are advised to use the
+<code>generate_schedule</code> once all events are confirmed.
 </td>
 </tr>
 </table>
@@ -415,179 +436,6 @@ The generated list will be empty and not display anything if there is no event i
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="schedule-2"><a class="link" href="#schedule-2">Schedule</a></h3>
-<div class="paragraph">
-<p>Welcome to Schedule!
-Wondering how to display and see what events you have on a specific Date or Month, or do you want to have an overview of all the dates where you have an event?
-Then you are at the right place!</p>
-</div>
-<div class="paragraph">
-<p>To get things started, all Schedule-related commands occurs in the Schedule Tab as seen from the figure below!
-You could either click on the Schedule Tab or just simply type in any Schedule-related commands and AddMin+ will bring you there.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiDetailed.png" alt="ScheduleUiDetailed">
-</div>
-<div class="title">Figure 3. <em>User Interface (UI) of the Schedule Feature</em></div>
-</div>
-<div class="sect3">
-<h4 id="display-schedule-for-a-specific-date-code-display_schedule_date-code"><a class="link" href="#display-schedule-for-a-specific-date-code-display_schedule_date-code">Display Schedule for a specific date: <code>display_schedule_date</code></a></h4>
-<div class="paragraph">
-<p>Lets say you want to check if you have any events on a specific date.
-Instead of looking through the list of events you have, you could simply use the <code>display_schedule_date</code> command to do it!</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>display_schedule_date on/dd/MM/yyyy</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:
-<code>display_schedule_date on/02/12/2019</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>on/ represents the date in dd/MM/yyyy that the user wants to display</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>To display schedule for a specific date (20/11/2019):</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1</strong>.
-Either type <code>display_schedule_date on/20/11/2019</code> into the command box or click on the specific date from the date picker.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiStep1.png" alt="ScheduleUiStep1">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 2</strong>.
-The result box will display a message which inform you how many events are being listed.
-In this case the message displayed is "1 events listed!"</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiStep2.png" alt="ScheduleUiStep2">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 3</strong>.
-In the event list you will be able to see all the events that are on the specified date.
-In this case the only event that is on 20/11/2019 is "Talk by DEF Company".</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiStep3.png" alt="ScheduleUiStep3">
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The event list will be empty and not display anything if there is no event on the specified date.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="display-schedule-for-a-specific-month-and-year-code-display_schedule-code"><a class="link" href="#display-schedule-for-a-specific-month-and-year-code-display_schedule-code">Display Schedule for a specific Month and Year: <code>display_schedule</code></a></h4>
-<div class="paragraph">
-<p>Now if you would want to see all the events you have on a specific month and year.
-Instead of looking through the list of events you have, you could simply use the <code>display_schedule</code> command to do it!</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>display_schedule for/MM/yyyy</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>for/ represents the month and year in MM/yyyy that the user wants to display</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="generate-entire-schedule-code-generate_schedule-code"><a class="link" href="#generate-entire-schedule-code-generate_schedule-code">Generate Entire Schedule: <code>generate_schedule</code></a></h4>
-<div class="paragraph">
-<p>Want to have an overview of all the dates that has an event?
-Use the <code>generate_schedule</code> command to do so.
-The <code>generate_schedule</code> command looks through the entire list of events and generates a new list of all the dates which has an event and also display all the events that happens on that date.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>generate_schedule</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The <code>generate_schedule</code> command opens a new window to display the new list of information.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>To display the entire schedule:</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1</strong>.
-Either type <code>generate_schedule</code> into the command box or click on the generate schedule button to display the entire schedule.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiGenerateStep1.png" alt="ScheduleUiGenerateStep1">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 2</strong>.
-The result box will display the message "Schedule Generated".</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiGenerateStep2.png" alt="ScheduleUiGenerateStep2">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 3</strong>.
-A new window will open, displaying all the dates and events that is happening on those specific dates.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiGenerateStep3.png" alt="ScheduleUiGenerateStep3">
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The generated list will be empty and not display anything if there is no event in the current event list.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -599,8 +447,9 @@ The generated list will be empty and not display anything if there is no event i
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical
-documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. The section will cover the design considerations and
+design code structure of the <code>generate_schedule</code> command. They showcase my ability to write technical documentation
+and the technical depth of my contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -641,13 +490,13 @@ they are representing. These DistinctDate Objects are then used to be displayed 
 <div class="content">
 <img src="../images/DistinctDateClassDiagram.png" alt="DistinctDateClassDiagram" width="300">
 </div>
-<div class="title">Figure 4. <em>Class Diagram for DistinctDate</em></div>
+<div class="title">Figure 3. <em>Class Diagram for DistinctDate</em></div>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/DistinctDateProcessorClassDiagram.png" alt="DistinctDateProcessorClassDiagram" width="300">
 </div>
-<div class="title">Figure 5. <em>Class Diagram for DistinctDateProcessor</em></div>
+<div class="title">Figure 4. <em>Class Diagram for DistinctDateProcessor</em></div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the display schedule mechanism behaves at each step.</p>
@@ -656,7 +505,7 @@ they are representing. These DistinctDate Objects are then used to be displayed 
 <div class="content">
 <img src="../images/GenerateScheduleFlowChart.png" alt="GenerateScheduleFlowChart" width="300">
 </div>
-<div class="title">Figure 6. <em>Program flow of the Generate Schedule Feature</em></div>
+<div class="title">Figure 5. <em>Program flow of the Generate Schedule Feature</em></div>
 </div>
 <div class="paragraph">
 <p><strong>Step 1</strong>. The user launches the application for the first time.</p>
@@ -715,7 +564,7 @@ it is called upon or when the application starts.
 <div class="content">
 <img src="../images/GenerateScheduleSequenceDiagram.png" alt="GenerateScheduleSequenceDiagram">
 </div>
-<div class="title">Figure 7. <em>Sequence Diagram for generate_schedule Command</em></div>
+<div class="title">Figure 6. <em>Sequence Diagram for generate_schedule Command</em></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -783,11 +632,8 @@ Alternative 2 also helps prevent user confusion, as the list that is displayed i
 </div>
 </div>
 <div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<h2 id="conclusion"><a class="link" href="#conclusion">Conclusion:</a></h2>
 <div class="sectionbody">
 <hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 06:01:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 06:39:47 UTC</div></div></div></body></html>

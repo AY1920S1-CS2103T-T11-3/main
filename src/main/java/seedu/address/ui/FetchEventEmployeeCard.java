@@ -16,6 +16,8 @@ import javafx.scene.layout.Region;
 import seedu.address.logic.Logic;
 import seedu.address.logic.commands.allocate.DeallocateCommand;
 import seedu.address.logic.commands.allocate.ManualAllocateCommand;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.employee.Employee;
 
 
@@ -77,20 +79,23 @@ public class FetchEventEmployeeCard extends UiPart<Region> {
     FetchEventEmployeeCard(Employee employee, int displayedIndex, Logic logic, int eventOneBasedIndex,
                            FetchEventWindow fetchWindow, boolean isAllocate) {
         this(employee, displayedIndex);
+
+        String manualAllocateCommandText = ManualAllocateCommand.COMMAND_WORD + " " + eventOneBasedIndex
+                + " " + PREFIX_EMPLOYEE_ID + employee.getEmployeeId();
+        String deallocateCommandText = DeallocateCommand.COMMAND_WORD + " " + eventOneBasedIndex
+                + " " + PREFIX_EMPLOYEE_ID + employee.getEmployeeId();
+
         EventHandler<MouseEvent> eventHandler = mouseEvent -> {
             if (mouseEvent.getButton().equals(MouseButton.PRIMARY) && mouseEvent.getClickCount() == 2) {
                 try {
                     if (isAllocate) {
-                        logic.execute(ManualAllocateCommand.COMMAND_WORD + " " + eventOneBasedIndex
-                                + " " + PREFIX_EMPLOYEE_ID + employee.getEmployeeId());
+                        logic.execute(manualAllocateCommandText);
                     } else {
-                        logic.execute(DeallocateCommand.COMMAND_WORD + " " + eventOneBasedIndex
-                                + " " + PREFIX_EMPLOYEE_ID + employee.getEmployeeId());
-
+                        logic.execute(deallocateCommandText);
                     }
                     fetchWindow.updateCards();
 
-                } catch (Exception e) {
+                } catch (ParseException | CommandException e) {
                     if (errorWindow != null) {
                         errorWindow.hide();
                     }

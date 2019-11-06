@@ -190,40 +190,44 @@ our app.</p>
 <p>Employee: Adds an employee to the employee list</p>
 </div>
 <div class="paragraph">
+<p>Employee Format: <code>add_em n/NAME g/GENDER p/PAY no/PHONE e/EMAIL a/ADDRESS on/JOIN_DATE [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>NAME</strong>, <strong>GENDER</strong>, <strong>PAY</strong>, <strong>PHONE</strong>, <strong>EMAIL</strong> and <strong>JOIN_DATE</strong>.</p>
+</li>
+<li>
+<p>An employee&#8217;s identity is uniquely identified by his/her name, phone number and email. You cannot add an employee whose identity is the same as another employee already inside the Employee List.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
 <p>Event: Adds an event that the company is organizing or hosting to the company’s calendar.</p>
 </div>
 <div class="paragraph">
-<p>Employee Format: <code>add_em n/NAME g/GENDER p/POSITION no/PHONE e/EMAIL a/ADDRESS on/JOIN_DATE [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-GENDER is strictly either 'male' or 'female' only (Case-Insensitive).<br>
-EMAIL has to be a valid email.<br>
-JOIN_DATE is of the format <code>DD/MM/YYYY</code> and must be a valid Calendar Date from the last 10 years.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-You cannot add an employee whose identity is identical to someone already inside the EmployeeBook.<br>
-An employee&#8217;s identity is uniquely identified by his/her name, phone number and email.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
 <p>Event Format: <code>add_ev n/NAME at/VENUE m/MANPOWER_NEEDED on/START_DATE till/END_DATE[t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>NAME</strong>, <strong>MANPOWER_NEEDED</strong>, and <strong>START/END_DATE</strong>.</p>
+</li>
+<li>
+<p>Additionally, take note that the <code>START_DATE</code> must be before the <code>END_DATE</code>, and that the maximum date range of the event is <strong>90 days</strong>.</p>
+</li>
+<li>
+<p>An events&#8217;s identity is uniquely identified by its name, start date, and end date. You cannot add an event which is identical to another event already insid</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -232,7 +236,7 @@ An employee&#8217;s identity is uniquely identified by his/her name, phone numbe
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A employee can have any number of tags (including 0)
+Both employee and events can have any number of tags (including 0)
 </td>
 </tr>
 </table>
@@ -243,10 +247,10 @@ A employee can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add_em n/John Doe g/Male p/Manager no/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 on/12/12/2012 t/friends t/owesMoney</code></p>
+<p><code>add_em n/John Doe g/Male p/10 no/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 on/12/12/2012 t/friends t/owesMoney</code></p>
 </li>
 <li>
-<p><code>add_em n/Betsy Crowe g/Female p/CFO no/91909111 e/betsycrowe@example.com a/Newgate Prison on/10/12/2019 t/criminal</code></p>
+<p><code>add_em n/Betsy Crowe g/Female p/6 no/91909111 e/betsycrowe@example.com a/Newgate Prison on/10/12/2019 t/criminal</code></p>
 </li>
 </ul>
 </div>
@@ -267,13 +271,30 @@ A employee can have any number of tags (including 0)
 <div class="sect3">
 <h4 id="editing-details-code-edit_em-edit_ev-code"><a class="link" href="#editing-details-code-edit_em-edit_ev-code">Editing details : <code>edit_em | edit_ev</code></a></h4>
 <div class="paragraph">
+<p>Edits a specific entity based on the fields input by the user. At least one field must be provided, and existing values will be updated to the input values.</p>
+</div>
+<div class="paragraph">
 <p>Employee: Edit an existing employee in the employee list.</p>
 </div>
 <div class="paragraph">
-<p>Event: Edits an existing event in the event list.</p>
+<p>Employee Format: <code>edit_em INDEX [n/NAME] [g/GENDER] [p/POSITION] [no/PHONE] [e/EMAIL] [a/ADDRESS] [on/JOIN_DATE] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>NAME</strong>, <strong>GENDER</strong>, <strong>PAY</strong>, <strong>PHONE</strong>, <strong>EMAIL</strong> and <strong>JOIN_DATE</strong>.</p>
+</li>
+<li>
+<p>An employee&#8217;s identity is uniquely identified by his/her name, phone number and email. You cannot edit an employee whose identity is the same as another employee already inside the Employee List.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>Employee Format: <code>edit_em INDEX [n/NAME] [g/GENDER] [p/POSITION] [no/PHONE] [e/EMAIL] [a/ADDRESS] [on/JOIN_DATE] [t/TAG]&#8230;&#8203;</code></p>
+<p>Event: Edits an existing event in the event list.</p>
 </div>
 <div class="paragraph">
 <p>Event Format Format: <code>edit_ev INDEX [n/EVENT_NAME] [at/VENUE] [m/MANPOWER_NEEDED] [on/START_DATE] [till/END_DATE] [t/TAG]&#8230;&#8203;</code></p>
@@ -283,25 +304,36 @@ A employee can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the entity at the specified <code>INDEX</code>.
-The index refers to the index number shown in the displayed entity list.
-The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>NAME</strong>, <strong>MANPOWER_NEEDED</strong>, and <strong>START/END_DATE</strong>.</p>
 </li>
 <li>
-<p>At least one of the optional fields must be provided.</p>
+<p>Additionally, take note that the <code>START_DATE</code> must be before the <code>END_DATE</code>, and that the maximum date range of the event is <strong>90 days</strong>.</p>
 </li>
 <li>
-<p>Existing values will be updated to the input values.</p>
+<p>An events&#8217;s identity is uniquely identified by its name, start date, and end date. You cannot edit an event which is identical to another event already inside the Event List.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the entity will be removed i.e adding of tags is not cumulative.</p>
+<p>This command will flush the current manpower allocated list and replace it with a new allocation list.</p>
 </li>
 <li>
-<p>You can remove all the entity&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>The parameters provided will affect the functionality of the <code>edit_ev</code> Command. If the START_DATE and/or END_DATE is modified, it will flush all the Date-Time mapping of the Event (Refer to <a href="#set_ev_dt">Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a>) that is not within the new range of the event&#8217;s start-end dates and insert the default timing of 0800-1800 on the start/end dates, if they are not already mapped.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+When editing tags, the existing tags of the entity will be removed i.e adding of tags is not cumulative.<br>
+You can remove all the entity&#8217;s tags by typing <code>t/</code> without specifying any tags after it.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Employee Edit Examples:</p>
@@ -310,7 +342,7 @@ The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p
 <ul>
 <li>
 <p><code>edit_em 1 no/91234567 e/johndoe@example.com</code><br>
-Edits the employeePhone number and employeeEmail address of the 1st employee to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+Edits the Phone Number and Email address of the 1st employee on the displayed employee list to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
 <p><code>edit_em 2 n/Betsy Crower t/</code><br>
@@ -325,11 +357,11 @@ Edits the name of the 2nd employee to be <code>Betsy Crower</code> and clears al
 <ul>
 <li>
 <p><code>edit_ev 1 on/16/09/2019</code><br>
-Edits the start date of the 1st event to be on the 16th September, 2019.</p>
+Edits the start date of the 1st event on the displayed event list to be on the 16th September, 2019.</p>
 </li>
 <li>
 <p><code>edit_ev 2 n/Concert t/</code><br>
-Edits the name of the 2nd event to be <code>Concert</code> and clears all existing tags.</p>
+Edits the name of the 2nd event on the displayed event list to be <code>Concert</code> and clears all existing tags.</p>
 </li>
 </ul>
 </div>
@@ -337,7 +369,7 @@ Edits the name of the 2nd event to be <code>Concert</code> and clears all existi
 <div class="sect3">
 <h4 id="find-code-find_em_name-find_em_tag-find_ev_name-find_ev_tag-code"><a class="link" href="#find-code-find_em_name-find_em_tag-find_ev_name-find_ev_tag-code">Find: <code>find_em_name | find_em_tag | find_ev_name | find_ev_tag</code></a></h4>
 <div class="paragraph">
-<p>Find entities whose names contain any of the given keywords.</p>
+<p>Find entities whose <strong>names</strong> contain any of the given keywords.</p>
 </div>
 <div class="paragraph">
 <p>Employee Format: <code>find_em_name KEYWORD [MORE_KEYWORDS]</code></p>
@@ -346,7 +378,7 @@ Edits the name of the 2nd event to be <code>Concert</code> and clears all existi
 <p>Event Format: <code>find_ev_name KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="paragraph">
-<p>Find entities whose tag contain any of the given keywords.</p>
+<p>Find entities whose <strong>tag</strong> contain any of the given keywords.</p>
 </div>
 <div class="paragraph">
 <p>Employee Format: <code>find_em_tag KEYWORD [MORE_KEYWORDS]</code></p>
@@ -408,7 +440,7 @@ Returns all events that are tagged as <code>free</code> and <code>music</code></
 <div class="sect3">
 <h4 id="deleting-an-entity-code-delete_em-delete_ev-code"><a class="link" href="#deleting-an-entity-code-delete_em-delete_ev-code">Deleting an entity : <code>delete_em | delete_ev</code></a></h4>
 <div class="paragraph">
-<p>Deletes the entity from the employee roster/event calendar.</p>
+<p>Deletes the entity from the employee list/event calendar.</p>
 </div>
 <div class="paragraph">
 <p>Employee Format: <code>delete_em INDEX</code></p>
@@ -421,13 +453,10 @@ Returns all events that are tagged as <code>free</code> and <code>music</code></
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the entity at the specified <code>INDEX</code>.</p>
+<p><code>INDEX</code> refers to the index number shown in the displayed entity list.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong>.</p>
 </li>
 </ul>
 </div>
@@ -450,7 +479,7 @@ Deletes the 1st event in the displayed event list shown (Works on both <em>Main<
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-a-date-time-to-an-event-code-set_ev_dt-code"><a class="link" href="#setting-a-date-time-to-an-event-code-set_ev_dt-code">Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a></h4>
+<h4 id="set_ev_dt"><a class="link" href="#set_ev_dt">Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a></h4>
 <div class="paragraph">
 <p>Sets a Date-Time mapping to an specific Event.</p>
 </div>
@@ -461,7 +490,7 @@ Deletes the 1st event in the displayed event list shown (Works on both <em>Main<
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Events are initialized without any schedule, other than their stated start and end date with a default time of 8-6pm.
+Events are initialized without any schedule, other than their stated start and end date with a default time of 0800-1800.
 Hence, the mapping <em>declares</em> the schedule for the dates that the event is being held.
 </td>
 </tr>
@@ -488,19 +517,10 @@ If <code>EVENT_DATE</code> is not stated, then all dates inclusive of the start 
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
-</li>
-<li>
-<p>The <code>EVENT_INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>The <code>EVENT_DATE</code> <strong>must be of the format</strong> DD/MM/YYYY</p>
+<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong>, <strong>DATE</strong>, and <strong>TIME PERIOD</strong>.</p>
 </li>
 <li>
 <p>THE <code>EVENT_DATE</code> <strong>must be within the Event&#8217;s Start and End Date</strong></p>
-</li>
-<li>
-<p>The <code>EVENT_DAYTIME</code> <strong>must be of the format</strong> HHMM-HHMM</p>
 </li>
 </ul>
 </div>
@@ -512,12 +532,12 @@ If <code>EVENT_DATE</code> is not stated, then all dates inclusive of the start 
 <div class="ulist">
 <ul>
 <li>
-<p><code>set_ev_dt 2 on/18/10/2019 time/1000-2000</code><br>
-Sets the 2nd Event from the Event List a time period of 10am-10pm on the date 18th October 2019.</p>
+<p><code>set_ev_dt 2 on/02/10/2019 time/1000-2000</code><br>
+Sets the 2nd Event from the Event List a time period of 10am-10pm on the date 2nd of October 2019.</p>
 </li>
 <li>
 <p><code>set_ev_dt 3 time/0500-1500</code><br>
-Sets the 1st Event from the Event List a time period of 5am-3pm on all dates from the start to the end date.</p>
+Sets the 1st Event from the Event List a time period of 5am-3pm on all dates from the start to the end date (inclusive).</p>
 </li>
 </ul>
 </div>
@@ -538,13 +558,7 @@ Sets the 1st Event from the Event List a time period of 5am-3pm on all dates fro
 <p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
 </li>
 <li>
-<p>The <code>EVENT_INDEX</code> <strong>must be a positive integer:</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>The <code>EVENT_DATE</code> <strong>must be of the format</strong> DD/MM/YYYY, and within the Event&#8217;s Start and End Date*</p>
-</li>
-<li>
-<p>The <code>EVENT_DAYTIME</code> <strong>must be of the format</strong> HHMM-HHMM, where the <em>start time</em> is before the <em>end time</em>.</p>
+<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong> and <strong>DATE</strong>.</p>
 </li>
 </ul>
 </div>
@@ -569,7 +583,7 @@ Deletes the mapping on 18th October from the 2nd Event on the Event list.</p>
 As a side effect, all manpower allocated to the event will be de-allocated.</p>
 </div>
 <div class="paragraph">
-<p>Format: `clear_ev_dt EVENT_INDEX `</p>
+<p>Format: <code>clear_ev_dt EVENT_INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -579,7 +593,7 @@ As a side effect, all manpower allocated to the event will be de-allocated.</p>
 <p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
 </li>
 <li>
-<p>The <code>EVENT_INDEX</code> <strong>must be a positive integer:</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong>.</p>
 </li>
 </ul>
 </div>
@@ -769,4 +783,4 @@ Instantiation of the <code>Event</code> object when the app is started will be m
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 13:25:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 14:19:04 UTC</div></div></div></body></html>

@@ -53,7 +53,7 @@
 <li><a href="#schedule-management">3.6. Schedule Management</a>
 <ul class="sectlevel3">
 <li><a href="#display-schedule-for-a-specific-date-code-display_schedule_date-code">3.6.1. Display Schedule for a specific date: <code>display_schedule_date</code></a></li>
-<li><a href="#display-schedule-for-a-specific-month-and-year-code-display_schedule-code">3.6.2. Display Schedule for a specific Month and Year: <code>display_schedule</code></a></li>
+<li><a href="#display-schedule-for-a-specific-month-and-year-code-display_schedule_month-code">3.6.2. Display Schedule for a specific Month and Year: <code>display_schedule_month</code></a></li>
 <li><a href="#generate-entire-schedule-code-generate_schedule-code">3.6.3. Generate Entire Schedule: <code>generate_schedule</code></a></li>
 <li><a href="#display-schedule-between-two-specific-dates-code-display_schedule_between-code">3.6.4. Display Schedule between two specific dates: <code>display_schedule_between</code></a></li>
 </ul>
@@ -1031,6 +1031,7 @@ just simply type in any Schedule-related commands and AddMin+ will bring you the
 </div>
 <div class="title">Figure 5. <em>User Interface (UI) of the Schedule Feature</em></div>
 </div>
+<hr>
 <div class="sect3">
 <h4 id="display-schedule-for-a-specific-date-code-display_schedule_date-code"><a class="link" href="#display-schedule-for-a-specific-date-code-display_schedule_date-code">3.6.1. Display Schedule for a specific date: <code>display_schedule_date</code></a></h4>
 <div class="paragraph">
@@ -1085,11 +1086,11 @@ is "1 events listed!"</p>
 <img src="images/ScheduleUiStep3.png" alt="ScheduleUiStep3">
 </div>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 The event list will be empty and not display anything if there is no event on the specified date.
@@ -1097,15 +1098,16 @@ The event list will be empty and not display anything if there is no event on th
 </tr>
 </table>
 </div>
+<hr>
 </div>
 <div class="sect3">
-<h4 id="display-schedule-for-a-specific-month-and-year-code-display_schedule-code"><a class="link" href="#display-schedule-for-a-specific-month-and-year-code-display_schedule-code">3.6.2. Display Schedule for a specific Month and Year: <code>display_schedule</code></a></h4>
+<h4 id="display-schedule-for-a-specific-month-and-year-code-display_schedule_month-code"><a class="link" href="#display-schedule-for-a-specific-month-and-year-code-display_schedule_month-code">3.6.2. Display Schedule for a specific Month and Year: <code>display_schedule_month</code></a></h4>
 <div class="paragraph">
 <p>Now you would want to see all the events you have on a specific month and year. Instead of looking through the list of events you have, you
-could use the <code>display_schedule</code> command to do it!</p>
+could use the <code>display_schedule_month</code> command to do it!</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>display_schedule for/MM/yyyy</code></p>
+<p>Format: <code>display_schedule_month for/MM/yyyy</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1122,7 +1124,7 @@ could use the <code>display_schedule</code> command to do it!</p>
 <p><strong>Example: To display schedule for a specific Month and Year (11/2019):</strong></p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>.  Either type <code>display_schedule for/11/2019</code> into the command box or click on the month year picker buttons to
+<p><strong>Step 1</strong>.  Either type <code>display_schedule_month for/11/2019</code> into the command box or click on the month year picker buttons to
 navigate to the specific month and year.</p>
 </div>
 <div class="imageblock">
@@ -1148,11 +1150,11 @@ that is on 11/2019 which is "Talk by DEF Company" and "Birthday Party".</p>
 <img src="images/ScheduleUiMonthStep3.png" alt="ScheduleUiMonthStep3">
 </div>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 The event list will be empty and not display anything if there is no event on the specified month, year.
@@ -1160,6 +1162,7 @@ The event list will be empty and not display anything if there is no event on th
 </tr>
 </table>
 </div>
+<hr>
 </div>
 <div class="sect3">
 <h4 id="generate-entire-schedule-code-generate_schedule-code"><a class="link" href="#generate-entire-schedule-code-generate_schedule-code">3.6.3. Generate Entire Schedule: <code>generate_schedule</code></a></h4>
@@ -1214,11 +1217,11 @@ Note that any changes to the events after the command will not be reflected. Use
 <img src="images/ScheduleUiGenerateStep3.png" alt="ScheduleUiGenerateStep3">
 </div>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 The generated list will be empty and not display anything if there is no event in the current event list.
@@ -1226,6 +1229,7 @@ The generated list will be empty and not display anything if there is no event i
 </tr>
 </table>
 </div>
+<hr>
 </div>
 <div class="sect3">
 <h4 id="display-schedule-between-two-specific-dates-code-display_schedule_between-code"><a class="link" href="#display-schedule-between-two-specific-dates-code-display_schedule_between-code">3.6.4. Display Schedule between two specific dates: <code>display_schedule_between</code></a></h4>
@@ -1456,8 +1460,13 @@ e.g. <code>clear_ev_dt 2</code></p>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Display Schedule for specific month</strong></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>display_schedule for/MMYYYY</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>display_schedule for/02/12/2019</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>display_schedule_month for/MMYYYY</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>display_schedule_month for/02/12/2019</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Display Schedule for between 2 dates</strong></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>display_schedule_between start/DDMMYYYY end/DDMMYYYY</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>display_schedule_between start/02/12/2019 end/05/12/2019</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Generate Entire Schedule</strong></p></td>
@@ -1497,4 +1506,4 @@ e.g. <code>clear_ev_dt 2</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 08:28:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 13:25:02 UTC</div></div></div></body></html>

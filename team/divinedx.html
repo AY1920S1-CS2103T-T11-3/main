@@ -310,16 +310,13 @@ Both employee and events can have any number of tags (including 0)
 <p>Additionally, take note that the <code>START_DATE</code> must be before the <code>END_DATE</code>, and that the maximum date range of the event is <strong>90 days</strong>.</p>
 </li>
 <li>
-<p>An events&#8217;s identity is uniquely identified by its <code>EVENT_NAME</code>, <code>START_DATE</code>, and <code>END_DATE</code>. You cannot edit an event to become one that is identical to another existing event inside the Event List.</p>
+<p>An events&#8217;s identity is uniquely identified by its name, start date, and end date. You cannot edit an event which is identical to another event already inside the Event List.</p>
 </li>
 <li>
-<p>If there is manpower currently allocated to the event, the updated <code>MANPOWER_NEEDED</code> cannot be lesser than the current number of employees allocated.</p>
+<p>This command will flush the current manpower allocated list and replace it with a new allocation list.</p>
 </li>
 <li>
-<p>An attempt to modify the <code>START_DATE</code> and/or <code>END_DATE</code> requires the deallocation of all manpower first before edit.</p>
-</li>
-<li>
-<p>If the <code>START_DATE</code> and/or <code>END_DATE</code> is modified, it will flush all the Date-Time mapping of the Event (Refer to <a href="#set_ev_dt">Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a>) that is not within the new range of the event&#8217;s start-end dates and insert the default timing of 0800-1800 on the start/end dates, if they are not already mapped.</p>
+<p>The parameters provided will affect the functionality of the <code>edit_ev</code> Command. If the START_DATE and/or END_DATE is modified, it will flush all the Date-Time mapping of the Event (Refer to <a href="#set_ev_dt">Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a>) that is not within the new range of the event&#8217;s start-end dates and insert the default timing of 0800-1800 on the start/end dates, if they are not already mapped.</p>
 </li>
 </ul>
 </div>
@@ -786,4 +783,4 @@ Instantiation of the <code>Event</code> object when the app is started will be m
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 09:04:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 09:13:08 UTC</div></div></div></body></html>

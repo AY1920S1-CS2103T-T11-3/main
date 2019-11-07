@@ -65,11 +65,16 @@
 <li><a href="#display-schedule-between-two-specific-dates-code-display_schedule_between-code">3.6.4. Display Schedule between two specific dates: <code>display_schedule_between</code></a></li>
 </ul>
 </li>
-<li><a href="#miscellaneous">3.7. Miscellaneous</a>
+<li><a href="#statistics">3.7. Statistics</a>
 <ul class="sectlevel3">
-<li><a href="#generate-statistics-code-stats_g-coming-in-v2-0-code">3.7.1. Generate Statistics: <code>stats_g [coming in v2.0]</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7.2. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#saving-the-data">3.7.3. Saving the data</a></li>
+<li><a href="#generate-statistics-code-generate_stats-code">3.7.1. Generate Statistics: <code>generate_stats</code></a></li>
+<li><a href="#generate-detailed-statistics-code-generate_stats_detail-code">3.7.2. Generate Detailed Statistics: <code>generate_stats_detail</code></a></li>
+</ul>
+</li>
+<li><a href="#miscellaneous">3.8. Miscellaneous</a>
+<ul class="sectlevel3">
+<li><a href="#clearing-all-entries-code-clear-code">3.8.1. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#saving-the-data">3.8.2. Saving the data</a></li>
 </ul>
 </li>
 </ul>
@@ -571,16 +576,13 @@ Both employee and events can have any number of tags (including 0)
 <p>Additionally, take note that the <code>START_DATE</code> must be before the <code>END_DATE</code>, and that the maximum date range of the event is <strong>90 days</strong>.</p>
 </li>
 <li>
-<p>An events&#8217;s identity is uniquely identified by its <code>EVENT_NAME</code>, <code>START_DATE</code>, and <code>END_DATE</code>. You cannot edit an event to become one that is identical to another existing event inside the Event List.</p>
+<p>An events&#8217;s identity is uniquely identified by its name, start date, and end date. You cannot edit an event which is identical to another event already inside the Event List.</p>
 </li>
 <li>
-<p>If there is manpower currently allocated to the event, the updated <code>MANPOWER_NEEDED</code> cannot be lesser than the current number of employees allocated.</p>
+<p>This command will flush the current manpower allocated list and replace it with a new allocation list.</p>
 </li>
 <li>
-<p>An attempt to modify the <code>START_DATE</code> and/or <code>END_DATE</code> requires the deallocation of all manpower first before edit.</p>
-</li>
-<li>
-<p>If the <code>START_DATE</code> and/or <code>END_DATE</code> is modified, it will flush all the Date-Time mapping of the Event (Refer to <a href="#set_ev_dt">Section 3.4.5, &#8220;Setting a Date&amp;Time to an Event: <code>set_ev_dt</code>&#8221;</a>) that is not within the new range of the event&#8217;s start-end dates and insert the default timing of 0800-1800 on the start/end dates, if they are not already mapped.</p>
+<p>The parameters provided will affect the functionality of the <code>edit_ev</code> Command. If the START_DATE and/or END_DATE is modified, it will flush all the Date-Time mapping of the Event (Refer to <a href="#set_ev_dt">Section 3.4.5, &#8220;Setting a Date&amp;Time to an Event: <code>set_ev_dt</code>&#8221;</a>) that is not within the new range of the event&#8217;s start-end dates and insert the default timing of 0800-1800 on the start/end dates, if they are not already mapped.</p>
 </li>
 </ul>
 </div>
@@ -1476,18 +1478,85 @@ The generated list will be empty and not display anything if there is no event i
 </div>
 </div>
 <div class="sect2">
-<h3 id="miscellaneous"><a class="link" href="#miscellaneous">3.7. Miscellaneous</a></h3>
+<h3 id="statistics"><a class="link" href="#statistics">3.7. Statistics</a></h3>
 <div class="sect3">
-<h4 id="generate-statistics-code-stats_g-coming-in-v2-0-code"><a class="link" href="#generate-statistics-code-stats_g-coming-in-v2-0-code">3.7.1. Generate Statistics: <code>stats_g [coming in v2.0]</code></a></h4>
+<h4 id="generate-statistics-code-generate_stats-code"><a class="link" href="#generate-statistics-code-generate_stats-code">3.7.1. Generate Statistics: <code>generate_stats</code></a></h4>
 <div class="paragraph">
 <p>Displays a set of statistics, Number of events, Number of employee etc</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>stats_g</code></p>
+<p>Format: <code>generate_stats</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example: To generate list and pie chart statistics on demand.</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>.  Either type <code>generate_stats</code> into the command box or navigate to the statistics tab and
+click the 'Generate Statistics' button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatsUiPart1.png" alt="StatsUiPart1">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>.  Statistics will be displayed in 2 different types of views: list and pie chart. The list will display the upcoming events that require manpower sorted from the nearest date to the furthest date. The pie charts represent the events and employees tags respectively. For example, a music event will have a 'music' tag and an employee who plays the guitar will have a 'musician' tag. The pie charts will reflect that there is one event under the 'music' tag and one employee under the 'musician' tag.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatsUiPart2.png" alt="StatsUiPart2">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>.  To allocate an employee to an upcoming event, double-click the event on the list and it will display the allocate function covered earlier in the User Guide. The segments on the pie charts can also be clicked to display the number of events or employees associated with that specific tag on the top right corner of each of the pie charts.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatsUiPart3.png" alt="StatsUiPart3">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>.  Generate statistics when any change in data occurs to keep the statistics up to date and relevant.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatsUiPart4.png" alt="StatsUiPart4">
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7.2. Clearing all entries : <code>clear</code></a></h4>
+<h4 id="generate-detailed-statistics-code-generate_stats_detail-code"><a class="link" href="#generate-detailed-statistics-code-generate_stats_detail-code">3.7.2. Generate Detailed Statistics: <code>generate_stats_detail</code></a></h4>
+<div class="paragraph">
+<p>Displays a set of statistics, Number of events, Number of employee etc</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>generate_stats_detail</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Example: To generate detailed statistics in plain text format on demand.</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>.  Either type <code>generate_stats_detail</code> into the command box or navigate to the statistics tab and click the 'Generate Detailed Statistics' button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatsUiPart5.png" alt="StatsUiPart5">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>.  A pop-up window with the header "StatisticsWindow" will appear displaying statistics for both employees and events.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatsUiPart6.png" alt="StatsUiPart6">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="link" href="#miscellaneous">3.8. Miscellaneous</a></h3>
+<div class="sect3">
+<h4 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.8.1. Clearing all entries : <code>clear</code></a></h4>
 <div class="paragraph">
 <p>Clears all entries from the address book and event book.</p>
 </div>
@@ -1496,7 +1565,7 @@ The generated list will be empty and not display anything if there is no event i
 </div>
 </div>
 <div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.7.3. Saving the data</a></h4>
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">3.8.2. Saving the data</a></h4>
 <div class="paragraph">
 <p>AddMin+ data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1707,4 +1776,4 @@ such as the location, budget, and date.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 09:04:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 09:13:08 UTC</div></div></div></body></html>

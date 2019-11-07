@@ -99,7 +99,7 @@ various components (e.g. storage, logic, model).
 <ul>
 <li>
 <p>Updated GUI to show both employee and event list
-(Pull requests <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/78">#78</a>)</p>
+(Pull request <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/78">#78</a>)</p>
 </li>
 </ul>
 </div>
@@ -110,11 +110,11 @@ various components (e.g. storage, logic, model).
 <ul>
 <li>
 <p>Did cosmetic tweaks to existing contents of the User Guide:
-(Pull requests <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/153">#153</a>)</p>
+(Pull request <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/153">#153</a>)</p>
 </li>
 <li>
 <p>Updated class diagram for storage component in the Developer Guide:
-(Pull requests <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/126">#126</a>)</p>
+(Pull request <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/126">#126</a>)</p>
 </li>
 </ul>
 </div>
@@ -133,7 +133,12 @@ various components (e.g. storage, logic, model).
 <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/138">#138</a>, <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/145">#145</a>)</p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
+<p>Reported bugs and suggestions for other teams (examples:  <a href="https://github.com/AY1920S1-CS2103T-F13-1/main/issues/222">1</a>,
+<a href="https://github.com/AY1920S1-CS2103T-F13-1/main/issues/214">2</a>,
+<a href="https://github.com/AY1920S1-CS2103T-F13-1/main/issues/215">3</a>,
+<a href="https://github.com/AY1920S1-CS2103T-F13-1/main/issues/216">4</a>,
+<a href="https://github.com/AY1920S1-CS2103T-F13-1/main/issues/217">5</a>,
+<a href="https://github.com/AY1920S1-CS2103T-F13-1/main/issues/218">6</a>)</p>
 </li>
 </ul>
 </div>
@@ -224,19 +229,20 @@ Returns the 2rd event from the event list.</p>
 <h4 id="automated-allocation-of-employees-to-events-code-allocate-code"><a class="link" href="#automated-allocation-of-employees-to-events-code-allocate-code">Automated allocation of Employees to Events: <code>allocate</code></a></h4>
 <div class="paragraph">
 <p>Automatically filters and allocates a specified number of employees from the
-complete employee list to an event.</p>
+complete employee list to an event. <strong>AddMin+ prevents conflicting schedules by ensuring that
+employees cannot be allocated to events with overlapping periods.</strong></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>allocate EVENT_INDEX [n/NUMBER] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code>allocate EVENT_INDEX [n/NUMBER_OF_EMPLOYEES] [t/TAG]&#8230;&#8203;</code></p>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Random selection of employee to allocate if supply exceeds demand of event.
+Random selection of employees to allocate if supply exceeds demand of event.
 </td>
 </tr>
 </table>
@@ -246,19 +252,19 @@ Random selection of employee to allocate if supply exceeds demand of event.
 <div class="ulist">
 <ul>
 <li>
-<p>Allocates a <code>NUMBER</code> of employees to the event at the specified <code>EVENT_INDEX</code> filtered based on <code>TAG</code>.</p>
+<p>Allocates a <code>NUMBER_OF_EMPLOYEES</code> of employees to the event at the specified <code>EVENT_INDEX</code> filtered based on <code>TAG</code>.</p>
 </li>
 <li>
 <p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
 </li>
 <li>
-<p>The <code>NUMBER</code> refers to the number of employees to be allocated to the event.</p>
+<p>The <code>NUMBER_OF_EMPLOYEES</code> refers to the number of employees to be allocated to the event.</p>
 </li>
 <li>
-<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong> and <strong>INTEGER</strong> <em>(for NUMBER)</em>.</p>
+<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong> and <strong>INTEGER</strong> <em>(for NUMBER_OF_EMPLOYEES)</em>.</p>
 </li>
 <li>
-<p>If no <code>NUMBER</code> is specified, it is assumed to be the current manpower count required by the event.</p>
+<p>If no <code>NUMBER_OF_EMPLOYEES</code> is specified, it is assumed to be the current manpower count required by the event.</p>
 </li>
 </ul>
 </div>
@@ -331,13 +337,17 @@ Allocates the 2nd employee on the employee list to the 1st event on the event li
 </div>
 <div class="paragraph">
 <p><strong>Step 1</strong>:
-double-click the employee card on the left list. Notice the employee to allocate</p>
+double-click the employee card on the left list. Notice the employee to allocate as shown in the
+following figure.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/afterfree.png" alt="afterfree" width="600">
 </div>
 <div class="title">Figure 4. <em>Instruction for user to execute <code>allocatem</code> command</em></div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2</strong>: result after the <code>allocatem</code> command is shown below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -393,7 +403,7 @@ Frees an employee with id: "001" allocated to the 1st event on the event list.</
 <p>Alternatively, the <code>free</code> command can be executed from the GUI in just 1 simple step!</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>: To perform a <code>free</code> command without id specification, click the <strong>free</strong> button
+<p><strong>Step 1</strong>: To perform a <code>free</code> command without ID specification, click the <strong>free</strong> button
 as shown in the <strong>Fetch Event Window</strong> in <a href="#fetch-full-details-of-an-event-code-fetch_ev-code">Fetch Full Details of an Event: <code>fetch_ev</code></a>.</p>
 </div>
 <div class="admonitionblock note">
@@ -630,15 +640,12 @@ which states that objects should not navigate internal structures of other objec
 <div class="sect1">
 <h2 id="conclusion"><a class="link" href="#conclusion">Conclusion</a></h2>
 <div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-duke"><a class="link" href="#project-duke">PROJECT: DUKE</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>Visit <a href="https://calvincxz.github.io/duke/" class="bare">https://calvincxz.github.io/duke/</a> for more details.</p>
+<p>Given the time constraints of only 6 weeks for this project, I feel that sufficient progress has been made to build a
+great app.
+However, the team has plans to turn <strong>AddMin+</strong> into a truly revolutionary app that changes the entire administrative
+process.</p>
 </div>
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 15:29:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 09:04:22 UTC</div></div></div></body></html>

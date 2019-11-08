@@ -392,6 +392,8 @@ public class MainWindow extends UiPart<Stage> {
 
             if (fetchEventWindow != null && !commandResult.getType().equals("List")) {
                 fetchEventWindow.updateCards();
+            } else if (fetchEventWindow != null) {
+                fetchEventWindow.hide();
             }
 
             if (commandResult.getType().equals("unfetch")) {

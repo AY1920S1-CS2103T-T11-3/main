@@ -44,4 +44,6 @@ public class Messages {
             + " not allocated to event!";
     public static final String MESSAGE_WRONG_WINDOW = "Command should be executed in the Main Window since it "
             + "requires references to the Employee list.";
+    public static final String MESSAGE_INVALID_ALLOCATEM_INPUT = "Only one of EmployeeID or EmployeeIndex "
+            + "should be used as input!";
 }

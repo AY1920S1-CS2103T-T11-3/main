@@ -156,10 +156,10 @@ The GUI should appear in a few seconds.</p>
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>add_em n/John Doe g/Male p/Manager no/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 on/12/12/2012 t/friends</code> : adds a contact named <code>John Doe</code> to the Employee List.</p>
+<p><strong><code>add_em</code></strong><code>add_em n/John Doe g/Male p/20 no/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 on/12/12/2012 t/friends</code> : adds a contact named <code>John Doe</code> to the Employee List.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd Employee shown in the current list</p>
+<p><strong><code>delete_em</code></strong><code>3</code> : deletes the 3rd Employee shown in the current list</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -556,6 +556,9 @@ Both employee and events can have any number of tags (including 0)
 <li>
 <p>An employee&#8217;s identity is uniquely identified by his/her name, phone number and email. You cannot edit an employee whose identity is the same as another employee already inside the Employee List.</p>
 </li>
+<li>
+<p>Any switch of an Employee&#8217;s gender will result in duo gender tags being displayed if the tags were not cleared.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -583,7 +586,8 @@ Both employee and events can have any number of tags (including 0)
 <p>This command will flush the current manpower allocated list and replace it with a new allocation list.</p>
 </li>
 <li>
-<p>The parameters provided will affect the functionality of the <code>edit_ev</code> Command. If the START_DATE and/or END_DATE is modified, it will flush all the Date-Time mapping of the Event (Refer to <a href="#set_ev_dt">Section 3.4.5, &#8220;Setting a Date&amp;Time to an Event: <code>set_ev_dt</code>&#8221;</a>) that is not within the new range of the event&#8217;s start-end dates and insert the default timing of 0800-1800 on the start/end dates, if they are not already mapped.</p>
+<p>The parameters provided will affect the functionality of the <code>edit_ev</code> Command. If the START_DATE and/or END_DATE is
+modified, it will flush all the Date-Time mapping of the Event (Refer to <a href="#set_ev_dt">Section 3.4.5, &#8220;Setting a Date&amp;Time to an Event: <code>set_ev_dt</code>&#8221;</a>) that is not within the new range of the event&#8217;s start-end dates and insert the default timing of 0800-1800 on the start/end dates, if they are not already mapped.</p>
 </li>
 </ul>
 </div>
@@ -724,6 +728,9 @@ Returns all events that are tagged as <code>free</code> and <code>music</code></
 </li>
 <li>
 <p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong>.</p>
+</li>
+<li>
+<p>Deletion of an Employee will result in its de-allocation from all the Events.</p>
 </li>
 </ul>
 </div>
@@ -927,20 +934,24 @@ as shown in the <strong>Fetch Event Window</strong> in <a href="#fetch-full-deta
 <p>Manually chooses and allocates a single employee to an event.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>allocatem EVENT_INDEX n/EMPLOYEE_INDEX</code></p>
+<p>Format: <code>allocatem EVENT_INDEX n/EMPLOYEE_INDEX</code>
+Format: <code>allocatem EVENT_INDEX id/EMPLOYEE_ID</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Allocates an employee with <code>EMPLOYEE_INDEX</code> to the event at the specified <code>EVENT_INDEX</code>.</p>
+<p>Allocates an employee with <code>EMPLOYEE_INDEX</code> or <code>EMPLOYEE_ID</code> to the event at the specified <code>EVENT_INDEX</code>.</p>
 </li>
 <li>
 <p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
 </li>
 <li>
 <p>The <code>EMPLOYEE_INDEX</code> refers to the index number shown in the displayed employee list.</p>
+</li>
+<li>
+<p><code>EMPLOYEE_ID</code> must match the exact 3-digit ID shown in the <strong>FetchEventWindow</strong>.</p>
 </li>
 <li>
 <p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong>.</p>
@@ -957,6 +968,10 @@ as shown in the <strong>Fetch Event Window</strong> in <a href="#fetch-full-deta
 <li>
 <p><code>allocatem 1 n/2</code><br>
 Allocates the 2nd employee on the employee list to the 1st event on the event list.</p>
+</li>
+<li>
+<p><code>allocatem 1 id/002</code><br>
+Allocates the employee with id:"002" to the 1st event on the event list.</p>
 </li>
 </ul>
 </div>
@@ -1006,7 +1021,7 @@ following figure.</p>
 <p>if <code>EMPLOYEE_ID</code> is not specified, all employees allocated to the event will be removed.</p>
 </li>
 <li>
-<p><code>EMPLOYEE_ID</code> must match the exact 3-digit ID shown in the displayed employee list.</p>
+<p><code>EMPLOYEE_ID</code> must match the exact 3-digit ID shown in the <strong>FetchEventWindow</strong>.</p>
 </li>
 </ul>
 </div>
@@ -1734,13 +1749,15 @@ such as the location, budget, and date.</p>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Allocate a specified number of Employees with Filter requirements to an Event</strong></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>allocate EVENT_INDEX [t/FILTER TAGS]&#8230;&#8203;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>allocate EVENT_INDEX [n/NUMBER][t/FILTER_TAGS]&#8230;&#8203;</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><code>allocate 1 n/2 t/female</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Allocate one specified Employee to an Event</strong></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>allocate EVENT_INDEX [n/EMPLOYEE_INDEX]</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>allocatem 1 n/2</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>allocatem EVENT_INDEX n/EMPLOYEE_INDEX</code></p>
+<p class="tableblock"><code>allocatem EVENT_INDEX id/EMPLOYEE_ID</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>allocatem 1 n/2</code></p>
+<p class="tableblock"><code>allocatem 1 id/002</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>De-allocate one/all Employees from an Event</strong></p></td>
@@ -1821,4 +1838,4 @@ such as the location, budget, and date.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 12:53:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 13:46:58 UTC</div></div></div></body></html>

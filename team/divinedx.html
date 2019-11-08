@@ -289,6 +289,9 @@ Both employee and events can have any number of tags (including 0)
 <li>
 <p>An employee&#8217;s identity is uniquely identified by his/her name, phone number and email. You cannot edit an employee whose identity is the same as another employee already inside the Employee List.</p>
 </li>
+<li>
+<p>Any switch of an Employee&#8217;s gender will result in duo gender tags being displayed if the tags were not cleared.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -316,7 +319,8 @@ Both employee and events can have any number of tags (including 0)
 <p>This command will flush the current manpower allocated list and replace it with a new allocation list.</p>
 </li>
 <li>
-<p>The parameters provided will affect the functionality of the <code>edit_ev</code> Command. If the START_DATE and/or END_DATE is modified, it will flush all the Date-Time mapping of the Event (Refer to <a href="#set_ev_dt">Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a>) that is not within the new range of the event&#8217;s start-end dates and insert the default timing of 0800-1800 on the start/end dates, if they are not already mapped.</p>
+<p>The parameters provided will affect the functionality of the <code>edit_ev</code> Command. If the START_DATE and/or END_DATE is
+modified, it will flush all the Date-Time mapping of the Event (Refer to <a href="#set_ev_dt">Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a>) that is not within the new range of the event&#8217;s start-end dates and insert the default timing of 0800-1800 on the start/end dates, if they are not already mapped.</p>
 </li>
 </ul>
 </div>
@@ -457,6 +461,9 @@ Returns all events that are tagged as <code>free</code> and <code>music</code></
 </li>
 <li>
 <p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong>.</p>
+</li>
+<li>
+<p>Deletion of an Employee will result in its de-allocation from all the Events.</p>
 </li>
 </ul>
 </div>
@@ -783,4 +790,4 @@ Instantiation of the <code>Event</code> object when the app is started will be m
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 12:53:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 13:46:59 UTC</div></div></div></body></html>

@@ -507,7 +507,9 @@ by the event.</p>
 to the 1st event displayed in the event list.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2</strong>. The command checks if <code>eventIndex</code> is valid and if <code>ManpowerCountToAdd</code> is specified.</p>
+<p><strong>Step 2</strong>. The command checks if <code>eventIndex</code> is valid and if <code>ManpowerCountToAdd</code> is specified.
+The command also checks if the event still requires manpower, and if manpower count stated by user
+exceeds that needed by the event.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -517,8 +519,6 @@ to the 1st event displayed in the event list.</p>
 </td>
 <td class="content">
 If <code>ManpowerCountToAdd</code> is not specified, it is assumed to be the maximum number possible for the event.
-Validity of other command arguments e.g. if <code>ManpowerCountToAdd</code> is a positive integer is checked
-by <code>AutoAllocateCommandParser</code> and not within the command <code>AutoAllocateCommand</code>.
 </td>
 </tr>
 </table>
@@ -1579,4 +1579,4 @@ employeebook.json and eventbook.json files.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 12:53:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 13:46:58 UTC</div></div></div></body></html>

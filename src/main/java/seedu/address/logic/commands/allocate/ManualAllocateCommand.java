@@ -75,6 +75,7 @@ public class ManualAllocateCommand extends Command {
 
         List<Employee> lastShownList = model.getFilteredEmployeeList();
         List<Event> lastShownEventList;
+
         // Checks the current tab index and retrieves the relevant event list
         if (MainWindow.isMainTab()) {
             lastShownEventList = model.getFilteredEventList();

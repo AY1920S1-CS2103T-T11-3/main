@@ -33,7 +33,7 @@
 <li><a href="#statistics-feature">4.1. Statistics feature</a></li>
 <li><a href="#automated-allocation-of-employees-to-events-feature">4.2. Automated allocation of Employees to Events feature</a></li>
 <li><a href="#setting-date-time-to-events">4.3. Setting Date &amp; Time to Events</a></li>
-<li><a href="#generate-schedule-feature">4.4. Generate Schedule feature</a></li>
+<li><a href="#generate-schedule-feature">4.4. Generate Schedule Feature</a></li>
 <li><a href="#finance">4.5. Finance</a></li>
 <li><a href="#logging">4.6. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.7. Configuration</a></li>
@@ -243,7 +243,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>ListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.
-There is also a <code>ScheduleBox</code> that is one of the tabs in the TabPane of <code>MainWindow</code>, the <code>ScheduleBox</code> which inherits from the abstract class <code>Tabs</code>. The abstract class <code>Tabs</code> also inherits from the abstract class <code>UiPart</code>.</p>
+There are also <code>ScheduleBox</code>, <code>Finance</code>, <code>StatisticBox</code> which are of the tabs in the TabPane of <code>MainWindow</code>, of which all of them inherits from the abstract class <code>Tabs</code>. The abstract class <code>Tabs</code> also inherits from the abstract class <code>UiPart</code>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -783,58 +783,53 @@ Instantiation of the <code>Event</code> object when the app is started will be m
 </div>
 </div>
 <div class="sect2">
-<h3 id="generate-schedule-feature"><a class="link" href="#generate-schedule-feature">4.4. Generate Schedule feature</a></h3>
+<h3 id="generate-schedule-feature"><a class="link" href="#generate-schedule-feature">4.4. Generate Schedule Feature</a></h3>
 <div class="sect3">
 <h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.4.1. Proposed Implementation</a></h4>
 <div class="paragraph">
-<p>The Generate Schedule Feature is implemented to allow users to have an overview of view all dates that has an event and the
-specific events for those dates listed. The feature is facilitated by a <code>DistinctDatesProcessor</code> and requires the use of a
+<p>The Generate Schedule Feature is implemented to allow users to have an overview the event schedule. It will display all dates that has an event and the
+specific events that happens on those dates listed. The feature is facilitated by a <code>DistinctDatesProcessor</code> and requires the use of a
 new Object - <code>DistinctDate</code>, as well as an internal ObservableList - <code>distinctDatesList</code> found in the <code>ModelManager</code>.</p>
 </div>
 <div class="paragraph">
-<p>It processes the entire list of Events in the <code>EventList</code> when the command is called. The <code>DistinctDateProcessor</code> will then
+<p>The <code>DistinctDateProcessor</code> processes the entire list of Events in the <code>EventList</code> when the command is called. The <code>DistinctDateProcessor</code> will then
 process through these events to create specific <code>DistinctDate</code> Objects which stores a list of events which occurs on the date
-they are representing. These DistinctDate Objects are then used to be displayed on the GUI.</p>
+they are representing. These DistinctDate Objects are then used, to create <code>DateCard</code> which will be displayed on the GUI. This feature
+can be seen in the generate schedule window as well as the employee fetch window.</p>
 </div>
 <div class="paragraph">
-<p>Additionally, The DistinctDateProcessor contains the following operations:</p>
+<p>The <code>DistinctDateProcessor</code> utilises the following operations in the <code>generate_schedule</code> command:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>generateDistinctDateList(Model model)</code>&#8201;&#8212;&#8201;Returns a list of <code>DistinctDate</code> Objects. This operation utilises the generateDateList() and generateListOfEventForDate() operations.</p>
+<p><code>generateAllDistinctDateList(Model model)</code>&#8201;&#8212;&#8201;Returns a list of <code>DistinctDate</code> Objects. This operation utilises the generateDistinctDateList() operations.</p>
 </li>
 <li>
-<p><code>generateListOfEventForDate(LocalDate date, Model model)</code>&#8201;&#8212;&#8201;Takes in a <code>LocalDate</code> object, and processes through the entire list of events, to find all events on that specific date, and return them as a list.</p>
+<p><code>generateDistinctDateList(List&lt;Event&gt; eventList)</code>&#8201;&#8212;&#8201;Returns a list of <code>DistinctDate</code> Objects. This operation utilises the generateDateList() and generateListOfEventForDate() operations.</p>
 </li>
 <li>
-<p><code>generateDateList(Model model)</code>&#8201;&#8212;&#8201;Takes in the entire list of events, identify all the dates that has at least one event and returns it as a list.</p>
+<p><code>generateDateList(List&lt;Event&gt; eventList)</code>&#8201;&#8212;&#8201;Takes in the entire list of events, identify all the dates that has at least one event and returns it as a list.</p>
+</li>
+<li>
+<p><code>generateListOfEventForDate(EventDate date, Model model)</code>&#8201;&#8212;&#8201;Takes in an <code>EventDate</code> object, and processes through the entire list of events, to find all events on that specific date, and return them as a list.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The following class diagrams shows how the <code>DistinctDate</code> class and utility <code>DistinctDateProcessor</code> class is implemented:</p>
+<p>The following class diagram shows how the relationships between the different classes used by the <code>generate_schedule</code> command:</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/DistinctDateClassDiagram.png" alt="DistinctDateClassDiagram" width="300">
+<img src="images/GenerateScheduleClassDiagram.png" alt="GenerateScheduleClassDiagram">
 </div>
-<div class="title">Figure 13. <em>Class Diagram for DistinctDate</em></div>
+<div class="title">Figure 13. <em>Class Diagram for GenerateScheduleCommand</em></div>
 </div>
-<div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/DistinctDateProcessorClassDiagram.png" alt="DistinctDateProcessorClassDiagram" width="300">
-</div>
-<div class="title">Figure 14. <em>Class Diagram for DistinctDateProcessor</em></div>
-</div>
+<hr>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the display schedule mechanism behaves at each step.</p>
-</div>
-<div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="images/GenerateScheduleFlowChart.png" alt="GenerateScheduleFlowChart" width="300">
-</div>
-<div class="title">Figure 15. <em>Program flow of the Generate Schedule Feature</em></div>
+<p>Given below is an example usage scenario and how the <code>display_schedule</code> command behaves at each step.
+.<em>Program flow of the Generate Schedule Feature</em>
+image::GenerateScheduleFlowChart.png[align="center"]</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 1</strong>. The user launches the application for the first time.</p>
@@ -854,7 +849,7 @@ The distinctDatesList will not be updated, and will not contain the new event th
 </td>
 <td class="content">
 Any command that alters the eventBook will not change the distinctDatesList. The distinctDatesList will continue to store the
-original list until the User requires it by calling the "generate_schedule" command. Where the distinctDateList will be generated
+original list until the User requires it by calling the <code>generate_schedule</code> command. Where the distinctDateList will be generated
 again using the current EventList
 </td>
 </tr>
@@ -893,7 +888,7 @@ it is called upon or when the application starts.
 <div class="content">
 <img src="images/GenerateScheduleSequenceDiagram.png" alt="GenerateScheduleSequenceDiagram">
 </div>
-<div class="title">Figure 16. <em>Sequence Diagram for generate_schedule Command</em></div>
+<div class="title">Figure 14. <em>Sequence Diagram for generate_schedule Command</em></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -928,7 +923,7 @@ The lifeline for <code>GenerateScheduleCommand</code> ends at the destroy marker
 <td class="tableblock halign-left valign-top"><p class="tableblock">Data Structure to support Generate Schedule Command</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Generates and Processes the DistinctDate Object upon <code>generate_schedule</code> command. (Current choice)</p>
 <p class="tableblock"><strong>Pros</strong>: Easy to implement and requires less Storage Capacity and storage infrastructure to support the entire feature.</p>
-<p class="tableblock"><strong>Cons</strong>: May have performance issues in terms of speed and time Complexity. The program will have to iterate through the entire list of events and create
+<p class="tableblock"><strong>Cons</strong>: May have performance issues in terms of speed and time Complexity if database gets extremely big. The program will have to iterate through the entire list of events and create
 the corresponding <code>DistinctDate</code> objects, whenever <code>generate_schedule</code> command is called.</p>
 <p class="tableblock"><strong>Decision: Alternative 1
 </strong> Alternative 1 makes more logical sense and will be more efficient as compared to Alternative 2. Alternative 1 requires less intermediate processing and storage units to support the feature.
@@ -939,7 +934,7 @@ the schedule.</p></td>
 <p class="tableblock"><strong>Cons</strong>: May have performance issues in terms of storage and processing needed, requires new storage unit to store a new entity which is not as important
 and frequently used. This implementation can cause speed and time complexity issues as well, whenever edits are made to the existing eventList - add_ev, delete_ev etc
 the program is required to process through all DistinctDate Object to make the necessary changes. If the user does not even want to call the <code>generate_schedule</code> command
-after the changes, then this process is actually unnecessary.</p></td>
+after the changes, then this process is actually unnecessary and redundant.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UI Decisions for Generate Schedule Command</p></td>
@@ -1579,4 +1574,4 @@ employeebook.json and eventbook.json files.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 00:43:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 08:39:47 UTC</div></div></div></body></html>

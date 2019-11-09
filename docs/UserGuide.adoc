@@ -31,7 +31,7 @@ The purpose of this user guide is show the user how they can use our app to carr
 === Installation
 . Ensure you have Java `11` or above installed in your Computer.
 . Download the latest `AddMin+.jar` link:{repoURL}/releases[here].
-. Copy the file to the folder you want to use as the home folder for AddMin+
+. Copy the file to a *new empty folder* which you want to use as the home folder for AddMin+
 . Double-click the file to start the app.
 The GUI should appear in a few seconds.
 +
@@ -382,7 +382,7 @@ Returns the 2rd event from the event list.
 
 Alternatively, the `fetch_ev` command can be executed from the GUI in just 2 simple steps.
 
-*Step 1*. *double-click the event* in the list as shown in the figure below:
+*Step 1*. *Double-click the event card* in the list as shown in the figure below:
 
 ._Instruction for user to execute fetch event command_
 image::beforefetch.png[width="600"]
@@ -452,20 +452,20 @@ Allocates the employee with id:"002" to the 1st event on the event list.
 Alternatively, the `allocatem` command can be executed from the GUI in just 2 simple step!
 
 *Step 1*:
-double-click the employee card on the left list. Notice the employee to allocate as shown in the
+*Double-click the employee card* on the left list. Notice the employee to allocate as shown in the
 following figure.
 
 ._Instruction for user to execute `allocatem` command_
 image::afterfree.png[width="600"]
 
-*Step 2*: result after the `allocatem` command is shown below:
+*Step 2*: Result after the `allocatem` command is shown below:
 
 ._Result after `allocatem` command_
 image::afterallocatem.png[width="600"]
 
 ==== De-allocation of Employees from Event: `free`
 
-Frees employees allocated to the event.
+Free employees allocated to the event.
 
 Format: `free EVENT_INDEX [id/EMPLOYEE_ID]`
 
@@ -479,9 +479,9 @@ Format: `free EVENT_INDEX [id/EMPLOYEE_ID]`
 Examples:
 
 * `free 1` +
-Frees all employees allocated to the 1st event on the event list.
+Free all employees allocated to the 1st event on the event list.
 * `free 1 id/001` +
-Frees an employee with id: "001" allocated to the 1st event on the event list.
+Free an employee with id: "001" allocated to the 1st event on the event list.
 
 Alternatively, the `free` command can be executed from the GUI in just 1 simple step!
 

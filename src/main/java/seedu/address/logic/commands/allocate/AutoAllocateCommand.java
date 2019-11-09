@@ -61,7 +61,7 @@ public class AutoAllocateCommand extends Command {
         requireNonNull(eventIndex);
         requireNonNull(tagList);
 
-        if (MainWindow.isFinanceTab()) {
+        if (MainWindow.isFinanceTab() || MainWindow.isStatsTab()) {
             throw new CommandException(Messages.MESSAGE_WRONG_TAB_AUTO_ALLOCATE);
         }
 
@@ -76,7 +76,7 @@ public class AutoAllocateCommand extends Command {
     /**
      * Creates a list of employees who are available for the specified event.
      *
-     * @param model           the full list of employees
+     * @param model           the model to retrieve the full list of employees of events
      * @param eventToAllocate the specified event to allocate employees
      */
     private List<Employee> createAvailableEmployeeListForEvent(Model model, Event eventToAllocate) {
@@ -99,27 +99,18 @@ public class AutoAllocateCommand extends Command {
                 - eventToAllocate.getCurrentManpowerCount();
     }
 
-    @Override
-    public CommandResult execute(Model model) throws CommandException {
-        requireNonNull(model);
-        List<Event> lastShownEventList;
+    /**
+     * Calculates the manpower count to allocate to the specified event.
+     *
+     * @param manpowerCountToAdd specified by user
+     * @param manpowerNeededByEvent actual number of employees required by event
+     * @exception CommandException if event has full manpower or manpowerNeededByEvent exceeds manpowerNeededByEvent
+     */
+    private Integer getManpowerCountToAdd(Integer manpowerCountToAdd, Integer manpowerNeededByEvent)
+            throws CommandException {
 
-        //Checks the current tab index and retrieves the relevant list from model
-        if (MainWindow.getCurrentTabIndex() == 0) {
-            lastShownEventList = model.getFilteredEventList();
-        } else {
-            lastShownEventList = model.getFilteredScheduledEventList();
-        }
-
-        if (eventIndex.getOneBased() > lastShownEventList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_EVENT_DISPLAYED_INDEX);
-        }
-
-        Event eventToAllocate = lastShownEventList.get(eventIndex.getZeroBased());
-        Integer manpowerNeededByEvent = getManpowerNeededByEvent(eventToAllocate);
-
-        if (manpowerCountToAdd == null) { //if manpower count is not specified
-            this.manpowerCountToAdd = manpowerNeededByEvent;
+        if (manpowerCountToAdd == null) {
+            return manpowerNeededByEvent;
         }
 
         if (manpowerNeededByEvent == 0) {
@@ -129,6 +120,33 @@ public class AutoAllocateCommand extends Command {
         if (manpowerCountToAdd > manpowerNeededByEvent) {
             throw new CommandException(Messages.MESSAGE_MANPOWER_COUNT_EXCEEDED);
         }
+
+        return manpowerCountToAdd;
+    }
+
+
+    @Override
+    public CommandResult execute(Model model) throws CommandException {
+        requireNonNull(model);
+        List<Event> lastShownEventList;
+
+        // Checks the current tab index and retrieves the relevant event list from model
+        if (MainWindow.isMainTab()) {
+            lastShownEventList = model.getFilteredEventList();
+        } else if (MainWindow.isScheduleTab()) {
+            lastShownEventList = model.getFilteredScheduledEventList();
+        } else {
+            throw new CommandException(Messages.MESSAGE_WRONG_WINDOW);
+        }
+
+        if (eventIndex.getOneBased() > lastShownEventList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_EVENT_DISPLAYED_INDEX);
+        }
+
+        Event eventToAllocate = lastShownEventList.get(eventIndex.getZeroBased());
+        Integer manpowerNeededByEvent = getManpowerNeededByEvent(eventToAllocate);
+
+        this.manpowerCountToAdd = getManpowerCountToAdd(manpowerCountToAdd, manpowerNeededByEvent);
 
         List<Employee> availableEmployeeList = createAvailableEmployeeListForEvent(model, eventToAllocate);
 
@@ -140,7 +158,6 @@ public class AutoAllocateCommand extends Command {
         Collections.shuffle(availableEmployeeList);
         Event newEventForAllocation = createEventAfterManpowerAllocation(eventToAllocate,
                 availableEmployeeList, manpowerCountToAdd);
-
         model.setEvent(eventToAllocate, newEventForAllocation);
 
         return new CommandResult(String.format(MESSAGE_ALLOCATE_SUCCESS, eventToAllocate.getName().eventName,

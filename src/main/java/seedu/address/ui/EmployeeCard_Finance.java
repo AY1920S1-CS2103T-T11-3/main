@@ -20,7 +20,6 @@ import seedu.address.model.event.Event;
 public class EmployeeCard_Finance extends UiPart<Region> {
 
     private static final String FXML = "EmployeeListCard.fxml";
-    private static final String FETCH_WINDOW_FXML = "EmployeeListCardForFetch.fxml";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -31,10 +30,6 @@ public class EmployeeCard_Finance extends UiPart<Region> {
      */
 
     public final Employee employee;
-    private MainWindow mainWindow;
-    private Integer index;
-    private ErrorWindow errorWindow;
-
 
     @FXML
     private HBox cardPane;
@@ -85,12 +80,12 @@ public class EmployeeCard_Finance extends UiPart<Region> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof seedu.address.ui.EmployeeCard)) {
+        if (!(other instanceof EmployeeCard_Finance)) {
             return false;
         }
 
         // state check
-        seedu.address.ui.EmployeeCard_Finance card = (seedu.address.ui.EmployeeCard_Finance) other;
+        EmployeeCard_Finance card = (EmployeeCard_Finance) other;
         return id.getText().equals(card.id.getText())
                 && employee.equals(card.employee);
     }

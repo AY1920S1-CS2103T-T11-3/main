@@ -783,11 +783,11 @@ image::StatsUiPart6.png[]
 
 === Miscellaneous
 
-==== Clearing all entries : `clear`
+==== Clearing all entries : `clear_em` and `clear_ev`
 
-Clears all entries from the address book and event book.
+Clears all entries from the employee book/event book.
 
-Format: `clear`
+Format: `clear_em` and `clear_ev`
 
 ==== Saving the data
 
@@ -889,7 +889,12 @@ such as the location, budget, and date.
 | *Generate Payment To Employee* | `pay EMPLOYEE_INDEX s/PAYMENT` | `pay 1 s/100`
 | *Undo Payment To Employee* | `undo_pay EMPLOYEE_INDEX s/PAYMENT` | `undo_pay 1 s/100`
 | *Navigate between Tabs* | `main, schedule` | `main, schedule`
-| *Clear* | `clear` | `clear`
+| *Clear EmployeeBook/EventBook* | `clear_em`
+
+`clear_ev` | `clear_em`
+
+`clear_ev`
+
 | *Help* | `help`| `help`
 | *Exit* | `exit`| `exit`
 

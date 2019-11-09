@@ -489,7 +489,7 @@ filtered by the tags specified by user.</p>
 by the event.</p>
 </li>
 <li>
-<p><code>AutoAllocateCommand#createEventAfterManpowerAllocation()</code>&#8201;&#8212;&#8201;Creates a new event with a updated manpower list.</p>
+<p><code>AutoAllocateCommand#createEventAfterManpowerAllocation()</code>&#8201;&#8212;&#8201;Creates a new event with an updated manpower list.</p>
 </li>
 </ul>
 </div>
@@ -532,8 +532,8 @@ required by the specified event.</p>
 filtered list of employees based on the <code>tagList</code> and if employee satisfies <code>Event#isAvailableForEvent()</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5</strong>. The command checks if supply (number of employees in filtered list in step 4) exceeds
-demand (number of employees required by event, generated in step 3).</p>
+<p><strong>Step 5</strong>. The command checks if supply (generated in <strong>step 4</strong>) exceeds
+demand (generated in <strong>step 3</strong>) of the event.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -548,7 +548,7 @@ If demand exceeds supply, an exception will be thrown to the user. If the supply
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 6</strong>. The command calls <code>Event#createEventAfterManpowerAllocation()</code> to create a new event with a updated
+<p><strong>Step 6</strong>. The command calls <code>Event#createEventAfterManpowerAllocation()</code> to create a new event with an updated
 manpower list.</p>
 </div>
 <div class="admonitionblock note">
@@ -612,7 +612,7 @@ PlantUML, the lifeline reaches the end of diagram.
 <td class="tableblock halign-left valign-top"><p class="tableblock">Saves only the <code>Employee#EmployeeId</code> associated with the event.</p>
 <p class="tableblock"><strong>Pros</strong>: Easy to implement. Will use less memory.</p>
 <p class="tableblock"><strong>Cons</strong>: Future accesses require more time.</p>
-<p class="tableblock"><strong>I decided to proceed with this option</strong> because it creates less dependencies on other classes which is is a good
+<p class="tableblock"><strong>I decided to proceed with this option</strong> because it has less dependencies on other classes which is is a good
 programming practice.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Saves all fields of <code>Employee</code> associated with the event.</p>
 <p class="tableblock"><strong>Pros</strong>: Easy retrieval in the future.</p>
@@ -625,7 +625,7 @@ programming practice.</p></td>
 <p class="tableblock"><strong>Pros</strong>: Easy to implement.</p>
 <p class="tableblock"><strong>Cons</strong>: May cause unwanted behaviours if testing is not done properly.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new event with a newly created and updated manpower list.</p>
-<p class="tableblock"><strong>Pros</strong>: Defensive programming.</p>
+<p class="tableblock"><strong>Pros</strong>: Good programming practice.</p>
 <p class="tableblock"><strong>Cons</strong>: Harder to implement.</p>
 <p class="tableblock"><strong>I decided to proceed with this option</strong> because it complies with the Law of Demeter
 which states that objects should not navigate internal structures of other objects.</p></td>
@@ -1574,4 +1574,4 @@ employeebook.json and eventbook.json files.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 08:39:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 15:18:11 UTC</div></div></div></body></html>

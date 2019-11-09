@@ -49,20 +49,18 @@ I have added to the user and developer guides in relation to these features.</p>
 <li>
 <p><strong>Major feature</strong>: enabled the association of employees with events which includes
 <strong>automated/manual allocation of employees to event commands</strong> and a <strong>de-allocate command</strong>, as well as the
-viewing of changes the users made via the <strong>fetch event</strong> command. All related commands have <strong>GUI features</strong> implemented.</p>
+viewing of the association via the <strong>fetch event</strong> command. All related commands have <strong>GUI features</strong> implemented.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: This feature allows the user to check for availability of employees and allocate them to an event with
-certain filter requirements. The algorithm ensures that employees cannot be allocated to events with
-conflicting time periods.</p>
+<p>What it does: This feature allows the user to allocate employees to events with filter requirements. The internal
+algorithm also ensures that employees cannot be allocated to events with conflicting time periods.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can now allocate employees
-to events, which is a key component for event management companies that our app is targeting.
-The algorithm used to check for conflicting schedule is also highly beneficial for users as we
-all know how tedious such tasks can be.
-The GUI features further provide convenience for users.</p>
+<p>Justification: This feature improves the product significantly because a user can now allocate employees to events,
+which is a key component for event management companies that our app is targeting. The algorithm used to check for
+conflicting schedule is also highly beneficial as users no longer have to waste precious time checking the availability
+of every individual employee. The GUI features further provide convenience for users who prefer using the mouse.</p>
 </li>
 <li>
 <p>Highlights: This enhancement affects existing commands and commands to be added in future.
@@ -140,7 +138,7 @@ various components (e.g. storage, logic, model).
 <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/138">#138</a>, <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/145">#145</a>)</p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams (examples:  <a href="https://github.com/AY1920S1-CS2103T-F13-1/main/issues/222">1</a>,
+<p>Reported major bugs and suggestions for other teams (examples:  <a href="https://github.com/AY1920S1-CS2103T-F13-1/main/issues/222">1</a>,
 <a href="https://github.com/AY1920S1-CS2103T-F13-1/main/issues/214">2</a>,
 <a href="https://github.com/AY1920S1-CS2103T-F13-1/main/issues/215">3</a>,
 <a href="https://github.com/AY1920S1-CS2103T-F13-1/main/issues/216">4</a>,
@@ -214,7 +212,7 @@ Returns the 2rd event from the event list.</p>
 <p>Alternatively, the <code>fetch_ev</code> command can be executed from the GUI in just 2 simple steps.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>. <strong>double-click the event</strong> in the list as shown in the figure below:</p>
+<p><strong>Step 1</strong>. <strong>Double-click the event card</strong> in the list as shown in the figure below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -236,8 +234,9 @@ Returns the 2rd event from the event list.</p>
 <h4 id="automated-allocation-of-employees-to-events-code-allocate-code"><a class="link" href="#automated-allocation-of-employees-to-events-code-allocate-code">Automated allocation of Employees to Events: <code>allocate</code></a></h4>
 <div class="paragraph">
 <p>Automatically filters and allocates a specified number of employees from the
-complete employee list to an event. <strong>AddMin+ prevents conflicting schedules by ensuring that
-employees cannot be allocated to events with overlapping periods.</strong></p>
+complete employee list to an event. <strong>Once an employee is allocated
+to an event, it is assumed that he will be unavailable
+from the start date to the end date of the event.</strong></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>allocate EVENT_INDEX [n/NUMBER_OF_EMPLOYEES] [t/TAG]&#8230;&#8203;</code></p>
@@ -259,7 +258,7 @@ Random selection of employees to allocate if supply exceeds demand of event.
 <div class="ulist">
 <ul>
 <li>
-<p>Allocates a <code>NUMBER_OF_EMPLOYEES</code> of employees to the event at the specified <code>EVENT_INDEX</code> filtered based on <code>TAG</code>.</p>
+<p>Allocate a <code>NUMBER_OF_EMPLOYEES</code> of employees to the event at the specified <code>EVENT_INDEX</code> filtered based on <code>TAG</code>.</p>
 </li>
 <li>
 <p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
@@ -284,11 +283,11 @@ Random selection of employees to allocate if supply exceeds demand of event.
 <ul>
 <li>
 <p><code>allocate 1</code><br>
-Allocates available employees to the 1st event shown in the event list.</p>
+Allocate available employees to the 1st event shown in the event list.</p>
 </li>
 <li>
 <p><code>allocate 2 n/3 t/female</code><br>
-Allocates 3 employees who are tagged as 'female' to the 2nd event shown in the event list.</p>
+Allocate 3 employees who are tagged as 'female' to the 2nd event shown in the event list.</p>
 </li>
 </ul>
 </div>
@@ -314,7 +313,7 @@ Format: <code>allocatem EVENT_INDEX id/EMPLOYEE_ID</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Allocates an employee with <code>EMPLOYEE_INDEX</code> or <code>EMPLOYEE_ID</code> to the event at the specified <code>EVENT_INDEX</code>.</p>
+<p>Allocate an employee with <code>EMPLOYEE_INDEX</code> or <code>EMPLOYEE_ID</code> to the event at the specified <code>EVENT_INDEX</code>.</p>
 </li>
 <li>
 <p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
@@ -339,11 +338,11 @@ Format: <code>allocatem EVENT_INDEX id/EMPLOYEE_ID</code></p>
 <ul>
 <li>
 <p><code>allocatem 1 n/2</code><br>
-Allocates the 2nd employee on the employee list to the 1st event on the event list.</p>
+Allocate the 2nd employee on the employee list to the 1st event on the event list.</p>
 </li>
 <li>
 <p><code>allocatem 1 id/002</code><br>
-Allocates the employee with id:"002" to the 1st event on the event list.</p>
+Allocate the employee with id:"002" to the 1st event on the event list.</p>
 </li>
 </ul>
 </div>
@@ -352,7 +351,7 @@ Allocates the employee with id:"002" to the 1st event on the event list.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 1</strong>:
-double-click the employee card on the left list. Notice the employee to allocate as shown in the
+<strong>Double-click the employee card</strong> on the left list. Notice the employee to allocate as shown in the
 following figure.</p>
 </div>
 <div class="imageblock">
@@ -362,7 +361,7 @@ following figure.</p>
 <div class="title">Figure 4. <em>Instruction for user to execute <code>allocatem</code> command</em></div>
 </div>
 <div class="paragraph">
-<p><strong>Step 2</strong>: result after the <code>allocatem</code> command is shown below:</p>
+<p><strong>Step 2</strong>: Result after the <code>allocatem</code> command is shown below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -374,7 +373,7 @@ following figure.</p>
 <div class="sect3">
 <h4 id="de-allocation-of-employees-from-event-code-free-code"><a class="link" href="#de-allocation-of-employees-from-event-code-free-code">De-allocation of Employees from Event: <code>free</code></a></h4>
 <div class="paragraph">
-<p>Frees employees allocated to the event.</p>
+<p>Free employees allocated to the event.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>free EVENT_INDEX [id/EMPLOYEE_ID]</code></p>
@@ -406,11 +405,11 @@ following figure.</p>
 <ul>
 <li>
 <p><code>free 1</code><br>
-Frees all employees allocated to the 1st event on the event list.</p>
+Free all employees allocated to the 1st event on the event list.</p>
 </li>
 <li>
 <p><code>free 1 id/001</code><br>
-Frees an employee with id: "001" allocated to the 1st event on the event list.</p>
+Free an employee with id: "001" allocated to the 1st event on the event list.</p>
 </li>
 </ul>
 </div>
@@ -504,7 +503,7 @@ filtered by the tags specified by user.</p>
 by the event.</p>
 </li>
 <li>
-<p><code>AutoAllocateCommand#createEventAfterManpowerAllocation()</code>&#8201;&#8212;&#8201;Creates a new event with a updated manpower list.</p>
+<p><code>AutoAllocateCommand#createEventAfterManpowerAllocation()</code>&#8201;&#8212;&#8201;Creates a new event with an updated manpower list.</p>
 </li>
 </ul>
 </div>
@@ -547,8 +546,8 @@ required by the specified event.</p>
 filtered list of employees based on the <code>tagList</code> and if employee satisfies <code>Event#isAvailableForEvent()</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5</strong>. The command checks if supply (number of employees in filtered list in step 4) exceeds
-demand (number of employees required by event, generated in step 3).</p>
+<p><strong>Step 5</strong>. The command checks if supply (generated in <strong>step 4</strong>) exceeds
+demand (generated in <strong>step 3</strong>) of the event.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -563,7 +562,7 @@ If demand exceeds supply, an exception will be thrown to the user. If the supply
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 6</strong>. The command calls <code>Event#createEventAfterManpowerAllocation()</code> to create a new event with a updated
+<p><strong>Step 6</strong>. The command calls <code>Event#createEventAfterManpowerAllocation()</code> to create a new event with an updated
 manpower list.</p>
 </div>
 <div class="admonitionblock note">
@@ -627,7 +626,7 @@ PlantUML, the lifeline reaches the end of diagram.
 <td class="tableblock halign-left valign-top"><p class="tableblock">Saves only the <code>Employee#EmployeeId</code> associated with the event.</p>
 <p class="tableblock"><strong>Pros</strong>: Easy to implement. Will use less memory.</p>
 <p class="tableblock"><strong>Cons</strong>: Future accesses require more time.</p>
-<p class="tableblock"><strong>I decided to proceed with this option</strong> because it creates less dependencies on other classes which is is a good
+<p class="tableblock"><strong>I decided to proceed with this option</strong> because it has less dependencies on other classes which is is a good
 programming practice.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Saves all fields of <code>Employee</code> associated with the event.</p>
 <p class="tableblock"><strong>Pros</strong>: Easy retrieval in the future.</p>
@@ -640,7 +639,7 @@ programming practice.</p></td>
 <p class="tableblock"><strong>Pros</strong>: Easy to implement.</p>
 <p class="tableblock"><strong>Cons</strong>: May cause unwanted behaviours if testing is not done properly.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new event with a newly created and updated manpower list.</p>
-<p class="tableblock"><strong>Pros</strong>: Defensive programming.</p>
+<p class="tableblock"><strong>Pros</strong>: Good programming practice.</p>
 <p class="tableblock"><strong>Cons</strong>: Harder to implement.</p>
 <p class="tableblock"><strong>I decided to proceed with this option</strong> because it complies with the Law of Demeter
 which states that objects should not navigate internal structures of other objects.</p></td>
@@ -663,4 +662,4 @@ process.</p>
 </div>
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 08:39:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 15:18:11 UTC</div></div></div></body></html>

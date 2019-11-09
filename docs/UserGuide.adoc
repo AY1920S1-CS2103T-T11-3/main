@@ -395,8 +395,9 @@ image::afterfetch.png[width="600"]
 ==== Automated allocation of Employees to Events: `allocate`
 
 Automatically filters and allocates a specified number of employees from the
-complete employee list to an event. *AddMin+ prevents conflicting schedules by ensuring that
-employees cannot be allocated to events with overlapping periods.*
+complete employee list to an event. *Once an employee is allocated
+to an event, it is assumed that he will be unavailable
+from the start date to the end date of the event.*
 
 Format: `allocate EVENT_INDEX [n/NUMBER_OF_EMPLOYEES] [t/TAG]...`
 
@@ -404,7 +405,7 @@ Format: `allocate EVENT_INDEX [n/NUMBER_OF_EMPLOYEES] [t/TAG]...`
 Random selection of employees to allocate if supply exceeds demand of event.
 
 ****
-* Allocates a `NUMBER_OF_EMPLOYEES` of employees to the event at the specified `EVENT_INDEX` filtered based on `TAG`.
+* Allocate a `NUMBER_OF_EMPLOYEES` of employees to the event at the specified `EVENT_INDEX` filtered based on `TAG`.
 * The `EVENT_INDEX` refers to the index number shown in the displayed event list.
 * The `NUMBER_OF_EMPLOYEES` refers to the number of employees to be allocated to the event.
 * Note the <<Constraints>> for *INDEX* and *INTEGER* _(for NUMBER_OF_EMPLOYEES)_.
@@ -416,9 +417,9 @@ Random selection of employees to allocate if supply exceeds demand of event.
 Examples:
 
 * `allocate 1` +
-Allocates available employees to the 1st event shown in the event list.
+Allocate available employees to the 1st event shown in the event list.
 * `allocate 2 n/3 t/female` +
-Allocates 3 employees who are tagged as 'female' to the 2nd event shown in the event list.
+Allocate 3 employees who are tagged as 'female' to the 2nd event shown in the event list.
 
 Alternatively, the `allocate` command can be executed from the GUI in just 1 simple step!
 
@@ -434,7 +435,7 @@ Format: `allocatem EVENT_INDEX n/EMPLOYEE_INDEX`
 Format: `allocatem EVENT_INDEX id/EMPLOYEE_ID`
 
 ****
-* Allocates an employee with `EMPLOYEE_INDEX` or `EMPLOYEE_ID` to the event at the specified `EVENT_INDEX`.
+* Allocate an employee with `EMPLOYEE_INDEX` or `EMPLOYEE_ID` to the event at the specified `EVENT_INDEX`.
 * The `EVENT_INDEX` refers to the index number shown in the displayed event list.
 * The `EMPLOYEE_INDEX` refers to the index number shown in the displayed employee list.
 * `EMPLOYEE_ID` must match the exact 3-digit ID shown in the *FetchEventWindow*.
@@ -444,10 +445,10 @@ Format: `allocatem EVENT_INDEX id/EMPLOYEE_ID`
 Examples:
 
 * `allocatem 1 n/2` +
-Allocates the 2nd employee on the employee list to the 1st event on the event list.
+Allocate the 2nd employee on the employee list to the 1st event on the event list.
 
 * `allocatem 1 id/002` +
-Allocates the employee with id:"002" to the 1st event on the event list.
+Allocate the employee with id:"002" to the 1st event on the event list.
 
 Alternatively, the `allocatem` command can be executed from the GUI in just 2 simple step!
 

@@ -32,14 +32,11 @@ public class ManualAllocateCommandParser {
 
         Index eventIndex;
         Index index = null;
-        EmployeeId employeeId = null;
+        EmployeeId employeeId;
 
         try {
             eventIndex = ParserUtil.parseIndex(argMultimap.getPreamble());
-
-            if (argMultimap.getValue(PREFIX_EMPLOYEE_ID).isPresent()) {
-                employeeId = ParserUtil.parseEmployeeId(argMultimap.getValue(PREFIX_EMPLOYEE_ID).get());
-            }
+            employeeId = ParserUtil.parseEmployeeId(argMultimap.getValue(PREFIX_EMPLOYEE_ID).orElse(null));
 
             if (argMultimap.getValue(PREFIX_EMPLOYEE_NUMBER).isPresent()) {
                 index = ParserUtil.parseIndex(argMultimap.getValue(PREFIX_EMPLOYEE_NUMBER).get());

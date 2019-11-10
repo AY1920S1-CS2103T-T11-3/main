@@ -68,24 +68,16 @@ public class ManualAllocateCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-
+        // Invalid user input
         if (employeeId != null && employeeIndex != null) {
             throw new CommandException(Messages.MESSAGE_INVALID_ALLOCATEM_INPUT);
         }
 
+        // Retrieves the current displayed Employee/Event list.
         List<Employee> lastShownList = model.getFilteredEmployeeList();
-        List<Event> lastShownEventList;
+        List<Event> lastShownEventList = MainWindow.getCurrentEventList(model);
 
-        // Checks the current tab index and retrieves the relevant event list
-        if (MainWindow.isMainTab()) {
-            lastShownEventList = model.getFilteredEventList();
-        } else if (MainWindow.isScheduleTab()) {
-            lastShownEventList = model.getFilteredScheduledEventList();
-        } else {
-            throw new CommandException(Messages.MESSAGE_WRONG_WINDOW);
-        }
-
-        // Checks the command input and gets the relevant employee from list.
+        // Retrieves the relevant Employee from the Employee list.
         Employee employeeToAllocate;
         if (employeeIndex != null) {
             employeeToAllocate = getEmployeeToAllocateByIndex(employeeIndex, lastShownList);
@@ -96,25 +88,25 @@ public class ManualAllocateCommand extends Command {
             throw new CommandException(Messages.MESSAGE_UNKNOWN_COMMAND);
         }
 
+        // Retrieves the relevant Event from the Event list.
         if (eventIndex.getZeroBased() >= lastShownEventList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_EVENT_DISPLAYED_INDEX);
         }
-
         Event eventToAllocate = lastShownEventList.get(eventIndex.getZeroBased());
 
+        // Checks the state of Event and Employee.
         if (eventToAllocate.getManpowerAllocatedList().containsEmployee(employeeToAllocate)) {
             throw new CommandException(Messages.MESSAGE_EMPLOYEE_ALREADY_ALLOCATED);
         }
-
         if (eventToAllocate.getCurrentManpowerCount() == eventToAllocate.getManpowerNeeded().value) {
             throw new CommandException(Messages.MESSAGE_EVENT_FULL_MANPOWER);
         }
-
-        if (!eventToAllocate.isAvailableForEvent(employeeToAllocate, model.getFilteredEventList())) {
+        if (!eventToAllocate.isAvailableForEvent(employeeToAllocate, model.getFullListEvents())) {
             throw new CommandException(Messages.MESSAGE_UNAVAILABLE_MANPOWER);
         }
-        Event newEventForAllocation = createEditedEvent(eventToAllocate, employeeToAllocate);
 
+        // Command success
+        Event newEventForAllocation = createEditedEvent(eventToAllocate, employeeToAllocate);
         model.setEvent(eventToAllocate, newEventForAllocation);
         return new CommandResult(String.format(MESSAGE_ALLOCATE_EVENT_SUCCESS,
                 employeeToAllocate.getEmployeeName().fullName, newEventForAllocation.getName().eventName));

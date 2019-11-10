@@ -104,7 +104,7 @@ public class AutoAllocateCommand extends Command {
      *
      * @param manpowerCountToAdd specified by user
      * @param manpowerNeededByEvent actual number of employees required by event
-     * @exception CommandException if event has full manpower or manpowerNeededByEvent exceeds manpowerNeededByEvent
+     * @throws CommandException if event has full manpower or manpowerNeededByEvent exceeds manpowerNeededByEvent
      */
     private Integer getManpowerCountToAdd(Integer manpowerCountToAdd, Integer manpowerNeededByEvent)
             throws CommandException {
@@ -126,6 +126,7 @@ public class AutoAllocateCommand extends Command {
         }
 
         return newManpowerCount;
+
     }
 
 

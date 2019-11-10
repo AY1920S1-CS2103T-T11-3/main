@@ -1,4 +1,4 @@
-package seedu.address.logic.parser;
+package seedu.address.logic.parser.allocate;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
@@ -16,7 +16,6 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.CommandTestUtil;
 import seedu.address.logic.commands.allocate.AutoAllocateCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.allocate.AutoAllocateCommandParser;
 import seedu.address.model.tag.Tag;
 
 

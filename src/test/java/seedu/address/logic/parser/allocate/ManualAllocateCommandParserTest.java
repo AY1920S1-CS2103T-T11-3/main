@@ -1,25 +1,25 @@
 package seedu.address.logic.parser.allocate;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMPLOYEE_ID;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMPLOYEE_NUMBER;
+import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
+import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EVENT;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+
 import org.junit.jupiter.api.Test;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.CommandTestUtil;
 import seedu.address.logic.commands.allocate.ManualAllocateCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.employee.EmployeeId;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.*;
-import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
-import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EVENT;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-
 class ManualAllocateCommandParserTest {
 
     private static final String ID_000 = " " + PREFIX_EMPLOYEE_ID + "000";
     private static final String EMPLOYEE_INDEX_ONE = " " + PREFIX_EMPLOYEE_NUMBER + "1";
-
-
     private static final String MESSAGE_INVALID_FORMAT =
             String.format(MESSAGE_INVALID_COMMAND_FORMAT, ManualAllocateCommand.MESSAGE_USAGE);
 
@@ -54,7 +54,7 @@ class ManualAllocateCommandParserTest {
     }
 
     @Test
-    public void parse_IdSpecified_success() throws CommandException {
+    public void parse_idSpecified_success() throws CommandException {
         Index targetIndex = INDEX_FIRST_EVENT;
         String userInput = targetIndex.getOneBased() + ID_000;
         ManualAllocateCommand expectedCommand = new ManualAllocateCommand(targetIndex, null,

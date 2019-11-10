@@ -1,3 +1,7 @@
+/*
+@@author calvincxz
+ */
+
 package seedu.address.logic.commands.allocate;
 
 import static java.util.Objects.requireNonNull;
@@ -191,7 +195,9 @@ public class ManualAllocateCommand extends Command {
 
         // state check
         ManualAllocateCommand e = (ManualAllocateCommand) other;
-        return employeeIndex.equals(e.employeeIndex) && eventIndex.equals(e.eventIndex);
+        return eventIndex.equals(e.eventIndex)
+                && (employeeIndex == e.employeeIndex || employeeIndex.equals(e.employeeIndex))
+                && (employeeId == e.employeeId || employeeId.equals(e.employeeId));
     }
 
 }

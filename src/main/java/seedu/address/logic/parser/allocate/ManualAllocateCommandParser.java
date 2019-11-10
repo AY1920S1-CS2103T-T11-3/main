@@ -10,6 +10,7 @@ import seedu.address.logic.commands.allocate.ManualAllocateCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.ArgumentMultimap;
 import seedu.address.logic.parser.ArgumentTokenizer;
+import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.ParserUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.employee.EmployeeId;
@@ -17,7 +18,7 @@ import seedu.address.model.employee.EmployeeId;
 /**
  * Parses input arguments and creates a new ManualAllocateCommand object
  */
-public class ManualAllocateCommandParser {
+public class ManualAllocateCommandParser implements Parser<ManualAllocateCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the ManualAllocateCommand
      * and returns an ManualAllocateCommand object for execution.

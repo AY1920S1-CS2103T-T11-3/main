@@ -60,11 +60,11 @@ public class AutoAllocateCommandParserTest {
     @Test
     public void parse_invalidValue_failure() {
         assertParseFailure(parser, "1" + CommandTestUtil.INVALID_MANPOWER_DESC, MESSAGE_INVALID_FORMAT); // invalid name
-        assertParseFailure(parser, "1" + INVALID_TAG_DESC, Tag.MESSAGE_CONSTRAINTS); // invalid tag
+        assertParseFailure(parser, "1" + INVALID_TAG_DESC, MESSAGE_INVALID_FORMAT); // invalid tag
         assertParseFailure(parser, "1" + CommandTestUtil.INVALID_MANPOWER_DESC + INVALID_TAG_DESC,
                 MESSAGE_INVALID_FORMAT);
         assertParseFailure(parser, "1" + CommandTestUtil.VALID_MANPOWER_COUNT_TO_ADD + INVALID_TAG_DESC,
-                Tag.MESSAGE_CONSTRAINTS);
+                MESSAGE_INVALID_FORMAT);
 
     }
 

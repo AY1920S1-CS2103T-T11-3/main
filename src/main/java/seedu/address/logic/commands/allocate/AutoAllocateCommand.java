@@ -1,3 +1,7 @@
+/*
+@@author calvincxz
+ */
+
 package seedu.address.logic.commands.allocate;
 
 import static java.util.Objects.requireNonNull;

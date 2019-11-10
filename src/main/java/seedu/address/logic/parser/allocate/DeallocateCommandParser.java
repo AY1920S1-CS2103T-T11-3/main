@@ -1,3 +1,7 @@
+/*
+@@author calvincxz
+ */
+
 package seedu.address.logic.parser.allocate;
 
 import static java.util.Objects.requireNonNull;
@@ -8,6 +12,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.allocate.DeallocateCommand;
 import seedu.address.logic.parser.ArgumentMultimap;
 import seedu.address.logic.parser.ArgumentTokenizer;
+import seedu.address.logic.parser.Parser;
 import seedu.address.logic.parser.ParserUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.employee.EmployeeId;
@@ -16,7 +21,7 @@ import seedu.address.model.employee.EmployeeId;
 /**
  * Parses input arguments and creates a new DeallocateCommand object
  */
-public class DeallocateCommandParser {
+public class DeallocateCommandParser implements Parser<DeallocateCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the DeallocateCommand
      * and returns a DeallocateCommand object for execution.

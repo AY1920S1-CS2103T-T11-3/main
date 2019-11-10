@@ -122,6 +122,21 @@ public class AutoAllocateCommandTest {
     }
 
     @Test
+    public void execute_fullManpowerCountUnfilteredListNoInputSpecified_failure() throws CommandException {
+        Event eventToEdit = initialEventData.getEventList().get(0);
+        List<Employee> availableEmployeeList = new ArrayList<>();
+        for (int i = 0; i < eventToEdit.getManpowerNeeded().value; i++) {
+            availableEmployeeList.add(initialData.getEmployeeList().get(i));
+        }
+        Event newEvent = createEventAfterManpowerAllocation(eventToEdit, availableEmployeeList, 5);
+        model.setEvent(eventToEdit, newEvent);
+        AutoAllocateCommand autoAllocateCommand = new AutoAllocateCommand(INDEX_FIRST_EVENT,
+                null, tagList);
+
+        assertCommandFailure(autoAllocateCommand, model, Messages.MESSAGE_EVENT_FULL_MANPOWER);
+    }
+
+    @Test
     public void execute_fullManpowerCountUnfilteredList_failure() throws CommandException {
         Event eventToEdit = initialEventData.getEventList().get(0);
         List<Employee> availableEmployeeList = new ArrayList<>();
@@ -131,10 +146,11 @@ public class AutoAllocateCommandTest {
         Event newEvent = createEventAfterManpowerAllocation(eventToEdit, availableEmployeeList, 5);
         model.setEvent(eventToEdit, newEvent);
         AutoAllocateCommand autoAllocateCommand = new AutoAllocateCommand(INDEX_FIRST_EVENT,
-                1, tagList);
+                5, tagList);
 
         assertCommandFailure(autoAllocateCommand, model, Messages.MESSAGE_EVENT_FULL_MANPOWER);
     }
+
 
     @Test
     public void execute_insufficientManpowerCountUnfilteredList_failure() throws CommandException {

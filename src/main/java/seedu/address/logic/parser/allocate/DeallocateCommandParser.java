@@ -10,6 +10,7 @@ import seedu.address.logic.parser.ArgumentMultimap;
 import seedu.address.logic.parser.ArgumentTokenizer;
 import seedu.address.logic.parser.ParserUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.employee.EmployeeId;
 
 
 /**
@@ -26,19 +27,18 @@ public class DeallocateCommandParser {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_EMPLOYEE_ID);
 
         Index index;
+        EmployeeId employeeId;
 
-        if (argMultimap.getValue(PREFIX_EMPLOYEE_ID).isPresent()) { //internal call by UI
-            index = ParserUtil.parseIndex(argMultimap.getPreamble());
-            String employeeId = argMultimap.getValue(PREFIX_EMPLOYEE_ID).get();
-            return new DeallocateCommand(index, employeeId);
-        }
         try {
-            index = ParserUtil.parseIndex(args);
-            return new DeallocateCommand(index);
+            index = ParserUtil.parseIndex(argMultimap.getPreamble());
+            employeeId = ParserUtil.parseEmployeeId(argMultimap.getValue(PREFIX_EMPLOYEE_ID).orElse(null));
+
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeallocateCommand.MESSAGE_USAGE), pe);
         }
+
+        return new DeallocateCommand(index, employeeId);
     }
 
 

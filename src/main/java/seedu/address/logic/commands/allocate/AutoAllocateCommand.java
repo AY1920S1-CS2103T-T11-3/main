@@ -109,19 +109,23 @@ public class AutoAllocateCommand extends Command {
     private Integer getManpowerCountToAdd(Integer manpowerCountToAdd, Integer manpowerNeededByEvent)
             throws CommandException {
 
-        if (manpowerCountToAdd == null) {
-            return manpowerNeededByEvent;
-        }
-
         if (manpowerNeededByEvent == 0) {
             throw new CommandException(Messages.MESSAGE_EVENT_FULL_MANPOWER);
         }
 
-        if (manpowerCountToAdd > manpowerNeededByEvent) {
+        Integer newManpowerCount;
+
+        if (manpowerCountToAdd == null) {
+            newManpowerCount = manpowerNeededByEvent;
+        } else {
+            newManpowerCount = manpowerCountToAdd;
+        }
+
+        if (newManpowerCount > manpowerNeededByEvent) {
             throw new CommandException(Messages.MESSAGE_MANPOWER_COUNT_EXCEEDED);
         }
 
-        return manpowerCountToAdd;
+        return newManpowerCount;
     }
 
 

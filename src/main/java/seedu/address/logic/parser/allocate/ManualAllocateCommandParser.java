@@ -45,7 +45,6 @@ public class ManualAllocateCommandParser {
                 index = ParserUtil.parseIndex(argMultimap.getValue(PREFIX_EMPLOYEE_NUMBER).get());
             }
 
-
         } catch (ParseException pe) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     ManualAllocateCommand.MESSAGE_USAGE), pe);

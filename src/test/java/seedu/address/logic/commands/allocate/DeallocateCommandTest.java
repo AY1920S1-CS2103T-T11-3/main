@@ -1,6 +1,15 @@
 package seedu.address.logic.commands.allocate;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.allocate.DeallocateCommand.MESSAGE_FREE_EVENT_SUCCESS;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EVENT;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_EVENT;
+
 import org.junit.jupiter.api.Test;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.employee.ClearEmployeesCommand;
@@ -12,28 +21,14 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyEventBook;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.employee.Employee;
-import seedu.address.model.event.Event;
 import seedu.address.model.util.SampleDataUtil;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.allocate.AutoAllocateCommand.createEventAfterManpowerAllocation;
-import static seedu.address.logic.commands.allocate.DeallocateCommand.MESSAGE_FREE_EVENT_SUCCESS;
-import static seedu.address.logic.commands.allocate.DeallocateCommand.createEditedEvent;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EVENT;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_EVENT;
 
 class DeallocateCommandTest {
     private ReadOnlyAddressBook initialData = SampleDataUtil.getSampleAddressBook();
     private ReadOnlyEventBook initialEventData = SampleDataUtil.getSampleEventBook();
     private Model model = new ModelManager(initialData, initialEventData, new UserPrefs());
-    private final Employee sampleEmployee = initialData.getEmployeeList().get(0);
+    //private final Employee sampleEmployee = initialData.getEmployeeList().get(0);
 
 
     @Test

@@ -292,6 +292,19 @@ Want to have an overview of all the dates where you have an event? Then you are 
 You can get to the Schedule Tab easily by either clicking on the Schedule Tab on the User Interface or
 just simply type in any Schedule-related commands and AddMin+ will bring you there.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All Event-Related commands that are done in the Schedule Tab, will be referencing the Event List displayed in the Schedule Tab.
+All Employee-Related commands are disabled in the Schedule Tab, as there is no Employee List being displayed in the Schedule Tab.
+</td>
+</tr>
+</table>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/ScheduleUiDetailed.png" alt="ScheduleUiDetailed">
@@ -438,20 +451,21 @@ The event list will be empty and not display anything if there is no event on th
 <h4 id="generate-entire-schedule-code-generate_schedule-code"><a class="link" href="#generate-entire-schedule-code-generate_schedule-code">Generate Entire Schedule: <code>generate_schedule</code></a></h4>
 <div class="paragraph">
 <p>Looking for a way to have an overview of all the dates that has an event? Use the <code>generate_schedule</code> command to do so.
-The <code>generate_schedule</code> command looks through the entire list of events and generates a new list of all the dates
+The <code>generate_schedule</code> command looks through the entire list of events and generates a new window with a list of all the dates
 which has an event and also displays all the events that happen on that date.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>generate_schedule</code></p>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 The <code>generate_schedule</code> will only display dates and events that have a set date and time allocated to it.
+Events with no set date and time, will only be displayed according to it&#8217;s start and end date.
 The <code>generate_schedule</code> command opens a new window to display the new list of information.
 The <code>generate_schedule</code> command processes and creates the list based on when the command is called.
 Note that any changes to the events after the command will not be reflected. Users are advised to use the
@@ -523,9 +537,9 @@ and the technical depth of my contributions to the project.</em></p></td>
 <div class="sect3">
 <h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">Proposed Implementation</a></h4>
 <div class="paragraph">
-<p>The Generate Schedule Feature is implemented to allow users to have an overview of the event schedule. It will display all dates that have an event that is mapped to it and the
-specific events that are happening on those dates listed. The feature is facilitated by a <code>DistinctDatesProcessor</code> and requires the use of a
-new Object - <code>DistinctDate</code>, as well as an internal ObservableList - <code>distinctDatesList</code> found in the <code>ModelManager</code>.</p>
+<p>The Generate Schedule Feature is implemented to allow users to have an overview of the event schedule. It will display all dates that have an event and the
+specific events that are happening on those dates listed. Do note that the <code>generate_schedule</code> command will only display dates and events that have a set date and time allocated to it.
+The feature is facilitated by a <code>DistinctDatesProcessor</code> and requires the use of a new Object - <code>DistinctDate</code>, as well as an internal ObservableList - <code>distinctDatesList</code> found in the <code>ModelManager</code>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>DistinctDateProcessor</code> processes the entire list of Events in the <code>EventList</code> when the command is called. The <code>DistinctDateProcessor</code> will then
@@ -712,4 +726,4 @@ contact me via <a href="https://sg.linkedin.com/in/shi-hao-yap-964724169">Linked
 </div>
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 11:57:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 13:16:41 UTC</div></div></div></body></html>

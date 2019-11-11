@@ -45,7 +45,7 @@
 <ul class="sectlevel3">
 <li><a href="#fetch-full-details-of-an-event-code-fetch_ev-code">3.4.1. Fetch Full Details of an Event: <code>fetch_ev</code></a></li>
 <li><a href="#automated-allocation-of-employees-to-events-code-allocate-code">3.4.2. Automated allocation of Employees to Events: <code>allocate</code></a></li>
-<li><a href="#manually-allocation-of-employees-to-events-code-allocatem-code">3.4.3. Manually allocation of Employees to Events: <code>allocatem</code></a></li>
+<li><a href="#manual-allocation-of-employees-to-events-code-allocatem-code">3.4.3. Manual allocation of Employees to Events: <code>allocatem</code></a></li>
 <li><a href="#de-allocation-of-employees-from-event-code-free-code">3.4.4. De-allocation of Employees from Event: <code>free</code></a></li>
 <li><a href="#set_ev_dt">3.4.5. Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a></li>
 <li><a href="#delete-a-datetime-mapping-from-an-event-code-delete_ev_dt-code">3.4.6. Delete a DateTime Mapping from an Event: <code>delete_ev_dt</code></a></li>
@@ -798,6 +798,11 @@ Returns the 2rd employee from the displayed employee list.</p>
 </div>
 <div class="sect2">
 <h3 id="event-specific-management"><a class="link" href="#event-specific-management">3.4. Event-Specific Management</a></h3>
+<div class="sect3">
+<h4 id="fetch-full-details-of-an-event-code-fetch_ev-code"><a class="link" href="#fetch-full-details-of-an-event-code-fetch_ev-code">3.4.1. Fetch Full Details of an Event: <code>fetch_ev</code></a></h4>
+<div class="paragraph">
+<p>Fetches an event by displaying a pop-up window with full details of the event.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -805,16 +810,11 @@ Returns the 2rd employee from the displayed employee list.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Some event-specific commands have GUI features enabled to improve user experience. However, such features are
-implemented as a <strong>best-effort service</strong> and should not be heavily relied on.
+The <strong>Fetch Event Window</strong> serves as a portable platform for event manpower allocation. It can be
+accessed from the <code>Main</code> and <code>Schedule</code> Tab.
 </td>
 </tr>
 </table>
-</div>
-<div class="sect3">
-<h4 id="fetch-full-details-of-an-event-code-fetch_ev-code"><a class="link" href="#fetch-full-details-of-an-event-code-fetch_ev-code">3.4.1. Fetch Full Details of an Event: <code>fetch_ev</code></a></h4>
-<div class="paragraph">
-<p>Fetches an event by displaying a pop-up window with full details of the event.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>fetch_ev EVENT_INDEX</code></p>
@@ -869,13 +869,14 @@ Returns the 2rd event from the event list.</p>
 <div class="sect3">
 <h4 id="automated-allocation-of-employees-to-events-code-allocate-code"><a class="link" href="#automated-allocation-of-employees-to-events-code-allocate-code">3.4.2. Automated allocation of Employees to Events: <code>allocate</code></a></h4>
 <div class="paragraph">
-<p>Automatically filters and allocates a specified number of employees from the
-complete employee list to an event. <strong>Once an employee is allocated
+<p>Automatically allocates a specified number of employees from the
+complete employee list to an event based on the filter tags specified by the user. There is no
+manual selection of employees. <strong>Once an employee is allocated
 to an event, it is assumed that he will be unavailable
 from the start date to the end date of the event.</strong></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>allocate EVENT_INDEX [n/NUMBER_OF_EMPLOYEES] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code>allocate EVENT_INDEX [n/NUMBER_OF_EMPLOYEES] [t/TAG_FOR_FILTER]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -904,6 +905,9 @@ Random selection of employees to allocate if supply exceeds demand of event.
 </li>
 <li>
 <p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong> and <strong>INTEGER</strong> <em>(for NUMBER_OF_EMPLOYEES)</em>.</p>
+</li>
+<li>
+<p><code>TAG_FOR_FILTER</code> should be alpha-numerical.</p>
 </li>
 <li>
 <p>If no <code>NUMBER_OF_EMPLOYEES</code> is specified, it is assumed to be the current manpower count required by the event.</p>
@@ -936,13 +940,12 @@ as shown in the <strong>Fetch Event Window</strong> in <a href="#fetch-full-deta
 </div>
 </div>
 <div class="sect3">
-<h4 id="manually-allocation-of-employees-to-events-code-allocatem-code"><a class="link" href="#manually-allocation-of-employees-to-events-code-allocatem-code">3.4.3. Manually allocation of Employees to Events: <code>allocatem</code></a></h4>
+<h4 id="manual-allocation-of-employees-to-events-code-allocatem-code"><a class="link" href="#manual-allocation-of-employees-to-events-code-allocatem-code">3.4.3. Manual allocation of Employees to Events: <code>allocatem</code></a></h4>
 <div class="paragraph">
 <p>Manually chooses and allocates a single employee to an event.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>allocatem EVENT_INDEX n/EMPLOYEE_INDEX</code>
-Format: <code>allocatem EVENT_INDEX id/EMPLOYEE_ID</code></p>
+<p>Format: <code>allocatem EVENT_INDEX n/EMPLOYEE_INDEX</code>/ <code>allocatem EVENT_INDEX id/EMPLOYEE_ID</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -952,10 +955,7 @@ Format: <code>allocatem EVENT_INDEX id/EMPLOYEE_ID</code></p>
 <p>Allocate an employee with <code>EMPLOYEE_INDEX</code> or <code>EMPLOYEE_ID</code> to the event at the specified <code>EVENT_INDEX</code>.</p>
 </li>
 <li>
-<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
-</li>
-<li>
-<p>The <code>EMPLOYEE_INDEX</code> refers to the index number shown in the displayed employee list.</p>
+<p>The <code>EVENT_INDEX</code>/<code>EMPLOYEE_INDEX</code> refers to the index shown in the respective displayed list.</p>
 </li>
 <li>
 <p><code>EMPLOYEE_ID</code> must match the exact 3-digit ID shown in the <strong>FetchEventWindow</strong>.</p>
@@ -1064,7 +1064,7 @@ as shown in the <strong>Fetch Event Window</strong> in <a href="#fetch-full-deta
 </td>
 <td class="content">
 To <strong>free</strong> a particular employee to an event, double-click the employee card on the right list
-as shown in the 2nd figure in <a href="#manually-allocation-of-employees-to-events-code-allocatem-code">Section 3.4.3, &#8220;Manually allocation of Employees to Events: <code>allocatem</code>&#8221;</a>
+as shown in the 2nd figure in <a href="#manual-allocation-of-employees-to-events-code-allocatem-code">Section 3.4.3, &#8220;Manual allocation of Employees to Events: <code>allocatem</code>&#8221;</a>
 </td>
 </tr>
 </table>
@@ -1750,10 +1750,12 @@ such as the location, budget, and date.</p>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Find Employee/Event</strong></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>find_em KEYWORD [MORE_KEYWORDS]</code></p>
-<p class="tableblock"><code>find_ev KEYWORD [MORE_KEYWORDS]</code></p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><code>find_em John</code></p>
-<p class="tableblock"><code>find_ev Music</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>find_em_name KEYWORD [MORE_KEYWORDS]</code></p>
+<p class="tableblock"><code>find_em_tag KEYWORD [MORE_KEYWORDS]</code></p>
+<p class="tableblock"><code>find_ev_name KEYWORD [MORE_KEYWORDS]</code></p>
+<p class="tableblock"><code>find_ev_tag KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><code>find_em_name John</code></p>
+<p class="tableblock"><code>find_ev_tag music</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><strong>Delete Employee/Event</strong></p></td>
@@ -1871,4 +1873,4 @@ such as the location, budget, and date.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 15:45:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:35:31 UTC</div></div></div></body></html>

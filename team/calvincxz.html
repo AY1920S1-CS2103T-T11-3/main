@@ -31,7 +31,7 @@ effectively handle administrative tasks.</p>
 <p>My role was to design and write the code for the association of employees with event, which includes
 everything from front-end display where users can see such an association to the back-end
 storage. One interesting point of this feature was the
-development of an algorithm which internally checks schedule of individual employees and prevents
+development of an algorithm which internally checks the schedule of individual employees and prevents
 schedule clashes.</p>
 </div>
 <div class="paragraph">
@@ -48,36 +48,37 @@ I have added to the user and developer guides in relation to these features.</p>
 <ul>
 <li>
 <p><strong>Major feature</strong>: enabled the association of employees with events which includes
-<strong>automated/manual allocation of employees to event commands</strong> and a <strong>de-allocate command</strong>, as well as the
-viewing of the association via the <strong>fetch event</strong> command. All related commands have <strong>GUI features</strong> implemented.</p>
+<em>automated/manual allocation of employees to event commands</em> and a <em>de-allocate command</em>, as well as the
+viewing of the association via the <em>fetch event</em> command. All related commands have <strong>GUI features</strong> implemented.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: This feature allows the user to allocate employees to events with filter requirements. The internal
-algorithm also ensures that employees cannot be allocated to events with conflicting time periods. The portable <strong>Fetch Event Window</strong>
-also allows users to allocate events manpower in different <strong>Tabs</strong> inside AddMin+.</p>
+<p><strong>What it does</strong>: This feature allows the user to allocate employees to events either manually or using a smart algorithm developed
+in AddMin+. The algorithm also ensures that employees cannot be allocated to events with conflicting time periods.
+The portable <code>Fetch Event Window</code> also allows users to allocate events manpower in the different <code>Tabs</code> of AddMin+.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can now allocate employees to events,
+<p><strong>Justification</strong>: This feature improves the product significantly because a user can now allocate employees to events,
 which is a key component for event management companies that our app is targeting. The algorithm used to check for
 conflicting schedule is also highly beneficial as users no longer have to waste precious time checking the availability
 of every individual employee. The GUI features further provide convenience for users who prefer using the mouse.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in the future.
+<p><strong>Highlights</strong>: This enhancement affects existing commands and commands to be added in the future.
 It required an in-depth analysis of design alternatives. The implementation too was challenging as it
-required the knowledge of both <code>Event</code> and <code>Employee</code> classes.</p>
+required the knowledge and understanding of both <code>Event</code> and <code>Employee</code> classes. The flexibility of the
+current design allows users to perform allocation commands in various environments in AddMin+.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor feature</strong>: added command history to allow user to view previous commands using up/down
+<p><strong>Minor feature</strong>: added command history to allow user to view and navigate previous commands using up/down
 arrow keys.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=calvin&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=calvincxz&amp;tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D">Functional code</a>]
-[<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=calvin&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=calvincxz&amp;tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D">Test code</a>] <em>{give links to collated code files}</em></p>
+[<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=calvin&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=calvincxz&amp;tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D">Test code</a>] <em>{links to collated code files}</em></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -659,4 +660,4 @@ process.</p>
 </div>
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:37:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:23:10 UTC</div></div></div></body></html>

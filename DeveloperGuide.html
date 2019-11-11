@@ -51,7 +51,8 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-an-employee">F.2. Deleting an employee</a></li>
-<li><a href="#saving-data">F.3. Saving data</a></li>
+<li><a href="#event">F.3. Event</a></li>
+<li><a href="#saving-data">F.4. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -1633,7 +1634,60 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.3. Saving data</a></h3>
+<h3 id="event"><a class="link" href="#event">F.3. Event</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing an Event Date</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: At least one event listed in the event list. Either add events using <code>add_ev</code> if empty, or <code>list_ev</code> otherwise.</p>
+</li>
+<li>
+<p>Test Case: <code>edit_ev 1 on/20/10/2019 till/20/10/2020</code><br>
+Expected Error Message : "The maximum acceptable range between the Start and End Dates is 90 days."</p>
+</li>
+<li>
+<p>Test Case: <code>edit_ev 1 till/25/10/2019</code><br>
+Expected: Event End Date is edited successfuly.</p>
+</li>
+<li>
+<p>Other incorrect commands:
+<code>edit_ev 1 on/20/10/2019 till/10/10/2019</code> (Start Date after End Date)<br>
+<code>edit_ev 1 on/10/10/1990 till/20/10/1990</code> (Too Long ago)<br>
+<code>edit_ev 1 on/31/02/2019</code> (Not a valid calendar date)</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Setting Event Date-Time</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Same and continued from above.</p>
+</li>
+<li>
+<p>Test Case: <code>set_ev_dt 1 time/1000-1300</code><br>
+Expected: Mapping from Start to End Date successfully assigned. Double click on the Event or use <code>fetch_ev 1</code> to see the mapping.</p>
+</li>
+<li>
+<p>Test Case: <code>delete_ev_dt 1 on/20/10/2020</code> (or any date out of range)<br>
+Expected Error Message: "The Date [20/10/2020] is not found in the Date-Time Mapping of Event: [Musical]"</p>
+</li>
+<li>
+<p>Test Case: <code>delete_ev_dt 1 on/25/10/2019</code><br>
+Expected: Successfully deleted Date-Time Mapping, with message "Deleted DateTime [25/10/2019] from Event: [Musical]." Double click on the Event or use <code>fetch_ev 1</code> to verify that the mapping of '25/10/2019' is no longer there.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">F.4. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1673,4 +1727,4 @@ Open the data folder which should contain employeebook.json and eventbook.json f
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:02:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:18:29 UTC</div></div></div></body></html>

@@ -56,8 +56,9 @@
 <li><a href="#display-schedule-for-specific-month-year">F.5. Display Schedule for Specific Month Year</a></li>
 <li><a href="#display-schedule-for-between-2-specific-date">F.6. Display Schedule for between 2 specific date</a></li>
 <li><a href="#event">F.7. Event</a></li>
-<li><a href="#auto-allocation-of-employees-to-an-event">F.8. Auto-Allocation of employees to an event</a></li>
-<li><a href="#saving-data">F.9. Saving data</a></li>
+<li><a href="#generating-statistics">F.8. Generating Statistics</a></li>
+<li><a href="#generating-detailed-statistics">F.9. Generating Detailed Statistics</a></li>
+<li><a href="#saving-data">F.10. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -421,46 +422,49 @@ An example of how such a model may look like is given below.<br>
 <p>Given below is an example usage scenario and how the statistics mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time and generates statistics via the <code>statistics /g</code> command.</p>
+<p>Step 1. The user launches the application for the first time and navigates to the statistics tab by either clicking the Statistics tab on the UI or <code>statistics</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. Statistics are generated on-demand and displayed to the user based on the current data.</p>
+<p>Step 2. Statistics are generated on-demand and displayed to the user based on the current data by either clicking the Generate Statistics button on the UI or <code>generate_stats</code> command.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-statistics-executes"><a class="link" href="#aspect-how-statistics-executes">Aspect: How statistics executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Generate statistics data on-demand, when the user requests.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to implement as would not have to mannage storage of statistical data.</p>
-</li>
-<li>
-<p>Cons: App may have overall lower performance, with the possibility of lag as the app needs to read through all the stored data and generate the statistics data whenever it is queried.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Generate statistics each time there is change in the data and store them.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Statistical data will be displayed faster as it is recalculated and stored in the JSON file storage.</p>
-</li>
-<li>
-<p>Cons: Requires managing the storage of the statistical data and possibly lead to lowered performance of other features such as the command which does CRUD to Employees/Events which will be slower with the need to generate the statistical data and store it in the JSON file storage.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consideration 1</strong>:<br>
+Data Structure to support Generate Statistics Command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Processes the data and generates statistics upon <code>generate_stats</code> command. (Current choice)</strong>:<br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Simpler implementation as storage management is not required as statistics are generated on-demand.</p>
+<p class="tableblock"><em>Cons:</em><br>
+App may have overall lower performance, with the possibility of lag as the app needs to read through all the stored data and generate the statistics data whenever it is queried.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Generate statistics each time there is change in the data and store them.</strong><br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Statistical data will be displayed according to the data stored on the JSON file storage and user will not be required to perform any action to see the latest statistics at any point of time. <br></p>
+<p class="tableblock"><em>Cons:</em><br>
+ Requires managing the storage of the statistical data and possibly lead to lowered performance of other features such as the command which does CRUD to Employees/Events which will be slower with the need to generate the statistical data and store it in the JSON file storage.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why We chose Alternative 1:</strong><br>
+Alternative 1 makes more logical sense and will be more efficient as compared to Alternative 2. Alternative 1 requires less intermediate processing and storage units to support the feature.
+Processing is done on demand. Looking at the use case of the <code>generate_stats</code> command, it will be used by the user when they need an overview of the most current data regarding events and employees.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1618,13 +1622,15 @@ Multiple employees in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete_em 1</code><br>
-   Expected: Employee of index '1' is deleted from the list.
-Details of the deleted contact shown in the status message.</p>
+   Expected: Employee of ID '1' is deleted from the list.
+Details of the deleted contact shown in the status message.
+Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete_em 0</code><br>
    Expected: No employee is deleted.
-Error details shown in the status message.</p>
+Error details shown in the status message.
+Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
@@ -1818,60 +1824,21 @@ Expected: Successfully deleted Date-Time Mapping, with message "Deleted DateTime
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-allocation-of-employees-to-an-event"><a class="link" href="#auto-allocation-of-employees-to-an-event">F.8. Auto-Allocation of employees to an event</a></h3>
+<h3 id="generating-statistics"><a class="link" href="#generating-statistics">F.8. Generating Statistics</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Allocating employees to a displayed Event.</p>
+<p>Generating Statistics based on the current data on both events and employees.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites:</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User is in <code>Main</code> or <code>Schedule</code> Tab.</p>
+<p>Prerequisites: Multiple events in the event list and multiple employees in the employee list. User must navigate to the Statistics tab.</p>
 </li>
 <li>
-<p>There are at least two Events in the displayed list.</p>
-</li>
-<li>
-<p>There are sufficient available employees for the Event.</p>
-</li>
-<li>
-<p>Chosen Event still requires manpower.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Test case: <code>allocate 1</code><br>
-    Expected: Employees with non-conflicting schedules are allocated to the
-1st Event displayed in the list. Number of employees allocated is based on demand of event.</p>
-</li>
-<li>
-<p>Test case: <code>allocate 1 t/male</code><br>
-    Expected: Employees, tagged [male] with non-conflicting schedules are allocated to the
-1st Event displayed in the list. Number of employees allocated is based on demand of event.</p>
-</li>
-<li>
-<p>Test case: <code>allocate 2 n/1</code><br>
-    Expected: 1 Employee with non-conflicting schedule is allocated to the
-2nd Event displayed in the list.</p>
-</li>
-<li>
-<p>Test case: <code>allocate 2 n/1 t/male</code><br>
-    Expected: 1 Employee, tagged [male], with non-conflicting schedules are allocated to the
-2nd Event displayed in the list.</p>
-</li>
-<li>
-<p>Test case: <code>allocate 0</code><br>
-    Expected: No employee is allocated to event.
-Error details shown in the status message.</p>
-</li>
-<li>
-<p>Other incorrect auto-allocate commands to try: <code>allocate</code>, <code>allocate x</code> (where x is larger than the list size)<br>
-Expected: Similar to previous.</p>
+<p>Test case: <code>generate_stats</code><br>
+   Expected: Statistics window will display statistics.
+Statistics window will be populated with different types of data including a list of upcoming events requiring manpower, a pie chart for these events based on their tags and a pie chart to represent the employee tags.
+If an event does not have any set tags, the user would likely allocate any employee to it.</p>
 </li>
 </ol>
 </div>
@@ -1880,7 +1847,29 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.9. Saving data</a></h3>
+<h3 id="generating-detailed-statistics"><a class="link" href="#generating-detailed-statistics">F.9. Generating Detailed Statistics</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Generating Detailed Statistics based on the current data on both events and employees.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Multiple events in the event list and multiple employees in the employee list. User must navigate to the Statistics tab.</p>
+</li>
+<li>
+<p>Test case: <code>generate_stats_detail</code><br>
+   Expected: New window will open displaying detaile statistics of both events and employees.
+Statistics pop-up window will be populated with statistical data based on the most current app data. This will be displayed in a text file format for the user to quickly scroll through and get the data they require.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">F.10. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1920,4 +1909,4 @@ Open the data folder which should contain employeebook.json and eventbook.json f
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:30:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:40:40 UTC</div></div></div></body></html>

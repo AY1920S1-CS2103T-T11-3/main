@@ -807,8 +807,8 @@ The lifeline for <code>AssignDateCommand</code> ends at the destroy marker (X).
 Instantiation of the <code>Event</code> object when the app is started will be more complicated as well due to the need to read from two separate files</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Decision: Alternative 1</strong><br></p>
-<p class="tableblock">Alternative 2 would make sense if our app is utilizing a DBMS and it would be a best practice to separate the information into separate tables.
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Decision: Alternative 1</strong><br>
+Alternative 2 would make sense if our app is utilizing a DBMS and it would be a best practice to separate the information into separate tables.
 However, as we are constrained with not utilizing a DBMS, <strong>Alternative 1</strong> is a logically simpler, shorter, and more efficent solution from a software engineering standpoint as it limits the amount of repeated code that we would have written to support another storage unit.</p></td>
 </tr>
 <tr>
@@ -826,8 +826,8 @@ Better User Experience - Narrowing the Start/End Date would naturally mean that 
 Increased risk of inadvertent deletion of existing Date-Time mappings from <code>Event</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Decision: Alternative 2</strong><br></p>
-<p class="tableblock">Alternative 2 offers better user experience by reducing the addition steps of hassle, especially since AddMin+ is focussed on automating and reducing the burdensome workload of administrative staff. Even so, we understand the risk of a user executing a typo and inadvertently delete existing Date-Time mappings. Hence, as a mitgating measure, we would be introducing a 'Confirmation' command in a <code>V2.0</code> feature that would allow the user to confirm and proceed with the <code>edit_ev</code> command if it were to delete existing Date-Time mappings due to a narrowing of the range.</p></td>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Decision: Alternative 2</strong><br>
+Alternative 2 offers better user experience by reducing the addition steps of hassle, especially since AddMin+ is focussed on automating and reducing the burdensome workload of administrative staff. Even so, we understand the risk of a user executing a typo and inadvertently delete existing Date-Time mappings. Hence, as a mitgating measure, we would be introducing a 'Confirmation' command in a <code>V2.0</code> feature that would allow the user to confirm and proceed with the <code>edit_ev</code> command if it were to delete existing Date-Time mappings due to a narrowing of the range.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1673,4 +1673,4 @@ Open the data folder which should contain employeebook.json and eventbook.json f
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:28:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:08:33 UTC</div></div></div></body></html>

@@ -135,10 +135,8 @@ and optimal for the users.</p>
 </li>
 <li>
 <p><strong>Minor features</strong>: Multiple Graphic User Interface improvements were made throughout the application to improve the user experience.
-The user experience was further optimised by enabling the tab recognition feature, where AddMin+ is able to identify which tab
-the user is on. This feature allows AddMin+ to bring users to the correct tab when a user inputs a command as well as restrict commands to
-specific tabs to prevent unusual behavior, which can cause users to be confused. It also enables AddMin+ to recognise which list the user is trying
-to edit on, and react accordingly. Other minor features includes the implementation of the <code>add_ev</code>, <code>edit_ev</code>, <code>find_em_tag</code> and <code>find_ev_tag</code> commands
+Implemented the tab recognition feature, which is used to restrict commands on specific tabs to prevent unusual behavior, which can cause users to be confused.
+Other minor features includes the implementation of the <code>add_ev</code>, <code>edit_ev</code>, <code>find_em_tag</code> and <code>find_ev_tag</code> commands
 for the AddMin+ App.</p>
 </li>
 <li>
@@ -146,41 +144,34 @@ for the AddMin+ App.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Employee</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/employee/TagContainsKeywordsPredicate.java"><code>TagContainsKeywordsPredicate</code></a>]</p>
+<p><strong>Model</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/employee/TagContainsKeywordsPredicate.java">TagContainsKeywords</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventContainsKeyDatePredicate.java">EventContainsKeyDate</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventContainsKeyDateRangePredicate.java">EventContainsKeyDateRange</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventContainsKeyYearMonthPredicate.java">EventContainsKeyYearMonth</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventTagContainsKeywordsPredicate.java">EventTagContainsKeywords</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/distinctdate/DistinctDate.java">DistinctDate</a>]</p>
 </li>
 <li>
-<p><strong>Event</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventContainsKeyDatePredicate.java"><code>EventContainsKeyDatePredicate</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventContainsKeyDateRangePredicate.java"><code>EventContainsKeyDateRangePredicate</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventContainsKeyYearMonthPredicate.java"><code>EventContainsKeyYearMonthPredicate</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventTagContainsKeywordsPredicate.java"><code>EventTagContainsKeywordsPredicate</code></a>]</p>
+<p><strong>Command</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/event/FindEventByTagCommand.java">FindEventByTag</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/employee/FindByTagCommand.java">FindEmployeeByTag</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/GenerateScheduleCommand.java">GenerateSchedule</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/DisplayScheduleBetweenCommand.java">DisplayScheduleBetween</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/DisplayScheduleForDateCommand.java">DisplayScheduleForDate</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/DisplayScheduleForYearMonthCommand.java">DisplayScheduleForYearMonth</a>]</p>
 </li>
 <li>
-<p><strong>DistinctDate</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/distinctdate/DistinctDate.java"><code>DistinctDate</code></a>]</p>
+<p><strong>Parser</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/schedule/DisplayScheduleBetweenParser.java">DisplayScheduleBetween</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/schedule/DisplayScheduleForDateParser.java">DisplayScheduleForDate</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/schedule/DisplayScheduleForYearMonthParser.java">DisplayScheduleForYearMonth</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/event/FindEventByTagCommandParser.java">FindEventByTag</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/employee/FindByTagCommandParser.java">FindEmployeeByTag</a>]</p>
 </li>
 <li>
-<p><strong>Command</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/DisplayScheduleBetweenCommand.java"><code>DisplayScheduleBetweenCommand</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/DisplayScheduleForDateCommand.java"><code>DisplayScheduleForDateCommand</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/DisplayScheduleForYearMonthCommand.java"><code>DisplayScheduleForYearMonthCommand</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/GenerateScheduleCommand.java"><code>GenerateScheduleCommand</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/event/FindEventByTagCommand.java"><code>FindEventByTagCommand</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/employee/FindByTagCommand.java"><code>FindByTagCommand</code></a>]</p>
-</li>
-<li>
-<p><strong>Parser</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/schedule/DisplayScheduleBetweenParser.java"><code>DisplayScheduleBetweenParser</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/schedule/DisplayScheduleForDateParser.java"><code>DisplayScheduleForDateParser</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/schedule/DisplayScheduleForYearMonthParser.java"><code>DisplayScheduleForYearMonthParser</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/event/FindEventByTagCommandParser.java"><code>FindEventByTagCommandParser</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/employee/FindByTagCommandParser.java"><code>FindByTagCommandParser</code></a>]</p>
-</li>
-<li>
-<p><strong>Processor</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/processor/DistinctDatesProcessor.java"><strong>DistinctDatesProcessor</strong></a>]</p>
-</li>
-<li>
-<p><strong>Ui</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/DateCard.java"><code>DateCard</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/DateWindow.java"><code>DateWindow</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/FetchEmployeeWindow.java"><code>FetchEmployeeWindow</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/ScheduleBox.java"><code>ScheduleBox</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/Tabs.java"><code>Tabs</code></a>]</p>
+<p><strong>Others</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/processor/DistinctDatesProcessor.java">DistinctDatesProcessor</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/DateCard.java">DateCard</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/DateWindow.java">DateWindow</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/FetchEmployeeWindow.java">FetchEmployeeWindow</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/ScheduleBox.java">ScheduleBox</a>]</p>
 </li>
 </ul>
 </div>
@@ -190,29 +181,27 @@ for the AddMin+ App.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Event</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/event/EventContainsKeyDatePredicateTest.java"><code>EventContainsKeyDatePredicateTest</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/event/EventContainsKeyDateRangePredicateTest.java"><code>EventContainsKeyDateRangePredicateTest</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/event/EventContainsKeyYearMonthPredicateTest.java"><code>EventContainsKeyYearMonthPredicateTest</code></a>]</p>
+<p><strong>Model</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/event/EventContainsKeyDatePredicateTest.java">EventContainsKeyDate</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/event/EventContainsKeyDateRangePredicateTest.java">EventContainsKeyDateRange</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/event/EventContainsKeyYearMonthPredicateTest.java">EventContainsKeyYearMonth</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/distinctdate/DistinctDateTest.java">DistinctDateTest</a>]</p>
 </li>
 <li>
-<p><strong>DistinctDate</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/distinctdate/DistinctDateTest.java"><code>DistinctDateTest</code></a>]</p>
+<p><strong>Command</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/GenerateScheduleCommandTest.java">GenerateSchedule</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/DisplayScheduleBetweenCommandTest.java">DisplayScheduleBetween</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/DisplayScheduleForDateCommandTest.java">DisplayScheduleForDate</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/DisplayScheduleForYearMonthCommandTest.java">DisplayScheduleForYearMonth</a>]</p>
 </li>
 <li>
-<p><strong>Command</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/DisplayScheduleBetweenCommandTest.java"><code>DisplayScheduleBetweenCommandTest</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/DisplayScheduleForDateCommandTest.java"><code>DisplayScheduleForDateCommandTest</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/DisplayScheduleForYearMonthCommandTest.java"><code>DisplayScheduleForYearMonthCommandTest</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/GenerateScheduleCommandTest.java"><code>GenerateScheduleCommandTest</code></a>]</p>
+<p><strong>Parser</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/parser/schedule/DisplayScheduleBetweenParserTest.java">DisplayScheduleBetween</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/parser/schedule/DisplayScheduleForDateParserTest.java">DisplayScheduleForDate</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/parser/schedule/DisplayScheduleForYearMonthParserTest.java">DisplayScheduleForYearMonth</a>]</p>
 </li>
 <li>
-<p><strong>Parser</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/parser/schedule/DisplayScheduleBetweenParserTest.java"><code>DisplayScheduleBetweenParserTest</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/parser/schedule/DisplayScheduleForDateParserTest.java"><code>DisplayScheduleForDateParserTest</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/parser/schedule/DisplayScheduleForYearMonthParserTest.java"><code>DisplayScheduleForYearMonthParserTest</code></a>]</p>
-</li>
-<li>
-<p><strong>TestUtil</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/DistinctDateBuilder.java"><code>DistinctDateBuilder</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/EventBuilder.java"><code>EventBuilder</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/TypicalDistinctDates.java"><code>TypicalDistinctDates</code></a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/TypicalEvents.java"><code>TypicalEvents</code></a>]</p>
+<p><strong>TestUtil</strong>: [<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/DistinctDateBuilder.java">DistinctDateBuilder</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/EventBuilder.java">EventBuilder</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/TypicalDistinctDates.java">TypicalDistinctDates</a>,
+<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/TypicalEvents.java">TypicalEvents</a>]</p>
 </li>
 </ul>
 </div>
@@ -226,10 +215,7 @@ for the AddMin+ App.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>In-charged of keep track of deadlines, submissions and issue trackers.</p>
-</li>
-<li>
-<p>In-charged of the entire team&#8217;s documentation quality.</p>
+<p>In-charged of keep track of deadlines, submissions and issue trackers as well as the entire team&#8217;s documentation quality.</p>
 </li>
 <li>
 <p>In-charged of Add and Edit event commands for AddMin+
@@ -273,8 +259,7 @@ test cases
 (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/233">#233</a>)</p>
 </li>
 <li>
-<p>Assisted in implementing AddMin+ tab recognition, to reduce any unusual app behavior, optimise user experience by allowing
-users to edit list on different tabs, as well as disallow certain commands depending on which tab the user is on.
+<p>Assisted in implementing AddMin+ tab recognition, to reduce any unusual app behavior.
 (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/155">#155</a>,
 <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/160">#160</a>,
 <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/265">#265</a>)</p>
@@ -290,11 +275,6 @@ users to edit list on different tabs, as well as disallow certain commands depen
 <p>Upgraded the GUI display and other GUI enhancements, such as the fetch employee window
 (Pull requests <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/102">#102</a>,
 <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/143">#143</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features
-(Pull requests <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/92">#92</a>,
-<a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/197">#197</a>)</p>
 </li>
 </ul>
 </div>
@@ -476,175 +456,6 @@ It does not take into account of the event&#8217;s set date and time.
 </tr>
 </table>
 </div>
-<hr>
-</div>
-<div class="sect3">
-<h4 id="display-schedule-for-a-specific-month-and-year-code-display_schedule_month-code"><a class="link" href="#display-schedule-for-a-specific-month-and-year-code-display_schedule_month-code">Display Schedule for a specific Month and Year: <code>display_schedule_month</code></a></h4>
-<div class="paragraph">
-<p>Now you would want to see all the events you have on a specific month and year.
-Instead of looking through the list of events you have, you could use the <code>display_schedule_month</code> command to do it!</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>display_schedule_month for/MM/yyyy</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>for/ represents the month and year in MM/yyyy that the user wants to display</p>
-</li>
-<li>
-<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>DATE</strong>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Example: To display schedule for a specific Month and Year (11/2019):</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1</strong>.
-Either type <code>display_schedule_month for/11/2019</code> into the command box or click on the month year picker buttons to navigate to the specific month and year.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiMonthStep1.png" alt="ScheduleUiMonthStep1">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 2</strong>.
-The result box will display a message informing you how many events are being listed.
-In this case, the message displayed is "2 events listed!"</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiMonthStep2.png" alt="ScheduleUiMonthStep2">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 3</strong>.
-In the event list, you will be able to see all the events that are on the specified month, year.
-In this case, there are 2 events on 11/2019 which are "Talk by DEF Company" and "Birthday Party".</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiMonthStep3.png" alt="ScheduleUiMonthStep3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The event list will be empty and not display anything if there is no event on the specified date.</p>
-</li>
-<li>
-<p>The command is designed to give an overview of the user&#8217;s schedule and is based on the event&#8217;s Start and End date.
-It does not take into account of the event&#8217;s set date and time.
-(To have a more detailed view of the event, simply double click on that event).</p>
-</li>
-<li>
-<p>As long as the user&#8217;s specified input month, year falls between the event&#8217;s start and end date, the event will be displayed.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<hr>
-</div>
-<div class="sect3">
-<h4 id="generate-entire-schedule-code-generate_schedule-code"><a class="link" href="#generate-entire-schedule-code-generate_schedule-code">Generate Entire Schedule: <code>generate_schedule</code></a></h4>
-<div class="paragraph">
-<p>Looking for a way to have an overview of all the dates that has an event?
-Use the <code>generate_schedule</code> command to do so.
-The <code>generate_schedule</code> command looks through the entire list of events and generates a new window with a list of all the dates which has an event and also displays all the events that happen on that date.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>generate_schedule</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The <code>generate_schedule</code> will only display dates and events that have a set date and time allocated to it.</p>
-</li>
-<li>
-<p>Events with no set date and time, will only be displayed according to it&#8217;s start and end date.</p>
-</li>
-<li>
-<p>The <code>generate_schedule</code> command opens a new window to display the new list of information.</p>
-</li>
-<li>
-<p>The <code>generate_schedule</code> command processes and creates the list based on when the command is called.</p>
-</li>
-<li>
-<p>Any changes to the events after the command will not be reflected.
-Users are advised to use the
-<code>generate_schedule</code> once all events are confirmed.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>To display the entire schedule:</strong></p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1</strong>.
-Either type <code>generate_schedule</code> into the command box or click on the generate schedule button to display the entire schedule.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiGenerateStep1.png" alt="ScheduleUiGenerateStep1">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 2</strong>.
-The result box will display the message "Schedule Generated".</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiGenerateStep2.png" alt="ScheduleUiGenerateStep2">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Step 3</strong>.
-A new window will open, displaying all the dates and events that are happening on those specific dates.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ScheduleUiGenerateStep3.png" alt="ScheduleUiGenerateStep3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The generated list will be empty and not display anything if there is no event in the current event list.
-</td>
-</tr>
-</table>
-</div>
 </div>
 </div>
 </div>
@@ -700,24 +511,15 @@ This operation utilises the generateDateList() and generateListOfEventForDate() 
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>The following class diagram shows the relationships between the different classes used by the <code>generate_schedule</code> command:</p>
-</div>
-<div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="../images/GenerateScheduleClassDiagram.png" alt="GenerateScheduleClassDiagram">
-</div>
-<div class="title">Figure 3. <em>Class Diagram for GenerateScheduleCommand</em></div>
-</div>
 <hr>
 <div class="paragraph">
 <p>Below is an example usage scenario and how the <code>display_schedule</code> command behaves at each step.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/GenerateScheduleFlowChart.png" alt="GenerateScheduleFlowChart" width="300">
+<img src="../images/GenerateScheduleFlowChart.png" alt="GenerateScheduleFlowChart" width="250">
 </div>
-<div class="title">Figure 4. <em>Program flow of the Generate Schedule Feature</em></div>
+<div class="title">Figure 3. <em>Program flow of the Generate Schedule Feature</em></div>
 </div>
 <div class="paragraph">
 <p><strong>Step 1</strong>.
@@ -739,8 +541,8 @@ The distinctDatesList will not be updated, and will not contain the new event th
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Any command that alters the eventBook will not change the distinctDatesList.
-The distinctDatesList will continue to store the original list until the User requires it by calling the <code>generate_schedule</code> command, where the distinctDateList will be generated again using the current EventList.
+Any command that alters the eventBook will not change the distinctDatesList. Only when the <code>generate_schedule</code> command is called,
+a new distinctDateList will be generated again using the latest EventList.
 </td>
 </tr>
 </table>
@@ -778,11 +580,11 @@ Done.</p>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>generate_schedule</code> operation works:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="../images/GenerateScheduleSequenceDiagram.png" alt="GenerateScheduleSequenceDiagram">
+<img src="../images/GenerateScheduleSequenceDiagram.png" alt="GenerateScheduleSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 5. <em>Sequence Diagram for generate_schedule Command</em></div>
+<div class="title">Figure 4. <em>Sequence Diagram for generate_schedule Command</em></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -802,47 +604,73 @@ The lifeline for <code>GenerateScheduleCommand</code> ends at the destroy marker
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 27.2727%;">
-<col style="width: 36.3636%;">
-<col style="width: 36.3637%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Feature</th>
-<th class="tableblock halign-left valign-top">Alternative 1</th>
-<th class="tableblock halign-left valign-top">Alternative 2</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Data Structure to support Generate Schedule Command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Generates and Processes the DistinctDate Object upon <code>generate_schedule</code> command. (Current choice)</p>
-<p class="tableblock"><strong>Pros</strong>: Easy to implement and requires less Storage Capacity and storage infrastructure to support the entire feature.</p>
-<p class="tableblock"><strong>Cons</strong>: May have performance issues in terms of speed and time Complexity if the user&#8217;s database gets extremely big. The program will have to iterate through the entire list of events and create
-the corresponding <code>DistinctDate</code> objects, whenever <code>generate_schedule</code> command is called.</p>
-<p class="tableblock"><strong>Decision: Alternative 1
-</strong> Alternative 1 makes more logical sense and will be more efficient as compared to Alternative 2. Alternative 1 requires less intermediate processing and storage units to support the feature.
-Processing is only done when it is needed. Looking at the use case of the <code>generate_schedule</code> command, it is likely to be used when the users have finalised all the events and details before generating
-the schedule.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates and Stores the DistinctDate object whenever a new event is added.</p>
-<p class="tableblock"><strong>Pros</strong>: Do not have to create a new list of DistinctDate object every time it is called.</p>
-<p class="tableblock"><strong>Cons</strong>: May have performance issues in terms of storage and processing needed, requires new storage unit to store a new entity which is not as important
-and frequently used. This implementation can cause speed and time complexity issues as well, whenever edits are made to the existing eventList - add_ev, delete_ev, etc
-the program is required to process through all DistinctDate Object to make the necessary changes. If the user does not even want to call the <code>generate_schedule</code> command
-after the changes, then this process is actually unnecessary and redundant.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UI Decisions for Generate Schedule Command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Display Directly on the Schedule Tab, update the list when <code>generate_schedule</code> command is called</p>
-<p class="tableblock"><strong>Pros</strong>: Users are able to view the generated schedule directly from the application&#8217;s schedule tab, without the need of another window.</p>
-<p class="tableblock"><strong>Cons</strong>: May cause confusion, as the list being displayed might be outdated if the user forgets to call the <code>generate_schedule</code> command after altering the events.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Display on a separate window generates and display the list on the new window when <code>generate_schedule</code> command is called. (Current choice)</p>
-<p class="tableblock"><strong>Pros</strong>: Allows for better user experience since the generated list is only displayed when the user needs it. Ensures that the list being
-displayed is always updated as of when the user needs it, since the window is only produced when <code>generate_schedule</code> command is called.</p>
-<p class="tableblock"><strong>Cons</strong>: Harder to implement, requires additional JavaFx windows and implementations. Will require additional windows being opened.</p>
-<p class="tableblock"><strong>Decision: Alternative 2
-</strong> Alternative 2 is a cleaner and more user-friendly approach compared to Alternative 1. Alternative 2 helps to prevent the Schedule Tab from being filled with too many lists and information.
-Alternative 2 also helps prevent user confusion, as the list that is displayed is always updated as of when it is called upon.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consideration 1</strong>:<br>
+Data Structure to support Generate Schedule Command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Generates and Processes the DistinctDate Object upon <code>generate_schedule</code> command. (Current choice)</strong>:<br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Easy to implement and requires less storage capacity and storage infrastructure to support the entire feature. <br></p>
+<p class="tableblock"><em>Cons:</em><br>
+The program will have to iterate through the entire list of events and create
+the corresponding <code>DistinctDate</code> objects, whenever <code>generate_schedule</code> command is called, can cause time complexity issue of database gets big.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Creates and Stores the DistinctDate object whenever a new event is added.</strong><br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Do not have to create a new list of DistinctDate object every time it is called. <br></p>
+<p class="tableblock"><em>Cons:</em><br>
+Requires new storage unit to store a new entity which is not as important and frequently used. This implementation can
+cause speed and time complexity issues as well, as the program is required to process through all DistinctDate Object whenever there are
+any changes to the event list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why We chose Alternative 1:</strong><br>
+Alternative 1 makes more logical sense and will be more efficient as compared to Alternative 2. Alternative 1 requires less intermediate processing and storage units to support the feature.
+Processing is only done when it is needed. Looking at the use case of the <code>generate_schedule</code> command, it is likely to be used when the users have finalised all the events and details before generating
+the schedule.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consideration 2</strong>:<br>
+ UI Decisions for Generate Schedule Command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Directly on the Schedule Tab, update the list when <code>generate_schedule</code> command is called</strong>:<br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Users are able to view the generated schedule directly from the application&#8217;s schedule tab, without the need of another window. <br></p>
+<p class="tableblock"><em>Cons:</em><br>
+May cause confusion, as the list being displayed might be outdated if the user forgets to call the <code>generate_schedule</code> command after altering the events.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display on a separate window generates and display the list on the new window when <code>generate_schedule</code> command is called. (Current choice)</strong><br></p>
+<p class="tableblock"> <em>Pros:</em><br>
+Allows for better user experience since the generated list is only displayed when the user needs it. Ensures that the list being
+displayed is always updated as of when the user needs it. <br></p>
+<p class="tableblock"> <em>Cons:</em><br>
+Harder to implement, requires additional JavaFx windows and implementations. Will require additional windows being opened.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why we chose Alternative 2:</strong><br>
+Alternative 2 is a cleaner and more user-friendly approach compared to Alternative 1. Alternative 2 helps to prevent the Schedule Tab from being filled with too many lists and information.
+Alternative 2 also helps prevent user confusion, as the list that is displayed is always updated as of when it is called upon.
+ <br></p></td>
 </tr>
 </tbody>
 </table>
@@ -863,12 +691,9 @@ in our project and also experience what it was like dealing with a brown-field p
 <p>Another aspect of software development which I felt is often overlooked is actually the non-technical aspect, such as
 documentation writing. However, through CS2101, we were able to learn the steps of writing quality documentation of our project
 that caters to our target audiences. Finally, even though the AddMin+ project was only 6 weeks long, I was able to pick up many valuable knowledge
-that will be essential in becoming a software developer in the future.</p>
-</div>
-<div class="paragraph">
-<p>If you would like to know more about me or AddMin+, feel free to drop by my <a href="https://shihaoyap.github.io/ShihaoResume/index.html">personal website</a> or
+that will be essential in becoming a software developer in the future. If you would like to know more about me or AddMin+, feel free to drop by my <a href="https://shihaoyap.github.io/ShihaoResume/index.html">personal website</a> or
 contact me via <a href="https://sg.linkedin.com/in/shi-hao-yap-964724169">LinkedIn</a>.</p>
 </div>
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:29:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:37:44 UTC</div></div></div></body></html>

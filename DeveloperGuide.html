@@ -872,7 +872,7 @@ This operation utilises the generateDateList() and generateListOfEventForDate() 
 <div class="paragraph">
 <p>The following class diagram shows the relationships between the different classes used by the <code>generate_schedule</code> command:</p>
 </div>
-<div class="imageblock" style="text-align: center">
+<div class="imageblock">
 <div class="content">
 <img src="images/GenerateScheduleClassDiagram.png" alt="GenerateScheduleClassDiagram">
 </div>
@@ -884,7 +884,7 @@ This operation utilises the generateDateList() and generateListOfEventForDate() 
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/GenerateScheduleFlowChart.png" alt="GenerateScheduleFlowChart" width="300">
+<img src="images/GenerateScheduleFlowChart.png" alt="GenerateScheduleFlowChart" width="250">
 </div>
 <div class="title">Figure 14. <em>Program flow of the Generate Schedule Feature</em></div>
 </div>
@@ -908,8 +908,8 @@ The distinctDatesList will not be updated, and will not contain the new event th
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Any command that alters the eventBook will not change the distinctDatesList.
-The distinctDatesList will continue to store the original list until the User requires it by calling the <code>generate_schedule</code> command, where the distinctDateList will be generated again using the current EventList.
+Any command that alters the eventBook will not change the distinctDatesList. Only when the <code>generate_schedule</code> command is called,
+a new distinctDateList will be generated again using the latest EventList.
 </td>
 </tr>
 </table>
@@ -947,9 +947,9 @@ Done.</p>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>generate_schedule</code> operation works:</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/GenerateScheduleSequenceDiagram.png" alt="GenerateScheduleSequenceDiagram">
+<img src="images/GenerateScheduleSequenceDiagram.png" alt="GenerateScheduleSequenceDiagram" width="700">
 </div>
 <div class="title">Figure 15. <em>Sequence Diagram for generate_schedule Command</em></div>
 </div>
@@ -971,47 +971,73 @@ The lifeline for <code>GenerateScheduleCommand</code> ends at the destroy marker
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design Considerations</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 27.2727%;">
-<col style="width: 36.3636%;">
-<col style="width: 36.3637%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Feature</th>
-<th class="tableblock halign-left valign-top">Alternative 1</th>
-<th class="tableblock halign-left valign-top">Alternative 2</th>
-</tr>
-</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Data Structure to support Generate Schedule Command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Generates and Processes the DistinctDate Object upon <code>generate_schedule</code> command. (Current choice)</p>
-<p class="tableblock"><strong>Pros</strong>: Easy to implement and requires less Storage Capacity and storage infrastructure to support the entire feature.</p>
-<p class="tableblock"><strong>Cons</strong>: May have performance issues in terms of speed and time Complexity if the user&#8217;s database gets extremely big. The program will have to iterate through the entire list of events and create
-the corresponding <code>DistinctDate</code> objects, whenever <code>generate_schedule</code> command is called.</p>
-<p class="tableblock"><strong>Decision: Alternative 1
-</strong> Alternative 1 makes more logical sense and will be more efficient as compared to Alternative 2. Alternative 1 requires less intermediate processing and storage units to support the feature.
-Processing is only done when it is needed. Looking at the use case of the <code>generate_schedule</code> command, it is likely to be used when the users have finalised all the events and details before generating
-the schedule.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Creates and Stores the DistinctDate object whenever a new event is added.</p>
-<p class="tableblock"><strong>Pros</strong>: Do not have to create a new list of DistinctDate object every time it is called.</p>
-<p class="tableblock"><strong>Cons</strong>: May have performance issues in terms of storage and processing needed, requires new storage unit to store a new entity which is not as important
-and frequently used. This implementation can cause speed and time complexity issues as well, whenever edits are made to the existing eventList - add_ev, delete_ev, etc
-the program is required to process through all DistinctDate Object to make the necessary changes. If the user does not even want to call the <code>generate_schedule</code> command
-after the changes, then this process is actually unnecessary and redundant.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UI Decisions for Generate Schedule Command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Display Directly on the Schedule Tab, update the list when <code>generate_schedule</code> command is called</p>
-<p class="tableblock"><strong>Pros</strong>: Users are able to view the generated schedule directly from the application&#8217;s schedule tab, without the need of another window.</p>
-<p class="tableblock"><strong>Cons</strong>: May cause confusion, as the list being displayed might be outdated if the user forgets to call the <code>generate_schedule</code> command after altering the events.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Display on a separate window generates and display the list on the new window when <code>generate_schedule</code> command is called. (Current choice)</p>
-<p class="tableblock"><strong>Pros</strong>: Allows for better user experience since the generated list is only displayed when the user needs it. Ensures that the list being
-displayed is always updated as of when the user needs it, since the window is only produced when <code>generate_schedule</code> command is called.</p>
-<p class="tableblock"><strong>Cons</strong>: Harder to implement, requires additional JavaFx windows and implementations. Will require additional windows being opened.</p>
-<p class="tableblock"><strong>Decision: Alternative 2
-</strong> Alternative 2 is a cleaner and more user-friendly approach compared to Alternative 1. Alternative 2 helps to prevent the Schedule Tab from being filled with too many lists and information.
-Alternative 2 also helps prevent user confusion, as the list that is displayed is always updated as of when it is called upon.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consideration 1</strong>:<br>
+Data Structure to support Generate Schedule Command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Generates and Processes the DistinctDate Object upon <code>generate_schedule</code> command. (Current choice)</strong>:<br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Easy to implement and requires less storage capacity and storage infrastructure to support the entire feature. <br></p>
+<p class="tableblock"><em>Cons:</em><br>
+The program will have to iterate through the entire list of events and create
+the corresponding <code>DistinctDate</code> objects, whenever <code>generate_schedule</code> command is called, can cause time complexity issue of database gets big.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Creates and Stores the DistinctDate object whenever a new event is added.</strong><br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Do not have to create a new list of DistinctDate object every time it is called. <br></p>
+<p class="tableblock"><em>Cons:</em><br>
+Requires new storage unit to store a new entity which is not as important and frequently used. This implementation can
+cause speed and time complexity issues as well, as the program is required to process through all DistinctDate Object whenever there are
+any changes to the event list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why We chose Alternative 1:</strong><br>
+Alternative 1 makes more logical sense and will be more efficient as compared to Alternative 2. Alternative 1 requires less intermediate processing and storage units to support the feature.
+Processing is only done when it is needed. Looking at the use case of the <code>generate_schedule</code> command, it is likely to be used when the users have finalised all the events and details before generating
+the schedule.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Consideration 2</strong>:<br>
+ UI Decisions for Generate Schedule Command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display Directly on the Schedule Tab, update the list when <code>generate_schedule</code> command is called</strong>:<br></p>
+<p class="tableblock"><em>Pros:</em><br>
+Users are able to view the generated schedule directly from the application&#8217;s schedule tab, without the need of another window. <br></p>
+<p class="tableblock"><em>Cons:</em><br>
+May cause confusion, as the list being displayed might be outdated if the user forgets to call the <code>generate_schedule</code> command after altering the events.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Display on a separate window generates and display the list on the new window when <code>generate_schedule</code> command is called. (Current choice)</strong><br></p>
+<p class="tableblock"> <em>Pros:</em><br>
+Allows for better user experience since the generated list is only displayed when the user needs it. Ensures that the list being
+displayed is always updated as of when the user needs it. <br></p>
+<p class="tableblock"> <em>Cons:</em><br>
+Harder to implement, requires additional JavaFx windows and implementations. Will require additional windows being opened.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Why we chose Alternative 2:</strong><br>
+Alternative 2 is a cleaner and more user-friendly approach compared to Alternative 1. Alternative 2 helps to prevent the Schedule Tab from being filled with too many lists and information.
+Alternative 2 also helps prevent user confusion, as the list that is displayed is always updated as of when it is called upon.
+ <br></p></td>
 </tr>
 </tbody>
 </table>
@@ -1647,4 +1673,4 @@ Open the data folder which should contain employeebook.json and eventbook.json f
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:29:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:37:44 UTC</div></div></div></body></html>

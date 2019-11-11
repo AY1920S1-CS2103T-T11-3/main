@@ -1073,7 +1073,7 @@ as shown in the 2nd figure in <a href="#manual-allocation-of-employees-to-events
 <div class="sect3">
 <h4 id="set_ev_dt"><a class="link" href="#set_ev_dt">3.4.5. Setting a Date&amp;Time to an Event: <code>set_ev_dt</code></a></h4>
 <div class="paragraph">
-<p>Sets a Date-Time mapping to an specific Event.</p>
+<p>Sets a Date-Time Schedule Mapping for a specific Event.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1082,27 +1082,13 @@ as shown in the 2nd figure in <a href="#manual-allocation-of-employees-to-events
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Events are initialized without any schedule, other than their stated start and end date with a default time of 0800-1800.
-Hence, the mapping <em>declares</em> the schedule for the dates that the event is being held.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Fields in [] are optional.<br>
-If <code>EVENT_DATE</code> is not stated, then all dates inclusive of the start to end date will be filled with the stated <code>EVENT_DAYTIME</code>
+Even though the start date and end dates of each event is stated, the event is not assumed to be held for the entire range. Hence, the Date-Time setting feature enables the user to <em>declare and set</em> the schedule of the event. Events are initialized without any schedule, other than their stated start and end date with a default time of <em>0800-1800</em>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Format: <code>set_ev_dt EVENT_INDEX [on/EVENT_DATE] time/EVENT_DAYTIME</code></p>
+<p>Format: <code>set_ev_dt EVENT_INDEX [on/EVENT_DATE] [till/EVENT_DATE] time/EVENT_DAYTIME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1112,7 +1098,22 @@ If <code>EVENT_DATE</code> is not stated, then all dates inclusive of the start 
 <p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong>, <strong>DATE</strong>, and <strong>TIME PERIOD</strong>.</p>
 </li>
 <li>
-<p>THE <code>EVENT_DATE</code> <strong>must be within the Event&#8217;s Start and End Date</strong></p>
+<p>If <strong>both</strong> the <code>on/</code> and <code>till/</code> prefixes are <strong>not used</strong>, then all dates inclusive of the start to end date of the target event will be set with the stated <code>EVENT_DAYTIME</code>.</p>
+</li>
+<li>
+<p>If <strong>both</strong> the <code>on/</code> and <code>till/</code> prefixes are used, then the date range (inclusive) from the start to end date stated will be set with the stated <code>EVENT_DAYTIME</code>.</p>
+</li>
+<li>
+<p>If <strong>only</strong> the <code>on/</code> prefix is used, it will just set the <code>EVENT_DAYTIME</code> for the <em>single</em> stated <code>EVENT_DATE</code>.</p>
+</li>
+<li>
+<p>The <code>till/</code> prefix must be used with the <code>on/</code> prefix, and not by itself.</p>
+</li>
+<li>
+<p>All <code>EVENT_DATE</code> <strong>must be within the range of the Target Event&#8217;s Start and End Date</strong></p>
+</li>
+<li>
+<p>The <code>EVENT_DATE</code> declared by the <code>on/</code> prefix cannot be after the <code>EVENT_DATE</code> declared by the <code>till/</code> prefix</p>
 </li>
 </ul>
 </div>
@@ -1125,11 +1126,15 @@ If <code>EVENT_DATE</code> is not stated, then all dates inclusive of the start 
 <ul>
 <li>
 <p><code>set_ev_dt 2 on/02/10/2019 time/1000-2000</code><br>
-Sets the 2nd Event from the Event List a time period of 10am-10pm on the date 2nd of October 2019.</p>
+Sets the 2nd Event from the Event List a time period of 10am-8pm on the 2nd of October 2019.</p>
 </li>
 <li>
 <p><code>set_ev_dt 3 time/0500-1500</code><br>
-Sets the 1st Event from the Event List a time period of 5am-3pm on all dates from the start to the end date (inclusive).</p>
+Sets the 3rd Event from the Event List a time period of 5am-3pm on all dates from the start to the end date (inclusive) of the Event.</p>
+</li>
+<li>
+<p><code>set_ev_dt 1 on/02/10/2019 till/10/10/2019 time/0500-1500</code><br>
+Sets the 1st Event from the Event List a time period of 5am-3pm on all dates from the 2nd of October to the 10th of October (inclusive).</p>
 </li>
 </ul>
 </div>
@@ -1137,20 +1142,29 @@ Sets the 1st Event from the Event List a time period of 5am-3pm on all dates fro
 <div class="sect3">
 <h4 id="delete-a-datetime-mapping-from-an-event-code-delete_ev_dt-code"><a class="link" href="#delete-a-datetime-mapping-from-an-event-code-delete_ev_dt-code">3.4.6. Delete a DateTime Mapping from an Event: <code>delete_ev_dt</code></a></h4>
 <div class="paragraph">
-<p>Deletes a mapping on a specific date for a specific event.</p>
+<p>Deletes Date-Time mappings for a specific event by stating a single date or a range of dates.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete_ev_dt EVENT_INDEX on/EVENT_DATE</code></p>
+<p>Format: <code>delete_ev_dt EVENT_INDEX on/EVENT_DATE [till/EVENT_DATE]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>EVENT_INDEX</code> refers to the index number shown in the displayed event list.</p>
+<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong> and <strong>DATE</strong>.</p>
 </li>
 <li>
-<p>Note the <a href="#Constraints">[Constraints]</a> for <strong>INDEX</strong> and <strong>DATE</strong>.</p>
+<p>If <strong>both</strong> the <code>on/</code> and <code>till/</code> prefixes are used, then the Date-Time mapping for the date range (inclusive) from the start to end date stated will be deleted.</p>
+</li>
+<li>
+<p>If <strong>only</strong> the <code>on/</code> prefix is used, it will just delete the Date_Time mapping for the <em>single</em> stated <code>EVENT_DATE</code>.</p>
+</li>
+<li>
+<p>All <code>EVENT_DATE</code> <strong>must be within the range of the Target Event&#8217;s Start and End Date</strong></p>
+</li>
+<li>
+<p>The <code>EVENT_DATE</code> declared by the <code>on/</code> prefix cannot be after the <code>EVENT_DATE</code> declared by the <code>till/</code> prefix</p>
 </li>
 </ul>
 </div>
@@ -1163,7 +1177,11 @@ Sets the 1st Event from the Event List a time period of 5am-3pm on all dates fro
 <ul>
 <li>
 <p><code>delete_ev_dt 2 on/18/10/2019</code><br>
-Deletes the mapping on 18th October from the 2nd Event on the Event list.</p>
+Deletes the Date-Time mapping on 18th October from the 2nd Event on the Event list.</p>
+</li>
+<li>
+<p><code>delete_ev_dt 2 on/18/10/2019 till/22/10/2019</code><br>
+Deletes all Date-Time mappings that lie in the range of 18th - 22nd of October 2019 from the 2nd Event on the Event list.</p>
 </li>
 </ul>
 </div>
@@ -1171,8 +1189,7 @@ Deletes the mapping on 18th October from the 2nd Event on the Event list.</p>
 <div class="sect3">
 <h4 id="clear-all-datetime-mappings-from-an-event-code-clear_ev_dt-code"><a class="link" href="#clear-all-datetime-mappings-from-an-event-code-clear_ev_dt-code">3.4.7. Clear all DateTime Mappings from an Event: <code>clear_ev_dt</code></a></h4>
 <div class="paragraph">
-<p>Clears all date-time mappings for a specific event.
-As a side effect, all manpower allocated to the event will be de-allocated.</p>
+<p>Clears all Date-Time mappings for a specific event.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>clear_ev_dt EVENT_INDEX</code></p>
@@ -1873,4 +1890,4 @@ such as the location, budget, and date.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:35:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:39:09 UTC</div></div></div></body></html>

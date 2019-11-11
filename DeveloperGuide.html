@@ -649,7 +649,7 @@ which states that objects should not navigate internal structures of other objec
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In our implementation, when the Event is instantiated, a mapping of the start and end date of the period 0800-1800 is automatically created.
+In our implementation, when the Event is instantiated, the time period of 0800-1800 is automatically created and mapped to the Start &amp; End Dates of the Event.
 </td>
 </tr>
 </table>
@@ -674,7 +674,8 @@ This mapping is added through the <code>EventAssignDate</code> command.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-To improve user productivity and effectiveness, omitting the target date from the command text will automatically create the mapping for the all dates, start and end inclusive.
+To improve user productivity and effectiveness, omitting the target date from the command text will automatically create the mapping for every date from the Event&#8217;s start to end date, inclusive.
+Alternatively, by specifying both a start and end date range in the command text, a mapping for the range will be created.
 </td>
 </tr>
 </table>
@@ -683,19 +684,19 @@ To improve user productivity and effectiveness, omitting the target date from th
 <p>Given below is an example usage scenario of the program functionality when a user attempts to assign a Date &amp; Time to an already existent Event.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>. The User executes the command <code>set_ev_dt 2 on/18/10/2019 time/0900-2000</code>, with the intention to assign the date of 18th October 2019, time period 9am-8pm to the second event currently displayed in the event list. Alternatively, if the date is omitted, i.e. <code>set_ev_dt 2 time/0900-2000</code>, the time period 0900-2000 will be automatically assigned for all dates from the start to end date of the Event.</p>
+<p><strong>Step 1</strong>. The User executes the command <code>set_ev_dt 2 on/18/10/2019 time/0900-2000</code>, with the intention to assign the date of 18th October 2019, time period 9am-8pm to the second event currently displayed in the event list. If the date is omitted, i.e. <code>set_ev_dt 2 time/0900-2000</code>, the time period 0900-2000 will be automatically assigned for all dates from the start to end date of the Event. Alternatively, if the end date is stated, i.e. <code>set_ev_dt 2 on/18/10/2019 time/22/10/2019 time/0900-2000</code>, the time period of 0900-2000 will be assigned for all dates from 18th to 22nd of October.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 2</strong>. The parser checks if input format is correct, and attempts to create <code>Index</code>, <code>EventDate</code> and <code>EventDayTime</code> objects from it</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>. The command checks if the index of the event stated exists on the displayed list, and if the stated date is within the start and end date of the Event. (Input Validation)</p>
+<p><strong>Step 3</strong>. The command checks if the index of the event stated exists on the displayed list, and if the stated dates is within the start and end date of the Event. (Input Validation)</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 4</strong>. The command calls <code>Event#assignDateTime()</code> on the referenced Event object to add the EventDate-EventDayTime mapping into <code>EventDateTimeMap</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5</strong>. Repeat Step 4 if the target date was omitted in the command, until all dates from the Start to End (inclusive) has been added to the <code>EventDateTimeMap</code>.</p>
+<p><strong>Step 5</strong>. If only a single target date is stated, continue to Step 6. Else, the system will repeat Step 4 through the entire date range - which is either the start and end date of the <code>Event</code> or the range specified by the user.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 6</strong>. DateTimeMapping is converted a String to save and update in Storage.</p>
@@ -716,7 +717,7 @@ If the command execution fails, a <code>ParseException</code> (from Step 2) or a
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>AssignDateCommand</code>  works:</p>
+<p>The following sequence diagram shows how the <code>AssignDateCommand</code> works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1574,4 +1575,4 @@ employeebook.json and eventbook.json files.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:35:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:39:09 UTC</div></div></div></body></html>

@@ -136,7 +136,8 @@
 <div class="title">Figure 1. <em>Architecture Diagram</em></div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App.
+Given below is a quick overview of each component.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -152,7 +153,8 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>.
+It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -242,11 +244,15 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>ListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.
-There are also <code>ScheduleBox</code>, <code>Finance</code>, <code>StatisticBox</code> which are of the tabs in the TabPane of <code>MainWindow</code>, of which all of them inherits from the abstract class <code>Tabs</code>. The abstract class <code>Tabs</code> also inherits from the abstract class <code>UiPart</code>.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>ListPanel</code>, <code>StatusBarFooter</code> etc.
+All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.
+There are also <code>ScheduleBox</code>, <code>Finance</code>, <code>StatisticBox</code> which are of the tabs in the TabPane of <code>MainWindow</code>, of which all of them inherits from the abstract class <code>Tabs</code>.
+The abstract class <code>Tabs</code> also inherits from the abstract class <code>UiPart</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework.
+The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder.
+For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -352,7 +358,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in both <code>Employee Book</code> and <code>Event Book</code>, which <code>Employee</code> can reference. This would allow our application to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Employee</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Tag</code> list in both <code>Employee Book</code> and <code>Event Book</code>, which <code>Employee</code> can reference.
+This would allow our application to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Employee</code> needing their own <code>Tag</code> object.
+An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
@@ -427,8 +435,7 @@ As a more OOP model, we can store a <code>Tag</code> list in both <code>Employee
 <p>Pros: Easier to implement as would not have to mannage storage of statistical data.</p>
 </li>
 <li>
-<p>Cons: App may have overall lower performance, with the possibility of lag as the app needs to read
-through all the stored data and generate the statistics data whenever it is queried.</p>
+<p>Cons: App may have overall lower performance, with the possibility of lag as the app needs to read through all the stored data and generate the statistics data whenever it is queried.</p>
 </li>
 </ul>
 </div>
@@ -481,12 +488,10 @@ The <code>AutoAllocateCommand</code> takes in three arguments:</p>
 <p><code>Event#isAvailableForEvent()</code>&#8201;&#8212;&#8201;Checks if an employee is available for the event.</p>
 </li>
 <li>
-<p><code>AutoAllocateCommand#createAvailableEmployeeListForEvent()</code>&#8201;&#8212;&#8201;Creates a list of employees available for the event,
-filtered by the tags specified by user.</p>
+<p><code>AutoAllocateCommand#createAvailableEmployeeListForEvent()</code>&#8201;&#8212;&#8201;Creates a list of employees available for the event, filtered by the tags specified by user.</p>
 </li>
 <li>
-<p><code>AutoAllocateCommand#getManpowerNeededByEvent()</code>&#8201;&#8212;&#8201;Calculates the number of employees currently required
-by the event.</p>
+<p><code>AutoAllocateCommand#getManpowerNeededByEvent()</code>&#8201;&#8212;&#8201;Calculates the number of employees currently required by the event.</p>
 </li>
 <li>
 <p><code>AutoAllocateCommand#createEventAfterManpowerAllocation()</code>&#8201;&#8212;&#8201;Creates a new event with an updated manpower list.</p>
@@ -503,13 +508,14 @@ by the event.</p>
 <div class="title">Figure 9. <em>Program flow of the Auto Allocate Feature</em></div>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>. The user executes <code>allocate 1 n/2 t/female</code> with the intention to allocate 2 employees with tag [female]
+<p><strong>Step 1</strong>.
+The user executes <code>allocate 1 n/2 t/female</code> with the intention to allocate 2 employees with tag [female]
 to the 1st event displayed in the event list.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2</strong>. The command checks if <code>eventIndex</code> is valid and if <code>ManpowerCountToAdd</code> is specified.
-The command also checks if the event still requires manpower, and if manpower count stated by user
-exceeds that needed by the event.</p>
+<p><strong>Step 2</strong>.
+The command checks if <code>eventIndex</code> is valid and if <code>ManpowerCountToAdd</code> is specified.
+The command also checks if the event still requires manpower, and if manpower count stated by user exceeds that needed by the event.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -524,16 +530,16 @@ If <code>ManpowerCountToAdd</code> is not specified, it is assumed to be the max
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>. The command calls its own method <code>AutoAllocateCommand#getManpowerNeededByEvent()</code> to get the number of employees
-required by the specified event.</p>
+<p><strong>Step 3</strong>.
+The command calls its own method <code>AutoAllocateCommand#getManpowerNeededByEvent()</code> to get the number of employees required by the specified event.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 4</strong>. The command calls its own method <code>AutoAllocateCommand#createAvailableEmployeeListForEvent()</code> to create a
-filtered list of employees based on the <code>tagList</code> and if employee satisfies <code>Event#isAvailableForEvent()</code>.</p>
+<p><strong>Step 4</strong>.
+The command calls its own method <code>AutoAllocateCommand#createAvailableEmployeeListForEvent()</code> to create a filtered list of employees based on the <code>tagList</code> and if employee satisfies <code>Event#isAvailableForEvent()</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5</strong>. The command checks if supply (generated in <strong>step 4</strong>) exceeds
-demand (generated in <strong>step 3</strong>) of the event.</p>
+<p><strong>Step 5</strong>.
+The command checks if supply (generated in <strong>step 4</strong>) exceeds demand (generated in <strong>step 3</strong>) of the event.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -542,14 +548,15 @@ demand (generated in <strong>step 3</strong>) of the event.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If demand exceeds supply, an exception will be thrown to the user. If the supply exceeds demand, employees will be randomly selected instead.
+If demand exceeds supply, an exception will be thrown to the user.
+If the supply exceeds demand, employees will be randomly selected instead.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 6</strong>. The command calls <code>Event#createEventAfterManpowerAllocation()</code> to create a new event with an updated
-manpower list.</p>
+<p><strong>Step 6</strong>.
+The command calls <code>Event#createEventAfterManpowerAllocation()</code> to create a new event with an updated manpower list.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -564,7 +571,8 @@ For storage purposes, only the <code>Employee#EmployeeId</code> is saved in the 
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 7</strong>. Done.</p>
+<p><strong>Step 7</strong>.
+Done.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the auto allocation works:</p>
@@ -582,8 +590,7 @@ For storage purposes, only the <code>Employee#EmployeeId</code> is saved in the 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The lifeline for <code>AutoAllocateCommand</code> should end at the destroy marker (X) but due to a limitation of
-PlantUML, the lifeline reaches the end of diagram.
+The lifeline for <code>AutoAllocateCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </td>
 </tr>
 </table>
@@ -640,7 +647,8 @@ which states that objects should not navigate internal structures of other objec
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">4.3.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>Event</code> object is constructed with a start date and an end date as class attributes, both of which are <code>EventDate</code> objects, which represents a single day by itself. Our implementation of <code>Event</code> does not assume that the event will be occurring consecutively from the start to the end date, and requires the user to manually assign each specific date with the time period that the Event is in process.</p>
+<p>The <code>Event</code> object is constructed with a start date and an end date as class attributes, both of which are <code>EventDate</code> objects, which represents a single day by itself.
+Our implementation of <code>Event</code> does not assume that the event will be occurring consecutively from the start to the end date, and requires the user to manually assign each specific date with the time period that the Event is in process.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -655,17 +663,29 @@ In our implementation, when the Event is instantiated, the time period of 0800-1
 </table>
 </div>
 <div class="paragraph">
-<p>To achieve this functionality, there exists an <code>EventDayTime</code> object that encapsulates the period of the day. It has two class attributes - both of which are <code>LocalTime</code> objects to represent the start and end time.</p>
+<p>To achieve this functionality, there exists an <code>EventDayTime</code> object that encapsulates the period of the day.
+It has two class attributes - both of which are <code>LocalTime</code> objects to represent the start and end time.</p>
 </div>
 <div class="paragraph">
 <p>Each Event contains an <code>EventDateTimeMap</code> object that maps an <code>EventDate</code> object to an <code>EventDayTime</code> object using a HashMap implementation.
 This mapping is added through the <code>EventAssignDate</code> command.</p>
 </div>
 <div class="paragraph">
-<p>It requires the use of the following objects/methods from the <code>event</code> package.
-* <code>EventContainsKeyDatePredicate</code> - Check whether the stated date exists within the range of the Event&#8217;s Start and End Date.
-* <code>Event#assignDateTime</code> - Calls the <code>EventDateTimeMap</code> object to insert a Date-Time mapping.
-* <code>EventDate#datesUntil</code> - Returns a Stream of <code>EventDates</code> from the Start to End Date. Used to auto-set a DateTime mapping for all dates.</p>
+<p>It requires the use of the following objects/methods from the <code>event</code> package.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EventContainsKeyDatePredicate</code> - Check whether the stated date exists within the range of the Event&#8217;s Start and End Date.</p>
+</li>
+<li>
+<p><code>Event#assignDateTime</code> - Calls the <code>EventDateTimeMap</code> object to insert a Date-Time mapping.</p>
+</li>
+<li>
+<p><code>EventDate#datesUntil</code> - Returns a Stream of <code>EventDates</code> from the Start to End Date.
+Used to auto-set a DateTime mapping for all dates.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -684,25 +704,35 @@ Alternatively, by specifying both a start and end date range in the command text
 <p>Given below is an example usage scenario of the program functionality when a user attempts to assign a Date &amp; Time to an already existent Event.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>. The User executes the command <code>set_ev_dt 2 on/18/10/2019 time/0900-2000</code>, with the intention to assign the date of 18th October 2019, time period 9am-8pm to the second event currently displayed in the event list. If the date is omitted, i.e. <code>set_ev_dt 2 time/0900-2000</code>, the time period 0900-2000 will be automatically assigned for all dates from the start to end date of the Event. Alternatively, if the end date is stated, i.e. <code>set_ev_dt 2 on/18/10/2019 time/22/10/2019 time/0900-2000</code>, the time period of 0900-2000 will be assigned for all dates from 18th to 22nd of October.</p>
+<p><strong>Step 1</strong>.
+The User executes the command <code>set_ev_dt 2 on/18/10/2019 time/0900-2000</code>, with the intention to assign the date of 18th October 2019, time period 9am-8pm to the second event currently displayed in the event list.
+If the date is omitted, i.e. <code>set_ev_dt 2 time/0900-2000</code>, the time period 0900-2000 will be automatically assigned for all dates from the start to end date of the Event.
+Alternatively, if the end date is stated, i.e. <code>set_ev_dt 2 on/18/10/2019 time/22/10/2019 time/0900-2000</code>, the time period of 0900-2000 will be assigned for all dates from 18th to 22nd of October.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2</strong>. The parser checks if input format is correct, and attempts to create <code>Index</code>, <code>EventDate</code> and <code>EventDayTime</code> objects from it</p>
+<p><strong>Step 2</strong>.
+The parser checks if input format is correct, and attempts to create <code>Index</code>, <code>EventDate</code> and <code>EventDayTime</code> objects from it</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>. The command checks if the index of the event stated exists on the displayed list, and if the stated dates is within the start and end date of the Event. (Input Validation)</p>
+<p><strong>Step 3</strong>.
+The command checks if the index of the event stated exists on the displayed list, and if the stated dates is within the start and end date of the Event.
+(Input Validation)</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 4</strong>. The command calls <code>Event#assignDateTime()</code> on the referenced Event object to add the EventDate-EventDayTime mapping into <code>EventDateTimeMap</code>.</p>
+<p><strong>Step 4</strong>.
+The command calls <code>Event#assignDateTime()</code> on the referenced Event object to add the EventDate-EventDayTime mapping into <code>EventDateTimeMap</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5</strong>. If only a single target date is stated, continue to Step 6. Else, the system will repeat Step 4 through the entire date range - which is either the start and end date of the <code>Event</code> or the range specified by the user.</p>
+<p><strong>Step 5</strong>.
+If only a single target date is stated, continue to Step 6. Else, the system will repeat Step 4 through the entire date range - which is either the start and end date of the <code>Event</code> or the range specified by the user.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 6</strong>. DateTimeMapping is converted a String to save and update in Storage.</p>
+<p><strong>Step 6</strong>.
+DateTimeMapping is converted a String to save and update in Storage.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 7</strong>. Done.</p>
+<p><strong>Step 7</strong>.
+Done.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -749,8 +779,9 @@ The lifeline for <code>AssignDateCommand</code> ends at the destroy marker (X).
 </div>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-storage-of-datetimemap"><a class="link" href="#aspect-storage-of-datetimemap">Aspect: Storage of DateTimeMap</a></h5>
+<div class="paragraph">
+<p>Below, we discuss two key aspects - how we store EventDateTimeMap and how commands to edit <code>Event</code> affect the <code>EventDateTimeMap</code>.</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 27.2727%;">
@@ -759,28 +790,47 @@ The lifeline for <code>AssignDateCommand</code> ends at the destroy marker (X).
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">Aspect</th>
 <th class="tableblock halign-left valign-top">Alternative 1</th>
 <th class="tableblock halign-left valign-top">Alternative 2</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Storage of DateTimeMap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Storage of DateTimeMap</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stores the DateTimeMap in an string format that is saved in a field of an <code>Event</code> in <code>eventbook.json</code>.<br></p>
 <p class="tableblock"><strong>Pros:</strong> Simplicity in implementation and easier reference as it is loaded and saved to the same JSON file.</p>
-<p class="tableblock"><strong>Cons:</strong> Performance issues as it needs to update the entire event object although only one attribute is updated</p>
-<p class="tableblock"><strong>Decision:</strong>
-Alternative 2 would make sense if our app is utilizing a DBMS and it would be a best practice to separate the information.
-However, as we are constrained with not utilizing a DBMS, <strong>Alternative 1</strong> is logically simpler, shorter, and more efficent solution from a software engineering standpoint as it limits the amount of repeated code that we would have written to support another sotrage unit.</p></td>
+<p class="tableblock"><strong>Cons:</strong> Performance issues as it needs to update the entire event object although only one attribute is updated</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Store the DateTimeMap in a separate file e.g. <code>EventDateTimes.json</code> that will be referenced by EventBook during initialization.</p>
 <p class="tableblock"><strong>Pros:</strong> Faster performance in saving and loading as it is kept separate from <code>eventbook.json</code> and hence will not</p>
 <p class="tableblock"><strong>Cons:</strong> Requires a new storage unit, along with all its supporting functions which will require alot of repeated code.
 Instantiation of the <code>Event</code> object when the app is started will be more complicated as well due to the need to read from two separate files</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Decision: Alternative 1</strong><br></p>
+<p class="tableblock">Alternative 2 would make sense if our app is utilizing a DBMS and it would be a best practice to separate the information into separate tables.
+However, as we are constrained with not utilizing a DBMS, <strong>Alternative 1</strong> is a logically simpler, shorter, and more efficent solution from a software engineering standpoint as it limits the amount of repeated code that we would have written to support another storage unit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Impact of Edit Event on <code>EventDateTimeMap</code></strong> <br></p>
+<p class="tableblock">The <code>edit_ev</code> command does not edit the DateTime mapping of an <code>Event</code> itself - this is done through the <code>set_ev_dt</code> or the <code>delete_ev_dt</code> instead. However, if the event has its start or end date fields edited, it will affect the <code>EventDateTimeMap</code> as its mapping may suddenly be out of range of the edited <code>Event</code> start and end dates.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prevent the editing of Event Dates if the <code>Event</code> date range is reduced and will cause existing Date-Time Mappings to fall out of edited Event&#8217;s Start-End Date Range.</p>
+<p class="tableblock"><strong>Pros:</strong>
+Greatly reduce the potential for buggy behavior, as <code>EventDateTimeMap</code> would contain false mappings that do not correspond to the new Event&#8217;s Start-End Date Range. User would not have to worry about the inadvertent loss of data.</p>
+<p class="tableblock"><strong>Cons:</strong>
+Negative User Experience - Will need to take extra steps to manually delete DateTime mappings.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow editing of Event Dates if the <code>Event</code> date range is reduced, but will clear <code>EventDate</code> mappings in <code>EventDateTimeMap</code> that fall out of edited Event&#8217;s Start-End Date Range.</p>
+<p class="tableblock"><strong>Pros:</strong>
+Better User Experience - Narrowing the Start/End Date would naturally mean that the user no longer require mappings on those dates and hence they can be safely deleted.</p>
+<p class="tableblock"><strong>Cons:</strong>
+Increased risk of inadvertent deletion of existing Date-Time mappings from <code>Event</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Decision: Alternative 2</strong><br></p>
+<p class="tableblock">Alternative 2 offers better user experience by reducing the addition steps of hassle, especially since AddMin+ is focussed on automating and reducing the burdensome workload of administrative staff. Even so, we understand the risk of a user executing a typo and inadvertently delete existing Date-Time mappings. Hence, as a mitgating measure, we would be introducing a 'Confirmation' command in a <code>V2.0</code> feature that would allow the user to confirm and proceed with the <code>edit_ev</code> command if it were to delete existing Date-Time mappings due to a narrowing of the range.</p></td>
+</tr>
 </tbody>
 </table>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -788,15 +838,15 @@ Instantiation of the <code>Event</code> object when the app is started will be m
 <div class="sect3">
 <h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.4.1. Proposed Implementation</a></h4>
 <div class="paragraph">
-<p>The Generate Schedule Feature is implemented to allow users to have an overview of the event schedule. It will display all dates that have an event and the
-specific events that are happening on those dates listed. Do note that the <code>generate_schedule</code> command will only display dates and events that have a set date and time allocated to it.
+<p>The Generate Schedule Feature is implemented to allow users to have an overview of the event schedule.
+It will display all dates that have an event and the specific events that are happening on those dates listed.
+Do note that the <code>generate_schedule</code> command will only display dates and events that have a set date and time allocated to it.
 The feature is facilitated by a <code>DistinctDatesProcessor</code> and requires the use of a new Object - <code>DistinctDate</code>, as well as an internal ObservableList - <code>distinctDatesList</code> found in the <code>ModelManager</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>DistinctDateProcessor</code> processes the entire list of Events in the <code>EventList</code> when the command is called. The <code>DistinctDateProcessor</code> will then
-process through these events to create specific <code>DistinctDate</code> Objects which stores a list of events that occurs on the date
-they are representing. These DistinctDate Objects are then used, to create <code>DateCard</code> which will be displayed on the GUI. This feature
-can be seen in the generate schedule window as well as the employee fetch window.</p>
+<p>The <code>DistinctDateProcessor</code> processes the entire list of Events in the <code>EventList</code> when the command is called.
+The <code>DistinctDateProcessor</code> will then process through these events to create specific <code>DistinctDate</code> Objects which stores a list of events that occurs on the date they are representing.
+These DistinctDate Objects are then used, to create <code>DateCard</code> which will be displayed on the GUI. This feature can be seen in the generate schedule window as well as the employee fetch window.</p>
 </div>
 <div class="paragraph">
 <p>The <code>DistinctDateProcessor</code> utilises the following operations in the <code>generate_schedule</code> command:</p>
@@ -804,10 +854,12 @@ can be seen in the generate schedule window as well as the employee fetch window
 <div class="ulist">
 <ul>
 <li>
-<p><code>generateAllDistinctDateList(Model model)</code>&#8201;&#8212;&#8201;Returns a list of <code>DistinctDate</code> Objects. This operation utilises the generateDistinctDateList() operations.</p>
+<p><code>generateAllDistinctDateList(Model model)</code>&#8201;&#8212;&#8201;Returns a list of <code>DistinctDate</code> Objects.
+This operation utilises the generateDistinctDateList() operations.</p>
 </li>
 <li>
-<p><code>generateDistinctDateList(List&lt;Event&gt; eventList)</code>&#8201;&#8212;&#8201;Returns a list of <code>DistinctDate</code> Objects. This operation utilises the generateDateList() and generateListOfEventForDate() operations.</p>
+<p><code>generateDistinctDateList(List&lt;Event&gt; eventList)</code>&#8201;&#8212;&#8201;Returns a list of <code>DistinctDate</code> Objects.
+This operation utilises the generateDateList() and generateListOfEventForDate() operations.</p>
 </li>
 <li>
 <p><code>generateDateList(List&lt;Event&gt; eventList)</code>&#8201;&#8212;&#8201;Takes in the entire list of events, identify all the dates that have been mapped to which that has at least one event and returns it as a list.</p>
@@ -837,13 +889,16 @@ can be seen in the generate schedule window as well as the employee fetch window
 <div class="title">Figure 14. <em>Program flow of the Generate Schedule Feature</em></div>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>. The user launches the application for the first time.</p>
+<p><strong>Step 1</strong>.
+The user launches the application for the first time.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2</strong>. The <code>distinctDatesList</code> will be initialised based on the initial event book state.</p>
+<p><strong>Step 2</strong>.
+The <code>distinctDatesList</code> will be initialised based on the initial event book state.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>. The user executes <code>add_ev n/Free Coffee &#8230;&#8203;</code> to add a new event into the Eventlist.
+<p><strong>Step 3</strong>.
+The user executes <code>add_ev n/Free Coffee &#8230;&#8203;</code> to add a new event into the Eventlist.
 The distinctDatesList will not be updated, and will not contain the new event that is added.</p>
 </div>
 <div class="admonitionblock note">
@@ -853,22 +908,23 @@ The distinctDatesList will not be updated, and will not contain the new event th
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Any command that alters the eventBook will not change the distinctDatesList. The distinctDatesList will continue to store the
-original list until the User requires it by calling the <code>generate_schedule</code> command, where the distinctDateList will be generated
-again using the current EventList.
+Any command that alters the eventBook will not change the distinctDatesList.
+The distinctDatesList will continue to store the original list until the User requires it by calling the <code>generate_schedule</code> command, where the distinctDateList will be generated again using the current EventList.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 4</strong>. The user executes <code>generate_schedule</code> to see all the dates that have a set time mapping and the respective events on those dates.</p>
+<p><strong>Step 4</strong>.
+The user executes <code>generate_schedule</code> to see all the dates that have a set time mapping and the respective events on those dates.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5</strong>. The distinctDateList will be generated again based on the current list of events in the EventList and will be displayed on a separate window.</p>
+<p><strong>Step 5</strong>.
+The distinctDateList will be generated again based on the current list of events in the EventList and will be displayed on a separate window.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 6</strong>. The user now decides to close the app, the current state of the EventBook and EmployeeBook will be stored,
-however, the DistinctDateList would not.</p>
+<p><strong>Step 6</strong>.
+The user now decides to close the app, the current state of the EventBook and EmployeeBook will be stored, however, the DistinctDateList would not.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -877,14 +933,15 @@ however, the DistinctDateList would not.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note that the Display Schedule Feature does not load and store the DistinctDate Objects. It processes and generates the list when
-it is called upon or when the application starts.
+Note that the Display Schedule Feature does not load and store the DistinctDate Objects.
+It processes and generates the list when it is called upon or when the application starts.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Step 7</strong>. Done.</p>
+<p><strong>Step 7</strong>.
+Done.</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -978,7 +1035,8 @@ Alternative 2 also helps prevent user confusion, as the list that is displayed i
 <div class="sect2">
 <h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
 <div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+<p>We are using <code>java.util.logging</code> package for logging.
+The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1218,7 +1276,8 @@ Provides a clean and modern desktop application designed specifically to cater t
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. The given input index is invalid.</p>
+<p>3a.
+The given input index is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -1261,7 +1320,8 @@ Provides a clean and modern desktop application designed specifically to cater t
 <div class="ulist">
 <ul>
 <li>
-<p>3a. Input Index given is invalid.</p>
+<p>3a.
+Input Index given is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -1274,7 +1334,8 @@ Provides a clean and modern desktop application designed specifically to cater t
 </div>
 </li>
 <li>
-<p>3b. No details to edit were specified, or is of the wrong input format</p>
+<p>3b.
+No details to edit were specified, or is of the wrong input format</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -1445,9 +1506,9 @@ Provides a clean and modern desktop application designed specifically to cater t
 <div class="sect1">
 <h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
-<div class="dlist">
+<div id="mainstream-os" class="dlist">
 <dl>
-<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
+<dt class="hdlist1">Mainstream OS</dt>
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
 </dd>
@@ -1486,7 +1547,8 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+   Expected: Shows the GUI with a set of sample contacts.
+The window size may not be optimum.</p>
 </li>
 </ol>
 </div>
@@ -1496,7 +1558,9 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+<p>Resize the window to an optimum size.
+Move the window to a different location.
+Close the window.</p>
 </li>
 <li>
 <p>Re-launch the app by double-clicking the jar file.<br>
@@ -1517,15 +1581,20 @@ Expected: The most recent window size and location is retained.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all employees using the <code>list_em</code> command. Multiple employees in the list.</p>
+<p>Prerequisites: List all employees using the <code>list_em</code> command.
+Multiple employees in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete_em 1</code><br>
-Expected: Employee of ID '1' is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+   Expected: Employee of ID '1' is deleted from the list.
+Details of the deleted contact shown in the status message.
+Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete_em 0</code><br>
-Expected: No employee is deleted. Error details shown in the status message. Status bar remains the same.</p>
+   Expected: No employee is deleted.
+Error details shown in the status message.
+Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
@@ -1562,8 +1631,8 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Go to the home folder where AddMin+ is located. Open the data folder which should contain
-employeebook.json and eventbook.json files.</p>
+<p>Go to the home folder where AddMin+ is located.
+Open the data folder which should contain employeebook.json and eventbook.json files.</p>
 </li>
 <li>
 <p>Open one of the json file and corrupt the file.</p>
@@ -1571,9 +1640,6 @@ employeebook.json and eventbook.json files.</p>
 <li>
 <p>Open the jar file again, AddMin+ should still run with one of the list data loaded.</p>
 </li>
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-</li>
 </ol>
 </div>
 </li>
@@ -1581,4 +1647,4 @@ employeebook.json and eventbook.json files.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:58:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:29:47 UTC</div></div></div></body></html>

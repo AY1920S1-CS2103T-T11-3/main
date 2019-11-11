@@ -99,19 +99,6 @@ our app.</p>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: Implemented the <strong>Fetch Employee</strong> Command</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: Shows the schedule of a single <code>Employee</code>, which displays a list of dates which itself contains a list of <code>Event</code> that the <code>Employee</code> is allocated to.</p>
-</li>
-<li>
-<p>Justification: It would be useful for either the adminstrative staff or the employee to view the current schedule of an <code>Employee</code> for tracking and logging purposes.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=DivineDX&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=DivineDX&amp;tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D">tp Code Dashboard</a>]</p>
 </li>
 <li>
@@ -277,10 +264,14 @@ our app.</p>
 <p><strong>Command Format</strong></p>
 </div>
 <div class="paragraph">
-<p>As a CLI application, most commands are executed by typing your commands on the Command Box. We will discuss the exact commands that you may execute under the <a href="#Features">[Features]</a> section, but it is important to first understand the format of the command.</p>
+<p>As a CLI application, most commands are executed by typing your commands on the Command Box.
+We will discuss the exact commands that you may execute under the <a href="#Features">[Features]</a> section, but it is important to first understand the format of the command.</p>
 </div>
 <div class="paragraph">
-<p>Commands start with a single string (which may include underscores) such as <code>add_em</code> or <code>free</code>. Subsequently, you supply the prefix, for example, <code>n/</code> and then the necessary parameter. It is alright if there is spacing within your parameter. The prefixes and parameters will be stated for each command.</p>
+<p>Commands start with a single string (which may include underscores) such as <code>add_em</code> or <code>free</code>.
+Subsequently, you supply the prefix, for example, <code>n/</code> and then the necessary parameter.
+It is alright if there is spacing within your parameter.
+The prefixes and parameters will be stated for each command.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -464,7 +455,9 @@ Listed below are the category of parameters, the prefixes utilizing them and the
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Even though the start date and end dates of each event is stated, the event is not assumed to be held for the entire range. Hence, the Date-Time setting feature enables the user to <em>declare and set</em> the schedule of the event. Events are initialized without any schedule, other than their stated start and end date with a default time of <em>0800-1800</em>.
+Even though the start date and end dates of each event is stated, the event is not assumed to be held for the entire range.
+Hence, the Date-Time setting feature enables the user to <em>declare and set</em> the schedule of the event.
+Events are initialized without any schedule, other than their stated start and end date with a default time of <em>0800-1800</em>.
 </td>
 </tr>
 </table>
@@ -623,7 +616,8 @@ Clears all the date-time mapping from the 2nd Event on the Event list.</p>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>Event</code> object is constructed with a start date and an end date as class attributes, both of which are <code>EventDate</code> objects, which represents a single day by itself. Our implementation of <code>Event</code> does not assume that the event will be occurring consecutively from the start to the end date, and requires the user to manually assign each specific date with the time period that the Event is in process.</p>
+<p>The <code>Event</code> object is constructed with a start date and an end date as class attributes, both of which are <code>EventDate</code> objects, which represents a single day by itself.
+Our implementation of <code>Event</code> does not assume that the event will be occurring consecutively from the start to the end date, and requires the user to manually assign each specific date with the time period that the Event is in process.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -638,17 +632,29 @@ In our implementation, when the Event is instantiated, the time period of 0800-1
 </table>
 </div>
 <div class="paragraph">
-<p>To achieve this functionality, there exists an <code>EventDayTime</code> object that encapsulates the period of the day. It has two class attributes - both of which are <code>LocalTime</code> objects to represent the start and end time.</p>
+<p>To achieve this functionality, there exists an <code>EventDayTime</code> object that encapsulates the period of the day.
+It has two class attributes - both of which are <code>LocalTime</code> objects to represent the start and end time.</p>
 </div>
 <div class="paragraph">
 <p>Each Event contains an <code>EventDateTimeMap</code> object that maps an <code>EventDate</code> object to an <code>EventDayTime</code> object using a HashMap implementation.
 This mapping is added through the <code>EventAssignDate</code> command.</p>
 </div>
 <div class="paragraph">
-<p>It requires the use of the following objects/methods from the <code>event</code> package.
-* <code>EventContainsKeyDatePredicate</code> - Check whether the stated date exists within the range of the Event&#8217;s Start and End Date.
-* <code>Event#assignDateTime</code> - Calls the <code>EventDateTimeMap</code> object to insert a Date-Time mapping.
-* <code>EventDate#datesUntil</code> - Returns a Stream of <code>EventDates</code> from the Start to End Date. Used to auto-set a DateTime mapping for all dates.</p>
+<p>It requires the use of the following objects/methods from the <code>event</code> package.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EventContainsKeyDatePredicate</code> - Check whether the stated date exists within the range of the Event&#8217;s Start and End Date.</p>
+</li>
+<li>
+<p><code>Event#assignDateTime</code> - Calls the <code>EventDateTimeMap</code> object to insert a Date-Time mapping.</p>
+</li>
+<li>
+<p><code>EventDate#datesUntil</code> - Returns a Stream of <code>EventDates</code> from the Start to End Date.
+Used to auto-set a DateTime mapping for all dates.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -667,25 +673,35 @@ Alternatively, by specifying both a start and end date range in the command text
 <p>Given below is an example usage scenario of the program functionality when a user attempts to assign a Date &amp; Time to an already existent Event.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1</strong>. The User executes the command <code>set_ev_dt 2 on/18/10/2019 time/0900-2000</code>, with the intention to assign the date of 18th October 2019, time period 9am-8pm to the second event currently displayed in the event list. If the date is omitted, i.e. <code>set_ev_dt 2 time/0900-2000</code>, the time period 0900-2000 will be automatically assigned for all dates from the start to end date of the Event. Alternatively, if the end date is stated, i.e. <code>set_ev_dt 2 on/18/10/2019 time/22/10/2019 time/0900-2000</code>, the time period of 0900-2000 will be assigned for all dates from 18th to 22nd of October.</p>
+<p><strong>Step 1</strong>.
+The User executes the command <code>set_ev_dt 2 on/18/10/2019 time/0900-2000</code>, with the intention to assign the date of 18th October 2019, time period 9am-8pm to the second event currently displayed in the event list.
+If the date is omitted, i.e. <code>set_ev_dt 2 time/0900-2000</code>, the time period 0900-2000 will be automatically assigned for all dates from the start to end date of the Event.
+Alternatively, if the end date is stated, i.e. <code>set_ev_dt 2 on/18/10/2019 time/22/10/2019 time/0900-2000</code>, the time period of 0900-2000 will be assigned for all dates from 18th to 22nd of October.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2</strong>. The parser checks if input format is correct, and attempts to create <code>Index</code>, <code>EventDate</code> and <code>EventDayTime</code> objects from it</p>
+<p><strong>Step 2</strong>.
+The parser checks if input format is correct, and attempts to create <code>Index</code>, <code>EventDate</code> and <code>EventDayTime</code> objects from it</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 3</strong>. The command checks if the index of the event stated exists on the displayed list, and if the stated dates is within the start and end date of the Event. (Input Validation)</p>
+<p><strong>Step 3</strong>.
+The command checks if the index of the event stated exists on the displayed list, and if the stated dates is within the start and end date of the Event.
+(Input Validation)</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 4</strong>. The command calls <code>Event#assignDateTime()</code> on the referenced Event object to add the EventDate-EventDayTime mapping into <code>EventDateTimeMap</code>.</p>
+<p><strong>Step 4</strong>.
+The command calls <code>Event#assignDateTime()</code> on the referenced Event object to add the EventDate-EventDayTime mapping into <code>EventDateTimeMap</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5</strong>. If only a single target date is stated, continue to Step 6. Else, the system will repeat Step 4 through the entire date range - which is either the start and end date of the <code>Event</code> or the range specified by the user.</p>
+<p><strong>Step 5</strong>.
+If only a single target date is stated, continue to Step 6. Else, the system will repeat Step 4 through the entire date range - which is either the start and end date of the <code>Event</code> or the range specified by the user.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 6</strong>. DateTimeMapping is converted a String to save and update in Storage.</p>
+<p><strong>Step 6</strong>.
+DateTimeMapping is converted a String to save and update in Storage.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 7</strong>. Done.</p>
+<p><strong>Step 7</strong>.
+Done.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -732,8 +748,9 @@ The lifeline for <code>AssignDateCommand</code> ends at the destroy marker (X).
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-storage-of-datetimemap"><a class="link" href="#aspect-storage-of-datetimemap">Aspect: Storage of DateTimeMap</a></h5>
+<div class="paragraph">
+<p>Below, we discuss two key aspects - how we store EventDateTimeMap and how commands to edit <code>Event</code> affect the <code>EventDateTimeMap</code>.</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 27.2727%;">
@@ -742,28 +759,47 @@ The lifeline for <code>AssignDateCommand</code> ends at the destroy marker (X).
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">Aspect</th>
 <th class="tableblock halign-left valign-top">Alternative 1</th>
 <th class="tableblock halign-left valign-top">Alternative 2</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Storage of DateTimeMap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Storage of DateTimeMap</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stores the DateTimeMap in an string format that is saved in a field of an <code>Event</code> in <code>eventbook.json</code>.<br></p>
 <p class="tableblock"><strong>Pros:</strong> Simplicity in implementation and easier reference as it is loaded and saved to the same JSON file.</p>
-<p class="tableblock"><strong>Cons:</strong> Performance issues as it needs to update the entire event object although only one attribute is updated</p>
-<p class="tableblock"><strong>Decision:</strong>
-Alternative 2 would make sense if our app is utilizing a DBMS and it would be a best practice to separate the information.
-However, as we are constrained with not utilizing a DBMS, <strong>Alternative 1</strong> is logically simpler, shorter, and more efficent solution from a software engineering standpoint as it limits the amount of repeated code that we would have written to support another sotrage unit.</p></td>
+<p class="tableblock"><strong>Cons:</strong> Performance issues as it needs to update the entire event object although only one attribute is updated</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Store the DateTimeMap in a separate file e.g. <code>EventDateTimes.json</code> that will be referenced by EventBook during initialization.</p>
 <p class="tableblock"><strong>Pros:</strong> Faster performance in saving and loading as it is kept separate from <code>eventbook.json</code> and hence will not</p>
 <p class="tableblock"><strong>Cons:</strong> Requires a new storage unit, along with all its supporting functions which will require alot of repeated code.
 Instantiation of the <code>Event</code> object when the app is started will be more complicated as well due to the need to read from two separate files</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Decision: Alternative 1</strong><br></p>
+<p class="tableblock">Alternative 2 would make sense if our app is utilizing a DBMS and it would be a best practice to separate the information into separate tables.
+However, as we are constrained with not utilizing a DBMS, <strong>Alternative 1</strong> is a logically simpler, shorter, and more efficent solution from a software engineering standpoint as it limits the amount of repeated code that we would have written to support another storage unit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Impact of Edit Event on <code>EventDateTimeMap</code></strong> <br></p>
+<p class="tableblock">The <code>edit_ev</code> command does not edit the DateTime mapping of an <code>Event</code> itself - this is done through the <code>set_ev_dt</code> or the <code>delete_ev_dt</code> instead. However, if the event has its start or end date fields edited, it will affect the <code>EventDateTimeMap</code> as its mapping may suddenly be out of range of the edited <code>Event</code> start and end dates.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prevent the editing of Event Dates if the <code>Event</code> date range is reduced and will cause existing Date-Time Mappings to fall out of edited Event&#8217;s Start-End Date Range.</p>
+<p class="tableblock"><strong>Pros:</strong>
+Greatly reduce the potential for buggy behavior, as <code>EventDateTimeMap</code> would contain false mappings that do not correspond to the new Event&#8217;s Start-End Date Range. User would not have to worry about the inadvertent loss of data.</p>
+<p class="tableblock"><strong>Cons:</strong>
+Negative User Experience - Will need to take extra steps to manually delete DateTime mappings.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allow editing of Event Dates if the <code>Event</code> date range is reduced, but will clear <code>EventDate</code> mappings in <code>EventDateTimeMap</code> that fall out of edited Event&#8217;s Start-End Date Range.</p>
+<p class="tableblock"><strong>Pros:</strong>
+Better User Experience - Narrowing the Start/End Date would naturally mean that the user no longer require mappings on those dates and hence they can be safely deleted.</p>
+<p class="tableblock"><strong>Cons:</strong>
+Increased risk of inadvertent deletion of existing Date-Time mappings from <code>Event</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Decision: Alternative 2</strong><br></p>
+<p class="tableblock">Alternative 2 offers better user experience by reducing the addition steps of hassle, especially since AddMin+ is focussed on automating and reducing the burdensome workload of administrative staff. Even so, we understand the risk of a user executing a typo and inadvertently delete existing Date-Time mappings. Hence, as a mitgating measure, we would be introducing a 'Confirmation' command in a <code>V2.0</code> feature that would allow the user to confirm and proceed with the <code>edit_ev</code> command if it were to delete existing Date-Time mappings due to a narrowing of the range.</p></td>
+</tr>
 </tbody>
 </table>
-</div>
 </div>
 </div>
 </div>
@@ -775,4 +811,4 @@ Instantiation of the <code>Event</code> object when the app is started will be m
 <p>While AddMin+ is not my first experience with a software engineering project, it introduced many  <em>good, quality</em> software engineering practices and principles that I would apply to my future projects. This includes advance uses of the Github Issue Tracker, Project Workflow, PR Reviews, testing, and documentation. Despite the heavy workload, I thoroughly appreciate the learning experiences that would shape me to become a better software developer. Overall, I am satisfied to have worked with my team to bring the project to completion and release an elegant, high-quality product.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:58:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:29:47 UTC</div></div></div></body></html>

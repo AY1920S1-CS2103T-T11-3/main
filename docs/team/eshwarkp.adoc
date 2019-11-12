@@ -1,4 +1,4 @@
-= Yap Shi Hao - Project Portfolio
+= Eshwar s/o Kamalapathy - Project Portfolio
 :site-section: AboutUs
 :imagesDir: ../images
 :stylesDir: ../stylesheets
@@ -24,22 +24,18 @@ that is faced with limited manpower and resources.
 AddMin+ is specially designed to ease the workload of admin staff in these companies and allow them to
 effectively handle the administrative needs of the company by providing the following functions: event creation and
 deletion, editing of event details, manual and automatic manpower allocation for events and providing an
-overview of all the data via statistics while keeping track of the companies schedule to ensure that no event
-will be missed!
+overview of all important data for the administrator via statistical representation.
 
-To give you a better picture of AddMin+! This is what the application looks like:
+Below is an image of what AddMin+ displays to the user upon starting up.
 
 ._The user interface for AddMin+_
 image::AddMin+Ui.png[]
 
 
 == My Roles and Responsibilities
-My project responsibilities and tasking include being in charge of the group's documentation quality as
-well as ensure that high standards are maintained and delivered on time and in the right format.
+My project responsibilities and tasking include being in charge of the group's code quality via testing and finding bugs in the application.
 
-While my coding related tasking was to design and write codes for the entire *Schedule* section of the project.
-The following sections will illustrate the enhancements in more detail, as well as provide relevant
-documentation that I have added to the user and developer guides in relation to those enhancements.
+While my coding related tasking was focused on designing and writing codes for the entire *Statistics* section of the project. The following sections will illustrate the enhancements in more detail, as well as provide relevant documentation that I have added to the user and developer guides in relation to those enhancements.
 
 == Before we start
 The following symbols and formatting will be used throughout this document:
@@ -59,22 +55,18 @@ Texts with a `grey background` indicates _Code Logic_ such as class objects, OOP
 This section will show a summary of all the features, enhancements, documentation, and other useful contributions
 that I have contributed to the team project.
 
-* *Major feature*: added and implemented the entire *Schedule* section of the project which includes major GUI implementations
-and 4 schedule related commands.
+* *Major feature*: Implemented the entire *Statistics* segment of the project which includes major GUI modifications and 3 statistics related user commands.
 
-** What does it do: The *Schedule* section was implemented to allow users to have an easier way to view and identify
-events that are happening on a specific date or period. Thus, the `display_schedule_date`, `display_schedule_month`
-and `display_schedule_between` commands were implemented. The enhancement was also done to improve the user experience, by providing a clean
-graphical representation of the user's schedule through the use of the `generate_schedule` command, greatly improving the application's user experience.
+** What does it do: The *Statistics* section was implemented to allow users to have an overview of their app data, specifically on the employee and events. Thus, the `statistics`, `generate_stats` and `generate_stats_detail` commands were implemented. The enhancement was also done to improve the user experience, by providing a clean graphical representation of the user's data through the use of the `generate_stats` command, which gives a statistical representation throught the use of lists and pie charts.
 
-** Justification: The *Schedule* feature improves the product significantly because it allows users to have a convenient way to view their
+** Justification: The *Statistics* feature improves the product significantly because it allows users to have a convenient way to view their
 upcoming event schedule and keep track of all the important event dates. The feature will greatly improve the user experience of the application
 by providing a clean user interface to allow the users to have a visual overview of their schedules.
 
-** Highlights: This enhancement requires handling and dealing with the `Event` objects extensively. The implementation of the *Schedule* feature
-required an in-depth analysis of the application's storage and modeling architecture. The *Schedule* feature was also challenging as
+** Highlights: This enhancement requires handling and dealing with the `Event` objects extensively. The implementation of the *Statistics* feature
+required an in-depth analysis of the application's storage and modeling architecture. The *Statistics* feature was also challenging as
 it required the implementation of an additional `DistinctDate` object for the `generate_schedule` command which was also used in the
-`Employee` window. During the designing of the *Schedule* component, deep consideration was needed to ensure that the user interface was clean
+`Employee` window. During the designing of the *Statistics* component, deep consideration was needed to ensure that the user interface was clean
 and optimal for the users.
 
 * *Minor features*: Multiple Graphic User Interface improvements were made throughout the application to improve the user experience.
@@ -140,7 +132,8 @@ https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/a
 https://github.com/AY1920S1-CS2103T-T11-3/main/pull/79[#79])
 *** In-charged of Find Employee and Event Tags commands for AddMin+
 (Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/197[#197])
-*** In-charged of the entire *Schedule* feature of AddMin+ which includes 4 schedule related commands
+*** In-charged of the entire
+feature of AddMin+ which includes 4 schedule related commands
 (Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/102[#102],
 https://github.com/AY1920S1-CS2103T-T11-3/main/pull/109[#109],
 https://github.com/AY1920S1-CS2103T-T11-3/main/pull/138[#138],
@@ -191,13 +184,66 @@ https://github.com/AY1920S1-CS2103T-T11-3/main/pull/137[#137],
 https://github.com/AY1920S1-CS2103T-T11-3/main/pull/273[#273])
 
 == Contributions to the User Guide
-|===
-|_The original user guide has been updated to document the new capabilities of the AddMin+ functionality.
-The following are excerpts from the AddMin+ User Guide, which will showcase the sections that I have contributed to, in
-particular, the *Schedule* section of the UG. They will showcase my ability to write documentation for end-users._
-|===
+//tag::Statistics[]
+=== Statistics
 
-include::../UserGuide.adoc[tag=Schedule1]
+==== Generate Statistics: `generate_stats`
+
+Displays a set of statistics, Number of events, Number of employee etc
+
+Format: `generate_stats`
+
+**Example: To generate list and pie chart statistics on demand.**
+
+**Step 1**.
+Navigate to the statistics tab either using the mouse to click the statistics tab or by typing `statistics` command.
+
+image::StatsUiPart0.png[]
+
+**Step 2**.
+Generate the statistics either by using the mouse to click the generate statistics button or by typing `generate_stats` command.
+
+image::StatsUiPart1.png[]
+
+**Step 3**.
+Statistics will be displayed in 2 different types of views: list and pie chart.
+The list will display the upcoming events that require manpower sorted from the nearest upcoming date to the furthest date.
+The pie charts represent the upcoming events that require manpower and employees tags respectively. This is done this way to help the user identify efficiently if they have sufficient employees with matching tags for the event or if more employees may need to be hired to match the tag of the upcoming event.
+For example, a music event will have a 'music' tag and an employee who plays the guitar will have a 'musician' tag.
+The pie charts will reflect that there is one event under the 'music' tag and one employee under the 'musician' tag.
+
+image::StatsUiPart2.png[]
+
+**Step 4**.
+To allocate an employee to an upcoming event, double-click the event on the list and it will display the allocate function covered earlier in the User Guide.
+The segments on the pie charts can also be clicked to display the number of events or employees associated with that specific tag on the top right corner of each of the pie charts.
+
+image::StatsUiPart3.png[]
+
+**Step 5**.
+Generate statistics manually when any change in data occurs to keep the statistics up to date and relevant.
+
+image::StatsUiPart4.png[]
+
+==== Generate Detailed Statistics: `generate_stats_detail`
+
+Displays a set of statistics, Number of events, Number of employee etc
+
+Format: `generate_stats_detail`
+
+**Example: To generate detailed statistics in plain text format on demand.**
+
+**Step 1**.
+Either type `generate_stats_detail` into the command box or navigate to the statistics tab and click the 'Generate Detailed Statistics' button.
+
+image::StatsUiPart5.png[]
+
+**Step 2**.
+A pop-up window with the header "StatisticsWindow" will appear displaying statistics for both employees and events.
+
+image::StatsUiPart6.png[]
+
+//end::Statistics[]
 
 == Contributions to the Developer Guide
 |===

@@ -63,32 +63,17 @@ that I have contributed to the team project.
 
 ** Highlights: This enhancement required handling and dealing with both the `Employee` and `Event` objects. The implementation of the *Statistics* feature required an in-depth analysis of how the program deals with storage and retrieval of these objects while the app is running. The *Statistics* feature was also challenging as it was important to make the statistics displayed useful and relevant to the user. During the designing of the *Statistics* component, deep consideration was needed to ensure that the user interface was clean and optimal for the users, therefore, it was decided that pie charts would be a suitable visual representation for the employee and event tags data.
 
-* *Minor features*: Multiple Graphic User Interface improvements were made throughout the application to improve the user experience.
-Implemented the tab recognition feature, which is used to restrict commands on specific tabs to prevent unusual behavior, which can cause users to be confused.
-Other minor features includes the implementation of the `add_ev`, `edit_ev`, `find_em_tag` and `find_ev_tag` commands
-for the AddMin+ App.
+* *Minor features*: Implemented the delete command to remove events easily via the `delete_ev #index` commands based on the current list displayed on the User Interface and the list command to display both employee and events via the 'list' command. User Interface modifications were also done to provide intuitive user experience through simplicity.
 
-* *Code contributed*: [https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=shihaoyap&sort=groupTitle&sortWithin=title&since=2019-09-06&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=shihaoyap&tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D[tp Code Dashboard]]
+* *Code contributed*: [https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=eshwarkp&sort=groupTitle&sortWithin=title&since=2019-09-06&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=shihaoyap&tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D[tp Code Dashboard]]
 
-** *Model*: [https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/employee/TagContainsKeywordsPredicate.java[TagContainsKeywords],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventContainsKeyDatePredicate.java[EventContainsKeyDate],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventContainsKeyDateRangePredicate.java[EventContainsKeyDateRange],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventContainsKeyYearMonthPredicate.java[EventContainsKeyYearMonth],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/event/EventTagContainsKeywordsPredicate.java[EventTagContainsKeywords],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/model/distinctdate/DistinctDate.java[DistinctDate]]
+** *Command*: https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/event/DeleteEventCommand.java[[DeleteEventByIndex],
+https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/employee/ListCommand.java[ListEventsEmployees],
+https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/general/StatisticsCommand.java[StatisticsTab],
+https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/statistics/GenerateStatisticsCommand.java[GenerateStatistics],
+https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/statistics/GenerateStatisticsDetailCommand.java[GenerateDetailedStatistics]]
 
-** *Command*: [https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/event/FindEventByTagCommand.java[FindEventByTag],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/employee/FindByTagCommand.java[FindEmployeeByTag],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/GenerateScheduleCommand.java[GenerateSchedule],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/DisplayScheduleBetweenCommand.java[DisplayScheduleBetween],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/DisplayScheduleForDateCommand.java[DisplayScheduleForDate],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/commands/schedule/DisplayScheduleForYearMonthCommand.java[DisplayScheduleForYearMonth]]
-
-** *Parser*: [https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/schedule/DisplayScheduleBetweenParser.java[DisplayScheduleBetween],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/schedule/DisplayScheduleForDateParser.java[DisplayScheduleForDate],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/schedule/DisplayScheduleForYearMonthParser.java[DisplayScheduleForYearMonth],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/event/FindEventByTagCommandParser.java[FindEventByTag],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/parser/employee/FindByTagCommandParser.java[FindEmployeeByTag]]
+** *Parser*: https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/parser/AddressBookParser.java[[AddressBookParser]]
 
 ** *Others*: [https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/processor/DistinctDatesProcessor.java[DistinctDatesProcessor],
 https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/DateCard.java[DateCard],
@@ -96,26 +81,6 @@ https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/a
 https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/FetchEmployeeWindow.java[FetchEmployeeWindow],
 https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/ScheduleBox.java[ScheduleBox]]
 
-* *Test Code Contributed*:
-
-** *Model*: [https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/event/EventContainsKeyDatePredicateTest.java[EventContainsKeyDate],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/event/EventContainsKeyDateRangePredicateTest.java[EventContainsKeyDateRange],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/event/EventContainsKeyYearMonthPredicateTest.java[EventContainsKeyYearMonth],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/model/distinctdate/DistinctDateTest.java[DistinctDateTest]]
-
-** *Command*: [https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/GenerateScheduleCommandTest.java[GenerateSchedule],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/DisplayScheduleBetweenCommandTest.java[DisplayScheduleBetween],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/DisplayScheduleForDateCommandTest.java[DisplayScheduleForDate],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/commands/schedule/DisplayScheduleForYearMonthCommandTest.java[DisplayScheduleForYearMonth]]
-
-** *Parser*: [https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/parser/schedule/DisplayScheduleBetweenParserTest.java[DisplayScheduleBetween],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/parser/schedule/DisplayScheduleForDateParserTest.java[DisplayScheduleForDate],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/logic/parser/schedule/DisplayScheduleForYearMonthParserTest.java[DisplayScheduleForYearMonth]]
-
-** *TestUtil*: [https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/DistinctDateBuilder.java[DistinctDateBuilder],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/EventBuilder.java[EventBuilder],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/TypicalDistinctDates.java[TypicalDistinctDates],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/test/java/seedu/address/testutil/TypicalEvents.java[TypicalEvents]]
 
 * *Other contributions*:
 

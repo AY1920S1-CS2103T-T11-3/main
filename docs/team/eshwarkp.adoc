@@ -67,75 +67,58 @@ that I have contributed to the team project.
 
 * *Code contributed*: [https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=eshwarkp&sort=groupTitle&sortWithin=title&since=2019-09-06&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=shihaoyap&tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D[tp Code Dashboard]]
 
-** *Logic (Command & Parser)*: https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/event/DeleteEventCommand.java[[DeleteEventByIndex],
+** *Logic (Command & Parser)*: [https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/event/DeleteEventCommand.java[DeleteEventByIndex],
 https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/employee/ListCommand.java[ListEventsEmployees],
 https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/general/StatisticsCommand.java[StatisticsTab],
 https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/statistics/GenerateStatisticsCommand.java[GenerateStatistics],
 https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/statistics/GenerateStatisticsDetailCommand.java[GenerateDetailedStatistics], https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/parser/AddressBookParser.java[AddressBookParser]]
 
-** *UI*: https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/ui/MainWindow.java[[MainWindow],
+** *UI*: [https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/ui/MainWindow.java[MainWindow],
 https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/ui/StatisticsBox.java[StatisticsBox],
 https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/ui/StatisticsWindow.java[StatisticsWindow]]
 
 * *Other contributions*:
 
 ** Project management:
-*** In-charged of keep track of deadlines, submissions and issue trackers as well as the entire team's documentation quality.
-*** In-charged of Add and Edit event commands for AddMin+
-(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/76[#76],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/79[#79])
-*** In-charged of Find Employee and Event Tags commands for AddMin+
-(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/197[#197])
-*** In-charged of the entire
-feature of AddMin+ which includes 4 schedule related commands
-(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/102[#102],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/109[#109],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/138[#138],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/139[#139])
-*** In-charged of setting up test cases for all *Schedule* feature - commands, parsers, predicates
-(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/233[#233],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/249[#249],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/267[#267])
-*** Assisted in morphing the Events class and storage units into AddMin+
-(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/76[#76],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/79[#79])
-*** Assisted in the refactoring process for person class to employee class and well as
-fixed test cases and checkstyle errors.
+*** In-charge of keeping code quality checked and reviewing new pull requests.
+*** In-charge of List and Delete event commands for AddMin+
+(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/84[#84],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/85[#85])
+*** In-charge of the entire Statistics feature of AddMin+ which includes 3 statistics related commands
+(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/96[#96],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/106[#106],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/107[#107],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/108[#108],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/234[#234],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/237[#237])
+*** Assisted in morphing the UI of AddMin+
+(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/246[#246],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/255[#255])
 (Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/92[#92])
 *** Assisted in debugging AddMin+ based on User Feedback and Mock Practical Exam Feedback
-(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/197[#197])
-*** Assisted in setting up the test structure for Events to facilitate easier Events related
-test cases
-(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/233[#233])
-*** Assisted in implementing AddMin+ tab recognition, to reduce any unusual app behavior.
-(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/155[#155],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/160[#160],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/265[#265])
-
-** Enhancements to existing features:
-*** Upgraded the GUI display and other GUI enhancements, such as the fetch employee window
-(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/102[#102],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/143[#143])
+(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/286[#286])
 
 ** Documentation:
-*** Did cosmetic tweaks to existing contents of the User Guide:
-(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/114[#114],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/143[#143],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/149[#149],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/150[#150],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/197[#197],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/231[#231])
+*** Modifications of About Us, User Guide & Developer Guide:
+(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/46[#46],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/47[#47],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/48[#48],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/57[#57],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/64[#64],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/111[#111]
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/291[#291]
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/292[#292])
 
 
 ** Community:
 *** PRs reviewed (with non-trivial review comments):
-(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/66[#66],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/76[#76],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/83[#83],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/85[#85],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/92[#92],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/137[#137],
-https://github.com/AY1920S1-CS2103T-T11-3/main/pull/273[#273])
+(Pull requests https://github.com/AY1920S1-CS2103T-T11-3/main/pull/85[#85],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/102[#102],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/111[#111],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/117[#117],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/127[#127],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/232[#232],
+https://github.com/AY1920S1-CS2103T-T11-3/main/pull/289[#289])
 
 == Contributions to the User Guide
 //tag::Statistics[]

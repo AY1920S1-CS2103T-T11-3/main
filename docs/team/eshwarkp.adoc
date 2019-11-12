@@ -28,8 +28,9 @@ overview of all important data for the administrator via statistical representat
 
 Below is an image of what AddMin+ displays to the user upon starting up.
 
-._The user interface for AddMin+_
-image::AddMin+Ui.png[]
+_The user interface for AddMin+._
+
+image::AddMin.png[Stats,pdfwidth=95%,scaledwidth=95%]
 
 
 == My Roles and Responsibilities
@@ -39,12 +40,6 @@ While my coding related tasking was focused on designing and writing codes for t
 
 == Before we start
 The following symbols and formatting will be used throughout this document:
-
-[TIP]
-*LightBulbs* indicate a _Tip_, something that is helpful to the reader
-
-[NOTE]
-*'i' Icon* indicate a _Note_ that supplements useful information
 
 Text in a link:[`blue font and grey`] background indicates a _hyperlink_
 
@@ -124,7 +119,7 @@ https://github.com/AY1920S1-CS2103T-T11-3/main/pull/289[#289])
 |===
 |_The original user guide has been updated to document the new capabilities of the AddMin+ functionality. The following are excerpts from the AddMin+ User Guide, which will showcase the sections that I have contributed to, in particular, the Statistics section of the UG. This will showcase my ability to write documentation for end-users._
 |===
-//tag::Statistics[]
+
 === Statistics
 
 ==== Generate Statistics: `generate_stats`
@@ -138,12 +133,12 @@ Format: `generate_stats`
 **Step 1**.
 Navigate to the statistics tab either using the mouse to click the statistics tab or by typing `statistics` command.
 
-image::StatsUiPart0.png[]
+image::StatsUiPart0.png[Stats0,pdfwidth=90%,scaledwidth=90%]
 
 **Step 2**.
 Generate the statistics either by using the mouse to click the generate statistics button or by typing `generate_stats` command.
 
-image::StatsUiPart1.png[]
+image::StatsUiPart1.png[Stats1,pdfwidth=90%,scaledwidth=90%]
 
 **Step 3**.
 Statistics will be displayed in 2 different types of views: list and pie chart.
@@ -152,18 +147,18 @@ The pie charts represent the upcoming events that require manpower and employees
 For example, a music event will have a 'music' tag and an employee who plays the guitar will have a 'musician' tag.
 The pie charts will reflect that there is one event under the 'music' tag and one employee under the 'musician' tag.
 
-image::StatsUiPart2.png[]
+image::StatsUiPart2.png[Stats2,pdfwidth=90%,scaledwidth=90%]
 
 **Step 4**.
 To allocate an employee to an upcoming event, double-click the event on the list and it will display the allocate function covered earlier in the User Guide.
 The segments on the pie charts can also be clicked to display the number of events or employees associated with that specific tag on the top right corner of each of the pie charts.
 
-image::StatsUiPart3.png[]
+image::StatsUiPart3.png[Stats3,pdfwidth=90%,scaledwidth=90%]
 
 **Step 5**.
 Generate statistics manually when any change in data occurs to keep the statistics up to date and relevant.
 
-image::StatsUiPart4.png[]
+image::StatsUiPart4.png[Stats4,pdfwidth=90%,scaledwidth=90%]
 
 ==== Generate Detailed Statistics: `generate_stats_detail`
 
@@ -176,19 +171,17 @@ Format: `generate_stats_detail`
 **Step 1**.
 Either type `generate_stats_detail` into the command box or navigate to the statistics tab and click the 'Generate Detailed Statistics' button.
 
-image::StatsUiPart5.png[]
+image::StatsUiPart5.png[Stats5,pdfwidth=90%,scaledwidth=90%]
 
 **Step 2**.
 A pop-up window with the header "StatisticsWindow" will appear displaying statistics for both employees and events.
 
-image::StatsUiPart6.png[]
-
-//end::Statistics[]
+image::StatsUiPart6.png[Stats6,pdfwidth=90%,scaledwidth=90%]
 
 == Contributions to the Developer Guide
 |===
 |_Given below are sections I contributed to the Developer Guide. The section will cover the design considerations and
-design code structure of the `generate_schedule` command. They showcase my ability to write technical documentation
+design code structure of the `generate_stats` and `generate_stats_detail`  command. These showcase my ability to write technical documentation
 and the technical depth of my contributions to the project._
 |===
 
@@ -198,13 +191,24 @@ and the technical depth of my contributions to the project._
 
 Given below is an example usage scenario and how the statistics mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time and navigates to the statistics tab by either clicking the Statistics tab on the UI or `statistics` command.
+image::StatsProgramFlow.png[Stats7,pdfwidth=50%,scaledwidth=50%]
 
-Step 2. Statistics are generated on-demand and displayed to the user based on the current data by either clicking the Generate Statistics button on the UI or `generate_stats` command.
+Step 1. The User executes the jar file to start up the program.
 
-Step 3. Detailed Statistics are generated on-demand and displayed to the user based on the current data by either clicking the Generate Detailed Statistics button on the UI or `generate_stats_detail` command.
+Step 2. The program initializes app with the stored JSON data.
 
-Step 4. These commands execute in a flow starting from parsing the command via the AddressBookParser.
+Step 3. The user executes commands related to employees and events.
+
+Step 4. The user executes either the `generate_stats` and `generate_stats_detail` command.
+
+Step 5. If the `generate_stats` command is executed, the event list and pie charts will be updated to
+reflect the latest data and will be  displayed in the statistics window.
+If the `generate_stats_detail` command is executed, a pop-up window displaying detailed statistics
+in rich-text format will appear.
+
+Step 6. User runs the `generate_stats` and `generate_stats_detail` command whenever there
+are any changes to the data, like a new event or an employee that left so as to get the
+get the most current statistics based on the new data.
 
 ==== Design Considerations
 
@@ -236,19 +240,33 @@ Processing is done on demand. Looking at the use case of the `generate_stats` co
 
 |===
 
-// end::statistics[]
-
 == Conclusion:
-The AddMin+ project was created by the AddMin+ Team as part of a university module requirement. Through AddMin+, I was able
-to experience what it was like to be involved in a software development project, where we were able to experience both the technical and
-non-technical aspects of a software development project. We were able to directly apply the key software development concepts taught in CS2103T
-in our project and also experience what it was like dealing with a brown-field project.
+In conclusion, the AddMin+ application was developed
+in conjunction with the CS2103T and CS2101 modules offered
+by the School of Computing. The process of going through each stage
+of the software development lifecycle has been a valuable and unique
+experience for all of us. Being students, many of us are yet to have
+experienced how software engineering is done in the industry and
+these modules have given us an early insight on what to expect in the
+future.
 
-Another aspect of software development which I felt is often overlooked is actually the non-technical aspect, such as
-documentation writing. However, through CS2101, we were able to learn the steps of writing quality documentation of our project
-that caters to our target audiences. Finally, even though the AddMin+ project was only 6 weeks long, I was able to pick up many valuable knowledge
-that will be essential in becoming a software developer in the future. If you would like to know more about me or AddMin+, feel free to drop by my https://shihaoyap.github.io/ShihaoResume/index.html[personal website] or
-contact me via https://sg.linkedin.com/in/shi-hao-yap-964724169[LinkedIn].
+Personally, one of the biggest challenges I faced while undertaking CS2103T,
+was the developing of code on top an existing code base. The process of
+understanding what has been done so far before building on top of that
+is tedious and takes a fair amount of time. However, it has helped me learn
+that software engineering is not only about writing code but more of a form
+of communication between people and I can see now that it is important that I
+understand what other engineers are trying to say before I perform my tasks.
+
+Beyond the code, I have also been exposed to the importance of being able to
+communicate on a human level through the CS2101 module. Although the scope of
+the software engineer is to develop code, I have learnt that there is much more
+to building a product than just coding. Connecting with others eventually plays
+a big part on whether or not a product is able to launch and stay successful.
+
+I would like to thank my lecturers and fellow team mates for their guidance and
+understanding throughout this entire process and without whom I would not have
+been able to achieve this milestone.
 
 ---
 

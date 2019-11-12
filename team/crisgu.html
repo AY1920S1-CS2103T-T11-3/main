@@ -1,16 +1,51 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Gu Chunzhi - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://github.com/AY1920S1-CS2103T-T11-3/main/releases"><img src="../images/AddMin+_Logo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="../index.html">AddMin+</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Gu Chunzhi - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-3"><a class="link" href="#project-addressbook-level-3">PROJECT: AddressBook - Level 3</a></h2>
+<h2 id="project-addmin"><a class="link" href="#project-addmin">PROJECT: AddMIn+</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="overview-of-project"><a class="link" href="#overview-of-project">Overview of Project</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>AddMin+ is an all-in-one administration desktop application, specially designed to ease the workload of the admin staffs in these companies and allow him/her to effectively handle the administrative tasks of the company. It is mainly a CLI application, but also has a GUI built with JavaFX. AddMin+ was developed by a team of software engineering students, with a codebase of about 15k lines of code.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="about-addmin-the-all-in-one-administration-app"><a class="link" href="#about-addmin-the-all-in-one-administration-app">About AddMin+, the All in One Administration App</a></h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddMin.png" alt="AddMin">
+</div>
+<div class="title">Figure 1. <em>The Graphical User Interface (GUI) for *AddMin+*</em></div>
+</div>
+<div class="paragraph">
+<p><strong>AddMin+</strong> is an all-in-one administration desktop application, that is specially designed for any events management
+start-up company with limited manpower and resources. These companies would usually only be able to afford to hire
+one admin staff to handle both the management of events and employees and this can be tough.
+The Admin+ Team understands the struggles that start-ups faces on a daily basis, and we are here to help!</p>
+</div>
+<div class="paragraph">
+<p><strong>AddMin+</strong> is specially designed to ease the workload of the admin and allow
+him/her to effectively handle the administrative tasks of the company by providing the following functions: manpower management,
+event creation and deletion, editing of event details after creation, manual and automatic manpower allocation for events
+and providing an overview of all the data via statistics. The purpose of this user guide is show the user how they can
+use our app to carry out their administrative tasks efficiently and also answer any questions they may have while using
+our app.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>AddMin+ is specially designed to help ease the workload by offering a one-stop platform to help deal with the various administrative needs of the company.</p>
+</li>
+<li>
+<p>AddMin+ uses a Command Line Interface(CLI) and displays the results through a Graphical User Interface(GUI) to assist the employee in their specific needs.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -20,29 +55,34 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: added and implemented the entire <strong>Finance</strong> section of the project which includes major GUI implementations
+and 2 Finance related commands.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>What does it do: The <strong>Finance</strong> section was implemented to allow users to get the detail of all employees in a easy manner.
+The tab shows three finance related details which are 'Total Salary' 'Pending To Pay' 'Salary Paid'. Two commands were
+implemented which are 'pay' and 'undo_pay', allow user to make the payment or undo the payment for the employee.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p>Justification: In the HR department, <strong>Finance</strong> is a very big issue to handle because after every event there are
+too many payslips. Having a dedicated <strong>Finance</strong> tab, along with the 'pay' and 'undo_pay' commands will increase the efficiency
+of the HR staff greatly.</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: The Finance section required a deep understanding of the Employee class as several fields of an Employee object are modified upon the execution of Finance commands. Understanding of the relevant Parser classes were also essential as arithmetic calculations depended on static methods within those Parser classes.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: Implement Employee class, and all relevant new fields in the class that did not exist in AB3.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=crisgu&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=Crisgu&amp;tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D">Functional Code</a>] [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=crisgu&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=Crisgu&amp;tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D">Test Code</a>]  <em>{give links to collated code files}</em></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -53,62 +93,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
+<p>In charged of the entire <strong>Finance</strong> feature of AddMin+ which includes 2 Finance related commands. (Pull Request <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/238" class="bare">https://github.com/AY1920S1-CS2103T-T11-3/main/pull/238</a>)</p>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>In charged of Add and Edit commands related to employee. (Pull Request <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/92" class="bare">https://github.com/AY1920S1-CS2103T-T11-3/main/pull/92</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
+<p>Managed to refactor person class to employee class and added 5 fields of employee. (Pull Request <a href="https://github.com/AY1920S1-CS2103T-T11-3/main/pull/92" class="bare">https://github.com/AY1920S1-CS2103T-T11-3/main/pull/92</a>)</p>
 </li>
 <li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Community:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>PRs reviewed</p>
 </li>
 </ul>
 </div>
@@ -117,9 +111,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +127,104 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="finance-management"><a class="link" href="#finance-management">Finance Management</a></h3>
+<div class="sect3">
+<h4 id="generate-payment-to-employee-code-pay-code"><a class="link" href="#generate-payment-to-employee-code-pay-code">Generate Payment To Employee: <code>pay</code></a></h4>
+<div class="paragraph">
+<p>Generates the payment for an employee</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>pay EMPLOYEE_INDEX s/VALUE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>EMPLOYEE_INDEX is the index of the employee in the displayed list.
+It must be a valid number: a non-negative integer smaller the list size.</p>
+</li>
+<li>
+<p>VALUE is the amount of payment pay for the employee.</p>
+</li>
+<li>
+<p>If the VALUE is larger than the money pending to pay, the payment would not be generated.</p>
+</li>
+<li>
+<p>If the employee who has been paid for a past event has been removed from the allocation of a past event,
+the "Pending To Pay" value may become negative. You will not be able to pay an employee whose current pending pay is negative,
+until the 'undo_pay' command is executed to reset the pending payment value to more than or equal to  0.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list_em</code><br>
+<code>pay 3 s/50</code><br>
+Generates the payment of employee with $50.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/pay.png" alt="pay">
+</div>
+<div class="title">Figure 2. <em>User Interface (UI) of Finance</em></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undo-payment-to-employee-code-undo_pay-code"><a class="link" href="#undo-payment-to-employee-code-undo_pay-code">Undo Payment To Employee: <code>undo_pay</code></a></h4>
+<div class="paragraph">
+<p>Undo the payment for an employee</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo_pay EMPLOYEE_INDEX s/VALUE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>EMPLOYEE_INDEX is the number of the employee on the displayed list.
+It must be a valid number.</p>
+</li>
+<li>
+<p>VALUE is the amount of undo payment.</p>
+</li>
+<li>
+<p>If the VALUE is larger than the money paid to the employee, the payment would not be undo.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list_em</code><br>
+<code>undo_pay 3 s/50</code><br>
+Undo the payment of employee with $50.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/undopay.png" alt="undopay">
+</div>
+<div class="title">Figure 3. <em>User Interface (UI) of Finance</em></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -151,6 +240,223 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassDiagramNew.png" alt="ModelClassDiagramNew">
+</div>
+<div class="title">Figure 4. <em>Structure of the Model Component</em></div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>Model</code>,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+</li>
+<li>
+<p>stores the Employee Book and Event Book data.</p>
+</li>
+<li>
+<p>exposes an unmodifiable <code>ObservableList&lt;Employee&gt;</code> and an unmodifiable <code>ObservableList&lt;Event&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+</li>
+<li>
+<p>does not depend on any of the other three components.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As a more OOP model, we can store a <code>Tag</code> list in both <code>Employee</code> and <code>Event</code>, which <code>AddMin+</code> can reference. This would allow our application to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Employee</code> or <code>Event</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>+
+<span class="image"><img src="../images/BetterModelClassDiagramN.png" alt="BetterModelClassDiagramN"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/BetterModelClassDiagramNew.png" alt="BetterModelClassDiagramNew"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finance"><a class="link" href="#finance">Finance</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>Finance</code> Feature is implemented to allow users to get the salary details of all employees in an easy manner.
+The tab shows three salary related details which are 'Total Salary' 'Pending To Pay' 'Salary Paid'. Two commands were
+implemented, which are 'pay' and 'undo_pay', allowing the user to make the payment or undo the payment for the employee.
+The `Finance' take in three arguments:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>employeeIndex</code> - index of event in the displayed employee list</p>
+</li>
+<li>
+<p><code>employeePay</code> - the hourly salary for the specific employee</p>
+</li>
+<li>
+<p><code>employeeSalaryPaid</code> - the total amount of salary has paid to the specific employee</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Additionally, the <code>Finance</code> uses the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EmployeeEventProcessor#findEmployeeTotalWorkedHours()</code>&#8201;&#8212;&#8201;Find the total working hours for the specific employee.</p>
+</li>
+<li>
+<p><code>Employee#addSalaryPaid</code>&#8201;&#8212;&#8201;Update the 'employeeSalaryPaid' for the specific employee.</p>
+</li>
+<li>
+<p><code>finance#updateCards()</code>&#8201;&#8212;&#8201;Update the finance detail for all employees.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following class diagrams shows how the Finance` class and utility <code>EmployeeEventProcessor</code> class is implemented:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/FinanceClassDiagram.png" alt="FinanceClassDiagram" width="300">
+</div>
+<div class="title">Figure 5. <em>Class Diagram for Finance</em></div>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/EmployeeEventProcessorClassDiagram.png" alt="EmployeeEventProcessorClassDiagram" width="300">
+</div>
+<div class="title">Figure 6. <em>Class Diagram for EmployeeEventProcessor</em></div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the finance feature behaves at each step.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/FinanceFlowChart.png" alt="FinanceFlowChart" width="300">
+</div>
+<div class="title">Figure 7. <em>Program flow of the Finance Feature</em></div>
+</div>
+<div class="paragraph">
+<p><strong>Step 1</strong>. The user executes <code>pay 1 s/100</code> (undo_pay 1 s/100) with the intention to pay 100 dollar to
+the first employee in the employee list
+<strong>Step 2</strong>. The command checks if <code>eventIndex</code> is valid.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3</strong>. The command calls method of 'Employee#findEmployeeTotalWorkedHours` to get the
+total working hours for the specific employee and times <code>employeePay</code> to get the total salary.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4</strong>. The command calls method of 'Employee#getEmployeeSalaryPaid()` to get the
+<code>employeeSalaryPaid</code> for this specific employee from the storage .</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5</strong>. The command checks if the value of payment/undo-payment is valid.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The value of the payment/undo-payment should be positive integer. The value of the payment should be less
+than the value of 'Pending To Pay'. The value of the undo-payment should be less than the value of 'Salary Paid'.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 6</strong>. The command calls <code>Employee#addSalaryPaid</code> to update the <code>employeeSalaryPaid</code> for this specific employee.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For storage purposes, only the <code>Employee#employeeSalaryPaid</code> is saved.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Step 7</strong>. The command calls <code>Finance#updatecard()</code> to update the <code>PendingToPay</code> of
+the employee card. The UI will update accordingly.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 8</strong>. Done.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the auto allocation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FinanceSequenceDiagram.png" alt="FinanceSequenceDiagram">
+</div>
+<div class="title">Figure 8. <em>Sequence Diagram of the Finance Command</em></div>
+</div>
+<div class="sect4">
+<h5 id="aspect-storage-of-employees-associated-with-event-after-successful-command"><a class="link" href="#aspect-storage-of-employees-associated-with-event-after-successful-command">Aspect: Storage of employees associated with event after successful command</a></h5>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 27.2727%;">
+<col style="width: 36.3636%;">
+<col style="width: 36.3637%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">Alternative 1</th>
+<th class="tableblock halign-left valign-top">Alternative 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Storage of employees fields after pay/undo-pay command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Saves only the <code>Employee#employeeSalaryPaid</code> and <code>Employee#Pay</code> in storage.</p>
+<p class="tableblock"><strong>Pros</strong>: Easy to implement. Will use less memory.</p>
+<p class="tableblock"><strong>Cons</strong>: Future accesses the 'Pending To Pay' and 'Total Salary' require more time.</p>
+<p class="tableblock">Decision: Alternative 1 :</p>
+<p class="tableblock">I decided to proceed with this option* because it creates fewer fields in employees, the 'Pending To Pay'
+and 'Total Salary' is modified real time. User do not need to input so many fields when they add the employees.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Saves the <code>Employee#employeeSalaryPaid</code>, <code>Employee#Pay</code>, <code>Employee#employeePendingPay</code>, <code>Employee#employeeTotalSalary</code> in storage.</p>
+<p class="tableblock"><strong>Pros</strong>: Easy to access the 'Pending To Pay' and 'Total Salary'.</p>
+<p class="tableblock"><strong>Cons</strong>: when the user want to add employees, the user have type in all these fields.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The display of Finance section</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use CLI display</p>
+<p class="tableblock"><strong>Pros</strong>: Easy to implement. Size of jar file will be smaller.</p>
+<p class="tableblock"><strong>Cons</strong>: The UI is not user-friendly.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GUI display</p>
+<p class="tableblock"><strong>Pros</strong>: User easy to visualise.</p>
+<p class="tableblock"><strong>Cons</strong>: Jar file is larger.</p>
+<p class="tableblock">Decision: Alternative 2 :</p>
+<p class="tableblock">I decided to use GUI to display the finance section. It is easier for user to visualise the salary details of the specific employee.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -161,4 +467,4 @@
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:46:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-12 07:04:36 UTC</div></div></div></body></html>

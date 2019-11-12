@@ -1229,21 +1229,26 @@ Clears all the date-time mapping from the 2nd Event on the Event list.</p>
 <p>Generates the payment for an employee</p>
 </div>
 <div class="paragraph">
-<p>Format: `pay EMPLOYEE_INDEX s/VALUE</p>
+<p>Format: <code>pay EMPLOYEE_INDEX s/VALUE</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>EMPLOYEE_INDEX is the number of the employee on the displayed list.
-It must be a valid number.</p>
+<p>EMPLOYEE_INDEX is the index of the employee in the displayed list.
+It must be a valid number: a non-negative integer smaller the list size.</p>
 </li>
 <li>
 <p>VALUE is the amount of payment pay for the employee.</p>
 </li>
 <li>
 <p>If the VALUE is larger than the money pending to pay, the payment would not be generated.</p>
+</li>
+<li>
+<p>If the employee who has been paid for a past event has been removed from the allocation of a past event,
+the "Pending To Pay" value may become negative. You will not be able to pay an employee whose current pending pay is negative,
+until the 'undo_pay' command is executed to reset the pending payment value to more than or equal to  0.</p>
 </li>
 </ul>
 </div>
@@ -1256,10 +1261,16 @@ It must be a valid number.</p>
 <ul>
 <li>
 <p><code>list_em</code><br>
-<code>pay 2 s/100</code><br>
-Generates the payment of employee with $100.</p>
+<code>pay 3 s/50</code><br>
+Generates the payment of employee with $50.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pay.png" alt="pay">
+</div>
+<div class="title">Figure 5. <em>User Interface (UI) of Finance</em></div>
 </div>
 </div>
 <div class="sect3">
@@ -1268,7 +1279,7 @@ Generates the payment of employee with $100.</p>
 <p>Undo the payment for an employee</p>
 </div>
 <div class="paragraph">
-<p>Format: `undo_pay EMPLOYEE_INDEX s/VALUE</p>
+<p>Format: <code>undo_pay EMPLOYEE_INDEX s/VALUE</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1295,10 +1306,16 @@ It must be a valid number.</p>
 <ul>
 <li>
 <p><code>list_em</code><br>
-<code>undo_pay 2 s/100</code><br>
-Undo the payment of employee with $100.</p>
+<code>undo_pay 3 s/50</code><br>
+Undo the payment of employee with $50.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/undopay.png" alt="undopay">
+</div>
+<div class="title">Figure 6. <em>User Interface (UI) of Finance</em></div>
 </div>
 </div>
 </div>
@@ -1339,7 +1356,7 @@ You can get to the Schedule Tab easily by either clicking on the Schedule Tab on
 <div class="content">
 <img src="images/ScheduleUiDetailed.png" alt="ScheduleUiDetailed">
 </div>
-<div class="title">Figure 5. <em>User Interface (UI) of the Schedule Feature</em></div>
+<div class="title">Figure 7. <em>User Interface (UI) of the Schedule Feature</em></div>
 </div>
 <hr>
 <div class="sect3">
@@ -1993,4 +2010,4 @@ The contract will contains details of the event such as the location, budget, an
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:46:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-12 07:04:36 UTC</div></div></div></body></html>

@@ -67,20 +67,15 @@ that I have contributed to the team project.
 
 * *Code contributed*: [https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=eshwarkp&sort=groupTitle&sortWithin=title&since=2019-09-06&timeframe=commit&mergegroup=false&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=shihaoyap&tabRepo=AY1920S1-CS2103T-T11-3%2Fmain%5Bmaster%5D[tp Code Dashboard]]
 
-** *Command*: https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/event/DeleteEventCommand.java[[DeleteEventByIndex],
+** *Logic (Command & Parser)*: https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/event/DeleteEventCommand.java[[DeleteEventByIndex],
 https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/employee/ListCommand.java[ListEventsEmployees],
 https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/general/StatisticsCommand.java[StatisticsTab],
 https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/statistics/GenerateStatisticsCommand.java[GenerateStatistics],
-https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/statistics/GenerateStatisticsDetailCommand.java[GenerateDetailedStatistics]]
+https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/commands/statistics/GenerateStatisticsDetailCommand.java[GenerateDetailedStatistics], https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/parser/AddressBookParser.java[AddressBookParser]]
 
-** *Parser*: https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/logic/parser/AddressBookParser.java[[AddressBookParser]]
-
-** *Others*: [https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/logic/processor/DistinctDatesProcessor.java[DistinctDatesProcessor],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/DateCard.java[DateCard],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/DateWindow.java[DateWindow],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/FetchEmployeeWindow.java[FetchEmployeeWindow],
-https://github.com/AY1920S1-CS2103T-T11-3/main/blob/master/src/main/java/seedu/address/ui/ScheduleBox.java[ScheduleBox]]
-
+** *UI*: https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/ui/MainWindow.java[[MainWindow],
+https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/ui/StatisticsBox.java[StatisticsBox],
+https://github.com/eshwarkp/main/blob/master/src/main/java/seedu/address/ui/StatisticsWindow.java[StatisticsWindow]]
 
 * *Other contributions*:
 

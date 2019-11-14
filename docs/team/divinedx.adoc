@@ -97,7 +97,7 @@ My other contributions are found in Section 2.2, 3.2, 3.4.5, 3.4.6, 3.4.7._
 |===
 
 [[set_ev_dt]]
-=== Setting a Date&Time to an Event: `set_ev_dt`
+==== Setting a Date&Time to an Event: `set_ev_dt`
 
 Sets a Date-Time Schedule Mapping for a specific Event.
 
